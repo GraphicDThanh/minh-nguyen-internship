@@ -1,0 +1,27 @@
+.container{
+    margin: auto;
+    padding: 30px 160px;
+    font-family: Mulish;
+}
+
+.menuCTAButton{
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background-color: #1968FC;
+    border: #1968FC;
+    text-transform: uppercase;
+    size: 20px;
+}
+
+.MenuBar{
+    color: #000000;
+    display: flex;
+}
+
+li{
+    margin: 10px;
+    color: #000000;
+    padding: 0px 20px;
+}
+
+
