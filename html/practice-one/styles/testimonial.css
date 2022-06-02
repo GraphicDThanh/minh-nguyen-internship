@@ -1,0 +1,31 @@
+.testimonial{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    max-width: 540px;
+    max-height: 280px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 15px 15px #d6e0f3;
+}
+
+.testimonial-ava-name{
+    display: flex;
+    width: fit-content;
+    padding: 10px 0px;
+    margin: auto;
+}
+
+.testimonial-name{
+    padding: 20px 15px;
+}
+
+.testimonial-text{
+    padding: 10px 40px;
+}
+
+.testimonial-name p:last-child {
+    color: #1967FA;
+}

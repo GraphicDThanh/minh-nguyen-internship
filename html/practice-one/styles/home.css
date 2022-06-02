@@ -1,0 +1,21 @@
+.home{
+    margin: 150px 0px 0px;
+    display: flex;
+}
+
+.home-left{
+    max-width: 600px;
+}
+
+.headline-text{
+    font-size: 40px;
+}
+
+.subheadline-text{
+    font-size: 20px;
+}
+
+.home-right{
+    transform: translateY(50px);
+    transform: translateX(-50px);
+}
