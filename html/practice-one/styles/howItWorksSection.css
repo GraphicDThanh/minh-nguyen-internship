@@ -1,4 +1,4 @@
-.howItWorksSection{
+.how-it-works-section{
     margin: 120px 0px;
 }
 
@@ -10,11 +10,39 @@
     padding-left: 40px;
 }
 
-.sectionTitleDecorationLine{
+.section-step{
+    display: flex;
+}
+
+.section-title-decoration-line{
     width: 80px;
     height: 2px;
     left: 120px;
     top: 1170px;
     background: #1968FC;
     box-shadow: 0px 2px 0px #D1E1FE;
+}
+
+.how-it-works-card{
+    margin: 38px;
+    width: 30%;
+    padding: 40px;
+    border: none;
+    box-shadow: 0px 20px 60px rgba(49, 69, 244, 0.1);
+}
+
+.step-name{
+    text-transform: uppercase;
+}
+
+.step-name p:last-child {
+    color: #1967FA;
+    font-weight: bold;
+    margin: 0px 0px 20px 0px;
+}
+
+.step{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
