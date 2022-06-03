@@ -1,0 +1,22 @@
+.what-can-you-do-section{
+    margin: 120px 0px;
+
+}
+
+.what-can-you-do{
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.what-can-you-do-card{
+    display: flex;
+    width: 540px;
+    height: 80px;
+    margin: 20px 0px;
+}
+
+.what-can-you-do-card p {
+    justify-content: center;
+}
+

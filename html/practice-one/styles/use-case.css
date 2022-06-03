@@ -1,3 +1,7 @@
+.use-cases-section{
+    margin: 120px 0px;
+}
+
 .use-case{
     display: flex;
     flex-wrap: wrap;
