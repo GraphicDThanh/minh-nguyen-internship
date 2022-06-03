@@ -10,8 +10,9 @@
     padding-left: 40px;
 }
 
-.section-step{
+.card{
     display: flex;
+    margin: 20px;
 }
 
 .section-title-decoration-line{
@@ -46,3 +47,22 @@
     justify-content: space-between;
     align-items: center;
 }
+
+/* .how-it-works-card-connecto-line{
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    left: 485px;
+    top: 1320px;
+    border: 2px dashed #1968FC;
+} */
+
+.translate{
+    transform: translateY(50px);
+}
+
+.how-it-works-card:last-child{
+    transform: translateY(100px);
+}
+
+
