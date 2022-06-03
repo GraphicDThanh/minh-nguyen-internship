@@ -6,6 +6,7 @@
 
 .feature-name{
     display: flex;
+    background-color: #F3F7FF;
 }
 
 .feature-name img{
@@ -15,6 +16,7 @@
 .feature-name p{
     padding: 20px;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .feature-describe{
