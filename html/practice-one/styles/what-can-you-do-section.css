@@ -4,7 +4,6 @@
 }
 
 .what-can-you-do{
-    padding: 20px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -13,10 +12,12 @@
     display: flex;
     width: 540px;
     height: 80px;
-    margin: 20px 0px;
+    margin: 20px 10px;
 }
 
-.what-can-you-do-card p {
-    justify-content: center;
+.what-can-you-do-card-text{
+    padding: 20px;
+    font-weight: bolder;
+    width: 100%;
 }
 

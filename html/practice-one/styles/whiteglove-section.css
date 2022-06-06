@@ -1,0 +1,36 @@
+.whiteglove-section{
+    background-color: #1968FC;
+    display: flex;
+}
+
+.section-white-title{
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.section-titl-decoration-line-white{
+    left: 8.33%;
+    right: 86.11%;
+    top: 25.64%;
+    bottom: 74.02%;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 0px #6A9EFF; 
+}
+
+.whiteglove-blurb{
+    color: #FFFFFF;
+    padding: 40px;
+}
+
+.whiteglove-blurb button{
+    margin: 40px 0px;
+    padding: 20px 50px;
+    text-transform: uppercase;
+    background-color: #FFFFFF;
+    color: #1968FC;
+    font-weight: bolder;
+}
+
+.whiteglove-section-img img{
+    object-position: 0px 50px;
+}

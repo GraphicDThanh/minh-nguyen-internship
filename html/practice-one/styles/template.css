@@ -25,4 +25,7 @@ li{
     padding: 0px 20px;
 }
 
-
+.title{
+    margin: 10px;
+    text-transform: uppercase;
+}
