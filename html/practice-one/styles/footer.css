@@ -1,0 +1,16 @@
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-network{
+    display: flex;
+}
+
+footer .logo{
+    background-color: #1968FC0D;
+}
+
+footer .icon{
+    object-position: 10px;
+}
