@@ -34,6 +34,7 @@
     padding: 40px;
     border: none;
     box-shadow: 0px 20px 60px rgba(49, 69, 244, 0.1);
+    position: relative;
 }
 
 .step-name{
@@ -52,15 +53,6 @@
     align-items: center;
 }
 
-/* .how-it-works-card-connecto-line{
-    position: absolute;
-    width: 70px;
-    height: 1px;
-    left: 485px;
-    top: 1320px;
-    border: 2px dashed #1968FC;
-} */
-
 .translate{
     transform: translateY(50px);
 }
@@ -68,5 +60,3 @@
 .how-it-works-card:last-child{
     transform: translateY(100px);
 }
-
-.
