@@ -15,7 +15,6 @@
     font-size: 20px;
 }
 
-.home-img{
-    transform: translateY(50px);
-    transform: translateX(-50px);
+.home-img img{
+  transform: translate(50px, 70px)
 }

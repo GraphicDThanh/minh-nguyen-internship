@@ -21,3 +21,7 @@
     width: 100%;
 }
 
+.decoration-juju img{
+  transform: translate(224px, 45px);
+}
+

@@ -7,10 +7,14 @@ footer{
     display: flex;
 }
 
+.social-network li{
+  padding: 0px;
+}
+
 footer .logo{
     background-color: #1968FC0D;
 }
 
-footer .icon{
-    object-position: 10px;
+.footer-icon img{
+  width: 50%;
 }

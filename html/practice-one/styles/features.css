@@ -34,3 +34,7 @@
 .feature-card:last-child{
     transform: translateY(100px);
 }
+
+.feature-decoration-juju img{
+    transform: translate(264px, 5px);
+}
