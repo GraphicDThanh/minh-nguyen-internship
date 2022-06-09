@@ -1,24 +1,24 @@
 header{
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .logo span{
-    margin: 10px;
-    color: #1968FC;
-    font-size: 20px;
-    align-items: center;
+  margin: 10px;
+  color: var(--blue-crayola);
+  font-size: 20px;
+  align-items: center;
 }
 
 .top a{
-    color: black;
+  color: var(--black);
 }
 
 .headline-text{
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 60px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 60px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
 }

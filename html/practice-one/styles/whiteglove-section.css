@@ -1,37 +1,47 @@
-.whiteglove-section{
-    background-color: #1968FC;
-    display: flex;
+.whiteglove-section {
+  background-color: var(--blue-crayola);
+  position: relative;
+  height: 440px;
 }
 
-.section-white-title{
-    text-transform: uppercase;
-    color: #FFFFFF;
+.whiteglove-section .container{
+  display: flex;
+}
+
+.white{
+  color: var(--white);
+}
+
+.whiteglove-section-text{
+  margin: 0px;
+  width: 60%;
 }
 
 .section-titl-decoration-line-white{
-    left: 8.33%;
-    right: 86.11%;
-    top: 25.64%;
-    bottom: 74.02%;
-    background: #FFFFFF;
-    box-shadow: 0px 2px 0px #6A9EFF; 
-    height: 1px;
+  width: 80px;
+  height: 2px;
+  left: 120px;
+  top: 1170px;
+  background: var(--blue-crayola);
+  box-shadow: 0px 2px 0px var(--azureish-white);
 }
 
 .whiteglove-blurb{
-    color: #FFFFFF;
-    padding: 40px;
+  color: var(--white);
+  padding: 40px;
 }
 
 .whiteglove-blurb button{
-    margin: 40px 0px;
-    padding: 20px 50px;
-    text-transform: uppercase;
-    background-color: #FFFFFF;
-    color: #1968FC;
-    font-weight: bolder;
+  margin: 40px 0px;
+  padding: 20px 50px;
+  text-transform: uppercase;
+  background-color: var(--white);
+  color: var(--blue-crayola);
+  font-weight: bolder;
 }
 
 .whiteglove-section-img img{
-    object-position: 0px 50px;
+  position: absolute;
+  right: 0px;
+  top: 20px;
 }

@@ -1,22 +1,19 @@
-.use-cases-section{
-    margin: 120px 0px;
-}
-
 .use-case{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-between;
 }
 
 .use-case-card{
-    width: 360px;
-    height: 160px;
-    margin: 10px 0px;
-    padding: 20px;
-    box-shadow: 0px 20px 60px rgba(49, 69, 244, 0.1);
+  width: 360px;
+  height: 160px;
+  margin: 10px 0px;
+  padding: 20px;
+  box-shadow: 0px 20px 60px var(--box-shadow);
 }
 
 .use-case-card h3{
-    text-transform: uppercase;
-    color: #1967FA;
+  text-transform: uppercase;
+  color: var(--name);
 }

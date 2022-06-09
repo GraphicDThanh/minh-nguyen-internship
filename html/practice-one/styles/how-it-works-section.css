@@ -1,27 +1,15 @@
-.how-it-works-section{
-    margin: 120px 0px;
-}
-
-.section-title{
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 60px;
-    padding-left: 40px;
-}
-
 .card{
-    display: flex;
-    margin: 20px;
+  display: flex;
+  margin: 20px;
 }
 
 .section-title-decoration-line{
-    width: 80px;
-    height: 2px;
-    left: 120px;
-    top: 1170px;
-    background: #1968FC;
-    box-shadow: 0px 2px 0px #D1E1FE;
+  width: 80px;
+  height: 2px;
+  left: 120px;
+  top: 1170px;
+  background: var(--blue-crayola);
+  box-shadow: 0px 2px 0px var(--box-shadow);
 }
 
 .whiteglove-section-text{
@@ -29,34 +17,54 @@
 }
 
 .how-it-works-card{
-    margin: 38px;
-    width: 30%;
-    padding: 40px;
-    border: none;
-    box-shadow: 0px 20px 60px rgba(49, 69, 244, 0.1);
-    position: relative;
+  margin: 38px;
+  width: 30%;
+  padding: 40px;
+  border: none;
+  box-shadow: 0px 20px 60px var(--box-shadow);
+  position: relative;
 }
 
 .step-name{
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .step-name p:last-child {
-    color: #1967FA;
-    font-weight: bold;
-    margin: 0px 0px 20px 0px;
+  color: var(--name);
+  font-weight: bold;
+  margin: 0px 0px 20px 0px;
 }
 
 .step{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .translate{
-    transform: translateY(50px);
+  transform: translateY(50px);
 }
 
 .how-it-works-card:last-child{
-    transform: translateY(100px);
+  transform: translateY(100px);
+}
+
+article.how-it-works-card.translate:after{
+  content: '';
+  position: absolute;
+  width: 75px;
+  height: 2px;
+  bottom: 125px;
+  left: -75px;
+  border-top: 1px dashed var(--blue-crayola);
+}
+
+article.how-it-works-card.translate:before{
+  content: '';
+  position: absolute;
+  width: 75px;
+  height: 2px;
+  bottom: 80px;
+  left: 350px;
+  border-top: 1px dashed var(--blue-crayola);
 }
