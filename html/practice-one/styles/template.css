@@ -1,20 +1,15 @@
-/* @font-face{
-  font-family: Mulish;
-  src: url('assets/fonts/Mulish-Italic-VariableFont_wght.ttf'),url('assets/fonts/Mulish-VariableFont_wght.ttf');
-} */
-
-*{
-  font-family: Mulish;
+body{
+  font-family: 'Mulish', sans-serif;
 }
 
 .container{
   margin: auto;
-  font-family: Mulish;
+  padding: 60px 0px;
   max-width: 1440px;
 }
 
 .menu-cta-button{
-  padding: 10px 20px;
+  padding: 15px 50px;
   color: var(--white);
   background-color: var(--blue-crayola);
   border: var(--blue-crayola);

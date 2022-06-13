@@ -3,6 +3,10 @@
   margin-top: 150px;
 }
 
+.home.container {
+  justify-content: space-between;
+}
+
 .home-text{
   max-width: 600px;
 }

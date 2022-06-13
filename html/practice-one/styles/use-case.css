@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
-  justify-content: space-between;
+  margin: 10px;
+  justify-content: space-around;
 }
 
 .use-case-card{
