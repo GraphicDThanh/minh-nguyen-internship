@@ -1,0 +1,12 @@
+.section-title {
+  margin: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 60px;
+  padding-left: 40px;
+}
+
+.h3 {
+  text-transform: uppercase;
+}

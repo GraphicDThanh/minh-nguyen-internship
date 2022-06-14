@@ -1,4 +1,4 @@
-.use-case{
+.use-case {
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
@@ -6,7 +6,7 @@
   justify-content: space-around;
 }
 
-.use-case-card{
+.use-case-card {
   width: 360px;
   height: 160px;
   margin: 10px 0px;
@@ -14,7 +14,7 @@
   box-shadow: 0px 20px 60px var(--box-shadow);
 }
 
-.use-case-card h3{
+.use-case-card h3 {
   text-transform: uppercase;
-  color: var(--name);
+  color: var(--name-use-case-card);
 }

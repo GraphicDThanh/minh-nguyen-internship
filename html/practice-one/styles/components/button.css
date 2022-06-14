@@ -1,0 +1,17 @@
+.menu-cta-button{
+  padding: 15px 50px;
+  color: var(--white);
+  background-color: var(--blue-crayola);
+  border: var(--blue-crayola);
+  text-transform: uppercase;
+  size: 20px;
+  transition: 0.4s;
+}
+
+button.menu-cta-button:hover{
+  color: var(--blue-crayola);
+  background-color: var(--white);
+  transition: 0.4s;
+  border: 1px var(--blue-crayola) solid;
+  border-radius: 10px;
+}

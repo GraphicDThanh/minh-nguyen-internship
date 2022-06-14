@@ -1,0 +1,17 @@
+.menubar {
+  color: var(--black);
+  display: flex;
+}
+
+.menubar a {
+  transition: 0.4s;
+}
+
+.menubar a:hover {
+  color: var(--white);
+  background-color: var(--blue-crayola);
+  text-decoration: none;
+  transition: 0.4s;
+  border-radius: 10px;
+  padding: 15px;
+}
