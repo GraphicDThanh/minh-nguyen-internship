@@ -17,7 +17,7 @@
 }
 
 .how-it-works-card {
-  margin: 38px;
+  margin: 40px;
   max-width: 320px;
   max-height: 220px;
   padding: 40px;
@@ -32,6 +32,10 @@
 
 .step-name {
   text-transform: uppercase;
+}
+
+.step-name p:first-child {
+  font-weight: bold;
 }
 
 .step-name p:last-child {
@@ -57,19 +61,19 @@
 .how-it-works-card.translate:after {
   content: "";
   position: absolute;
-  width: 170px;
+  width: 70px;
   height: 2px;
   bottom: 125px;
-  left: -175px;
+  left: -74px;
   border-top: 1px dashed var(--blue-crayola);
 }
 
 .how-it-works-card.translate:before {
   content: "";
   position: absolute;
-  width: 170px;
+  width: 70px;
   height: 2px;
-  bottom: 80px;
-  left: 325px;
+  bottom: 95px;
+  left: 276px;
   border-top: 1px dashed var(--blue-crayola);
 }

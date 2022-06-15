@@ -14,7 +14,7 @@
 
 .whiteglove-section-text {
   margin: 0px;
-  width: 60%;
+  width: 70%;
 }
 
 .section-titl-decoration-line-white {
@@ -48,8 +48,9 @@
   transition: 0.4s;
 }
 
-.whiteglove-section-img img {
+.whiteglove-section-img{
   position: absolute;
   right: 0px;
   top: 20px;
+  z-index: 0;
 }
