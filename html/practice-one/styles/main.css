@@ -1,9 +1,11 @@
-@import url(reset.css);
+@import url(base/reset.css);
+@import url(base/global.css);
 @import url(abstracts/variables.css);
 @import url(components/button.css);
 @import url(components/menubar.css);
 @import url(components/title.css);
-@import url(components/components.css);
+@import url(components/foot-tag-card.css);
+@import url(components/thumbnail.css);
 @import url(layout/header.css);
 @import url(layout/home.css);
 @import url(layout/testimonial.css);

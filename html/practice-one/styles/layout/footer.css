@@ -1,20 +1,25 @@
-footer{
+footer {
   display: flex;
   justify-content: space-between;
 }
 
-.social-network{
+.social-network {
   display: flex;
 }
 
-.social-network li{
+.social-network li {
   padding: 0px;
 }
 
-footer .logo{
+footer .logo {
   background-color: var(--footer-logo);
 }
 
-.footer-icon img{
-  width: 50%;
+.logo {
+  height: fit-content;
+}
+
+.footer-icon img {
+  max-width: 90px;
+  max-height: 100px;
 }

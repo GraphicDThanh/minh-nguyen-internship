@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="icon" href="assets/favicon/favicon.ico" />
     <title>Pratice01</title>
@@ -14,7 +14,7 @@
       <div class="logo">
         <a href="">
           <img src="assets/images/logo-small-solid.jpg" />
-          <span>VanGouxLabel</span>
+          <h1>VanGouxLabel</h1>
         </a>
       </div>
       <nav class="top menubar">
@@ -32,7 +32,7 @@
       <!-- Begin home page -->
       <div class="home container">
         <div class="home-text">
-          <p class="headline-text">
+          <p class="headline-text large">
             Launch beautiful websites directly from Sketch
           </p>
           <p class="subheadline-text">
@@ -48,7 +48,7 @@
       <!-- Begin testimonial -->
       <section class="testimonial container">
         <!-- Testimonial card -->
-        <article class="testimonial-card box">
+        <div class="testimonial-card box">
           <div class="testimonial-ava-name">
             <img src="assets/images/testimonial-picture-man.jpg" />
             <div class="testimonial-name">
@@ -61,10 +61,10 @@
             “Our senior frontend developer was 70% faster in building React.js
             components thanks to VanGoux!”
           </p>
-        </article>
+        </div>
 
         <!-- Testimonial card -->
-        <article class="testimonial-card box">
+        <div class="testimonial-card box">
           <div class="testimonial-ava-name">
             <img
               class="testimonial-avatar"
@@ -83,36 +83,39 @@
             “It was awesome to see VanGoux turn our MVP designs into code within
             minutes.”
           </p>
-        </article>
+        </div>
       </section>
       <!-- End testimonial -->
 
       <!-- Begin how it works section -->
       <section class="how-it-works-section container">
-        <h2 class="section-title">How VanGoux works</h2>
+        <h2 class="section-title medium">How VanGoux works</h2>
         <div class="section-title-decoration-line"></div>
         <div class="card">
           <!-- How it works card -->
-          <article class="how-it-works-card">
+          <div class="how-it-works-card">
             <div class="step">
               <div class="step-name">
                 <p>Step 1</p>
-                <p>Upload Sketch</p>
+                <p class="small">Upload Sketch</p>
               </div>
               <img class="icon" src="assets/images/icon-upload.png" />
             </div>
             <p class="step-describe">
               Upload design for your site, landing page or portfolio
             </p>
-            <div class="square-blue-card"></div>
-          </article>
+            <img
+              class="decoration-juju"
+              src="assets/images/decoration-juju.png"
+            />
+          </div>
 
           <!-- How it works card -->
-          <article class="how-it-works-card translate">
+          <div class="how-it-works-card translate">
             <div class="step">
               <div class="step-name">
                 <p>Step 2</p>
-                <p>Publish website</p>
+                <p class="small">Publish website</p>
               </div>
               <img class="icon" src="assets/images/icon-download.png" />
             </div>
@@ -124,14 +127,14 @@
               class="decoration-juju"
               src="assets/images/decoration-juju.png"
             />
-          </article>
+          </div>
 
           <!-- How it works card -->
-          <article class="how-it-works-card">
+          <div class="how-it-works-card">
             <div class="step">
               <div class="step-name">
                 <p>Step 3</p>
-                <p>Add domain</p>
+                <p class="small">Add domain</p>
               </div>
               <img class="icon" src="assets/images/icon-use-code.png" />
             </div>
@@ -142,18 +145,18 @@
               class="decoration-juju"
               src="assets/images/decoration-juju.png"
             />
-          </article>
+          </div>
         </div>
       </section>
       <!-- End how it works section -->
 
       <!-- Begin features section -->
       <section class="features-section container">
-        <h2 class="section-title">Features</h2>
+        <h2 class="section-title medium">Features</h2>
         <div class="section-title-decoration-line"></div>
         <div class="card">
           <!-- Feature card -->
-          <article class="feature-card">
+          <div class="feature-card">
             <div class="feature-name">
               <img src="assets/images/icon-solid-pixel-perfect.jpg" />
               <p>Pixel perfect output</p>
@@ -166,10 +169,10 @@
               class="decoration-juju"
               src="assets/images/decoration-juju.png"
             />
-          </article>
+          </div>
 
           <!-- Feature card -->
-          <article class="feature-card translate">
+          <div class="feature-card translate">
             <div class="feature-name">
               <img src="assets/images/icon-solid-flexible-responsive.jpg" />
               <p>Flexible & responsive</p>
@@ -182,10 +185,10 @@
               class="decoration-juju"
               src="assets/images/decoration-juju.png"
             />
-          </article>
+          </div>
 
           <!-- Feature card -->
-          <article class="feature-card">
+          <div class="feature-card">
             <div class="feature-name">
               <img src="assets/images/icon-solid-reusable-components.jpg" />
               <p>Complete code freedom</p>
@@ -198,91 +201,91 @@
               class="decoration-juju"
               src="assets/images/decoration-juju.png"
             />
-          </article>
+          </div>
         </div>
       </section>
       <!-- End how it features section -->
 
       <!-- Begin use cases section -->
       <div class="use-cases-section container">
-        <h2 class="section-title">Who is VanGoux for</h2>
+        <h2 class="section-title medium">Who is VanGoux for</h2>
         <div class="section-title-decoration-line"></div>
         <div class="use-case">
           <!-- Use case card -->
-          <article class="use-case-card thumbnail">
-            <h3>UX engineers</h3>
+          <div class="use-case-card thumbnail">
+            <h3 class="small">UX engineers</h3>
             <p>Build MVPs for your web app as fast as you can design</p>
-          </article>
+          </div>
 
           <!-- Use case card -->
-          <article class="use-case-card thumbnail">
-            <h3>UX designers</h3>
+          <div class="use-case-card thumbnail">
+            <h3 class="small">UX designers</h3>
             <p>Create and share reaslistic prototypes of your website or app</p>
-          </article>
+          </div>
 
           <!-- Use case card -->
-          <article class="use-case-card thumbnail">
-            <h3>React developers</h3>
+          <div class="use-case-card thumbnail">
+            <h3 class="small">React developers</h3>
             <p>Auto-generate boilerplate components and design systems</p>
-          </article>
+          </div>
 
           <!-- Use case card -->
-          <article class="use-case-card thumbnail">
-            <h3>Design agencies</h3>
+          <div class="use-case-card thumbnail">
+            <h3 class="small">Design agencies</h3>
             <p>
               Close more clients by showing them how quickly you can build apps
             </p>
-          </article>
+          </div>
 
           <!-- Use case card -->
-          <article class="use-case-card thumbnail">
-            <h3>Startups</h3>
+          <div class="use-case-card thumbnail">
+            <h3 class="small">Startups</h3>
             <p>Go to market quickly by spinning up your website and apps</p>
-          </article>
+          </div>
 
           <!-- Use case card -->
-          <article class="use-case-card thumbnail">
-            <h3>Enterprises</h3>
+          <div class="use-case-card thumbnail">
+            <h3 class="small">Enterprises</h3>
             <p>Quickly build design systems for your UX and product teams</p>
-          </article>
+          </div>
         </div>
       </div>
       <!-- End use cases section -->
 
       <!-- Begin what can you do section -->
       <section class="what-can-you-do-section container">
-        <h2 class="section-title">What can you do with VanGoux</h2>
+        <h2 class="section-title medium">What can you do with VanGoux</h2>
         <div class="section-title-decoration-line"></div>
         <div class="what-can-you-do">
           <!-- What can you do card -->
-          <article class="what-can-you-do-card">
+          <div class="what-can-you-do-card">
             <img src="assets/images/icon-solid-realistic-prototype.jpg" />
             <p class="what-can-you-do-card-text">Make realistic prototypes</p>
-          </article>
+          </div>
 
           <!-- What can you do card -->
-          <article class="what-can-you-do-card">
+          <div class="what-can-you-do-card">
             <img src="assets/images/icon-solid-mvp.jpg" />
             <p class="what-can-you-do-card-text">
               Build an MVP as quickly as you can design
             </p>
-          </article>
+          </div>
 
           <!-- What can you do card -->
-          <article class="what-can-you-do-card">
+          <div class="what-can-you-do-card">
             <img src="assets/images/icon-solid-landing-page.jpg" />
             <p class="what-can-you-do-card-text">
               Create pixel-perfect landing pages
             </p>
-          </article>
+          </div>
 
           <!-- What can you do card -->
-          <article class="what-can-you-do-card">
+          <div class="what-can-you-do-card">
             <img src="assets/images/icon-solid-design-system.jpg" />
             <p class="what-can-you-do-card-text">
               Generate a design system for your product
             </p>
-          </article>
+          </div>
         </div>
       </section>
       <!-- End what can you do section -->
@@ -291,7 +294,7 @@
       <section class="whiteglove-section">
         <div class="container">
           <div class="whiteglove-section-text">
-            <h2 class="section-title white">
+            <h2 class="section-title medium white">
               Don’t know how to work with code?
             </h2>
             <div class="section-titl-decoration-line-white"></div>
@@ -313,11 +316,11 @@
 
       <!-- Begin our story section -->
       <section class="our-story-section container">
-        <h2 class="section-title">Our story</h2>
+        <h2 class="section-title medium">Our story</h2>
         <div class="section-title-decoration-line"></div>
         <div class="our-story">
           <!-- Our story card -->
-          <article class="our-story-card">
+          <div class="our-story-card">
             <div class="our-story-card-img">
               <img src="assets/images/icon-who-we-are.png" />
             </div>
@@ -335,17 +338,17 @@
                 </p>
               </div>
             </div>
-          </article>
+          </div>
 
           <!-- Our story card -->
-          <article class="our-story-card">
+          <div class="our-story-card">
             <div class="our-story-card-img">
               <img src="assets/images/icon-starry-night.png" />
             </div>
             <div class="our-story-card-text">
               <h3>What’s up with the name?</h3>
             </div>
-          </article>
+          </div>
         </div>
       </section>
       <!-- End our story section -->
@@ -357,7 +360,7 @@
       <div class="logo">
         <a href="">
           <img src="assets/images/logo-small-solid.jpg" />
-          <span>Site made with VanGoux</span>
+          <h1>Site made with VanGoux</h1>
         </a>
       </div>
       <nav class="bot menubar">

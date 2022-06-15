@@ -1,32 +1,31 @@
-.testimonial{
+.testimonial {
   display: flex;
   justify-content: space-between;
 }
 
-.box{
+.box {
   max-width: 540px;
   max-height: 280px;
   margin: 20px;
-  padding: 20px;
+  padding: 40px;
   box-shadow: 0px 20px 60px var(--box-shadow);
 }
 
-.testimonial-ava-name{
+.testimonial-ava-name {
   display: flex;
-  width: 100%;
   justify-content: space-between;
   padding: 10px 0px;
   align-items: center;
-}   
+}
 
-.how-it-works-card{
+.how-it-works-card {
   border: 1px solid;
 }
 
-.testimonial-text{
-  padding: 10px 40px;
+.testimonial-text {
+  padding: 10px 0px;
 }
 
 .testimonial-name p:last-child {
-  color: var(--name);
+  color: var(--name-card);
 }

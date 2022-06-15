@@ -16,5 +16,5 @@
 
 .use-case-card h3 {
   text-transform: uppercase;
-  color: var(--name-use-case-card);
+  color: var(--name-card);
 }

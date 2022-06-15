@@ -1,24 +1,26 @@
-.home{
+.home {
   display: flex;
   margin-top: 150px;
+  margin-bottom: 0px;
+  padding: 0px;
 }
 
 .home.container {
   justify-content: space-between;
 }
 
-.home-text{
+.home-text {
   max-width: 600px;
 }
 
-.headline-text{
-  font-size: 40px;
+.headline-text {
+  font-size: 2.5rem;
 }
 
-.subheadline-text{
-  font-size: 20px;
+.subheadline-text {
+  font-size: 1.25rem;
 }
 
-.home-img img{
-  transform: translate(50px, 70px)
+.home-img img {
+  transform: translate(50px, 70px);
 }
