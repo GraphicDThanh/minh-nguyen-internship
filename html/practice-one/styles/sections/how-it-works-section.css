@@ -58,15 +58,15 @@
   align-items: center;
 }
 
-.how-it-works-card:last-child {
-  transform: translateY(100px);
+.how-it-works-card:nth-child(2) {
+  transform: translateY(50px);
 }
 
 .how-it-works-card:last-child {
   transform: translateY(100px);
 }
 
-.how-it-works-card.translate:after {
+.how-it-works-card:nth-child(2):after {
   content: "";
   position: absolute;
   width: 70px;
@@ -76,7 +76,7 @@
   border-top: 1px dashed var(--blue-crayola);
 }
 
-.how-it-works-card.translate:before {
+.how-it-works-card:nth-child(2):before {
   content: "";
   position: absolute;
   width: 70px;
