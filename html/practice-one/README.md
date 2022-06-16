@@ -23,8 +23,8 @@
 1. Step 1: Cloning the repo
 
 - Main repositories:
-  - HTTPS: $ git clone -b html/practice-one https://github.com/GraphicDThanh/minh-nguyen-internship.git
-  - SSH: $ git clone -b html/practice-one git@github.com:GraphicDThanh/minh-nguyen-internship.git
+  - HTTPS: `$ git clone -b html/practice-one https://github.com/GraphicDThanh/minh-nguyen-internship.git`
+  - SSH: `$ git clone -b html/practice-one git@github.com:GraphicDThanh/minh-nguyen-internship.git`
 
 2. Step 2: Move to practice-one folder `$ cd html/practice-one`
 3. Step 3: Open file index.html `$ nano index.html`
