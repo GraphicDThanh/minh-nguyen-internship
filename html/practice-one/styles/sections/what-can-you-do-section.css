@@ -1,5 +1,6 @@
-.what-can-you-do-section{
-  height: 550px;
+.what-can-you-do-section {
+  min-height: 430px;
+  padding-top: 60px;
 }
 
 .what-can-you-do {

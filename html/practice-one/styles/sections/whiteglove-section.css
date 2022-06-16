@@ -1,7 +1,7 @@
 .whiteglove-section {
   background-color: var(--blue-crayola);
   position: relative;
-  height: 450px;
+  min-height: 450px;
   display: flex;
   padding-top: 80px;
   overflow: hidden;

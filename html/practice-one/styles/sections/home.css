@@ -2,7 +2,7 @@
   display: flex;
   padding-top: 150px;
   position: relative;
-  height: 620px;
+  min-height: 620px;
   overflow: hidden;
 }
 

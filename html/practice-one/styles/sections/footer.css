@@ -3,6 +3,10 @@ footer {
   justify-content: space-between;
 }
 
+footer.container {
+  padding-top: 40px;
+}
+
 .social-network {
   display: flex;
 }
@@ -13,10 +17,6 @@ footer {
 
 footer .logo {
   background-color: var(--footer-logo);
-}
-
-.logo {
-  height: fit-content;
 }
 
 .footer-icon {

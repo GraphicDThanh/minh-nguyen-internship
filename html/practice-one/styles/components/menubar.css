@@ -1,9 +1,10 @@
 .menubar {
   color: var(--black);
   display: flex;
+  align-content: center;
 }
 
-.menubar a{
+.menubar a {
   color: var(--black);
   font-weight: 600;
   font-size: 0.875rem;

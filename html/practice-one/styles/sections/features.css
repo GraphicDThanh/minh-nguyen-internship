@@ -1,6 +1,6 @@
 .features-section {
-  padding-top: 120px;
-  height: 610px;
+  padding-top: 60px;
+  min-height: 610px;
 }
 
 .features-section .card {

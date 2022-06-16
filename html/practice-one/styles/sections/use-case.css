@@ -1,6 +1,6 @@
 .use-cases-section {
-  height: 690px;
-  padding-top: 120px;
+  min-height: 570px;
+  padding-top: 60px;
 }
 
 .use-case {
