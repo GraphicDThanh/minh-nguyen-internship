@@ -1,0 +1,28 @@
+.home {
+  display: flex;
+  padding-top: 150px;
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+}
+
+.home.container {
+  justify-content: space-between;
+}
+
+.home-text {
+  max-width: 600px;
+}
+
+.subheadline-text {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  margin: 18px 0px 33px 0px;
+}
+
+.home-img {
+  position: absolute;
+  right: 160px;
+  bottom: -80px;
+}

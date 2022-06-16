@@ -1,10 +1,9 @@
 .section-title {
-  margin: 10px;
   text-transform: uppercase;
-  padding-left: 40px;
+  padding-block: 10px;
 }
 
-.h3 {
+.card-title {
   text-transform: uppercase;
 }
 

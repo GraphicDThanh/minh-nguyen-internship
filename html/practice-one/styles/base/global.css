@@ -9,13 +9,15 @@ body {
 
 .container {
   margin: auto;
-  margin-bottom: 60px;
-  padding: 30px 160px;
+  padding: 0px 160px;
   max-width: 1440px;
 }
 
 li {
-  margin: 10px;
   color: var(--black);
-  padding: 0px 20px;
+  padding: 20px;
+}
+
+a:hover {
+  text-decoration: none;
 }

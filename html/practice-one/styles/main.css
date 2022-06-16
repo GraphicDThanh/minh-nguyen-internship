@@ -1,19 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Basic css files shared for the whole project */
 @import url(base/reset.css);
 @import url(base/global.css);
+
+/* Css files defined for use in the project */
 @import url(abstracts/variables.css);
+
+/* Reusable css components */
 @import url(components/button.css);
 @import url(components/menubar.css);
 @import url(components/title.css);
 @import url(components/foot-tag-card.css);
-@import url(components/thumbnail.css);
-@import url(layout/header.css);
-@import url(layout/home.css);
-@import url(layout/testimonial.css);
-@import url(layout/how-it-works-section.css);
-@import url(layout/features.css);
-@import url(layout/use-case.css);
-@import url(layout/what-can-you-do-section.css);
-@import url(layout/whiteglove-section.css);
-@import url(layout/our-story-section.css);
-@import url(layout/footer.css);
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* CSS for individual sections in the project */
+@import url(sections/header.css);
+@import url(sections/home.css);
+@import url(sections/testimonial.css);
+@import url(sections/how-it-works-section.css);
+@import url(sections/features.css);
+@import url(sections/use-case.css);
+@import url(sections/what-can-you-do-section.css);
+@import url(sections/whiteglove-section.css);
+@import url(sections/our-story-section.css);
+@import url(sections/footer.css);

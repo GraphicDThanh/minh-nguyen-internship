@@ -3,15 +3,19 @@
   display: flex;
 }
 
-.menubar a {
+.menubar a{
+  color: var(--black);
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.menubar li {
   transition: 0.4s;
 }
 
-.menubar a:hover {
-  color: var(--white);
-  background-color: var(--blue-crayola);
-  text-decoration: none;
+.menubar li:hover {
+  color: var(--black);
+  background-color: var(--button-hover);
   transition: 0.4s;
-  border-radius: 10px;
-  padding: 15px;
 }

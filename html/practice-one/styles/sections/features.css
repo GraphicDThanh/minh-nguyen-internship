@@ -1,0 +1,51 @@
+.features-section {
+  padding-top: 120px;
+  height: 610px;
+}
+
+.features-section .card {
+  justify-content: space-between;
+  margin-top: 38px;
+}
+
+.feature-card {
+  max-width: 320px;
+  box-shadow: 0px 20px 60px var(--box-shadow);
+  position: relative;
+}
+
+.feature-name {
+  display: flex;
+  background-color: var(--alice-blue);
+}
+
+.feature-name p {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+}
+
+.feature-name img {
+  width: 40%;
+}
+
+.feature-name p {
+  padding: 20px;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.feature-describe {
+  padding: 40px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.875rem;
+}
+
+.translate {
+  transform: translateY(50px);
+}
+
+.feature-card:last-child {
+  transform: translateY(100px);
+}

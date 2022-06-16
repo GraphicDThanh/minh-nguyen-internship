@@ -4,14 +4,14 @@
   background-color: var(--blue-crayola);
   border: var(--blue-crayola);
   text-transform: uppercase;
-  size: 20px;
   transition: 0.4s;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 20px;
 }
 
-button.menu-cta-button:hover {
-  color: var(--blue-crayola);
-  background-color: var(--white);
+.menu-cta-button:hover {
+  color: var(--black);
+  background-color: var(--button-hover);
   transition: 0.4s;
-  border: 1px var(--blue-crayola) solid;
-  border-radius: 10px;
 }

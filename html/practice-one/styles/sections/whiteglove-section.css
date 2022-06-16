@@ -1,0 +1,54 @@
+.whiteglove-section {
+  background-color: var(--blue-crayola);
+  position: relative;
+  height: 450px;
+  display: flex;
+  padding-top: 80px;
+  overflow: hidden;
+}
+
+.white {
+  color: var(--white);
+}
+
+.whiteglove-section-text {
+  margin: 0px;
+  width: 70%;
+}
+
+.section-titl-decoration-line-white {
+  width: 80px;
+  height: 2px;
+  left: 120px;
+  top: 1170px;
+  background: var(--blue-crayola);
+  box-shadow: 0px 2px 0px var(--azureish-white);
+}
+
+.whiteglove-blurb {
+  color: var(--white);
+  margin-top: 48px;
+}
+
+.whiteglove-blurb button {
+  margin: 40px 0px;
+  padding: 20px 50px;
+  text-transform: uppercase;
+  background-color: var(--white);
+  color: var(--blue-crayola);
+  font-weight: 700;
+  border: none;
+  transition: 0.4s;
+}
+
+.whiteglove-blurb button:hover {
+  color: var(--black);
+  background-color: var(--button-hover);
+  transition: 0.4s;
+}
+
+.whiteglove-section-img {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+}
