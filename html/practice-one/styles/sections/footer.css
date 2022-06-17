@@ -1,10 +1,12 @@
 footer {
   display: flex;
   justify-content: space-between;
+  background-color: var(--footer-background);
 }
 
 footer.container {
   padding-top: 40px;
+  align-items: center;
 }
 
 .social-network {
@@ -13,13 +15,4 @@ footer.container {
 
 .social-network li {
   padding: 20px;
-}
-
-footer .logo {
-  background-color: var(--footer-logo);
-}
-
-.footer-icon {
-  max-width: 90px;
-  max-height: 100px;
 }

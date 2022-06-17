@@ -13,7 +13,7 @@
 @import url(components/menubar.css);
 @import url(components/title.css);
 @import url(components/foot-tag-card.css);
-@import url(components/logo.css);
+@import url(components/section-title-decoration-line.css);
 
 /* CSS for individual sections in the project */
 @import url(sections/header.css);

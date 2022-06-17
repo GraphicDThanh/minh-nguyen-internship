@@ -11,19 +11,19 @@
   box-shadow: 0px 20px 60px var(--box-shadow);
 }
 
-.testimonial-ava-name {
+.testimonial-information {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.testimonial-ava-name {
+  display: flex;
   align-items: center;
 }
 
-.how-it-works-card {
-  border: 1px solid;
-}
-
 .testimonial-text {
-  padding: 10px 0px;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.875rem;
@@ -32,13 +32,14 @@
 .testimonial-name {
   font-weight: 600;
   line-height: 1.875rem;
+  margin-left: 20px;
 }
 
-.testimonial-name p:first-child {
+.testimonial-name span:first-child {
   font-size: 1.125rem;
 }
 
-.testimonial-name p:last-child {
+.testimonial-name span:last-child {
   color: var(--name-card);
   font-size: 0.875rem;
 }
