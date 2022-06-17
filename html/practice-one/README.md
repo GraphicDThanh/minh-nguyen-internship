@@ -1,6 +1,6 @@
 ### Overview
 
-- Design: [Figma](figma.com/file/WjBjJdJtwQHxaDF2ryrGH1/%5Btraining%5D-Practice-two?node-id=0%3A2)
+- Design: [Figma](https://www.figma.com/file/WjBjJdJtwQHxaDF2ryrGH1/%5Btraining%5D-Practice-two?node-id=0%3A1)
 - Plan: [Plan Practice01](https://docs.google.com/document/d/14yowAemojw5PxR3r0YuyGkuCyOvLqwqpDfQDHNiuQvI/edit)
 
 ### Targets
