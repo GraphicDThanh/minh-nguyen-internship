@@ -11,7 +11,5 @@
 }
 
 .menu-cta-button:hover {
-  color: var(--black);
-  background-color: var(--button-hover);
-  transition: 0.4s;
+  background-color: var(--celtic-blue);
 }

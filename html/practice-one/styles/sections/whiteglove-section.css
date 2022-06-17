@@ -42,9 +42,7 @@
 }
 
 .whiteglove-blurb button:hover {
-  color: var(--black);
-  background-color: var(--button-hover);
-  transition: 0.4s;
+  background-color: var(--vodka);
 }
 
 .whiteglove-section-img {
