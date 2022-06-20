@@ -17,6 +17,7 @@
 .feature-name {
   display: flex;
   background-color: var(--alice-blue);
+  align-items: center;
 }
 
 .feature-name p {
