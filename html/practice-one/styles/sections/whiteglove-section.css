@@ -1,5 +1,8 @@
-.whiteglove-section {
+.whiteglove-section-background{
   background-color: var(--blue-crayola);
+}
+
+.whiteglove-section {
   position: relative;
   min-height: 450px;
   display: flex;
@@ -13,7 +16,7 @@
 
 .whiteglove-section-text {
   margin: 0px;
-  width: 70%;
+  width: 59%;
 }
 
 .whiteglove-section-text .section-title-decoration-line {
