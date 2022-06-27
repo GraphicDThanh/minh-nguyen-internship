@@ -1,8 +1,8 @@
 .home {
   display: flex;
-  padding-top: 150px;
+  padding-top: 9.375rem;
   position: relative;
-  min-height: 620px;
+  min-height: 38.75rem;
   overflow: hidden;
 }
 
@@ -11,18 +11,18 @@
 }
 
 .home-text {
-  max-width: 600px;
+  max-width: 37.5rem;
 }
 
 .subheadline-text {
   font-weight: 400;
   font-size: 1.25rem;
   line-height: 2.5rem;
-  margin: 18px 0px 33px 0px;
+  margin: 1.125rem 0rem 2.0625rem 0rem;
 }
 
 .home-img {
   position: absolute;
-  right: 160px;
-  bottom: -80px;
+  right: 10rem;
+  bottom: -5rem;
 }

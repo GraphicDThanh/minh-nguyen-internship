@@ -5,7 +5,7 @@ footer {
 }
 
 footer.container {
-  padding-top: 40px;
+  padding-top: 2.5rem;
   align-items: center;
 }
 
@@ -14,5 +14,5 @@ footer.container {
 }
 
 .social-network li {
-  padding: 20px;
+  padding: 1.25rem;
 }

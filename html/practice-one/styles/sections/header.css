@@ -1,12 +1,12 @@
 header {
-  padding-top: 30px;
+  padding-top: 1.875rem;
   display: flex;
   justify-content: space-between;
 }
 
 header.container {
   align-items: center;
-  padding-top: 30px;
+  padding-top: 1.875rem;
 }
 
 .headline-text {
@@ -15,5 +15,5 @@ header.container {
   line-height: 3.75rem;
   display: flex;
   align-items: center;
-  letter-spacing: 1px;
+  letter-spacing: 0.0625rem;
 }

@@ -4,9 +4,9 @@
 
 .whiteglove-section {
   position: relative;
-  min-height: 450px;
+  min-height: 28.125rem;
   display: flex;
-  padding-top: 80px;
+  padding-top: 5rem;
   overflow: hidden;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .whiteglove-section-text {
-  margin: 0px;
+  margin: rem;
   width: 59%;
 }
 
@@ -25,12 +25,12 @@
 
 .whiteglove-blurb {
   color: var(--white);
-  margin-top: 48px;
+  margin-top: 3rem;
 }
 
 .whiteglove-blurb button {
-  margin: 40px 0px;
-  padding: 20px 50px;
+  margin: 2.5rem 0rem;
+  padding: 1.25rem 3.125rem;
   text-transform: uppercase;
   background-color: var(--white);
   color: var(--blue-crayola);
@@ -45,6 +45,6 @@
 
 .whiteglove-section-img {
   position: absolute;
-  right: 0px;
-  top: 20px;
+  right: 0rem;
+  top: 1.25rem;
 }
