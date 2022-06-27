@@ -1,8 +1,8 @@
-.menubar{
+.menubar {
   display: flex;
 }
 
-.menubar ul{
+.menubar ul {
   color: var(--black);
   display: flex;
   align-content: center;

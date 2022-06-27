@@ -1,10 +1,12 @@
-.section-title{
+.section-title {
+  text-transform: uppercase;
+  padding-block: 0.625rem;
   position: relative;
 }
 
-.section-title:after{
+.section-title:after {
   position: absolute;
-  content: '';
+  content: "";
   width: 5rem;
   height: 0.125rem;
   left: -2.5rem;

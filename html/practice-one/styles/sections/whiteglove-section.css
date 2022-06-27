@@ -1,4 +1,4 @@
-.whiteglove-section-background{
+.whiteglove-section-background {
   background-color: var(--blue-crayola);
 }
 
@@ -15,11 +15,11 @@
 }
 
 .whiteglove-section-text {
-  margin: rem;
+  margin: 0px;
   width: 59%;
 }
 
-.whiteglove-section-text .section-title-decoration-line {
+.whiteglove-section .section-title:after {
   background-color: var(--white);
 }
 
