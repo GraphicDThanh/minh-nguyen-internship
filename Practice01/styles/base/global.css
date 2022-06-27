@@ -3,10 +3,10 @@ html {
   /* 1rem = 16px */
 }
 
-/* @font-face {
+@font-face {
   font-family: Mulish;
   src: url("../fonts/Mulish/Mulish-VariableFont_wght.ttf"),url('../fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf');
-} */
+}
 
 body {
   font-family: "Mulish", sans-serif;
