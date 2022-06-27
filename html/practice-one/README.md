@@ -23,14 +23,15 @@
 1. Step 1: Cloning the repositories
     - HTTPS: 
       ```
-      $ git clone -b html/practice-one https://github.com/GraphicDThanh/minh-nguyen-internship.git
+      $ git clone https://github.com/GraphicDThanh/minh-nguyen-internship.git
       ```
     - SSH: 
       ```
-      $ git clone -b html/practice-one git@github.com:GraphicDThanh/minh-nguyen-internship.git
+      $ git clone git@github.com:GraphicDThanh/minh-nguyen-internship.git
       ```
-2. Step 2: Move to practice-one folder `$ cd html/practice-one`
-3. Step 3: Open file index.html `$ index.html`
-4. Step 4: Run project
+2. Step 2: Move to minh-nguyen-internship folder `$ cd .\minh-nguyen-internship\`
+3. Step 3: Switch to branch practice `$ git checkout practice`
+4. Step 4: Open the practice-one project in the html folder `$ cd .\html\practice-one\`
+5. Step 5: Run project
     - Case 1: Find "Live Server" in "Extensions" and install -> Click live "Go Live"
     - Case 2: Use F5
