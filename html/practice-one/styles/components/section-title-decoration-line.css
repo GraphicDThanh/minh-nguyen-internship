@@ -1,7 +1,14 @@
-.section-title-decoration-line {
+.section-title{
+  position: relative;
+}
+
+.section-title:after{
+  position: absolute;
+  content: '';
   width: 5rem;
   height: 0.125rem;
-  margin-left: -2.5rem;
+  left: -2.5rem;
+  bottom: 0rem;
   background: var(--blue-crayola);
   box-shadow: 0rem 0.125rem 0rem var(--box-shadow);
 }
