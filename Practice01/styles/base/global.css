@@ -5,7 +5,8 @@ html {
 
 @font-face {
   font-family: Mulish;
-  src: url("../fonts/Mulish/Mulish-VariableFont_wght.ttf"),url('../fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf');
+  src: url("../fonts/Mulish/Mulish-VariableFont_wght.ttf"),
+    url("../fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf");
 }
 
 body {

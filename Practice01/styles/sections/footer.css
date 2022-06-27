@@ -1,7 +1,10 @@
+.footer-background{
+  background-color: var(--footer-background);
+}
+
 footer {
   display: flex;
   justify-content: space-between;
-  background-color: var(--footer-background);
 }
 
 footer.container {
