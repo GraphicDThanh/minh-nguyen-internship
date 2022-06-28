@@ -1,0 +1,14 @@
+html {
+  font-size: 16px;
+  /* 1rem = 16px */
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+/* Mobile: width < 768px */
+/* Tablet: 768px =< width =< 1439px */
+@media screen and (min-width: 768px) {}
+/* PC: 1440 =< width  */
+@media screen and (min-width: 1440px) {}
