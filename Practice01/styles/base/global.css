@@ -17,6 +17,7 @@ body {
   margin: auto;
   padding: 0px 160px;
   max-width: 1440px;
+  align-items: center;
 }
 
 li {
