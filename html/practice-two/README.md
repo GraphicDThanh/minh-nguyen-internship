@@ -1,26 +1,29 @@
 ### Overview
-
 - Design: [Figma](https://www.figma.com/file/WjBjJdJtwQHxaDF2ryrGH1/%5Btraining%5D-Practice-two?node-id=0%3A1)
-- Plan: [Plan Practice01](https://docs.google.com/document/d/14yowAemojw5PxR3r0YuyGkuCyOvLqwqpDfQDHNiuQvI/edit)
+- Plan: [Plan Practice02](https://docs.google.com/document/d/1N3RKsRHd6wu_8f6ideu0EBS-a8KdOkyi2dtsyvNj-x8/edit)
 
 ### Targets
-
-- Understand HTML/CSS properties and use them correctly.
-- Slice from Figma to HTML/CSS.
-- Understand the concepts of Flex.
+- Apply knowledge to responsive practice one design
+- Used media queries for popular screen size
+- Upgrade the existing practice to responsive
+- Work fine on Chrome browser latest version
+- Getting the code to work cross browser latest version (Chrome, MS Edge)
 
 ### Information
-
 - Timeline
-  - Estimate day: 4 days.
-  - Actual time: 12 days.
-- Techniques: HTML5/CSS3.
+  - Estimate day: 4 days (2022/06/28 – 2022/07/01).
+- Techniques:
+  - HTML5 / CSS3
+  - Parcel 
+  - Structure css with 7-1 pattern 
+  - Responsive with mobile-first
+  - Commitlint for git commit
+  - Posthtml-include for re-use html code
 - Editor: Visual Studio Code.
-- Supported browser: Chrome latest.
+- Supported browser: Chrome latest, Edge latest.
 
 ### Getting started
-
-1. Step 1: Cloning the repositories
+- Clone repo
     - HTTPS: 
       ```
       $ git clone -b html/practice-one https://github.com/GraphicDThanh/minh-nguyen-internship.git
@@ -29,8 +32,23 @@
       ```
       $ git clone -b html/practice-one git@github.com:GraphicDThanh/minh-nguyen-internship.git
       ```
-2. Step 2: Move to practice-one folder `$ cd html/practice-one`
-3. Step 3: Open file index.html `$ index.html`
-4. Step 4: Run project
-    - Case 1: Find "Live Server" in "Extensions" and install -> Click live "Go Live"
-    - Case 2: Use F5
+- Change the path to the folder you just cloned to your computer 
+   ```
+   $ cd .\minh-nguyen-internship\
+   ```
+-  Switch to branch practice 
+   ```
+   $ git checkout feature/practice02
+   ```
+- Open the practice-one project in the html folder 
+   ```
+   $ cd .\html\practice-two\
+   ```
+- Install npm 
+   ```
+   npm install
+   ```
+- Run Project
+   ```
+   npm start
+   ```
