@@ -1,6 +1,6 @@
-.menu {
-  display: flex;
-  align-content: center;
+.menu ul{
+  display: flex;  
+  align-items: center;
 }
 
 .menu a {
@@ -8,6 +8,12 @@
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.menu li{
+  padding: 15px 0px;
+  min-width: 7.5rem;
+  text-align: center;
 }
 
 .menu li:hover {

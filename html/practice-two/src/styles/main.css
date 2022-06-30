@@ -14,3 +14,4 @@
 
 /* CSS for individual sections in the project */
 @import url(layout/header.css);
+@import url(layout/footer.css);
