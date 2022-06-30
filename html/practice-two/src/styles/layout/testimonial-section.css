@@ -1,3 +1,7 @@
+.testimonial {
+  padding: 3.125rem 3.75rem;
+}
+
 .testimonial .card {
-  margin: 50px auto;
+  margin-bottom: 3.125rem;
 }
