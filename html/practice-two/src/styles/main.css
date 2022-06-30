@@ -15,4 +15,5 @@
 
 /* CSS for individual sections in the project */
 @import url(layout/header.css);
+@import url(layout/hero-section.css);
 @import url(layout/footer.css);

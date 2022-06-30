@@ -1,0 +1,26 @@
+.hero-text{
+  padding: 2.5rem 5rem;
+}
+
+.headline-text{
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 3.75rem;
+}
+
+.subheadline-text{
+  margin: 1.25rem 0rem;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+}
+
+.hero .menu-cta-button{
+  margin: 1.25rem 0rem;
+}
+
+.hero-img{
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
