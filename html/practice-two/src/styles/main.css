@@ -11,6 +11,7 @@
 /* Reusable css components */
 @import url(components/button.css);
 @import url(components/nav.css);
+@import url(components/card.css);
 
 /* CSS for individual sections in the project */
 @import url(layout/header.css);
