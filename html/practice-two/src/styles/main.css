@@ -12,6 +12,7 @@
 @import url(components/button.css);
 @import url(components/nav.css);
 @import url(components/card.css);
+@import url(components/title.css);
 
 /* CSS for individual sections in the project */
 @import url(layout/header.css);
