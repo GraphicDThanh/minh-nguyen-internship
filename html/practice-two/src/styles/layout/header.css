@@ -1,5 +1,6 @@
 .header {
   display: flex;
+  padding: 2.5rem 5rem;
 }
 
 .header .menu {
