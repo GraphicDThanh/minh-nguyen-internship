@@ -8,5 +8,6 @@
 @import url(abstracts/variables.css);
 
 /* Reusable css components */
+@import url(components/button.css);
 
 /* CSS for individual sections in the project */
