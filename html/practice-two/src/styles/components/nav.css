@@ -1,0 +1,16 @@
+.menu {
+  display: flex;
+  align-content: center;
+}
+
+.menu a {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.menu li:hover {
+  transition: 0.4s;
+  background-color: var(--vodka);
+}

@@ -3,11 +3,14 @@
 
 /* Basic css files shared for the whole project */
 @import url(base/reset.css);
+@import url(base/global.css);
 
 /* Css files defined for use in the project */
 @import url(abstracts/variables.css);
 
 /* Reusable css components */
 @import url(components/button.css);
+@import url(components/nav.css);
 
 /* CSS for individual sections in the project */
+@import url(layout/header.css);
