@@ -1,0 +1,46 @@
+.features {
+  padding: 3.75rem;
+}
+
+.features .card {
+  padding: 2.5rem;
+  margin-bottom: 3.75rem;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+  position: relative;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  background-color: var(--feature-card-title-background);
+}
+
+.features .card-name {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  margin-left: 1.25rem;
+}
+
+.features .card-text {
+  padding: 1.875rem 2.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.875rem;
+}
+
+.features .line:after {
+  content: "";
+  position: absolute;
+  height: 3.75rem;
+  bottom: -3.75rem;
+  border-left: 0.0625rem dashed var(--blue-crayola);
+}
+
+.features .line:before {
+  content: "";
+  position: absolute;
+  height: 3.75rem;
+  top: -3.75rem;
+  border-left: 0.0625rem dashed var(--blue-crayola);
+}
