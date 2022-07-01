@@ -1,0 +1,17 @@
+.our-story {
+  padding: 3.75rem;
+}
+
+.our-story .card {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.our-story .card-text {
+  margin-left: 1.25rem;
+}
+
+.our-story .card-describe p {
+  margin-top: 1.25rem;
+}
