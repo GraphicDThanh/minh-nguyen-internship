@@ -3,7 +3,6 @@
 }
 
 .features .card {
-  padding: 2.5rem;
   margin-top: 3.75rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
   position: relative;
@@ -34,6 +33,7 @@
   position: absolute;
   height: 3.75rem;
   bottom: -3.75rem;
+  left: 3.75rem;
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
@@ -42,5 +42,6 @@
   position: absolute;
   height: 3.75rem;
   top: -3.75rem;
+  left: 3.75rem;
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
