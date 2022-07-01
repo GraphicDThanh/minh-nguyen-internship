@@ -1,0 +1,17 @@
+.what-can-you-do {
+  padding: 3.75rem;
+}
+
+.what-can-you-do .card {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+}
+
+.what-can-you-do .card-text {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 2.5rem;
+  margin-left: 1.25rem;
+}

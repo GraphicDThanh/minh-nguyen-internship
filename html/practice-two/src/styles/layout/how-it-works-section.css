@@ -32,13 +32,13 @@
   color: var(--name-card);
 }
 
-.icon-tag{
+.icon-tag {
   position: absolute;
   right: -0.3125rem;
   bottom: -0.3125rem;
 }
 
-.how-it-works .line:after{
+.how-it-works .line:after {
   content: "";
   position: absolute;
   height: 2.375rem;
@@ -46,7 +46,7 @@
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
-.how-it-works .line:before{
+.how-it-works .line:before {
   content: "";
   position: absolute;
   height: 2.375rem;
