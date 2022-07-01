@@ -1,0 +1,29 @@
+.use-cases {
+  padding: 3.75rem;
+}
+
+.use-cases .content-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.use-cases .card {
+  max-width: 15.625rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+}
+
+.use-cases .card-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 2.5rem;
+  color: var(--name-card);
+  margin-bottom: 1.25rem;
+}
+
+.use-cases .card-name {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.875rem;
+  color: var(--title);
+}

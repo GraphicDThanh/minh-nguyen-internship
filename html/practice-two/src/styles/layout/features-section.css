@@ -4,12 +4,12 @@
 
 .features .card {
   padding: 2.5rem;
-  margin-bottom: 3.75rem;
+  margin-top: 3.75rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
   position: relative;
 }
 
-.card-title {
+.features .card-title {
   display: flex;
   align-items: center;
   background-color: var(--feature-card-title-background);
