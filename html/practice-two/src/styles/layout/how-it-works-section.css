@@ -38,7 +38,7 @@
   bottom: -0.3125rem;
 }
 
-.how-it-works .line:after {
+.how-it-works .card:nth-child(2):after {
   content: "";
   position: absolute;
   height: 2.375rem;
@@ -46,10 +46,58 @@
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
-.how-it-works .line:before {
+.how-it-works .card:nth-child(2):before {
   content: "";
   position: absolute;
   height: 2.375rem;
   top: -2.375rem;
   border-left: 0.0625rem dashed var(--blue-crayola);
+}
+
+@media screen and (min-width: 1440px)  {
+  .how-it-works{
+    max-width: 1440px;
+    margin: auto;
+    padding: 3.75rem 10rem;
+  }
+
+  .how-it-works .content-section{
+    display: flex;
+    margin-top: 2.5rem;
+  }
+
+  .how-it-works .card{
+    max-width: 20rem;
+    max-height: 13.75rem;
+  }
+
+  .how-it-works .card:nth-child(2) {
+    transform: translateY(3.125rem);
+    margin: 0rem 5rem;
+  }
+  
+  .how-it-works .card:last-child {
+    transform: translateY(6.25rem);
+  }
+
+  .how-it-works .card:nth-child(2):after {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 0.125rem;
+    bottom: 8rem;
+    left: -5rem;
+    border-top: 0.0625rem dashed var(--blue-crayola);
+  }
+  
+  .how-it-works .card:nth-child(2):before {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 1.125rem;
+    top: 8rem;
+    right: -5rem;
+    border-top: 0.0625rem dashed var(--blue-crayola);
+    border-left: none;
+  }
 }
