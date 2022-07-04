@@ -40,3 +40,13 @@
 .testimonial .card {
   margin-bottom: 3.125rem;
 }
+
+@media screen and (min-width: 1440px) {
+  .testimonial{
+    max-width: 1440px;
+    display: flex;
+    margin: auto;
+    padding: 0rem 10rem 3.75rem 10rem;
+    justify-content: space-between;
+  }
+}
