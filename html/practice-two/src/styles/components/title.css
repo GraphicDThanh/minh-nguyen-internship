@@ -17,3 +17,14 @@
   background: var(--blue-crayola);
   box-shadow: 0rem 0.125rem 0rem var(--box-shadow);
 }
+
+@media screen and (min-width: 1440px)  {
+  .section-title:after {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 0.125rem;
+    bottom: 0rem;
+    left: -2.5rem;
+  }
+}

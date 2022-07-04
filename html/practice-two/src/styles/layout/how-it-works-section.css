@@ -54,19 +54,19 @@
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
-@media screen and (min-width: 1440px)  {
-  .how-it-works{
+@media screen and (min-width: 1440px) {
+  .how-it-works {
     max-width: 1440px;
     margin: auto;
     padding: 3.75rem 10rem;
   }
 
-  .how-it-works .content-section{
+  .how-it-works .content-section {
     display: flex;
     margin-top: 2.5rem;
   }
 
-  .how-it-works .card{
+  .how-it-works .card {
     max-width: 20rem;
     max-height: 13.75rem;
   }
@@ -75,7 +75,7 @@
     transform: translateY(3.125rem);
     margin: 0rem 5rem;
   }
-  
+
   .how-it-works .card:last-child {
     transform: translateY(6.25rem);
   }
@@ -89,7 +89,7 @@
     left: -5rem;
     border-top: 0.0625rem dashed var(--blue-crayola);
   }
-  
+
   .how-it-works .card:nth-child(2):before {
     content: "";
     position: absolute;
