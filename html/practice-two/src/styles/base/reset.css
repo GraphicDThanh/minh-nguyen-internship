@@ -138,11 +138,13 @@ a {
   color: #007bff;
   text-decoration: none;
   background-color: transparent;
+  text-decoration: none;
 }
 
 a:hover {
   color: #0056b3;
   text-decoration: underline;
+  text-decoration: none;
 }
 
 a:not([href]):not([tabindex]) {

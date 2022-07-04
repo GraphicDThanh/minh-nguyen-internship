@@ -11,7 +11,7 @@
 }
 
 .menu li{
-  padding: 15px 0px;
+  padding: 0.9375rem 0rem;
   min-width: 7.5rem;
   text-align: center;
 }
@@ -19,4 +19,8 @@
 .menu li:hover {
   transition: 0.4s;
   background-color: var(--vodka);
+}
+
+.menu .menu-cta-button {
+  margin-left: 1.25rem;
 }

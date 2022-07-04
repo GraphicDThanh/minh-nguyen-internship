@@ -1,25 +1,25 @@
-.footer{
+.footer {
   padding: 2.5rem;
   position: relative;
 }
 
-.footer .card-logo{
+.footer .card-logo {
   display: flex;
   justify-content: space-between;
 }
 
-.social-logo{
+.social-logo {
   display: flex;
 }
 
-.social-logo a{
+.social-logo a {
   padding: 0.9375rem;
 }
 
-.footer-icon{
+.footer-icon {
   position: absolute;
   bottom: 0rem;
   right: 2.5rem;
-  max-width: 3,4375rem;
+  max-width: 3, 4375rem;
   max-height: 3.75rem;
 }
