@@ -2,6 +2,10 @@
   padding: 2.5rem 5rem;
 }
 
+.hero-pc {
+  display: none;
+}
+
 .headline-text {
   font-weight: 600;
   font-size: 2.5rem;
@@ -19,7 +23,7 @@
   margin: 1.25rem 0rem;
 }
 
-.hero-img {
+.hero-mobile .hero-img {
   padding: 20px;
   padding-bottom: 0rem;
   width: 100%;
@@ -35,4 +39,34 @@
   padding: 1.875rem 3.75rem;
   color: var(--white);
   background-image: url("/src/assets/images/please-visit-desktop-site-section-background.png");
+}
+
+@media screen and (min-width: 1440px) {
+  .hero-mobile{
+    display: none;
+  }
+
+  .hero{
+    max-width: 1440px;
+    display: flex;
+    margin: auto;
+    padding: 9.375rem 10rem;
+    position: relative;
+  }
+
+  .hero-pc{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hero-text{
+    padding: 0rem;
+    width: 70%;
+  }
+
+  .hero-img {
+    position: absolute;
+    right: 10rem;
+    bottom: -5rem;
+  }
 }

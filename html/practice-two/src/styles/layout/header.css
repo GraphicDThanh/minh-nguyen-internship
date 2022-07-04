@@ -11,7 +11,7 @@
   .header {
     max-width: 1440px;
     margin: auto;
-    padding: 30px 160px;
+    padding: 1.875rem 10rem;
     align-items: center;
     justify-content: space-between;
   }

@@ -1,5 +1,5 @@
-.menu ul{
-  display: flex;  
+.menu ul {
+  display: flex;
   align-items: center;
 }
 
@@ -10,7 +10,7 @@
   line-height: 1.25rem;
 }
 
-.menu li{
+.menu li {
   padding: 0.9375rem 0rem;
   min-width: 7.5rem;
   text-align: center;
