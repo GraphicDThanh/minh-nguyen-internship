@@ -15,3 +15,21 @@
   line-height: 2.5rem;
   margin-left: 1.25rem;
 }
+
+@media screen and (min-width: 1440px) {
+  .what-can-you-do {
+    max-width: 1440px;
+    margin: auto;
+    padding: 3.75rem 10rem 7.5rem 10rem;
+  }
+
+  .what-can-you-do .content-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .what-can-you-do .card {
+    width: 33.75rem;
+  }
+}
