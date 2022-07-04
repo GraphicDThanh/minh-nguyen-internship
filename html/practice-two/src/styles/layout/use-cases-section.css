@@ -28,3 +28,21 @@
   line-height: 1.875rem;
   color: var(--title);
 }
+
+@media screen and (min-width: 1440px) {
+  .use-cases {
+    max-width: 1440px;
+    margin: auto;
+    padding: 3.75rem 10rem;
+  }
+
+  .use-cases .content-section {
+    justify-content: space-between;
+  }
+
+  .use-cases .card {
+    max-width: 22.5rem;
+    padding: 1.25rem;
+    box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+  }
+}
