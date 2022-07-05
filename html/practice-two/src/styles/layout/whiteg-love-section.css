@@ -26,3 +26,31 @@
   color: var(--blue-crayola);
   background-color: var(--white);
 }
+
+.whiteglove-section-img{
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .whiteglove-section-img{
+    display: block;
+    position: absolute;
+    right: -6.25rem;
+    top: -3rem;
+  }
+
+  .whiteg-love .section-text{
+    display: flex;
+  }
+
+  .whiteg-love .content-section{
+    max-width: 1440px;
+    margin: auto;
+    position: relative;
+    padding: 1.25rem 6.25rem;
+  }
+
+  .whiteg-love .card-text {
+    max-width: 60%;
+  }
+}
