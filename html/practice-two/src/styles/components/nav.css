@@ -24,3 +24,18 @@
 .menu .menu-cta-button {
   margin-left: 1.25rem;
 }
+
+@media screen and (min-width: 768px) {
+  .menu li {
+    padding: 0.5rem 0rem;
+    min-width: 5.5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .menu li {
+    padding: 0.9375rem 0rem;
+    min-width: 7.5rem;
+    text-align: center;
+  }
+}
