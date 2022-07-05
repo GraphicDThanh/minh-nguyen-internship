@@ -27,23 +27,23 @@
   background-color: var(--white);
 }
 
-.whiteglove-section-img{
+.whiteglove-section-img {
   display: none;
 }
 
 @media screen and (min-width: 1440px) {
-  .whiteglove-section-img{
+  .whiteglove-section-img {
     display: block;
     position: absolute;
     right: -6.25rem;
     top: -3rem;
   }
 
-  .whiteg-love .section-text{
+  .whiteg-love .section-text {
     display: flex;
   }
 
-  .whiteg-love .content-section{
+  .whiteg-love .content-section {
     max-width: 1440px;
     margin: auto;
     position: relative;
