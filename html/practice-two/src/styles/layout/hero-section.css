@@ -40,26 +40,35 @@
   color: var(--white);
   background-image: url("/src/assets/images/please-visit-desktop-site-section-background.png");
 }
-
-@media screen and (min-width: 1440px) {
-  .hero-mobile{
+@media screen and (min-width: 768px) {
+  .hero-mobile {
     display: none;
   }
 
-  .hero{
-    max-width: 1440px;
+  .hero {
+    padding: 2rem 5rem;
     display: flex;
     margin: auto;
-    padding: 9.375rem 10rem;
     position: relative;
   }
 
-  .hero-pc{
+  .hero-pc {
     display: flex;
     justify-content: space-between;
   }
 
-  .hero-text{
+  .hero-text {
+    padding: 0rem;
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .hero{
+    max-width: 1440px;
+    padding: 9.375rem 10rem;
+  }
+
+  .hero-text {
     padding: 0rem;
     width: 70%;
   }

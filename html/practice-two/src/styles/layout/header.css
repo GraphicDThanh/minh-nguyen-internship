@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 768px) {
   .header {
-    padding: 1rem 7rem;
+    padding: 1rem 5rem;
     align-items: center;
     justify-content: space-between;
   }
@@ -24,11 +24,5 @@
     max-width: 1440px;
     margin: auto;
     padding: 1.875rem 10rem;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .header .menu {
-    display: flex;
   }
 }
