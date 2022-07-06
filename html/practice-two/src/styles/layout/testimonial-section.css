@@ -41,6 +41,15 @@
   margin-bottom: 3.125rem;
 }
 
+@media screen and (min-width: 768px) {
+  .testimonial{
+    display: flex;
+    margin: auto;
+    padding: 0rem 5rem 3rem 5rem;
+    justify-content: space-between;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .testimonial{
     max-width: 1440px;
