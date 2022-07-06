@@ -47,7 +47,7 @@
   }
 
   .hero {
-    padding: 2rem 5rem;
+    padding: 7rem 2.5rem;
     display: flex;
     margin: auto;
     position: relative;
@@ -68,7 +68,7 @@
     font-size: 2rem;
     line-height: 3rem;
   }
-  
+
   .subheadline-text {
     margin: 1rem 0rem;
     font-weight: 400;
@@ -99,7 +99,7 @@
     font-size: 2.5rem;
     line-height: 3.75rem;
   }
-  
+
   .subheadline-text {
     margin: 1.25rem 0rem;
     font-weight: 400;

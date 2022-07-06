@@ -45,17 +45,24 @@
   .testimonial{
     display: flex;
     margin: auto;
-    padding: 0rem 5rem 3rem 5rem;
+    padding: 0rem 2.25rem 3rem 2.25rem;
     justify-content: space-between;
+  }
+
+  .testimonial .card {
+    padding: 1.5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .testimonial{
     max-width: 1440px;
-    display: flex;
-    margin: auto;
     padding: 0rem 10rem 3.75rem 10rem;
-    justify-content: space-between;
+  }
+
+  .testimonial .card {
+    max-width: 33.75rem;
+    max-height: 17.5rem;
+    padding: 2.5rem;
   }
 }
