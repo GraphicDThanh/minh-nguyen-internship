@@ -4,16 +4,12 @@
     "browserslist": "> 0.5%, last 2 versions, not dead",
     "scripts": {
         "start": "parcel",
-        "build": "parcel build",
-        "prepare": "husky install"
+        "build": "parcel build"
     },
     "dependencies": {
         "parcel": "^2.6.2"
     },
     "devDependencies": {
-        "@commitlint/cli": "^17.0.3",
-        "@commitlint/config-conventional": "^17.0.3",
-        "husky": "^8.0.1",
         "posthtml-include": "^1.7.4",
         "posthtml-modules": "^0.9.0"
     }
