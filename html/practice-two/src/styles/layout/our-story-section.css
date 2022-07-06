@@ -25,6 +25,21 @@
   text-decoration: underline;
 }
 
+@media screen and (min-width: 768px) {
+  .our-story {
+    padding: 3.75rem 2.25rem;
+  }
+
+  .our-story .content-section {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .our-story .card-describe {
+    max-width: 26.25rem;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .our-story .card-describe.mobile {
     display: none;
@@ -36,15 +51,7 @@
     padding: 3.75rem 10rem 7.5rem 10rem;
   }
 
-  .our-story .content-section {
-    display: flex;
-  }
-
   .our-story .card {
     margin-right: 9rem;
-  }
-
-  .our-story .card-describe {
-    max-width: 26.25rem;
   }
 }

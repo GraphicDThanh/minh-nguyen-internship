@@ -66,4 +66,8 @@
   .use-cases .content-section {
     justify-content: space-between;
   }
+
+  .use-cases .card {
+    max-width: 22.5rem;
+  }
 }
