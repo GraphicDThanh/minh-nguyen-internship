@@ -33,11 +33,9 @@
   color: var(--title);
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 768px) {
   .use-cases {
-    max-width: 1440px;
-    margin: auto;
-    padding: 3.75rem 10rem;
+    padding: 3.75rem 2.25rem;
   }
 
   .use-cases .section-title.pc{
@@ -49,12 +47,23 @@
   }
 
   .use-cases .content-section {
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .use-cases .card {
-    max-width: 22.5rem;
-    padding: 1.25rem;
-    box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+    max-width: 20.5rem;
+    padding: 1.25 rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .use-cases {
+    max-width: 1440px;
+    margin: auto;
+    padding: 3.75rem 10rem;
+  }
+
+  .use-cases .content-section {
+    justify-content: space-between;
   }
 }
