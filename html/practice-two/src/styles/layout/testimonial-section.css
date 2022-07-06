@@ -42,7 +42,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .testimonial{
+  .testimonial {
     display: flex;
     margin: auto;
     padding: 0rem 2.25rem 3rem 2.25rem;
@@ -55,7 +55,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .testimonial{
+  .testimonial {
     max-width: 1440px;
     padding: 0rem 10rem 3.75rem 10rem;
   }

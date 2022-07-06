@@ -18,7 +18,7 @@
   box-shadow: 0rem 0.125rem 0rem var(--box-shadow);
 }
 
-@media screen and (min-width: 1440px)  {
+@media screen and (min-width: 1440px) {
   .section-title:after {
     content: "";
     position: absolute;

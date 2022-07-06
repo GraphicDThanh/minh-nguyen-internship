@@ -46,7 +46,7 @@
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .features {
     min-height: 33rem;
     padding: 3.75rem 2.25rem;

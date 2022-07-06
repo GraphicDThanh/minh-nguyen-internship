@@ -16,7 +16,7 @@
   margin-left: 1.25rem;
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .what-can-you-do {
     padding: 3.75rem 2.25rem;
   }

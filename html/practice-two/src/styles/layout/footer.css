@@ -36,6 +36,12 @@
   justify-content: center;
 }
 
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 3.75rem 2.25rem;
+  }
+}
+
 @media screen and (min-width: 1440px) {
   .card-logo .social-logo {
     display: none;

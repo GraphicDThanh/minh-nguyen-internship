@@ -2,7 +2,7 @@
   padding: 3.75rem;
 }
 
-.use-cases .section-title.pc{
+.use-cases .section-title.pc {
   display: none;
 }
 
@@ -38,11 +38,11 @@
     padding: 3.75rem 2.25rem;
   }
 
-  .use-cases .section-title.pc{
+  .use-cases .section-title.pc {
     display: flex;
   }
 
-  .use-cases .section-title.mobile{
+  .use-cases .section-title.mobile {
     display: none;
   }
 
