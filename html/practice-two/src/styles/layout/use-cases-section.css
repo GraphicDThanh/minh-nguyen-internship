@@ -1,5 +1,5 @@
 .use-cases {
-  padding: 3.75rem;
+  padding: 3rem;
 }
 
 .use-cases .section-title.pc {
@@ -9,11 +9,12 @@
 .use-cases .content-section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .use-cases .card {
   max-width: 15.625rem;
-  margin-top: 1.25rem;
+  margin: 1.25rem 0.5rem 0rem 0rem;
   padding: 1.25rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
 }
