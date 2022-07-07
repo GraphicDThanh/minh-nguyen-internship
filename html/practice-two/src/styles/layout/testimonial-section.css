@@ -1,6 +1,4 @@
 .testimonial .card {
-  max-width: 33.75rem;
-  max-height: 17.5rem;
   padding: 2.5rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
 }

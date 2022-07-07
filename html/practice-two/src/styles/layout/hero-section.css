@@ -52,12 +52,16 @@
     margin: auto;
   }
 
+  .hero-mobile{
+    margin-bottom: 7rem;
+  }
+
   .hero-text {
     padding: 0rem;
   }
 
   .hero-img {
-    aspect-ratio: 16/9;
+    aspect-ratio  : 16/9;
     justify-content: center;
   }
 }
