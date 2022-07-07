@@ -42,7 +42,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .hero-mobile {
+  .visit-desktop-site {
     display: none;
   }
 
@@ -50,30 +50,15 @@
     padding: 7rem 2.5rem;
     display: flex;
     margin: auto;
-    position: relative;
-  }
-
-  .hero-pc {
-    display: flex;
-    justify-content: space-between;
   }
 
   .hero-text {
     padding: 0rem;
-    width: 60%;
   }
 
-  .headline-text {
-    font-weight: 600;
-    font-size: 2rem;
-    line-height: 3rem;
-  }
-
-  .subheadline-text {
-    margin: 1rem 0rem;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 2rem;
+  .hero-img {
+    aspect-ratio: 16/9;
+    justify-content: center;
   }
 }
 
@@ -81,6 +66,16 @@
   .hero {
     max-width: 1440px;
     padding: 9.375rem 10rem;
+    position: relative;
+  }
+
+  .hero-mobile{
+    display: none;
+  }
+
+  .hero-pc {
+    display: flex;
+    justify-content: space-between;
   }
 
   .hero-text {
