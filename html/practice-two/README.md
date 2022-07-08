@@ -21,6 +21,14 @@
   - Posthtml-include for re-use html code
 - Editor: Visual Studio Code.
 - Supported browser: Chrome latest, Edge latest.
+- Screen size
+  - Mobile: width < 768px
+  - Tablet: 768px =< width =< 1439px
+  - PC: 1440 =< width
+
+### Requirement
+- Requires configuration settings before running the project
+  - Install package nodejs
 
 ### Getting started
 - Clone repo

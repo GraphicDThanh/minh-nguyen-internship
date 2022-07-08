@@ -14,18 +14,18 @@
   justify-content: space-between;
 }
 
-.footer .menu{
+.footer .menu {
   display: flex;
-  align-items: flex-end ;
+  align-items: flex-end;
   justify-content: center;
 }
 
-.footer .menu ul{
-  padding: 2.5rem;
+.footer .menu ul {
+  padding: 2.5rem 1rem;
 }
 
-.footer .menu li{
-  padding: 0rem 1.5rem;
+.footer .menu li {
+  padding: 0rem 0.5rem;
 }
 
 .social-logo {
@@ -50,7 +50,7 @@
     padding-bottom: 0rem;
   }
 
-  .footer .menu li{
+  .footer .menu li {
     padding: 0rem 2.5rem;
   }
 }
@@ -87,7 +87,7 @@
     margin-left: 5rem;
   }
 
-  .footer .menu ul{
+  .footer .menu ul {
     padding: 0rem;
   }
 }

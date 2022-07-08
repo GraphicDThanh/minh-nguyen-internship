@@ -9,6 +9,9 @@ html {
   /* 1rem = 16px */
 }
 
-/* Mobile: width < 768px */
-/* Tablet: 768px =< width =< 1439px */
-/* PC: 1440 =< width  */
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    margin: auto;
+  }
+}
