@@ -55,4 +55,4 @@
    ```
    npm start
    ```
-- Open the server port provided by spm in the browser you use
+- Open localhost:1234 to see the website in the browser you use
