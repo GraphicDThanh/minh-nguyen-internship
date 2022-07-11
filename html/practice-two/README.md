@@ -55,3 +55,4 @@
    ```
    npm start
    ```
+- Open the server port provided by spm in the browser you use
