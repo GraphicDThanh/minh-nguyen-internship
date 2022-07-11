@@ -22,6 +22,9 @@
 - Editor: Visual Studio Code.
 - Supported browser: Chrome latest, Edge latest.
 
+### Requirement
+- The device must have node package manager installed
+
 ### Getting started
 - Clone repo
     - HTTPS: 
