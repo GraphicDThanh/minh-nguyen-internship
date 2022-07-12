@@ -1,55 +1,23 @@
 <section class="testimonial">
   <!-- Testimonial card -->
-  <div class="card">
-    <div class="card-person">
-      <div class="card-ava-name">
-        <img
-          class="card-avatar"
-          src="assets/images/testimonial-picture-man.jpg"
-          alt="testimonial-picture-man"
-        />
-        <div class="card-information">
-          <span class="card-name">John Doe</span>
-          <br />
-          <span class="card-position">CEO, PrettyDopeDesigns</span>
-        </div>
-      </div>
-      <img
-        class="card-icon"
-        src="assets/images/illustration-quote.png"
-        alt="illustration-quote"
-      />
-    </div>
-    <p class="card-text">
-      “Our senior frontend developer was 70% fster in building React.js
-      components thanks to VanGoux!”
-    </p>
-  </div>
+  <include
+    src="D:\Internship\Github\minh-nguyen-internship\html\practice-two\src\partials\components\testimonial-card.html"
+    locals='{
+          "card_avatar": "assets/images/testimonial-picture-man.jpg",
+          "card_name": "John Doe",
+          "card_position": "CEO, PrettyDopeDesigns",
+          "card_text": "“Our senior frontend developer was 70% fster in building React.js components thanks to VanGoux!”"
+        }'
+  ></include>
 
   <!-- Testimonial card -->
-  <div class="card">
-    <div class="card-person">
-      <div class="card-ava-name">
-        <img
-          class="card-avatar"
-          src="assets/images/testimonial-picture-woman.jpg"
-          alt="testimonial-picture-woman"
-        />
-        <div class="card-information">
-          <span class="card-name">Jane Goodman</span>
-          <br />
-          <span class="card-position">Founder, ImpactNation</span>
-        </div>
-      </div>
-      <img
-        class="card-icon"
-        src="assets/images/illustration-quote.png"
-        alt="illustration-quote"
-      />
-    </div>
-    <p class="card-text">
-      “It was awesome to see VanGoux turn our MVP designs into code within
-      minutes.”
-    </p>
-  </div>
+  <include
+    src="D:\Internship\Github\minh-nguyen-internship\html\practice-two\src\partials\components\testimonial-card.html"
+    locals='{
+        "card_avatar": "assets/images/testimonial-picture-woman.jpg",
+        "card_name": "Jane Goodman",
+        "card_position": "Founder, ImpactNation",
+        "card_text": "“It was awesome to see VanGoux turn our MVP designs into code within minutes.”"
+      }'
+  ></include>
 </section>
