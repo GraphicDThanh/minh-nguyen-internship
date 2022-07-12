@@ -22,6 +22,9 @@
 - Editor: Visual Studio Code.
 - Supported browser: Chrome latest, Edge latest.
 
+### Requirement
+- The device must have node package manager installed
+
 ### Getting started
 - Clone repo
     - HTTPS: 
@@ -52,3 +55,4 @@
    ```
    npm start
    ```
+- Open localhost:1234 to see the website in the browser you use
