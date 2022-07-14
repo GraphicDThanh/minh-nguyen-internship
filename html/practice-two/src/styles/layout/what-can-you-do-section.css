@@ -1,5 +1,5 @@
 .what-can-you-do {
-  padding: 3.75rem;
+  padding: 2.5rem 0.625rem;
 }
 
 .what-can-you-do .card {
@@ -16,7 +16,13 @@
   margin-left: 1.25rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 480px){
+  .what-can-you-do {
+    padding: 3.75rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
   .what-can-you-do {
     padding: 3.75rem 2.25rem;
   }
