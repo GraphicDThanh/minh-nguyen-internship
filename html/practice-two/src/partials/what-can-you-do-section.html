@@ -2,36 +2,39 @@
   <h2 class="section-title">What can you build with VanGoux</h2>
   <div class="content-section">
     <!-- What can you do card -->
-    <div class="card">
-      <img
-        src="assets/images/icon-solid-realistic-prototype.jpg"
-        alt="icon-solid-realistic-prototype"
-      />
-      <p class="card-text">Make realistic prototypes</p>
-    </div>
+    <include
+      src="partials/components/what-can-you-do-card.html"
+      locals='{
+        "card_img": "assets/images/icon-solid-realistic-prototype.jpg",
+        "card_text": "Make realistic prototypes"
+      }'
+    ></include>
 
     <!-- What can you do card -->
-    <div class="card">
-      <img src="assets/images/icon-solid-mvp.jpg" alt="icon-solid-mvp" />
-      <p class="card-text">Build an MVP as quickly as you can design</p>
-    </div>
+    <include
+      src="partials/components/what-can-you-do-card.html"
+      locals='{
+        "card_img": "assets/images/icon-solid-mvp.jpg",
+        "card_text": "Build an MVP as quickly as you can design"
+      }'
+    ></include>
 
     <!-- What can you do card -->
-    <div class="card">
-      <img
-        src="assets/images/icon-solid-landing-page.jpg"
-        alt="icon-solid-landing-page"
-      />
-      <p class="card-text">Create pixel-perfect landing pages</p>
-    </div>
+    <include
+      src="partials/components/what-can-you-do-card.html"
+      locals='{
+        "card_img": "assets/images/icon-solid-landing-page.jpg",
+        "card_text": "Create pixel-perfect landing pages"
+      }'
+    ></include>
 
     <!-- What can you do card -->
-    <div class="card">
-      <img
-        src="assets/images/icon-solid-design-system.jpg"
-        alt="icon-solid-design-system"
-      />
-      <p class="card-text">Generate a design system for your product</p>
-    </div>
+    <include
+      src="partials/components/what-can-you-do-card.html"
+      locals='{
+        "card_img": "assets/images/icon-solid-design-system.jpg",
+        "card_text": "Generate a design system for your product"
+      }'
+    ></include>
   </div>
 </section>

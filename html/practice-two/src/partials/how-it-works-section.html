@@ -2,73 +2,36 @@
   <h2 class="section-title">How VanGoux works</h2>
   <div class="content-section">
     <!-- How it works card -->
-    <div class="card">
-      <div class="step">
-        <div class="step-title">
-          <p class="step-number">Step 1</p>
-          <p class="step-name">Upload Sketch</p>
-        </div>
-        <img
-          class="icon"
-          src="assets/images/icon-upload.png"
-          alt="icon-upload"
-        />
-      </div>
-      <p class="step-describe">
-        Upload design for your site, landing page or portfolio
-      </p>
-      <img
-        class="icon-tag"
-        src="assets/images/decoration-juju.png"
-        alt="decoration-juju"
-      />
-    </div>
+    <include
+      src="partials/components/how-it-works-card.html"
+      locals='{
+        "step_number": "Step 1",
+        "step_name": "Upload Sketch",
+        "icon": "assets/images/icon-upload.png",
+        "step_describe": "Upload design for your site, landing page or portfolio"
+      }'
+    ></include>
 
     <!-- How it works card -->
-    <div class="card">
-      <div class="step">
-        <div class="step-title">
-          <p class="step-number">Step 2</p>
-          <p class="step-name">Publish website</p>
-        </div>
-        <img
-          class="step-icon"
-          src="assets/images/icon-download.png"
-          alt="icon-download"
-        />
-      </div>
-      <p class="step-describe">
-        You get a publicly shareable link for your website
-      </p>
-
-      <img
-        class="icon-tag"
-        src="assets/images/decoration-juju.png"
-        alt="decoration-juju"
-      />
-    </div>
+    <include
+      src="partials/components/how-it-works-card.html"
+      locals='{
+        "step_number": "Step 2",
+        "step_name": "Publish website",
+        "icon": "assets/images/icon-download.png",
+        "step_describe": "You get a publicly shareable link for your website"
+      }'
+    ></include>
 
     <!-- How it works card -->
-    <div class="card">
-      <div class="step">
-        <div class="step-title">
-          <p class="step-number">Step 3</p>
-          <p class="step-name">Add domain</p>
-        </div>
-        <img
-          class="step-icon"
-          src="assets/images/icon-use-code.png"
-          alt="icon-use-code"
-        />
-      </div>
-      <p class="step-describe">
-        Upload design for your site, landing page or portfolio
-      </p>
-      <img
-        class="icon-tag"
-        src="assets/images/decoration-juju.png"
-        alt="decoration-juju"
-      />
-    </div>
+    <include
+      src="partials/components/how-it-works-card.html"
+      locals='{
+        "step_number": "Step 3",
+        "step_name": "Add domain",
+        "icon": "assets/images/icon-use-code.png",
+        "step_describe": "Upload design for your site, landing page or portfolio"
+      }'
+    ></include>
   </div>
 </section>

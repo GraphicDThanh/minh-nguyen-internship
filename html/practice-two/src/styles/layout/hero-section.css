@@ -52,7 +52,7 @@
     margin: auto;
   }
 
-  .hero-mobile{
+  .hero-mobile {
     margin-bottom: 7rem;
   }
 
@@ -61,7 +61,7 @@
   }
 
   .hero-img {
-    aspect-ratio  : 16/9;
+    aspect-ratio: 16/9;
     justify-content: center;
   }
 }
@@ -73,7 +73,7 @@
     position: relative;
   }
 
-  .hero-mobile{
+  .hero-mobile {
     display: none;
   }
 

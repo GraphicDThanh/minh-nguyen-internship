@@ -2,27 +2,15 @@
   <h2 class="section-title">Our story</h2>
   <div class="content-section">
     <!-- Our story card -->
-    <article class="card">
-      <img
-        class="card-img"
-        src="assets/images/icon-who-we-are.png"
-        alt="icon-who-we-are"
-      />
-      <div class="card-text">
-        <h3 class="card-title">Who are we?</h3>
-        <div class="card-describe">
-          <p>
-            Hi! We are Tom & Kay — two passionate engineers of user experience.
-            Building things people want makes us happy!
-          </p>
-          <p>
-            Kay is a former Googler and Tom is a startup veteran. We started
-            VanGoux because it didn’t make sense to us that UI designs needed to
-            be recreated in code from scratch.
-          </p>
-        </div>
-      </div>
-    </article>
+    <include
+      src="partials/components/our-story-card.html"
+      locals='{
+        "card_img": "assets/images/icon-who-we-are.png",
+        "card_title": "Who are we?",
+        "card_describe1": "Hi! We are Tom & Kay — two passionate engineers of user experience. Building things people want makes us happy!",
+        "card_describe2": "Kay is a former Googler and Tom is a startup veteran. We started VanGoux because it didn’t make sense to us that UI designs needed to be recreated in code from scratch."
+      }'
+    ></include>
 
     <!-- Our story card -->
     <article class="card">
@@ -35,14 +23,16 @@
         <h3 class="card-title">What’s up with the name?</h3>
         <div class="card-describe mobile">
           <p>
-            Pronounced as <span class="name">Van Gogh</span> — its a word play on Van Gogh
-            meets UX.
+            Pronounced as <span class="name">Van Gogh</span> — its a word play
+            on Van Gogh meets UX.
           </p>
           <p>
             Vincent transformed the pain of his tormented life into ecstatic
             beauty. Our name is a our way of honoring his profound work.
           </p>
-          <p>Check out <span class="link">Dr. Who doing something similar.</span></p>
+          <p>
+            Check out <span class="link">Dr. Who doing something similar.</span>
+          </p>
         </div>
       </div>
     </article>
