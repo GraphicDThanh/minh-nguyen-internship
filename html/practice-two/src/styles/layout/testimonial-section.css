@@ -1,5 +1,10 @@
+.testimonial {
+  padding: 2.5rem 0.625rem;
+}
+
 .testimonial .card {
-  padding: 2.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
 }
 
@@ -31,12 +36,24 @@
   color: var(--name-card);
 }
 
-.testimonial {
-  padding: 3.125rem 3.75rem;
+.card-avatar {
+  max-width: 3.75rem;
+  max-height: 3.75rem;
 }
 
-.testimonial .card {
-  margin-bottom: 3.125rem;
+@media screen and (min-width: 480px) {
+  .testimonial {
+    padding: 3.125rem 3.75rem;
+  }
+
+  .testimonial .card {
+    padding: 2.5rem;
+  }
+
+  .card-avatar {
+    max-width: 6.25rem;
+    max-height: 6.25rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
