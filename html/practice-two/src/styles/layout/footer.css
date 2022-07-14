@@ -1,8 +1,15 @@
 .footer {
-  padding: 2.5rem;
+  padding: 0.625rem;
   padding-bottom: 0rem;
   position: relative;
   background-color: var(--footer-background);
+}
+
+.menu a {
+  color: var(--black);
+  font-weight: 600;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
 }
 
 .footer-pc {
@@ -21,11 +28,11 @@
 }
 
 .footer .menu ul {
-  padding: 2.5rem;
+  padding: 0rem;
 }
 
 .footer .menu li {
-  padding: 0rem 1.5rem;
+  padding: 0rem ;
 }
 
 .social-logo {
@@ -42,6 +49,25 @@
 
 .footer-icon-pc {
   display: none;
+}
+
+@media screen and (min-width: 480px) {
+  .footer {
+    padding: 2.5rem;
+  }
+
+  .footer .menu ul {
+    padding: 2.5rem;
+  }
+  
+  .footer .menu li {
+    padding: 0rem 1.5rem;
+  }
+
+  .menu a {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
