@@ -8,10 +8,10 @@
         your Sketch designs
       </p>
       <include
-        src="D:\Internship\Github\minh-nguyen-internship\html\practice-two\src\partials\components\button.html"
+        src="partials/components/button.html"
         locals='{
-        "text": "See VanGoux in action"
-      }'
+          "text": "See VanGoux in action"
+        }'
       ></include>
     </div>
     <img
@@ -34,7 +34,12 @@
         Create pixel perfect websites, landing pages & portfolios directly from
         your Sketch designs
       </p>
-      <button class="menu-cta-button">Upload Your Sketch File</button>
+      <include
+        src="partials/components/button.html"
+        locals='{
+          "text": "Upload Your Sketch File"
+        }'
+      ></include>
     </div>
     <img
       class="hero-img"
