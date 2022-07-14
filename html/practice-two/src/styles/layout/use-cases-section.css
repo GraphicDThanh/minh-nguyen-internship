@@ -1,5 +1,5 @@
 .use-cases {
-  padding: 3rem;
+  padding: 2.5rem 0.625rem;
 }
 
 .use-cases .section-title.pc {
@@ -32,6 +32,12 @@
   font-size: 1rem;
   line-height: 1.875rem;
   color: var(--title);
+}
+
+@media screen and (min-width: 480px){
+  .use-cases {
+    padding: 3rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
