@@ -5,7 +5,7 @@
   background-color: var(--footer-background);
 }
 
-.navbar a {
+.nav-link {
   color: var(--black);
   font-weight: 600;
   font-size: 0.625rem;
@@ -64,7 +64,7 @@
     padding: 0rem 1.5rem;
   }
 
-  .navbar a {
+  .nav-link {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
