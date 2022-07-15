@@ -12,6 +12,7 @@
 ### Information
 - Timeline
   - Estimate day: 4 days (2022/06/28 – 2022/07/01).
+  - Actual day: 14days (2022/06/28 – 2022/07/15)
 - Techniques:
   - HTML5 / CSS3
   - Parcel 
