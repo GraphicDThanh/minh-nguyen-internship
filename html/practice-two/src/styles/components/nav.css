@@ -1,39 +1,39 @@
-.menu ul {
+.navbar-list{
   display: flex;
   align-items: center;
 }
 
-.menu a {
+.navbar a {
   color: var(--black);
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.menu li {
+.navbar-item {
   padding: 0.9375rem 0rem;
   min-width: 7.5rem;
   text-align: center;
 }
 
-.menu li:hover {
+.navbar-item:hover {
   transition: 0.4s;
   background-color: var(--vodka);
 }
 
-.menu .menu-cta-button {
+.navbar .menu-cta-button {
   margin-left: 1.25rem;
 }
 
 @media screen and (min-width: 768px) {
-  .menu li {
+  .navbar-item {
     padding: 0.5rem 0rem;
     min-width: 5.5rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .menu li {
+  .navbar-item  {
     padding: 0.9375rem 0rem;
     min-width: 7.5rem;
     text-align: center;

@@ -3,7 +3,7 @@
   padding: 2.5rem 0.625rem;
 }
 
-.header .menu {
+.header .navbar {
   display: none;
 }
 
@@ -20,7 +20,7 @@
     justify-content: space-between;
   }
 
-  .header .menu {
+  .header .navbar {
     display: flex;
   }
 }

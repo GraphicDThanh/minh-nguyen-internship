@@ -5,7 +5,7 @@
   background-color: var(--footer-background);
 }
 
-.menu a {
+.navbar a {
   color: var(--black);
   font-weight: 600;
   font-size: 0.625rem;
@@ -21,17 +21,17 @@
   justify-content: space-between;
 }
 
-.footer .menu {
+.footer .navbar {
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
 
-.footer .menu ul {
+.footer .navbar-list {
   padding: 0rem;
 }
 
-.footer .menu li {
+.footer .navbar-item {
   padding: 0rem ;
 }
 
@@ -56,15 +56,15 @@
     padding: 2.5rem;
   }
 
-  .footer .menu ul {
+  .footer .navbar-list {
     padding: 2.5rem;
   }
   
-  .footer .menu li {
+  .footer .navbar-item {
     padding: 0rem 1.5rem;
   }
 
-  .menu a {
+  .navbar a {
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
@@ -76,7 +76,7 @@
     padding-bottom: 0rem;
   }
 
-  .footer .menu li {
+  .footer .navbar-item {
     padding: 0rem 2.5rem;
   }
 }
@@ -98,7 +98,7 @@
     justify-content: space-between;
   }
 
-  .footer .menu {
+  .footer .navbar {
     margin: 0rem 4.375rem;
   }
 
@@ -111,7 +111,7 @@
     margin-left: 5rem;
   }
 
-  .footer .menu ul {
+  .footer .navbar-list {
     padding: 0rem;
   }
 }
