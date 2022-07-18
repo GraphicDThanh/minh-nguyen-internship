@@ -1,4 +1,4 @@
-.header {
+.header .content-section {
   display: flex;
   padding: 2.5rem 0.625rem;
   justify-content: space-between;
@@ -66,13 +66,13 @@
 }
 
 @media screen and (min-width: 480px) {
-  .header {
+  .header .content-section {
     padding: 2.5rem 5rem;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .header {
+  .header .content-section {
     padding: 1rem 2.5rem;
     align-items: center;
   }
@@ -84,11 +84,10 @@
   .header .navbar {
     display: flex;
   }
-  
 }
 
 @media screen and (min-width: 1440px) {
-  .header {
+  .header .content-section {
     padding: 1.875rem 10rem;
   }
 }

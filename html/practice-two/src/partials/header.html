@@ -1,9 +1,10 @@
-<header class="header container">
-  <h1>
-    <a href="" class="logo">
-      <img src="assets/images/logo.png" alt="logo" />
-    </a>
-  </h1>
+<header class="header">
+  <div class="content-section container">
+    <h1>
+      <a href="" class="logo">
+        <img src="assets/images/logo.png" alt="logo" />
+      </a>
+    </h1>
 
     <!-- navbar of mobile -->
     <div class="header-mobile">
@@ -11,35 +12,50 @@
         <i class="fa-solid fa-bars"></i>
       </label>
 
-      <input type="checkbox" class="nav-input" id="navbar-mobile-input">
+      <input type="checkbox" class="nav-input" id="navbar-mobile-input" />
 
       <label for="navbar-mobile-input" class="nav-overlay"></label>
 
       <nav class="navbar-mobile">
-        <label for="navbar-mobile-input"  class="navbar-close">
+        <label for="navbar-mobile-input" class="navbar-close">
           <i class="fa-solid fa-circle-xmark"></i>
         </label>
         <ul class="navbar-list-mobile">
-          <li class="navbar-item-mobile"><a class="nav-link-mobile" href="">How it works</a></li>
-          <li class="navbar-item-mobile"><a class="nav-link-mobile" href="">Features</a></li>
-          <li class="navbar-item-mobile"><a class="nav-link-mobile" href="">Use cases</a></li>
-          <li class="navbar-item-mobile"><a class="nav-link-mobile" href="">Schedule a demo</a></li>
+          <li class="navbar-item-mobile">
+            <a class="nav-link-mobile" href="">How it works</a>
+          </li>
+          <li class="navbar-item-mobile">
+            <a class="nav-link-mobile" href="">Features</a>
+          </li>
+          <li class="navbar-item-mobile">
+            <a class="nav-link-mobile" href="">Use cases</a>
+          </li>
+          <li class="navbar-item-mobile">
+            <a class="nav-link-mobile" href="">Schedule a demo</a>
+          </li>
         </ul>
       </nav>
     </div>
 
-  <nav class="navbar">
-    <ul class="navbar-list">
-      <li class="navbar-item"><a class="nav-link" href="">How it works</a></li>
-      <li class="navbar-item"><a class="nav-link" href="">Features</a></li>
-      <li class="navbar-item"><a class="nav-link" href="">Use cases</a></li>
-      <li class="navbar-item"><a class="nav-link" href="">Schedule a demo</a></li>
+    <div class="navbar">
+      <nav>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a class="nav-link" href="">How it works</a>
+          </li>
+          <li class="navbar-item"><a class="nav-link" href="">Features</a></li>
+          <li class="navbar-item"><a class="nav-link" href="">Use cases</a></li>
+          <li class="navbar-item">
+            <a class="nav-link" href="">Schedule a demo</a>
+          </li>
+        </ul>
+      </nav>
       <include
         src="partials/components/button.html"
         locals='{
-          "text": "Upload Sketch"
-        }'
+        "text": "Upload Sketch"
+      }'
       ></include>
-    </ul>
-  </nav>
+    </div>
+  </div>
 </header>
