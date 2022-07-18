@@ -1,0 +1,34 @@
+<section class="features container">
+  <h2 class="section-title">Features</h2>
+  <div class="content-section">
+    <!-- Feature card -->
+    <include
+      src="partials/components/features-card.html"
+      locals='{
+      "card_icon": "assets/images/icon-solid-pixel-perfect.jpg",
+      "card_name": "Pixel perfect output",
+      "card_text": "Crisp, pixel-perfect landing pages without bothering your developers"
+    }'
+    ></include>
+
+    <!-- Feature card -->
+    <include
+      src="partials/components/features-card.html"
+      locals='{
+        "card_icon": "assets/images/icon-solid-flexible-responsive.jpg",
+        "card_name": "Flexible & responsive",
+        "card_text": "Your web pages will flexibly adapt to different browser window sizes"
+      }'
+    ></include>
+
+    <!-- Feature card -->
+    <include
+      src="partials/components/features-card.html"
+      locals='{
+        "card_icon": "assets/images/icon-solid-reusable-components.jpg",
+        "card_name": "Complete code freedom",
+        "card_text": "VanGoux gives you source code of your website, so you can add your own logic"
+      }'
+    ></include>
+  </div>
+</section>
