@@ -8,15 +8,15 @@
 
 .headline-text {
   font-weight: 600;
-  font-size: 2.5rem;
-  line-height: 3.75rem;
+  font-size: var(--headline-text);
+  line-height: var(--large-height);
 }
 
 .subheadline-text {
   margin: 1.25rem 0rem;
   font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
+  font-size: var(--large);
+  line-height: var(--medium-height);
 }
 
 .hero .menu-cta-button {
@@ -33,8 +33,8 @@
 .visit-desktop-site {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
+  font-size: var(--large);
+  line-height: var(--medium-height);
   text-align: center;
   padding: 1.875rem 3.75rem;
   color: var(--white);

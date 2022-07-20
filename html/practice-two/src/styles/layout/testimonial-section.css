@@ -22,17 +22,17 @@
 
 .card-information {
   font-weight: 600;
-  line-height: 1.875rem;
+  line-height: var(--default-height);
   margin-left: 1.25rem;
 }
 
 .card-name {
-  font-size: 1.125rem;
+  font-size: var(--medium);
   color: var(--card-name-person);
 }
 
 .card-position {
-  font-size: 0.875rem;
+  font-size: var(--small);
   color: var(--name-card);
 }
 

@@ -6,8 +6,8 @@
 .whiteg-love .section-title {
   color: var(--white);
   font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 3.75rem;
+  font-size: var(--section-title);
+  line-height: var(--large-height);
 }
 
 .whiteg-love .section-title:after {
@@ -17,8 +17,8 @@
 .whiteg-love .card-text {
   color: var(--white);
   font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
+  font-size: var(--large);
+  line-height: var(--medium-height);
   margin: 2.5rem 0rem;
 }
 

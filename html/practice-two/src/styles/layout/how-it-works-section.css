@@ -19,16 +19,16 @@
 .step-number {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
+  font-size: var(--step-number);
+  line-height: var(--small-height);
   color: var(--title);
 }
 
 .step-name {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.125rem;
-  line-height: 2.5rem;
+  font-size: var(--medium);
+  line-height: var(--medium-height);
   color: var(--name-card);
 }
 
