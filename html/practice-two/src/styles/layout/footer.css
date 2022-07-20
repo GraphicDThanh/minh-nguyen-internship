@@ -8,13 +8,6 @@
   position: relative;
 }
 
-.nav-link {
-  color: var(--black);
-  font-weight: 600;
-  font-size: 0.625rem;
-  line-height: 0.75rem;
-}
-
 .footer-pc {
   display: none;
 }
@@ -67,10 +60,9 @@
     padding: 0rem 1.5rem;
   }
 
-  .nav-link {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
+  /* .nav-link {
+
+  } */
 }
 
 @media screen and (min-width: 768px) {

@@ -75,9 +75,6 @@
 
   .features .card-text {
     padding: 1rem;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.875rem;
   }
 
   .features .card:nth-child(2) {
@@ -117,12 +114,5 @@
 
   .features .card-text {
     padding: 1.875rem 2.5rem;
-  }
-
-  .features .card-name {
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 2.5rem;
-    margin-left: 1.25rem;
   }
 }
