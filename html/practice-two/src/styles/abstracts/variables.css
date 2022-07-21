@@ -1,5 +1,5 @@
 :root {
-    /* Color variables */
+  /* Color variables */
   --blue-crayola: #1968fc;
   --celtic-blue: #3369cc;
   --white: #ffffff;
@@ -12,9 +12,7 @@
   --card-name-person: #11223f;
   --title: #11223f;
   --feature-card-title-background: #f3f7ff;
-}
 
-:root {
   /* Font size variables */
   --default: 1rem;
   --small: 0.875rem;
@@ -23,9 +21,7 @@
   --section-title: 1.875rem;
   --headline-text: 2.5rem;
   --step-number: 0.75rem;
-}
 
-:root {
   /* Line height variables */
   --default-height: 1.875rem;
   --small-height: 1.25rem;
