@@ -2,14 +2,14 @@
   padding: 2.5rem 0.625rem;
 }
 
-.what-can-you-do .card {
+.what-can-you-do-card {
   display: flex;
   align-items: center;
   margin-top: 2.5rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
 }
 
-.what-can-you-do .card-text {
+.what-can-you-do-card-text {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 2.5rem;
@@ -33,7 +33,7 @@
     justify-content: space-around;
   }
 
-  .what-can-you-do .card {
+  .what-can-you-do-card {
     width: 29rem;
   }
 }
@@ -43,7 +43,7 @@
     padding: 3.75rem 10rem 7.5rem 10rem;
   }
 
-  .what-can-you-do .card {
+  .what-can-you-do-card {
     width: 33.75rem;
   }
 
