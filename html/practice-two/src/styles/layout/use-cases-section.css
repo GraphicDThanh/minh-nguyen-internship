@@ -21,16 +21,16 @@
 
 .use-cases-card-title {
   font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
+  font-size: var(--large);
+  line-height: var(--medium-height);
   color: var(--name-card);
   margin-bottom: 1.25rem;
 }
 
 .use-cases-card-name {
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.875rem;
+  font-size: var(--default);
+  line-height: var(--default-height);
   color: var(--title);
 }
 

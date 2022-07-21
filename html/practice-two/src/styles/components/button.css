@@ -6,8 +6,8 @@
   text-transform: uppercase;
   transition: 0.4s;
   font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--small);
+  line-height: var(--small-height);
 }
 
 .menu-cta-button:hover {

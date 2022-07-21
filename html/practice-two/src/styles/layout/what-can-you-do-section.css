@@ -11,8 +11,8 @@
 
 .what-can-you-do-card-text {
   font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 2.5rem;
+  font-size: var(--medium);
+  line-height: var(--medium-height);
   margin-left: 1.25rem;
 }
 
