@@ -2,17 +2,17 @@
   padding: 2.5rem 0.625rem;
 }
 
-.our-story .card {
+.our-story-card {
   margin-top: 2.5rem;
   display: flex;
   align-items: flex-start;
 }
 
-.our-story .card-text {
+.our-story-card-text {
   margin-left: 1.25rem;
 }
 
-.our-story .card-describe p {
+.our-story-card-describe p {
   margin-top: 1.25rem;
 }
 
@@ -41,13 +41,13 @@
     justify-content: space-around;
   }
 
-  .our-story .card-describe {
+  .our-story-card-describe {
     max-width: 26.25rem;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .our-story .card-describe.mobile {
+  .our-story-card-describe.mobile {
     display: none;
   }
 
@@ -55,7 +55,7 @@
     padding: 3.75rem 10rem 7.5rem 10rem;
   }
 
-  .our-story .card {
+  .our-story-card {
     margin-right: 9rem;
   }
 }
