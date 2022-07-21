@@ -2,14 +2,14 @@
   padding: 2.5rem 0.625rem;
 }
 
-.how-it-works .card {
+.how-it-works-card {
   padding: 2.5rem;
   margin-bottom: 2.375rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
   position: relative;
 }
 
-.step {
+.how-it-works-step {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -19,16 +19,16 @@
 .step-number {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
+  font-size: var(--step-number);
+  line-height: var(--small-height);
   color: var(--title);
 }
 
 .step-name {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1.125rem;
-  line-height: 2.5rem;
+  font-size: var(--medium);
+  line-height: var(--medium-height);
   color: var(--name-card);
 }
 
@@ -38,7 +38,7 @@
   bottom: -0.3125rem;
 }
 
-.how-it-works .card:nth-child(2):after {
+.how-it-works-card:nth-child(2):after {
   content: "";
   position: absolute;
   height: 2.375rem;
@@ -46,7 +46,7 @@
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
-.how-it-works .card:nth-child(2):before {
+.how-it-works-card:nth-child(2):before {
   content: "";
   position: absolute;
   height: 2.375rem;
@@ -72,22 +72,22 @@
     justify-content: center;
   }
 
-  .how-it-works .card {
+  .how-it-works-card {
     padding: 1.5rem;
     max-height: 13.75rem;
     margin: 0rem;
   }
 
-  .how-it-works .card:nth-child(2) {
+  .how-it-works-card:nth-child(2) {
     transform: translateY(3.125rem);
     margin: 0rem 2.5rem;
   }
 
-  .how-it-works .card:last-child {
+  .how-it-works-card:last-child {
     transform: translateY(6.25rem);
   }
 
-  .how-it-works .card:nth-child(2):after {
+  .how-it-works-card:nth-child(2):after {
     content: "";
     position: absolute;
     width: 2.5rem;
@@ -97,7 +97,7 @@
     border-top: 0.0625rem dashed var(--blue-crayola);
   }
 
-  .how-it-works .card:nth-child(2):before {
+  .how-it-works-card:nth-child(2):before {
     content: "";
     position: absolute;
     width: 2.5rem;
@@ -120,17 +120,17 @@
     margin-top: 2.5rem;
   }
 
-  .how-it-works .card {
+  .how-it-works-card {
     padding: 2.5rem;
     max-width: 20rem;
     max-height: 13.75rem;
   }
 
-  .how-it-works .card:nth-child(2) {
+  .how-it-works-card:nth-child(2) {
     margin: 0rem 5rem;
   }
 
-  .how-it-works .card:nth-child(2):after {
+  .how-it-works-card:nth-child(2):after {
     content: "";
     position: absolute;
     width: 5rem;
@@ -140,7 +140,7 @@
     border-top: 0.0625rem dashed var(--blue-crayola);
   }
 
-  .how-it-works .card:nth-child(2):before {
+  .how-it-works-card:nth-child(2):before {
     content: "";
     position: absolute;
     width: 5rem;

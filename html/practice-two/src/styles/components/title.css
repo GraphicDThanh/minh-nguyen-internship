@@ -1,8 +1,8 @@
 .section-title {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 1.875rem;
-  line-height: 3.75rem;
+  font-size: var(--section-title);
+  line-height: var(--large-height);
   color: var(--title);
   position: relative;
 }

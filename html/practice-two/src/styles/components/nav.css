@@ -10,8 +10,8 @@
 .nav-link {
   color: var(--black);
   font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  font-size: var(--small);
+  line-height:var(--small-height);
 }
 
 .navbar-item {
