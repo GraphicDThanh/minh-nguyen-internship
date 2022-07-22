@@ -2,33 +2,33 @@
   padding: 2.5rem 0.625rem;
 }
 
-.features .card {
+.features-card {
   margin-top: 3.75rem;
   box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
   position: relative;
 }
 
-.features .card-title {
+.features-card-title {
   display: flex;
   align-items: center;
   background-color: var(--feature-card-title-background);
 }
 
-.features .card-name {
+.features-card-name {
   font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 2.5rem;
+  font-size: var(--large);
+  line-height: var(--medium-height);
   margin-left: 1.25rem;
 }
 
-.features .card-text {
+.features-card-text {
   padding: 1.875rem 2.5rem;
   font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.875rem;
+  font-size: var(--default);
+  line-height: var(--default-height);
 }
 
-.features .card:nth-child(2):after {
+.features-card:nth-child(2):after {
   content: "";
   position: absolute;
   height: 3.75rem;
@@ -37,7 +37,7 @@
   border-left: 0.0625rem dashed var(--blue-crayola);
 }
 
-.features .card:nth-child(2):before {
+.features-card:nth-child(2):before {
   content: "";
   position: absolute;
   height: 3.75rem;
@@ -64,37 +64,34 @@
     justify-content: center;
   }
 
-  .features .card {
+  .features-card {
     max-height: 18.125rem;
     margin: 0rem;
   }
 
-  .features .card-name {
+  .features-card-name {
     margin-left: 0.5rem;
   }
 
-  .features .card-text {
+  .features-card-text {
     padding: 1rem;
-    font-weight: 400;
-    font-size: 1rem;
-    line-height: 1.875rem;
   }
 
-  .features .card:nth-child(2) {
+  .features-card:nth-child(2) {
     transform: translateY(3.125rem);
     margin: 0rem 2.5rem;
   }
 
-  .features .card:last-child {
+  .features-card:last-child {
     transform: translateY(6.25rem);
   }
 
-  .features .card:nth-child(2):after {
+  .features-card:nth-child(2):after {
     content: "";
     border: none;
   }
 
-  .features .card:nth-child(2):before {
+  .features-card:nth-child(2):before {
     content: "";
     border: none;
   }
@@ -110,19 +107,12 @@
     justify-content: space-between;
   }
 
-  .features .card {
+  .features-card {
     max-width: 20rem;
     max-height: 18.125rem;
   }
 
-  .features .card-text {
+  .features-card-text {
     padding: 1.875rem 2.5rem;
-  }
-
-  .features .card-name {
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 2.5rem;
-    margin-left: 1.25rem;
   }
 }

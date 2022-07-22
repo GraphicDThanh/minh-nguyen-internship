@@ -30,21 +30,21 @@
 - Clone repo
     - HTTPS: 
       ```
-      $ git clone -b html/practice-one https://github.com/GraphicDThanh/minh-nguyen-internship.git
+      $ git clone https://github.com/GraphicDThanh/minh-nguyen-internship.git
       ```
     - SSH: 
       ```
-      $ git clone -b html/practice-one git@github.com:GraphicDThanh/minh-nguyen-internship.git
+      $ git clone git@github.com:GraphicDThanh/minh-nguyen-internship.git
       ```
-- Change the path to the folder you just cloned to your computer 
+- Move to minh-nguyen-internship folder 
    ```
    $ cd .\minh-nguyen-internship\
    ```
--  Switch to branch practice 
+- Switch to branch practice 
    ```
    $ git checkout feature/practice02
    ```
-- Open the practice-one project in the html folder 
+- : Open the practice-one project in the html folder 
    ```
    $ cd .\html\practice-two\
    ```
