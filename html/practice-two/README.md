@@ -36,13 +36,17 @@
       ```
       $ git clone git@github.com:GraphicDThanh/minh-nguyen-internship.git
       ```
+- Move to minh-nguyen-internship folder 
+   ```
+   $ cd .\minh-nguyen-internship\
+   ```
 - Switch to branch practice 
    ```
    $ git checkout feature/practice02
    ```
-- Change the path to the folder you just cloned to your computer 
+- : Open the practice-one project in the html folder 
    ```
-   $ cd .\minh-nguyen-internship\html\practice-two\
+   $ cd .\html\practice-two\
    ```
 - Install npm 
    ```
