@@ -1,0 +1,30 @@
+html {
+  font-size: 16px;
+  /* 1rem = 16px */
+}
+
+@font-face {
+  font-family: Mulish;
+  src: url("../fonts/Mulish/Mulish-VariableFont_wght.ttf"),
+    url("../fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf");
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+.container {
+  margin: auto;
+  padding: 0px 160px;
+  max-width: 1440px;
+  align-items: center;
+}
+
+li {
+  color: var(--black);
+  padding: 20px;
+}
+
+a:hover {
+  text-decoration: none;
+}

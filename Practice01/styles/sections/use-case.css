@@ -1,0 +1,31 @@
+.use-cases-section {
+  min-height: 35.625rem;
+  padding-top: 3.75rem;
+}
+
+.use-case {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2.375rem;
+  justify-content: space-between;
+}
+
+.use-case-card {
+  max-width: 22.5rem;
+  max-height: 10rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+}
+
+.use-case-card p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.875rem;
+  margin-top: 1.25rem;
+}
+
+.use-case-card h3 {
+  text-transform: uppercase;
+  color: var(--name-card);
+}

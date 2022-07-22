@@ -1,0 +1,78 @@
+.how-it-works-section {
+  padding-top: 3.75rem;
+  min-height: 33.125rem;
+}
+
+.section-title {
+  position: relative;
+}
+
+.card {
+  display: flex;
+}
+
+.whiteglove-section-text {
+  margin: 0.3125rem 10rem;
+}
+
+.how-it-works-card {
+  max-width: 20rem;
+  max-height: 13.75rem;
+  padding: 2.5rem;
+  border: none;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+  position: relative;
+}
+
+.how-it-works-section .card {
+  justify-content: space-between;
+  margin-top: 2.375rem;
+}
+
+.step-name {
+  text-transform: uppercase;
+}
+
+.step-name p:first-child {
+  font-weight: bold;
+}
+
+.step-name p:last-child {
+  color: var(--name-card);
+  font-weight: bold;
+  margin: 0rem 0rem 1.25rem 0rem;
+}
+
+.step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.how-it-works-card:nth-child(2) {
+  transform: translateY(3.125rem);
+}
+
+.how-it-works-card:last-child {
+  transform: translateY(6.25rem);
+}
+
+.how-it-works-card:nth-child(2):after {
+  content: "";
+  position: absolute;
+  width: 4.375rem;
+  height: 0.125rem;
+  bottom: 7.8125rem;
+  left: -4.625rem;
+  border-top: 0.0625rem dashed var(--blue-crayola);
+}
+
+.how-it-works-card:nth-child(2):before {
+  content: "";
+  position: absolute;
+  width: 4.375rem;
+  height: 1.125rem;
+  bottom: 4.375rem;
+  left: 20.4375rem;
+  border-top: 0.0625rem dashed var(--blue-crayola);
+}
