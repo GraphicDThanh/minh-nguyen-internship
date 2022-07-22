@@ -30,23 +30,15 @@
 - Clone repo
     - HTTPS: 
       ```
-      $ git clone -b html/practice-one https://github.com/GraphicDThanh/minh-nguyen-internship.git
+      $ git clone -b html/practice-two https://github.com/GraphicDThanh/minh-nguyen-internship.git
       ```
     - SSH: 
       ```
-      $ git clone -b html/practice-one git@github.com:GraphicDThanh/minh-nguyen-internship.git
+      $ git clone -b html/practice-two git@github.com:GraphicDThanh/minh-nguyen-internship.git
       ```
 - Change the path to the folder you just cloned to your computer 
    ```
-   $ cd .\minh-nguyen-internship\
-   ```
--  Switch to branch practice 
-   ```
-   $ git checkout feature/practice02
-   ```
-- Open the practice-one project in the html folder 
-   ```
-   $ cd .\html\practice-two\
+   $ cd .\minh-nguyen-internship\html\practice-two\
    ```
 - Install npm 
    ```
