@@ -1,0 +1,118 @@
+.features {
+  padding: 2.5rem 0.625rem;
+}
+
+.features-card {
+  margin-top: 3.75rem;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+  position: relative;
+}
+
+.features-card-title {
+  display: flex;
+  align-items: center;
+  background-color: var(--feature-card-title-background);
+}
+
+.features-card-name {
+  font-weight: 600;
+  font-size: var(--large);
+  line-height: var(--medium-height);
+  margin-left: 1.25rem;
+}
+
+.features-card-text {
+  padding: 1.875rem 2.5rem;
+  font-weight: 400;
+  font-size: var(--default);
+  line-height: var(--default-height);
+}
+
+.features-card:nth-child(2):after {
+  content: "";
+  position: absolute;
+  height: 3.75rem;
+  bottom: -3.75rem;
+  left: 3.75rem;
+  border-left: 0.0625rem dashed var(--blue-crayola);
+}
+
+.features-card:nth-child(2):before {
+  content: "";
+  position: absolute;
+  height: 3.75rem;
+  top: -3.75rem;
+  left: 3.75rem;
+  border-left: 0.0625rem dashed var(--blue-crayola);
+}
+
+@media screen and (min-width: 480px) {
+  .features {
+    padding: 3.75rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .features {
+    min-height: 33rem;
+    padding: 3.75rem 2.25rem;
+  }
+
+  .features .content-section {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .features-card {
+    max-height: 18.125rem;
+    margin: 0rem;
+  }
+
+  .features-card-name {
+    margin-left: 0.5rem;
+  }
+
+  .features-card-text {
+    padding: 1rem;
+  }
+
+  .features-card:nth-child(2) {
+    transform: translateY(3.125rem);
+    margin: 0rem 2.5rem;
+  }
+
+  .features-card:last-child {
+    transform: translateY(6.25rem);
+  }
+
+  .features-card:nth-child(2):after {
+    content: "";
+    border: none;
+  }
+
+  .features-card:nth-child(2):before {
+    content: "";
+    border: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .features {
+    min-height: 38.125rem;
+    padding: 3.75rem 10rem;
+  }
+
+  .features .content-section {
+    justify-content: space-between;
+  }
+
+  .features-card {
+    max-width: 20rem;
+    max-height: 18.125rem;
+  }
+
+  .features-card-text {
+    padding: 1.875rem 2.5rem;
+  }
+}

@@ -1,0 +1,30 @@
+.what-can-you-do-section {
+  min-height: 26.875rem;
+  padding-top: 3.75rem;
+}
+
+.what-can-you-do {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2.375rem;
+}
+
+.what-can-you-do-card {
+  display: flex;
+  width: 33.75rem;
+  height: 5rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+}
+
+.what-can-you-do-card-text {
+  padding: 1.25rem;
+  font-weight: bolder;
+  width: 100%;
+}
+
+.decoration-juju img {
+  transform: translate(14rem, 2.8125rem);
+}

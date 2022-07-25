@@ -1,0 +1,52 @@
+.features-section {
+  padding-top: 3.75rem;
+  min-height: 38.125rem;
+}
+
+.features-section .card {
+  justify-content: space-between;
+  margin-top: 2.375rem;
+}
+
+.feature-card {
+  max-width: 20rem;
+  box-shadow: 0rem 1.25 3.75rem var(--box-shadow);
+  position: relative;
+}
+
+.feature-name {
+  display: flex;
+  background-color: var(--alice-blue);
+  align-items: center;
+}
+
+.feature-name p {
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+}
+
+.feature-name img {
+  width: 40%;
+}
+
+.feature-name p {
+  padding: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.feature-describe {
+  padding: 2.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.875rem;
+}
+
+.feature-card:nth-child(2) {
+  transform: translateY(3.125rem);
+}
+
+.feature-card:last-child {
+  transform: translateY(6.25rem);
+}

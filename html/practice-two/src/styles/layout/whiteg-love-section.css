@@ -1,0 +1,54 @@
+.whiteg-love {
+  padding: 3.75rem;
+  background-color: var(--blue-crayola);
+}
+
+.whiteg-love .section-title {
+  color: var(--white);
+  font-weight: 700;
+  font-size: var(--section-title);
+  line-height: var(--large-height);
+}
+
+.whiteg-love .section-title:after {
+  background: var(--white);
+}
+
+.whiteg-love .card-text {
+  color: var(--white);
+  font-weight: 400;
+  font-size: var(--large);
+  line-height: var(--medium-height);
+  margin: 2.5rem 0rem;
+}
+
+.whiteg-love .menu-cta-button {
+  color: var(--blue-crayola);
+  background-color: var(--white);
+}
+
+.whiteglove-section-img {
+  display: none;
+}
+
+@media screen and (min-width: 1440px) {
+  .whiteglove-section-img {
+    display: block;
+    position: absolute;
+    right: -6.25rem;
+    top: -3rem;
+  }
+
+  .whiteg-love .section-text {
+    display: flex;
+  }
+
+  .whiteg-love .content-section {
+    position: relative;
+    padding: 1.25rem 10rem;
+  }
+
+  .whiteg-love .card-text {
+    max-width: 60%;
+  }
+}
