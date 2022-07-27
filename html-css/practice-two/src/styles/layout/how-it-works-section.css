@@ -1,0 +1,153 @@
+.how-it-works {
+  padding: 2.5rem 0.625rem;
+}
+
+.how-it-works-card {
+  padding: 2.5rem;
+  margin-bottom: 2.375rem;
+  box-shadow: 0rem 1.25rem 3.75rem var(--box-shadow);
+  position: relative;
+}
+
+.how-it-works-step {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.625rem;
+}
+
+.step-number {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--step-number);
+  line-height: var(--small-height);
+  color: var(--title);
+}
+
+.step-name {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: var(--medium);
+  line-height: var(--medium-height);
+  color: var(--name-card);
+}
+
+.icon-tag {
+  position: absolute;
+  right: -0.3125rem;
+  bottom: -0.3125rem;
+}
+
+.how-it-works-card:nth-child(2):after {
+  content: "";
+  position: absolute;
+  height: 2.375rem;
+  bottom: -2.375rem;
+  border-left: 0.0625rem dashed var(--blue-crayola);
+}
+
+.how-it-works-card:nth-child(2):before {
+  content: "";
+  position: absolute;
+  height: 2.375rem;
+  top: -2.375rem;
+  border-left: 0.0625rem dashed var(--blue-crayola);
+}
+
+@media screen and (min-width: 480px) {
+  .how-it-works {
+    padding: 3.75rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .how-it-works {
+    min-height: 25rem;
+    padding: 3.75rem 2.25rem;
+  }
+
+  .how-it-works .content-section {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+
+  .how-it-works-card {
+    padding: 1.5rem;
+    max-height: 13.75rem;
+    margin: 0rem;
+  }
+
+  .how-it-works-card:nth-child(2) {
+    transform: translateY(3.125rem);
+    margin: 0rem 2.5rem;
+  }
+
+  .how-it-works-card:last-child {
+    transform: translateY(6.25rem);
+  }
+
+  .how-it-works-card:nth-child(2):after {
+    content: "";
+    position: absolute;
+    width: 2.5rem;
+    height: 0.125rem;
+    bottom: 10rem;
+    left: -2.5rem;
+    border-top: 0.0625rem dashed var(--blue-crayola);
+  }
+
+  .how-it-works-card:nth-child(2):before {
+    content: "";
+    position: absolute;
+    width: 2.5rem;
+    height: 1.125rem;
+    top: 8rem;
+    right: -2.5rem;
+    border-top: 0.0625rem dashed var(--blue-crayola);
+    border-left: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .how-it-works {
+    min-height: 33.125rem;
+    padding: 3.75rem 10rem;
+  }
+
+  .how-it-works .content-section {
+    display: flex;
+    margin-top: 2.5rem;
+  }
+
+  .how-it-works-card {
+    padding: 2.5rem;
+    max-width: 20rem;
+    max-height: 13.75rem;
+  }
+
+  .how-it-works-card:nth-child(2) {
+    margin: 0rem 5rem;
+  }
+
+  .how-it-works-card:nth-child(2):after {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 0.125rem;
+    bottom: 8rem;
+    left: -5rem;
+    border-top: 0.0625rem dashed var(--blue-crayola);
+  }
+
+  .how-it-works-card:nth-child(2):before {
+    content: "";
+    position: absolute;
+    width: 5rem;
+    height: 1.125rem;
+    top: 8rem;
+    right: -5rem;
+    border-top: 0.0625rem dashed var(--blue-crayola);
+    border-left: none;
+  }
+}

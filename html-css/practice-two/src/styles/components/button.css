@@ -1,0 +1,28 @@
+.menu-cta-button {
+  padding: 0.9375rem 3.125rem;
+  color: var(--white);
+  background-color: var(--blue-crayola);
+  border: var(--blue-crayola);
+  text-transform: uppercase;
+  transition: 0.4s;
+  font-weight: 700;
+  font-size: var(--small);
+  line-height: var(--small-height);
+}
+
+.menu-cta-button:hover {
+  background-color: var(--celtic-blue);
+}
+
+@media screen and (min-width: 768px) {
+  .menu-cta-button {
+    padding: 0.5rem 2rem;
+    max-height: 3.125rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .menu-cta-button {
+    padding: 0.9375rem 3.125rem;
+  }
+}

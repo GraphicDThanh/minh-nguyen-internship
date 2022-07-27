@@ -1,0 +1,15 @@
+.menu-cta-button {
+  padding: 15px 50px;
+  color: var(--white);
+  background-color: var(--blue-crayola);
+  border: var(--blue-crayola);
+  text-transform: uppercase;
+  transition: 0.4s;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 20px;
+}
+
+.menu-cta-button:hover {
+  background-color: var(--celtic-blue);
+}

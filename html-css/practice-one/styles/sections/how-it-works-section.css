@@ -1,0 +1,78 @@
+.how-it-works-section {
+  padding-top: 60px;
+  min-height: 530px;
+}
+
+.section-title {
+  position: relative;
+}
+
+.card {
+  display: flex;
+}
+
+.whiteglove-section-text {
+  margin: 80px 160px;
+}
+
+.how-it-works-card {
+  max-width: 320px;
+  max-height: 220px;
+  padding: 40px;
+  border: none;
+  box-shadow: 0px 20px 60px var(--box-shadow);
+  position: relative;
+}
+
+.how-it-works-section .card {
+  justify-content: space-between;
+  margin-top: 38px;
+}
+
+.step-name {
+  text-transform: uppercase;
+}
+
+.step-name p:first-child {
+  font-weight: bold;
+}
+
+.step-name p:last-child {
+  color: var(--name-card);
+  font-weight: bold;
+  margin: 0px 0px 20px 0px;
+}
+
+.step {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.how-it-works-card:nth-child(2) {
+  transform: translateY(50px);
+}
+
+.how-it-works-card:last-child {
+  transform: translateY(100px);
+}
+
+.how-it-works-card:nth-child(2):after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 2px;
+  bottom: 125px;
+  left: -74px;
+  border-top: 1px dashed var(--blue-crayola);
+}
+
+.how-it-works-card:nth-child(2):before {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 2px;
+  bottom: 70px;
+  left: 327px;
+  border-top: 1px dashed var(--blue-crayola);
+}
