@@ -8,4 +8,3 @@ const car3 = {
   },
 };
 car3.start();
-

@@ -17,5 +17,5 @@ class Person1 {
     return "Hello, I am " + this.name + ".";
   }
 }
-const flavio1 = new Person1('flavio')
+const flavio1 = new Person1("flavio");
 document.writeln("Case 2: " + flavio.hello());
