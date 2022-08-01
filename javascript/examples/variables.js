@@ -1,4 +1,4 @@
-let y = "hi";
-let x = 5;
+const y = 'hi';
+const x = 5;
 
-document.write(x + " " + y);
+document.write(`${x} ${y}`);

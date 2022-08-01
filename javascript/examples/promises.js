@@ -2,20 +2,20 @@ function myDisplayer(some) {
   document.writeln(some);
 }
 
-let myPromise = new Promise(function (myResolve, myReject) {
-  let x = 0;
-  if (x == 0) {
-    myResolve("OK"); // when successful
+const myPromise = new Promise((myResolve, myReject) => {
+  const x = 0;
+
+  // some code (try to change x to 5)
+
+  if (x === 0) {
+    myResolve('OK');
   } else {
-    myReject("Error"); // when error
+    // eslint-disable-next-line prefer-promise-reject-errors
+    myReject('Error');
   }
 });
 
 myPromise.then(
-  function (value) {
-    myDisplayer(value);
-  },
-  function (error) {
-    myDisplayer(error);
-  }
+  (value) => { myDisplayer(value); },
+  (error) => { myDisplayer(error); },
 );

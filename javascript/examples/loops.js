@@ -1,25 +1,20 @@
-const list = ["a", "b", "c"];
+const list = ['a', 'b', 'c'];
 let i = 0;
 
-//while
-document.writeln("Use while loop: ");
+// while
+document.writeln('Use while loop: ');
 while (i < list.length) {
-  document.writeln(list[i]); //value
-  document.writeln(i); //index
-  i = i + 1;
+  document.writeln(list[i]); // value
+  document.writeln(i); // index
+  i += 1;
 }
-document.writeln("<br>");
+document.writeln('<br>');
 
-//for
-document.writeln("Use for: ");
-for (let i = 0; i < list.length; i++) {
-  document.writeln(list[i]); //value
-  document.writeln(i); //index
+// for
+document.writeln('Use for: ');
+// eslint-disable-next-line no-plusplus
+for (i = 0; i < list.length; i++) {
+  document.writeln(list[i]); // value
+  document.writeln(i); // index
 }
-document.writeln("<br>");
-
-//for...of
-document.writeln("Use for..of: ");
-for (const value of list) {
-  document.writeln(value); //value
-}
+document.writeln('<br>');

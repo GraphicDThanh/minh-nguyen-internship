@@ -1,4 +1,4 @@
-let m = 1 * 2 + ((5 / 2) % 2);
+const m = 1 * 2 + ((5 / 2) % 2);
 document.writeln(m);
 // let m = 1 * 2 + 5 / 2 % 2
 // let m = 2 + 5 / 2 % 2

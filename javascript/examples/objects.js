@@ -1,7 +1,7 @@
 // Create an object:
 const car = {
-  color: "blue",
+  color: 'blue',
   id: 43,
 };
 // Display some data from the object:
-document.writeln("car " + car.color + " have id " + car.id); //'yellow'
+document.writeln(`car ${car.color} have id ${car.id}`); // 'yellow'

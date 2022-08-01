@@ -1,16 +1,16 @@
 // Arithmetic expressions
 const a = 5;
 const b = 3;
-document.writeln(a | b);
+document.writeln(a || b);
 
 // String expressions
-let A = "abc";
-document.writeln(A + "d");
+const A = 'abc';
+document.writeln(`${A}d`);
 
 // Logical expressions
-const c = 5,
-  d = 2,
-  e = "hello";
-document.writeln(a == 5);
-document.writeln(b == "2");
-document.writeln(c == "Hello");
+const c = 5;
+const d = 2;
+const e = 'hello';
+document.writeln(c === 5);
+document.writeln(d === '2');
+document.writeln(e === 'Hello');

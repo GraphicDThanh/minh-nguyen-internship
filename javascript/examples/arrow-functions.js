@@ -1,2 +1,2 @@
-let myFunction = (a, b) => a * b;
+const myFunction = (a, b) => a * b;
 document.writeln(myFunction(4, 5));
