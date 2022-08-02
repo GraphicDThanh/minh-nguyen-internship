@@ -4,8 +4,9 @@ function display(something) {
 }
 
 // sum 2 numbers entered
-function calculator(num1, num2, myCallback) {
-  const sum = num1 + num2;
+function calculator(a, b, myCallback) {
+  const sum = a + b;
+
   myCallback(sum);
 }
 

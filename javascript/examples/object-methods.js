@@ -1,4 +1,4 @@
-const car3 = {
+const car = {
   brand: 'Ford',
   model: 'Fiesta',
   start() {
@@ -7,4 +7,4 @@ const car3 = {
     ${this.brand} ${this.model}`);
   },
 };
-car3.start();
+car.start();

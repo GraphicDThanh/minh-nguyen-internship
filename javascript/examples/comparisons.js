@@ -1,10 +1,14 @@
+// Set value of number qual to 5
+const num = 5;
+
 // Equal to
-const a1 = 5;
-document.writeln(a1 === 5);
+document.writeln(`Equal to: ${num}` === 5);
 document.writeln('<br/>');
+
 // Not Equal
-document.writeln(a1 !== 5);
+document.writeln(`Not Equal: ${num}` !== 5);
 document.writeln('<br/>');
+
 // Strict Equal
-document.writeln(a1 === 2);
+document.writeln(`Strict Equal${num}` === 2);
 document.writeln('<br/>');
