@@ -1,14 +1,25 @@
-/* eslint-disable max-classes-per-file */
-class Person2 {
-  // eslint-disable-next-line class-methods-use-this
-  hello() {
-    return 'Hello, I am a Person';
+// eslint-disable-next-line max-classes-per-file
+class Person {
+  constructor(name) {
+    this.cardname = name;
+  }
+
+  namePerson() {
+    return this.cardname;
   }
 }
-class Programmer extends Person2 {
-  hello() {
-    return `${super.hello()}. I am also a programmer.`;
+
+class Job extends Person {
+  constructor(name, position) {
+    super(name);
+    this.pos = position;
+  }
+
+  show() {
+    return `${this.namePerson()} ${this.pos}`;
   }
 }
-const flavio2 = new Programmer();
-document.writeln(flavio2.hello());
+
+const myPosition = new Job('Hello, I am a Person', 'I am also a programmer');
+
+document.writeln(myPosition.show());

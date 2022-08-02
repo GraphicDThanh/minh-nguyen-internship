@@ -10,8 +10,7 @@ const myPromise = new Promise((myResolve, myReject) => {
   if (x === 0) {
     myResolve('OK');
   } else {
-    // eslint-disable-next-line prefer-promise-reject-errors
-    myReject('Error');
+    myReject(new Error('something bad happened'));
   }
 });
 
