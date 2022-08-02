@@ -12,14 +12,14 @@ class Person {
 class Job extends Person {
   constructor(name, position) {
     super(name);
-    this.pos = position;
+    this.position = position;
   }
 
   show() {
-    return `${this.namePerson()} ${this.pos}`;
+    return `${this.namePerson()} ${this.position}`;
   }
 }
 
 const myPosition = new Job('Hello, I am a Person', 'I am also a programmer');
 
-document.writeln(myPosition.show());
+console.log(myPosition.show());
