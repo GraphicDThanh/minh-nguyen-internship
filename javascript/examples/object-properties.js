@@ -3,13 +3,12 @@ const car1 = {
   brand: 'Ford',
 };
 
-document.writeln('Case 1:');
-document.writeln('<br>');
-
+// Case 1: use dot notation
+document.writeln('Case 1: ');
 document.writeln(`The ${car1.color} car belongs to ${car1.brand}`);
 document.writeln('<br>');
 
-document.writeln('Case 2:');
-document.writeln('<br>');
-
-document.writeln(`The ${car1.color} car belongs to ${car1.brand}`);
+// Case 2: use square brackets
+document.writeln('Case 2: ');
+// eslint-disable-next-line prefer-template, dot-notation
+document.writeln(car1['color'] + 'car belongs to' + car1['brand']);
