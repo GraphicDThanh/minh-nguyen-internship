@@ -1,11 +1,11 @@
 // eslint-disable-next-line max-classes-per-file
 class Person {
   constructor(name) {
-    this.cardname = name;
+    this.cardName = name;
   }
 
   namePerson() {
-    return this.cardname;
+    return this.cardName;
   }
 }
 
