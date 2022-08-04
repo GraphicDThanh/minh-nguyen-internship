@@ -1,8 +1,6 @@
 function setBackground() {
-  const docBody = document.getElementsByTagName('body')[0];
-
-  // Get all the p elements that are descendants of the body
-  const myBodyElements = docBody.getElementsByTagName('p');
+  // Get all the p elements that are descendants
+  const myBodyElements = document.getElementsByTagName('p');
 
   // get the first p elements
   const p1 = myBodyElements[0];
