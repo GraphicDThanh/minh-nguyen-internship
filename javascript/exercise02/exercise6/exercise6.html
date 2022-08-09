@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Change the content of a cell</title>
   </head>
   <body>
     <main>
       <table id="myTable" border="1">
         <tr>
-          <td class="value" id="1">Row1 cell1</td>
-          <td class="value" id="2">Row1 cell2</td>
+          <td class="value">Row1 cell1</td>
+          <td class="value">Row1 cell2</td>
         </tr>
         <tr>
           <td class="value">Row2 cell1</td>
@@ -27,27 +27,6 @@
         <button class="btn">submit</button>
       </form>
     </main>
-    <script>
-      const form = document.querySelector(".form");
-      const items = document.querySelectorAll(".value");
-      items.forEach((item) => {
-        item.addEventListener("click", (e) => {
-          const a = e.target.innerHTML;
-          console.log(a);
-          document.querySelector("#content").value = a;
-          e.target.classList.add("action");
-        });
-
-      });
-      form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const c = document.querySelector(".action");
-          let value = document.querySelector("#content").value;
-          console.log(c, value);
-          c.innerHTML = value;
-          c.classList.toggle('action') 
-        });
-
-    </script>
+    <script src="exercise6.js"></script>
   </body>
 </html>
