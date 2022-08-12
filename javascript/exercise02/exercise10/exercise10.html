@@ -8,16 +8,16 @@
   </head>
   <body>
     <p>Input radius value and get the volume of a sphere</p>
-    <form id="MyForm" onsubmit="return true">
+    <form id="MyForm" onsubmit="return false">
       <label for="radius">Radius</label>
       <br />
-      <input type="text" name="radius" id="radius" required />
+      <input type="text" id="radius" required />
       <br />
       <label for="volume">Volume</label>
       <br>
-      <input type="text" name="volume" id="volume" />
+      <input type="text" id="volume" />
       <br>
-      <input type="submit" value="Calculate" id="submit" />
+      <button onclick="volumeSphere()">Calculate</button>
     </form>
     <script src="exercise10.js"></script>
   </body>
