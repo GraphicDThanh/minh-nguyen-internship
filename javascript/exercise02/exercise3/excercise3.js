@@ -4,9 +4,11 @@ function setBackground() {
 
   // get the first p elements
   const p1 = myBodyElements[0];
+
   p1.style.background = 'aqua';
 
   // get the second p elements
   const p2 = myBodyElements[1];
+
   p2.style.background = 'chartreuse';
 }
