@@ -1,11 +1,19 @@
-table, td, tr {
-    border: 1px solid;
+table,
+td,
+tr,
+th {
+  border: 1px solid;
 }
 
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
+  margin: 15px 0px;
+  width: 100%;
 }
 
-td {
-    padding: 10px;
+td,
+th {
+  padding: 10px;
+  text-align: center;
 }
+
