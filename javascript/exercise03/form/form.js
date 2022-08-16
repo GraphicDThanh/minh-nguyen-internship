@@ -4,7 +4,8 @@ function validateForm() {
   const rePassword = document.myform.reenter.value;
 
   if (name === null || name === '') {
-    alert("Name can't be blank");
+    document.getElementsByClassName("error-mess").style.visibility = 'visible';
+    // alert("Name can't be blank");
     return false;
   } if (password.length < 6) {
     alert('Password must be at least 6 characters long.');

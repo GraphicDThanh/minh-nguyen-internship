@@ -1,11 +1,60 @@
-form {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 20px;
-    width: fit-content;
+body {
+  background-color: purple;
+  background-image: linear-gradient(purple, pink);
+}
+
+.signup {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 200px;
+  margin-bottom: 400px;
+  text-align: center;
+  background-color: rgb(252, 223, 228);
+  box-shadow: 5px 5px 5px purple;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: end;
 }
 
 input {
-    margin: 5px;
+  margin: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+}
+
+.error-mess {
+  visibility: hidden;
+  text-align: end;
+  padding: 5px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    min-width: 100px;
+}
+
+label {
+    margin-right: 15px;
+}
+
+.form-text input.invalid {
+    border-color: blue;
 }

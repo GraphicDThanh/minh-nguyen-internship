@@ -1,23 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Form Sign Up</title>
-</head>
-<body>
-    <form name="myform" method="post" action="abc.jsp" onsubmit="return validateForm()" >  
-    <label for="name">Name:</label> 
-    <input type="text" id="name" autocomplete="name"><br/>  
-    <label for="password">Password:</label>
-    <input type="password" id="password" autocomplete="current-password"><br/>
-    <label for="reenter">Re-enter Password:</label>
-    <input type="password" id="reenter" autocomplete="new-password"><br/>  
-    <input type="submit" value="Register" /> 
-    <input type="button" value="Reset" onclick= "resetData()"/>  
+  </head>
+  <body>
+    <div class="signup">
+      <form name="myform" method="post" onsubmit="validateForm()">
+        <h1>Sign Up</h1>
+        <div class="form-text">
+          <div class="text">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              autocomplete="email"
+              placeholder="minhng271@gmail.com"
+            /><br />
+          </div>
+          <p class="error-mess">Error message</p>
+        </div>
+
+        <div class="form-text">
+          <div class="text">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              autocomplete="name"
+              placeholder="Minh Nguyen"
+            /><br />
+          </div>
+          <p class="error-mess">Error message</p>
+        </div>
+
+        <div class="form-text">
+          <div class="text">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              autocomplete="password"
+              placeholder="password"
+            /><br />
+          </div>
+          <p class="error-mess">Error message</p>
+        </div>
+
+        <div class="form-text">
+          <div class="text">
+            <label for="reenter">Re-enter Password:</label>
+            <input
+              type="password"
+              id="reenter"
+              autocomplete="reenterpassword"
+              placeholder="password"
+            /><br />
+          </div>
+
+          <p class="error-mess">Error message</p>
+        </div>
+
+        <div class="button">
+          <button>Register</button>
+          <button onclick="resetData()">Reset</button>
+        </div>
+      </form>
+    </div>
+    <script src="form.js"></script>
   </body>
-  <script src="form.js"></script>
-</body>
 </html>
