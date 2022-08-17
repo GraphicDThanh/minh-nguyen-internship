@@ -1,27 +1,35 @@
-function validateForm() {
-  const name = document.myform.name.value;
-  const password = document.myform.password.value;
-  const rePassword = document.myform.reenter.value;
+/* eslint-disable no-alert */
+function validateForm(e) {
+  e.preventDefault();
+  const email = document.form.email.value.trim();
+  const name = document.form.name.value.trim();
+  const password = document.form.password.value.trim();
+  const rePassword = document.form.reenter.value.trim();
+  const erorMess = document.createElement('p');
+  erorMess.style.color = 'red';
 
-  if (name === null || name === '') {
-    document.getElementsByClassName("error-mess").style.visibility = 'visible';
-    // alert("Name can't be blank");
-    return false;
-  } if (password.length < 6) {
-    alert('Password must be at least 6 characters long.');
-    return false;
+  // check email conditions
+  const atpos = email.indexOf('@');
+  const dotpos = email.lastIndexOf('.');
+  const emailGroup = document.querySelector('.email');
+  // cannot be left blank
+  if (email === null || email === '') {
+    erorMess.textContent = 'Cannot be left blank.';
+    emailGroup.parentNode.insertBefore(erorMess, emailGroup.nextSibling);
   }
+  if (atpos < 1 || dotpos - atpos < 2) {
+    const emailGroup = document.querySelector('.email');
 
-  if (rePassword === null || rePassword === '') {
-    alert("RePassword can't be blank");
-    return false;
-  } if (rePassword === password) {
-    return true;
+    erorMess.textContent = 'Email adddress wrong format. example: username@somewhere.sth';
+    emailGroup.parentNode.insertBefore(erorMess, emailGroup.nextSibling);
   }
-  alert('rePassword must be same as password!');
-  return false;
+  return true;
 }
 
 function resetData() {
   document.myform.reset();
 }
+
+const formSignup = document.querySelector('.form');
+
+formSignup.addEventListener('submit', (e) => validateForm(e));
