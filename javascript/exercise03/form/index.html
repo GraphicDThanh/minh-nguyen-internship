@@ -9,8 +9,10 @@
   </head>
   <body>
     <div class="form-signup">
-      <form name="form" class="form">
+      <form name="form" id="signup">
         <h1>Sign Up</h1>
+
+        <p id="msg_email" class="err_msg"></p>
         <div class="text-item email">
           <label for="email">Email:</label>
           <input
@@ -21,16 +23,13 @@
           />
         </div>
 
+        <p id="msg_name" class="err_msg"></p>
         <div class="text-item name">
           <label for="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            autocomplete="name"
-            placeholder="Name"
-          />
+          <input type="text" id="name" autocomplete="name" placeholder="Name" />
         </div>
 
+        <p id="msg_pass" class="err_msg"></p>
         <div class="text-item password">
           <label for="password">Password:</label>
           <input
@@ -41,22 +40,24 @@
           />
         </div>
 
+        <p id="msg_rePass" class="err_msg"></p>
         <div class="text-item reenter">
           <label for="reenter">Re-enter Password:</label>
           <input
             type="password"
-            id="reenter"
+            id="repass"
             autocomplete="reenterpassword"
             placeholder="password"
           />
         </div>
 
         <div class="button">
-          <button onclick="validateForm()">Register</button>
-          <button type="reset" onclick="resetData()">Reset</button>
+          <button type="submit">Sign Up</button>
+          <button type="reset">Reset</button>
         </div>
       </form>
     </div>
+    <div id="display_info"></div>
     <script src="form.js"></script>
   </body>
 </html>
