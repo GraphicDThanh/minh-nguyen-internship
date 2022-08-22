@@ -2,7 +2,7 @@ const tasks = [];
 const pomodoroForm = document.querySelector('.add-task');
 const pomodoroTableBody = document.querySelector('.task-table-body');
 
-const renderTasks = function (tBodyNode, tasks = []) {
+const renderTasks = function (tBodyNode) {
   const task = tasks.map(
     (task, id) => `
         <tr>
