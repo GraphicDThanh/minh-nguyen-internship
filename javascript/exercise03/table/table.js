@@ -1,29 +1,29 @@
-let tasks = [];
-const pomodoroForm = document.querySelector(".add-task");
-const pomodoroTableBody = document.querySelector(".task-table-body");
+const tasks = [];
+const pomodoroForm = document.querySelector('.add-task');
+const pomodoroTableBody = document.querySelector('.task-table-body');
 
 const renderTasks = function (tBodyNode, tasks = []) {
-  var task = tasks.map(
+  const task = tasks.map(
     (task, id) => `
         <tr>
             <td class="cell-task-name">${task.taskName}</td>
             <td class="cell-pom-count">${task.pomodoroDone} / ${
-      task.pomodoroCount
-    } pomodori</td>
+  task.pomodoroCount
+} pomodori</td>
             <td class="cell-pom-controls">
             ${
-              task.finished
-                ? "Finished"
-                : `
+  task.finished
+    ? 'Finished'
+    : `
             <button class="task-done" data-id="${id}">Done</button>
             <button class="increase-pomodoro" data-id="${id}">Increase Pomodoro Count</button>`
-            }
+}
             <button class="delete-task" data-id="${id}">Delete Task</button>
             </td>
         </tr>
-    `
+    `,
   );
-  tBodyNode.innerHTML = task.join("");
+  tBodyNode.innerHTML = task.join('');
   addEvent();
 };
 
@@ -32,8 +32,8 @@ const addTask = function (event) {
   event.preventDefault();
 
   // extract form field values
-  const taskName = this.querySelector(".task-name").value;
-  const pomodoroCount = this.querySelector(".pomodoro-count").value;
+  const taskName = this.querySelector('.task-name').value;
+  const pomodoroCount = this.querySelector('.pomodoro-count').value;
 
   // create a new task item by updating the global state
   tasks.push({
@@ -50,7 +50,7 @@ const addTask = function (event) {
   renderTasks(pomodoroTableBody, tasks);
 };
 
-pomodoroForm.addEventListener("submit", addTask);
+pomodoroForm.addEventListener('submit', addTask);
 
 const finishTask = (e) => {
   const taskId = e.target.dataset.id;
@@ -72,14 +72,12 @@ const deleteTask = (e) => {
 
 const addEvent = () => {
   document
-    .querySelectorAll(".task-table-body .increase-pomodoro")
-    .forEach((button) =>
-      button.addEventListener("click", increasePomodoroDone)
-    );
+    .querySelectorAll('.task-table-body .increase-pomodoro')
+    .forEach((button) => button.addEventListener('click', increasePomodoroDone));
   document
-    .querySelectorAll(".task-table-body .task-done")
-    .forEach((button) => button.addEventListener("click", finishTask));
+    .querySelectorAll('.task-table-body .task-done')
+    .forEach((button) => button.addEventListener('click', finishTask));
   document
-    .querySelectorAll(".task-table-body .delete-task")
-    .forEach((button) => button.addEventListener("click", deleteTask));
+    .querySelectorAll('.task-table-body .delete-task')
+    .forEach((button) => button.addEventListener('click', deleteTask));
 };
