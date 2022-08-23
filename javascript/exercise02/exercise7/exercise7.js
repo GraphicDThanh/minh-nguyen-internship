@@ -10,3 +10,6 @@ function createTable() {
     }
   }
 }
+
+const create = document.getElementById('create');
+create.onclick = createTable();

@@ -8,4 +8,4 @@ function setStyle() {
 }
 
 const button = document.querySelector('button');
-button.onclick = setStyle;
+button.onclick = setStyle();

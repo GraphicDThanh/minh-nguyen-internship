@@ -44,3 +44,6 @@ function displayRandomImage() {
   // display the image
   document.body.appendChild(newImage);
 }
+
+const button = document.getElementById('display');
+button.onclick = displayRandomImage();

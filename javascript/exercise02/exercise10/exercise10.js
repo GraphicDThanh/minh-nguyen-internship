@@ -12,3 +12,6 @@ function volumeSphere() {
   const result = document.getElementById('volume');
   result.value = volume;
 }
+
+const button = document.getElementById('calculate');
+button.onclick = volumeSphere();

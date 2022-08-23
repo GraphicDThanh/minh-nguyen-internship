@@ -1,5 +1,7 @@
 function removeColor() {
   const x = document.getElementById('colorSelect');
-  console.log(x);
   x.remove(x.selectedIndex);
 }
+
+const button = document.getElementById('remove');
+button.onclick = removeColor();

@@ -9,5 +9,8 @@ function getOptions() {
     txt = `${txt}\n${x.options[i].text}`;
   }
 
-  alert(txt);
+  document.writeln(txt);
 }
+
+const button = document.getElementById('get');
+button.onclick = getOptions();

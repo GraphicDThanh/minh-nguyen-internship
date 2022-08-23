@@ -8,7 +8,13 @@ function insertRow() {
   z.innerHTML = 'Cell2';
 }
 
+const insertR = document.getElementById('insertRow');
+insertR.onclick = insertRow();
+
 function deleteRow() {
   // delete row when click button
   document.getElementById('sampleTable').deleteRow(0);
 }
+
+const deleteR = document.getElementById('deleteRow');
+deleteR.onclick = deleteRow();

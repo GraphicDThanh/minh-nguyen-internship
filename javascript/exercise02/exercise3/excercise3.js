@@ -12,3 +12,6 @@ function setBackground() {
 
   p2.style.background = 'chartreuse';
 }
+
+const button = document.getElementById('input');
+button.onclick = setBackground();

@@ -20,3 +20,6 @@ function getAttributes() {
   document.writeln('<br>');
   document.writeln(`The value of the type attribute of the link is : ${e}`);
 }
+
+const button = document.querySelector('button');
+button.onclick = getAttributes();

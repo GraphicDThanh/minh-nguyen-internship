@@ -6,4 +6,9 @@ function getFormValue() {
       document(x.elements[i].value);
     }
   }
+
+  document.writeln(x);
 }
+
+const button = document.getElementById('submit');
+button.onclick = getFormValue();
