@@ -1,16 +1,14 @@
-# [Exercise 3 : Form](https://drive.google.com/file/d/1nLypEFH_KzfPhEQcY0W81kmAavQ-rw1k/view)
-### Require:
-Create a client side application that displays a table of tasks with the following columns:
-- Task name (string);
-- Status: number of pomodori done, a slash, the number of pomodori planned, then a space, then the word `pomodori` ;
-- Controls: contains three buttons for each row, `Done` , `Increase Pomodoro Count` , and `Delete` .
+# [Exercise 3 : Form](https://www.cs.uregina.ca/Links/class-info/215/dom2/index.html)
 ### Details:
-- When pressing the `Done` button, the `Done` and the `Increase Pomodoro Count` buttons are replaced by the static text Finished .
-- When pressing `Increase Pomodoro Count` , the number of pomodori done is increased by `1` in the Status column. The initial
-value of the number of pomodori done is zero.
-- When pressing `Delete` , the corresponding row is removed from the table.
-- Create a form that allows you to add a new task. The task name can be any string, and the number of pomodori planned can be
-an integer between `1` and `4` .
+- Create a folder for Lab6
+- In that folder, create an HTML page with a signup form signup.html. Add all support .css and .js files for lab 6 to this folder only.
+- You may use the sample code from the link above. Check the TODO: comments carefully in all files if you do.
+- If you have CSS styling, please use an external CSS file.
+- You will use two external JavaScript files, signup_r.js to register submit and reset events using DOM2 event registration, and validate.js to validate and reset the form.
+- When the SignUp button is clicked, a submit event will be triggered. Your SignUpForm() function must handle the event and provide proper feedback to the user using DOM manipulation.
+- Red text should appear above the field(s) if they have invalid format, are too long or are empty - you are adding regular expression validation to the Lab 5 rules.
+- You should use DOM Operations as much as possible. Use innerHTML only for small changes. See the sample code for an example of what to do.
+The following is an example showing some invalid input messages in red text.
 <p align="center">
  <img align="center" alt="Exercise 3: Form" src="image/exercise3-form.jpg" />
 </p>
