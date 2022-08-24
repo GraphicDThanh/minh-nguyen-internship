@@ -1,7 +1,7 @@
 function removeColor() {
-  const x = document.getElementById('colorSelect');
+  const color = document.getElementById('colorSelect');
 
-  x.remove(x.selectedIndex);
+  color.remove(color.selectedIndex);
 }
 
 const button = document.getElementById('remove');

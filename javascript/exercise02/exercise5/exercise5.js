@@ -1,11 +1,11 @@
 function insertRow() {
   // insert row when click button
-  const x = document.getElementById('sampleTable').insertRow(0);
-  const y = x.insertCell(0);
-  const z = x.insertCell(1);
+  const row = document.getElementById('sampleTable').insertRow(0);
+  const cell1 = row.insertCell(0);
+  const cell2 = row.insertCell(1);
 
-  y.innerHTML = 'Cell1';
-  z.innerHTML = 'Cell2';
+  cell1.innerHTML = 'Cell1';
+  cell2.innerHTML = 'Cell2';
 }
 
 const insertR = document.getElementById('insertRow');

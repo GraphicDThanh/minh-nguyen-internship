@@ -3,14 +3,14 @@ function setBackground() {
   const myBodyElements = document.getElementsByTagName('p');
 
   // get the first p elements
-  const p1 = myBodyElements[0];
+  const paraFirst = myBodyElements[0];
 
-  p1.style.background = 'aqua';
+  paraFirst.style.background = 'aqua';
 
   // get the second p elements
-  const p2 = myBodyElements[1];
+  const paraSecond = myBodyElements[1];
 
-  p2.style.background = 'chartreuse';
+  paraSecond.style.background = 'chartreuse';
 }
 
 const button = document.getElementById('input');

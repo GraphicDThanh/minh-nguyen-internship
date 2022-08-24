@@ -1,24 +1,24 @@
 function getAttributes() {
   // get the value of the href
-  const a = document.getElementById('w3r').href;
+  const hrefLink = document.getElementById('w3r').href;
   // get the value of the hreflang
-  const b = document.getElementById('w3r').hreflang;
+  const hreflangLink = document.getElementById('w3r').hreflang;
   // get the value of the rel
-  const c = document.getElementById('w3r').rel;
+  const relLink = document.getElementById('w3r').rel;
   // get the value of the target
-  const d = document.getElementById('w3r').target;
+  const targetLink = document.getElementById('w3r').target;
   // get the value of the type
-  const e = document.getElementById('w3r').type;
+  const typeLink = document.getElementById('w3r').type;
 
-  document.writeln(`The value of the href attribute of the link is : ${a}`);
+  document.writeln(`The value of the href attribute of the link is : ${hrefLink}`);
   document.writeln('<br>');
-  document.writeln(`The value of the hreflang attribute of the link is : ${b}`);
+  document.writeln(`The value of the hreflang attribute of the link is : ${hreflangLink}`);
   document.writeln('<br>');
-  document.writeln(`The value of the rel attribute of the link is : ${c}`);
+  document.writeln(`The value of the rel attribute of the link is : ${relLink}`);
   document.writeln('<br>');
-  document.writeln(`The value of the taget attribute of the link is : ${d}`);
+  document.writeln(`The value of the taget attribute of the link is : ${targetLink}`);
   document.writeln('<br>');
-  document.writeln(`The value of the type attribute of the link is : ${e}`);
+  document.writeln(`The value of the type attribute of the link is : ${typeLink}`);
 }
 
 const button = document.querySelector('button');
