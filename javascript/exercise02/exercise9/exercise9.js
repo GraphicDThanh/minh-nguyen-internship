@@ -2,8 +2,8 @@ function getOptions() {
   const optionSelect = document.getElementById('mySelect');
   let txt = 'Number of items : ';
   let i;
-  const len = document.getElementById('mySelect').length;
-  txt += len;
+  const countOptions = document.getElementById('mySelect').length;
+  txt += countOptions;
 
   for (i = 0; i < optionSelect.length; i += 1) {
     txt = `${txt}\n${optionSelect.options[i].text}`;

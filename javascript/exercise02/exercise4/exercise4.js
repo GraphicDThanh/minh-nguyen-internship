@@ -1,14 +1,15 @@
 function getAttributes() {
+  const link = document.getElementById('w3r');
   // get the value of the href
-  const hrefLink = document.getElementById('w3r').href;
+  const hrefLink = link.href;
   // get the value of the hreflang
-  const hreflangLink = document.getElementById('w3r').hreflang;
+  const hreflangLink = link.hreflang;
   // get the value of the rel
-  const relLink = document.getElementById('w3r').rel;
+  const relLink = link.rel;
   // get the value of the target
-  const targetLink = document.getElementById('w3r').target;
+  const targetLink = link.target;
   // get the value of the type
-  const typeLink = document.getElementById('w3r').type;
+  const typeLink = link.type;
 
   document.writeln(`The value of the href attribute of the link is : ${hrefLink}`);
   document.writeln('<br>');

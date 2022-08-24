@@ -7,7 +7,7 @@ function getFormValue() {
     }
   }
 
-  document.writeln(valueForm);
+  console.log(valueForm);
 }
 
 const button = document.getElementById('submit');
