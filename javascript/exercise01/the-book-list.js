@@ -15,6 +15,7 @@ const books = [
 for (let i = 0; i < books.length; i += 1) {
   const bookP = document.createElement('p');
   const bookDescription = document.createTextNode(`${books[i].title} by ${books[i].author}`);
+
   bookP.appendChild(bookDescription);
   document.body.appendChild(bookP);
 }
@@ -23,14 +24,14 @@ for (let i = 0; i < books.length; i += 1) {
 const bookList = document.createElement('ul');
 for (let i = 0; i < books.length; i += 1) {
   const bookItem = document.createElement('li');
+  const bookImg = document.createElement('img');
+  const bookDescription = document.createTextNode(` ${books[i].title} by ${books[i].author}`);
 
   // Bonus: Add an img element for each book on the page.
-  const bookImg = document.createElement('img');
   bookImg.src = books[i].img;
   bookItem.appendChild(bookImg);
 
   // Book title and author and append it to the page.
-  const bookDescription = document.createTextNode(` ${books[i].title} by ${books[i].author}`);
   bookItem.appendChild(bookDescription);
 
   // Bonus: Change the style of the book depending on whether you have read it or not.

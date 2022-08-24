@@ -5,6 +5,7 @@ const items = document.querySelectorAll('.value');
 items.forEach((item) => {
   item.addEventListener('click', (e) => {
     const text = e.target.innerHTML;
+
     document.querySelector('#content').value = text;
     e.target.classList.add('action');
   });
@@ -15,6 +16,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const editedText = document.querySelector('.action');
   const { value } = document.querySelector('#content');
+
   editedText.innerHTML = value;
   editedText.classList.toggle('action');
 });

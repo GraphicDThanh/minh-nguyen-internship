@@ -14,4 +14,5 @@ function setBackground() {
 }
 
 const button = document.getElementById('input');
+
 button.onclick = setBackground();

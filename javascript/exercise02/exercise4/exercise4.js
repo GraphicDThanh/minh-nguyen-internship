@@ -22,4 +22,5 @@ function getAttributes() {
 }
 
 const button = document.querySelector('button');
+
 button.onclick = getAttributes();

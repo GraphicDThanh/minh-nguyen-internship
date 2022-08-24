@@ -11,4 +11,5 @@ function getFormValue() {
 }
 
 const button = document.getElementById('submit');
+
 button.onclick = getFormValue();

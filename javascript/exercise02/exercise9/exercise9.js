@@ -13,4 +13,5 @@ function getOptions() {
 }
 
 const button = document.getElementById('get');
+
 button.onclick = getOptions();

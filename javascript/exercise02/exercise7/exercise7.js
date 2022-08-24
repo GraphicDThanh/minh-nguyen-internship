@@ -4,12 +4,15 @@ function createTable() {
 
   for (let r = 0; r < row; r += 1) {
     const x = document.getElementById('myTable').insertRow(r);
+
     for (let c = 0; c < column; c += 1) {
       const y = x.insertCell(c);
+
       y.innerHTML = `Row-${r} Column-${c}`;
     }
   }
 }
 
 const create = document.getElementById('create');
+
 create.onclick = createTable();

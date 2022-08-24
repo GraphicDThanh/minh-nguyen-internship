@@ -54,18 +54,21 @@ pomodoroForm.addEventListener('submit', addTask);
 
 const finishTask = (e) => {
   const taskId = e.target.dataset.id;
+
   tasks[taskId].finished = true;
   renderTasks(pomodoroTableBody, tasks);
 };
 
 const increasePomodoroDone = (e) => {
   const taskId = e.target.dataset.id;
+
   tasks[taskId].pomodoroDone += 1;
   renderTasks(pomodoroTableBody, tasks);
 };
 
 const deleteTask = (e) => {
   const taskId = e.target.dataset.id;
+
   tasks.splice(taskId, 1);
   renderTasks(pomodoroTableBody, tasks);
 };

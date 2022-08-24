@@ -17,4 +17,5 @@ function deleteRow() {
 }
 
 const deleteR = document.getElementById('deleteRow');
+
 deleteR.onclick = deleteRow();
