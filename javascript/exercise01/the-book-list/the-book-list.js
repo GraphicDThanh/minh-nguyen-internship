@@ -22,6 +22,7 @@ for (let i = 0; i < books.length; i += 1) {
 
 // Bonus: Use a ul and li to display the books.
 const bookList = document.createElement('ul');
+
 for (let i = 0; i < books.length; i += 1) {
   const bookItem = document.createElement('li');
   const bookImg = document.createElement('img');
@@ -35,9 +36,10 @@ for (let i = 0; i < books.length; i += 1) {
   bookItem.appendChild(bookDescription);
 
   // Bonus: Change the style of the book depending on whether you have read it or not.
-  if (books[i].alreadyRead === false) {
+  if (!books[i].alreadyRead) {
     bookItem.style.color = 'red';
   }
+
   bookList.appendChild(bookItem);
 }
 
