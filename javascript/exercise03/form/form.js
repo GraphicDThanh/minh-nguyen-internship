@@ -5,7 +5,7 @@ const rePass = document.getElementById('repass');
 
 // Validate Email
 function validateEmail(input) {
-  const msgEmail = document.getElementById('msg_email');
+  const msgEmail = document.getElementById('msg-email');
   const validRegex = /^[a-zA-Z0-9.]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   // case 1: leave the input field blank
@@ -27,7 +27,7 @@ function validateEmail(input) {
 
 // Validate Username
 function validateUsername(input) {
-  const msgName = document.getElementById('msg_name');
+  const msgName = document.getElementById('msg-name');
   const validRegex = /^[a-zA-Z0-9_-]*$/;
 
   // case 1: leave the input field blank
@@ -55,7 +55,7 @@ function validateUsername(input) {
 
 // Validate Password
 function validatePassword(input) {
-  const msgPass = document.getElementById('msg_pass');
+  const msgPass = document.getElementById('msg-pass');
   const validRegex = /^[a-zA-Z0-9]*$/;
 
   // case 1: leave the input field blank
@@ -77,7 +77,7 @@ function validatePassword(input) {
 
 // Validate Re-Password
 function validateRePassword(inputPass, inputRePass) {
-  const msgrePass = document.getElementById('msg_rePass');
+  const msgrePass = document.getElementById('msg-rePass');
 
   // Pass and repass must match
   if (inputPass.value === inputRePass.value) {
@@ -92,7 +92,7 @@ function validateRePassword(inputPass, inputRePass) {
 const validate = (event) => {
   event.preventDefault();
 
-  const displayInfo = document.getElementById('display_info');
+  const displayInfo = document.getElementById('display-info');
   const validEmail = validateEmail(email);
   const validUname = validateUsername(uname);
   const validPass = validatePassword(pass);
