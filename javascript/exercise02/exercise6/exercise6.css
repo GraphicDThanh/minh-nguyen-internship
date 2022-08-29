@@ -1,0 +1,15 @@
+table,
+td,
+tr {
+  border: 1px solid;
+}
+
+table {
+  border-collapse: collapse;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+td {
+  padding: 15px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Table</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Task name</th>
+          <th>Status (done / planned)</th>
+          <th>Controls</th>
+        </tr>
+      </thead>
+      <tbody class="task-table-body"></tbody>
+    </table>
+    <form class="add-task" action="javascript:void(0)">
+      <input
+        type="text"
+        name="task-name"
+        class="task-name"
+        placeholder="Task Name"
+      />
+      <select name="pomodoro-count" class="pomodoro-count">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <input type="submit" />
+    </form>
+    <script src="table.js"></script>
+  </body>
+</html>
