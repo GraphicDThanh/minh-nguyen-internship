@@ -1,5 +1,5 @@
 const email = document.getElementById('email');
-const uname = document.getElementById('name');
+const uname = document.getElementById('username');
 const pass = document.getElementById('password');
 const rePass = document.getElementById('repass');
 
@@ -27,7 +27,7 @@ function validateEmail(input) {
 
 // Validate Username
 function validateUsername(input) {
-  const msgName = document.getElementById('msg-name');
+  const msgName = document.getElementById('msg-username');
   const validRegex = /^[a-zA-Z0-9_-]*$/;
 
   // case 1: leave the input field blank
