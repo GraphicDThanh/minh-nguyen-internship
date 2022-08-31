@@ -17,7 +17,7 @@
 ### Information:
 
 - Timeline:
-  - Estimate time: 3 days.
+  - Estimate time: 4 days.
 - Technical:
   - HTML5/CSS3
   - JavaScript
@@ -45,19 +45,38 @@
 - Users always see the total number of active tasks currently on the web
 - User can clear all tasks completed
 
-### Getting started:
+### Requirement
+The device must have node package manager installed
 
-- Step 1: Cloning the repo
 
-  - Main repo:
-    - HTTPS: `$ git clone -b feat/big-practice https://github.com/GraphicDThanh/minh-nguyen-internship.git`
-    - SSH: `$ git clone -b feature/big-practice git@github.com:GraphicDThanh/minh-nguyen-internship.git`
-  - Sub repo: Update later.
-
-- Step 2: Go to the folder big-practice `cd javascript/big-practice`
-
-- Step 3: Install package `npm install`
-
-- Step 4: Run project `npm run dev` 
-
-- Step 5: Open http://localhost:1234/ in your browser to see the HTML file.
+### Getting started
+- Clone repo
+    - HTTPS: 
+      ```
+      $ git clone https://github.com/GraphicDThanh/minh-nguyen-internship.git
+      ```
+    - SSH: 
+      ```
+      $ git clone git@github.com:GraphicDThanh/minh-nguyen-internship.git
+      ```
+- Move to minh-nguyen-internship folder 
+   ```
+   $ cd ./minh-nguyen-internship/
+   ```
+- Switch to branch feat/big-practice
+   ```
+   $ git checkout feat/big-practice
+   ```
+- Move to big practice folder
+   ```
+   $ cd ./javascript/big-practice/
+   ```
+- Install npm 
+   ```
+   npm install
+   ```
+- Run Project
+   ```
+   npm run start
+   ```
+- Open localhost:5000 to see the website in the browser you use
