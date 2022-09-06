@@ -3,13 +3,13 @@ export default class TodoListModel {
     // array
     tasks: [
       {
-        "id": 1,
-        "name": "todo"
-      }
-    ]
+        id: 1,
+        name: "todo",
+      },
+    ];
   }
 
   //method
-  addTask(){}
-  removeTask(){}
+  addTask() {}
+  removeTask() {}
 }

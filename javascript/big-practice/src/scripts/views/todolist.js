@@ -4,9 +4,7 @@ export default class TodoListView {
   }
 
   renders(tasks) {
-    let domTasks = task.map(
-      (task) => `<p>${task.taskName}</p>`
-    );
-    this.view.wrapper.innerHTML = task.join('');
+    let domTasks = task.map((task) => `<p>${task.taskName}</p>`);
+    this.view.wrapper.innerHTML = task.join("");
   }
 }
