@@ -1,8 +1,5 @@
 export default class TodoItemModel {
-  constructor(name) {
-    name: this.name;
-    isDone: false;
-  }
+  constructor() {}
 
   isDone() {
     this.idDone = true;

@@ -1,10 +1,23 @@
 export default class TodoListModel {
   constructor() {
-    // array
-    tasks: [
+    const todos = [
       {
         id: 1,
-        name: "todo",
+        text: "todo 1",
+        isCompleted: true,
+        status: "Completed",
+      },
+      {
+        id: 2,
+        text: "todo 2",
+        isCompleted: false,
+        status: "Active",
+      },
+      {
+        id: 3,
+        text: "todo 3",
+        isCompleted: true,
+        status: "Completed",
       },
     ];
   }
