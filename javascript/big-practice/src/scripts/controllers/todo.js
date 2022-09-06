@@ -3,8 +3,4 @@ export default class TodoItemController {
     this.model = model;
     this.view = view;
   }
-
-  init() {
-    this.view.renders(this.model.view);
-  }
 }
