@@ -4,5 +4,5 @@
 }
 
 .todo-count strong {
-  font-weight: 300;
+  font-weight: var(--font-regular);
 }
