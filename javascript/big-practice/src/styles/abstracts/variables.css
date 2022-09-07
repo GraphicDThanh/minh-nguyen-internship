@@ -3,8 +3,12 @@
   --background: #f5f5f5;
   --text: #4d4d4d;
   --title:  rgba(175, 47, 47, 0.15);
+  --button: #777;
+  --filter-select: rgba(175, 47, 47, 0.1);
+  --platinum : #e6e6e6;
+  --white: #fff; 
 
   /* Font weight */
+  --font-light: 100;
   --font-regular: 300;
-  
 }
