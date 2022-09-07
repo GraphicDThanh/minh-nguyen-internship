@@ -1,0 +1,10 @@
+:root {
+  /* Color */
+  --background: #f5f5f5;
+  --text: #4d4d4d;
+  --title:  rgba(175, 47, 47, 0.15);
+
+  /* Font weight */
+  --font-regular: 300;
+  
+}
