@@ -1,5 +1,5 @@
 .todoapp {
-  background: #fff;
+  background: var(--white);
   margin: 130px 0 40px 0;
   position: relative;
 }
@@ -9,7 +9,7 @@
   top: -80px;
   width: 100%;
   font-size: 100px;
-  font-weight: 100;
+  font-weight: var(--font-light);
   text-align: center;
   color: var(--title);
 }
