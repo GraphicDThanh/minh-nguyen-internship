@@ -1,6 +1,6 @@
 .todoapp input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   font-style: italic;
-  font-weight: 300;
-  color: #e6e6e6;
+  font-weight: var(--font-regular);
+  color: var(--platinum);
 }
