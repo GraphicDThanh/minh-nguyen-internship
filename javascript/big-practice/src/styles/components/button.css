@@ -1,11 +1,8 @@
 button {
-  margin: 0;
-  padding: 0;
   border: 0;
   background: none;
-  font-size: 100%;
   font-weight: var(--font-regular);
-  color: #777;
+  color: var(--button);
   appearance: none;
 }
 
