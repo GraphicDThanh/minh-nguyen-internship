@@ -2,18 +2,41 @@ button {
   border: 0;
   background: none;
   font-weight: var(--font-regular);
-  color: var(--button);
-  appearance: none;
+  color: var(--grey-dark);
 }
 
 .clear-completed {
-  float: right; 
-  position: relative;
   line-height: 20px;
-  text-decoration: none;
   cursor: pointer;
 }
 
 .clear-completed:hover {
   text-decoration: underline;
+}
+
+.filters {
+  display: flex;
+}
+
+.footer-list-task {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters li button {
+  color: var(--grey-dark);
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 3px;
+  margin: 0px 5px;
+}
+
+.filters li button:hover {
+  border-color: var(--metallic-red);
+}
+
+.filters li button.selected {
+  border-color: var(--filter-select);
 }
