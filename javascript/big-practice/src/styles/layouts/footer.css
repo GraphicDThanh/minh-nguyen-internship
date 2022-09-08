@@ -1,6 +1,4 @@
-.footer {
-  padding: 10px 15px;
-  height: 20px;
+footer {
   text-align: center;
-  border-top: 1px solid var(--platinum);
+  color: var(--grey);
 }
