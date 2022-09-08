@@ -1,3 +1,18 @@
-h1 {
-  color: red;
-}
+/* basic css files shared for the whole project */
+@import url(base/reset.css);
+@import url(base/global.css);
+
+/* css files defined for use in the project */
+@import url(abstracts/variables.css);
+
+/* css for components */
+@import url(components/button.css);
+@import url(components/toggle.css);
+@import url(components/input.css);
+@import url(components/logo.css);
+
+/* css for section */
+@import url(layouts/header.css);
+@import url(layouts/main-content.css);
+@import url(layouts/todos.css);
+@import url(layouts/footer.css);

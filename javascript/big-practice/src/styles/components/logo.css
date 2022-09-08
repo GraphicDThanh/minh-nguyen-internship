@@ -1,0 +1,8 @@
+.logo {
+  font-size: 100px;
+  font-weight: var(--font-light);
+  line-height: 1;
+  text-align: center;
+  color: var(--metallic-red-dark);
+  margin: 20px;
+}

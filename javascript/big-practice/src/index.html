@@ -1,14 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/main.css">
-  <title>todomvc</title>
-</head>
-<body>
-  <h1>abc</h1>
-  <script src="scripts/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script src="scripts/main.js"></script>
+    <title>Todo MVC</title>
+  </head>
+  <body>
+    <section class="todos">
+      <header>
+        <h1 class="logo">todos</h1>
+      </header>
+      <main class="main-content">
+        <form class="add-task">
+          <input
+            class="new-todo"
+            placeholder="What needs to be done?"
+            autofocus
+          />
+          <input id="toggle-all" class="toggle-all" type="checkbox" />
+          <label for="toggle-all"></label>
+        </form>
+        <ul class="todo-list">
+          <li class="completed">
+            <div class="todo-item">
+              <input class="toggle" type="checkbox" checked="">
+              <label>Java</label>
+              <button class="destroy"></button>
+            </div>
+          </li>
+          <li>
+            <div class="todo-item">
+              <input class="toggle" type="checkbox" checked="">
+              <label>C plus</label>
+              <button class="destroy"></button>
+            </div>
+          </li>
+        </ul>
+        <div class="footer-list-task">
+          <span class="todo-count"></span>
+          <ul class="filters">
+            <li>
+              <button class="selected">All</button>
+            </li>
+            <li>
+              <button>Active</button>
+            </li>
+            <li>
+              <button>Completed</button>
+            </li>
+          </ul>
+          <button class="clear-completed">Clear completed</button>
+        </div>
+      </main>
+      <footer>
+        <p>Double-click to edit a todo</p>
+      </footer>
+    </section>
+  </body>
 </html>
