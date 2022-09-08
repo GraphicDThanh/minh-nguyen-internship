@@ -9,6 +9,7 @@
 @import url(components/button.css);
 @import url(components/toggle.css);
 @import url(components/input.css);
+@import url(components/logo.css);
 
 /* css for section */
 @import url(layouts/header.css);

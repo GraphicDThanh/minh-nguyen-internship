@@ -1,7 +1,6 @@
 .todos {
   font-size: 14px;
   font-weight: var(--font-regular);
-  line-height: 22px;
   color: var(--normal);
   max-width: 550px;
   margin: auto;

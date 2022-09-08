@@ -1,7 +1,7 @@
 /* main-content */
 .main-content {
   background: var(--white);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   box-shadow: 0 2px 4px 0 var(--dark-02), 0 25px 50px 0 var(--dark-01);
 }
 
@@ -11,15 +11,66 @@
 }
 
 /* todo-list */
-.todo-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 .todo-list li {
   font-size: 24px;
   border-bottom: 1px solid var(--grey-light);
+}
+
+.todo-list li {
+	position: relative;
+	font-size: 24px;
+	border-bottom: 1px solid var(--grey-light);
+}
+
+.todo-list li .toggle {
+	text-align: center;
+	width: 40px;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+
+.todo-list li .toggle {
+	opacity: 0;
+}
+
+.todo-list li label {
+	padding: 15px 15px 15px 60px;
+	display: block;
+	transition: 0.4s;
+}
+
+.todo-list li.completed label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+.todo-list li .destroy {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+	margin-bottom: 11px;
+	transition: 0.2s;
+}
+
+.todo-list li .destroy:hover {
+	color: #af5b5e;
+}
+
+.todo-list li .destroy:after {
+	content: '×';
+}
+
+.todo-list li:hover .destroy {
+	display: block;
 }
 
 /* footer-list-task */

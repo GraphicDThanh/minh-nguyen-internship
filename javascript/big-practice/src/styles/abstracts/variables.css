@@ -2,10 +2,10 @@
   /* Color */
   --primary-light: rgb(245, 245, 245);
   --primary-dark: rgb(246, 246, 246);
-  --normal: #4d4d4d;
+  --normal: rgb(77, 77, 77);
 
-  --platinum: #e6e6e6;
-  --white: #fff;
+  --platinum: rgb(230, 230, 230);
+  --white: rgb(255, 255, 255);
 
   --metallic-red: rgba(175, 47, 47, 0.102);
   --metallic-red-dark: rgba(175, 47, 47, 0.149);
