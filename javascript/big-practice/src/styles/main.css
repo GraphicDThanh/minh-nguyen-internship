@@ -8,10 +8,10 @@
 /* css for components */
 @import url(components/button.css);
 @import url(components/toggle.css);
-@import url(components/filter.css);
 @import url(components/input.css);
 
 /* css for section */
-@import url(layouts/list-task.css);
-@import url(layouts/todoapp.css);
+@import url(layouts/header.css);
+@import url(layouts/main-content.css);
+@import url(layouts/todos.css);
 @import url(layouts/footer.css);
