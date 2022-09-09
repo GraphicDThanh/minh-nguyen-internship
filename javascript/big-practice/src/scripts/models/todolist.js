@@ -1,3 +1,5 @@
+import TodoItemModel from './todo';
+
 export default class TodoListModel {
   constructor() {
     const todos = [
@@ -22,7 +24,14 @@ export default class TodoListModel {
     ];
   }
 
-  //method
-  addTask() {}
-  removeTask() {}
+  // add todo
+  addTodo(todoText) {
+    const todoAdded = {
+      id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+      text: todoText,
+      isCompleted: false,
+    };
+    const task = new TodoItemModel(taskData);
+    this.TodoListModel.push(task);
+  }
 }

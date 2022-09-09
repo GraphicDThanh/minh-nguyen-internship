@@ -1,9 +1,8 @@
 export default class TodoItemModel {
-  constructor() {}
-
-  isDone() {
-    this.idDone = true;
+  constructor(todoAdded) {
+    const {id, text, isCompleted} = todoAdded;
+    this.id = id;
+    this.text = taskName;
+    this.isCompleted = isCompleted;
   }
-
-  addTodo(todoText) {}
 }
