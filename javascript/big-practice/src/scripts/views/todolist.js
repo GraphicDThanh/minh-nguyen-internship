@@ -1,13 +1,12 @@
 export default class TodoListView {
-  constructor() {
-    // this.taskView = TodoItemView;
-
+  constructor(TodoItemView) {
+    this.taskView = TodoItemView;
     // todo list element
-    this.todoList = document.getElementsByClassName('todo-list');
+    this.todoList = document.querySelector('.todo-list');
 
     // add todo
-    this.addTaskForm = document.getElementsByClassName('add-task');
-    this.inputTaskName = document.getElementsByClassName('new-todo');
+    this.addTaskForm = document.querySelector('.add-task');
+    this.inputTaskName = document.querySelector('.new-todo');
   }
 
   gettodoText() {
@@ -22,12 +21,11 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(todoList) {
+  displayTaskList(listElement) {
     // Create new nodes
-    todoList.forEach((task) => {
-      const taskElement = this.todoItemView.renderTask(task);
-      this.todoList.appendChild(taskElement);
-    });
+    const array = listElement.map((task) => this.taskView.renderTask(task));
+
+    this.todoList.innerHTML = array.join('');
   }
 
   /**
@@ -37,9 +35,8 @@ export default class TodoListView {
   bindAddTodo(handler) {
     this.addTaskForm.addEventListener('submit', (event) => {
       event.preventDefault();
-
-      if (this.todoText) {
-        handler(this.gettodoText);
+      if (this.gettodoText()) {
+        handler(this.gettodoText());
         this.resetInput();
       }
     });
