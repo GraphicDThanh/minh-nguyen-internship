@@ -11,6 +11,6 @@ const todoListModel = new TodoListModel();
 const todoItemView = new TodoItemView();
 const todoListView = new TodoListView(todoItemView);
 
-const todoListController = new TodoListController(todoListView, todoListModel);
+const todoListController = new TodoListController(todoListModel, todoListView);
 
 todoListController.init();
