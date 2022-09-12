@@ -1,11 +1,16 @@
 // import todo list file
 import TodoListController from './controllers/todolist';
 import TodoListModel from './models/todolist';
-import TodoListView from './views/todo';
-
-// import todo item file
-import TodoItemModel from './models/todo';
+import TodoListView from './views/todolist';
+// import TodoItemModel from './models/todo';
 import TodoItemView from './views/todo';
 
-const controllersList = new TodoListController(new TodoListModel(new TodoItemModel), new TodoListView(new TodoItemView));
-controllerList.init();
+// const todoItemModel =  new TodoItemModel();
+const todoListModel = new TodoListModel();
+
+const todoItemView = new TodoItemView();
+const todoListView = new TodoListView(todoItemView);
+
+const todoListController = new TodoListController(todoListView, todoListModel);
+
+todoListController.init();
