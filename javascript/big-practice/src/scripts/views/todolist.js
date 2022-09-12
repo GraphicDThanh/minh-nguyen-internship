@@ -1,36 +1,31 @@
 export default class TodoListView {
-  constructor(taskView) {
-    this.taskView = taskView;
+  constructor() {
+    // this.taskView = TodoItemView;
 
     // todo list element
-    this.todoList = getElementsByClassName("todo-list");
+    this.todoList = document.getElementsByClassName('todo-list');
 
     // add todo
-    this.addTaskForm = getElementsByClassName("add-task");
-    this.inputTaskName = getElementsByClassName("new-todo");
+    this.addTaskForm = document.getElementsByClassName('add-task');
+    this.inputTaskName = document.getElementsByClassName('new-todo');
   }
 
-  get _todoText() {
-    return this.input.value;
+  gettodoText() {
+    return this.inputTaskName.value;
   }
 
-  _resetInput() {
-    this.input.value = "";
+  resetInput() {
+    this.input.value = '';
   }
 
   /**
    * Render task list table
-   * @param {array} taskListModel / task list array
-   * @param {number} selectedTaskId / selected task id
+   * @param {array} todoList // task list array
    */
-  displayTaskList(taskListModel, handlers) {
+  displayTaskList(todoList) {
     // Create new nodes
-    taskListModel.forEach((task) => {
-      const taskElement = this.taskView.renderTask(
-        task,
-        this.selectedId,
-        handlers
-      );
+    todoList.forEach((task) => {
+      const taskElement = this.todoItemView.renderTask(task);
       this.todoList.appendChild(taskElement);
     });
   }
@@ -40,12 +35,12 @@ export default class TodoListView {
    * @param {function} handler
    */
   bindAddTodo(handler) {
-    this.input.addEventListener("keyup", (e) => {
-      if (e.which === this.ENTER_KEY) {
-        if (this._todoText) {
-          handler(this._todoText);
-          this._resetInput();
-        }
+    this.addTaskForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (this.todoText) {
+        handler(this.gettodoText);
+        this.resetInput();
       }
     });
   }
