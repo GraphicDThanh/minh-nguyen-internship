@@ -2,24 +2,24 @@ import TodoItemModel from './todo';
 
 export default class TodoListModel {
   constructor() {
-    const todos = [
+    this.todos = [
       {
         id: 1,
-        text: "todo 1",
+        text: 'todo 1',
         isCompleted: true,
-        status: "Completed",
+        status: 'Completed',
       },
       {
         id: 2,
-        text: "todo 2",
+        text: 'todo 2',
         isCompleted: false,
-        status: "Active",
+        status: 'Active',
       },
       {
         id: 3,
-        text: "todo 3",
+        text: 'todo 3',
         isCompleted: true,
-        status: "Completed",
+        status: 'Completed',
       },
     ];
   }
@@ -31,7 +31,7 @@ export default class TodoListModel {
       text: todoText,
       isCompleted: false,
     };
-    const task = new TodoItemModel(taskData);
-    this.TodoListModel.push(task);
+    const task = new TodoItemModel(todoAdded);
+    this.todos.push(task);
   }
 }
