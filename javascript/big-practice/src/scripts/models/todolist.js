@@ -5,19 +5,19 @@ export default class TodoListModel {
     this.todos = [
       {
         id: 1,
-        text: 'todo 1',
+        taskName: 'todo 1',
         isCompleted: true,
         status: 'Completed',
       },
       {
         id: 2,
-        text: 'todo 2',
+        taskName: 'todo 2',
         isCompleted: false,
         status: 'Active',
       },
       {
         id: 3,
-        text: 'todo 3',
+        taskName: 'todo 3',
         isCompleted: true,
         status: 'Completed',
       },
