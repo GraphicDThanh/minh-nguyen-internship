@@ -1,4 +1,4 @@
-import TodoItemModel from './todo';
+import TodoItemModel from './toDoItemModel';
 
 export default class TodoListModel {
   constructor() {

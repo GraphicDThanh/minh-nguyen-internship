@@ -25,7 +25,7 @@ export default class TodoListView {
   }
 
   /**
-   * Add event 'keyup' for element input
+   * Add event 'submit' for element form
    * @param {function} handler
    */
   bindAddTodo(handler) {
