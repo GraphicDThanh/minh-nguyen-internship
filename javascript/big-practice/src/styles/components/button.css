@@ -30,6 +30,7 @@ button {
   border: 1px solid transparent;
 	border-radius: 3px;
   margin: 0px 5px;
+  cursor: pointer;
 }
 
 .filters li button:hover {
