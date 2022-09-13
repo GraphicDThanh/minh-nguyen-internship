@@ -16,7 +16,7 @@ export default class TodoItemView {
     const taskElement = `
       <li id=${task.id}>
       <div class = 'view'>
-        <input class='check-box' id='${task.id}-check-box' type='checkbox' ${
+        <input class='toggle' id='${task.id}-toggle' type='checkbox' ${
       task.taskDone ? 'checked' : ''
     }/>
         <label>${task.taskName}</label>

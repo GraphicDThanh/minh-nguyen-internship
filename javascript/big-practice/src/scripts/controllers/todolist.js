@@ -5,14 +5,16 @@ export default class TodoListController {
   }
 
   init() {
-    this.view.displayTaskList(this.model.todos);
     // Explicit this binding
-    this.view.bindAddTodo(this.onAddTask);
+    this.view.displayTaskList(this.model.todos);
+    this.view.bindAddTodo(() => {
+      this.onAddTask(this.view.todoText);
+    });
   }
 
   // Handle add task
   onAddTask(todoText) {
-    this.model.onAddTask(todoText);
+    this.model.addTodo(todoText);
     this.view.displayTaskList(this.model.todos);
   }
 }

@@ -9,12 +9,8 @@ export default class TodoListView {
     this.inputTaskName = document.querySelector('.new-todo');
   }
 
-  gettodoText() {
+  get todoText() {
     return this.inputTaskName.value;
-  }
-
-  resetInput() {
-    this.input.value = '';
   }
 
   /**
@@ -35,9 +31,10 @@ export default class TodoListView {
   bindAddTodo(handler) {
     this.addTaskForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      if (this.gettodoText()) {
-        handler(this.gettodoText());
-        this.resetInput();
+
+      if (this.todoText) {
+        handler(this.todoText);
+        this.addTaskForm.reset();
       }
     });
   }
