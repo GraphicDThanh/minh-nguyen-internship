@@ -17,7 +17,7 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList = (listElement) => {
+  displayTaskList(listElement) {
     // Create new nodes
     const array = listElement.map((task) => this.taskView.renderTask(task));
 
@@ -28,7 +28,7 @@ export default class TodoListView {
    * Add event 'submit' for element form
    * @param {function} handler
    */
-  bindAddTodo = (handler) => {
+  bindAddTodo(handler) {
     this.addTaskForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
