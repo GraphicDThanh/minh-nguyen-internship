@@ -21,7 +21,7 @@ export default class TodoListModel {
     ];
   }
 
-  // add todo
+  // add task todo
   addTodo(todoText) {
     const todoAdded = {
       id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
@@ -30,5 +30,16 @@ export default class TodoListModel {
     };
     const task = new TodoItemModel(todoAdded);
     this.todos.push(task);
+  }
+
+  // delete task
+  deleteTodo(id) {
+    this.taskListModel.forEach((todos) => {
+      if (todos.id === id) {
+        if (this.selectedTask === id) {
+          this.selectedTask = null;
+        }
+      }
+    });
   }
 }
