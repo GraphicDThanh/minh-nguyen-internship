@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/main.css" />
-    <script src="scripts/main.js"></script>
+    <script type="module" src="scripts/main.js"></script>
     <title>Todo MVC</title>
   </head>
   <body>
@@ -25,14 +25,14 @@
         </form>
         <ul class="todo-list">
           <li class="completed">
-            <div class="todo-item">
+            <div class="view">
               <input class="toggle" type="checkbox" checked="">
               <label>Java</label>
               <button class="destroy"></button>
             </div>
           </li>
           <li>
-            <div class="todo-item">
+            <div class="view">
               <input class="toggle" type="checkbox" checked="">
               <label>C plus</label>
               <button class="destroy"></button>
@@ -43,13 +43,13 @@
           <span class="todo-count"></span>
           <ul class="filters">
             <li>
-              <button class="selected">All</button>
+              <button id="all" class="selected">All</button>
             </li>
             <li>
-              <button>Active</button>
+              <button id="active">Active</button>
             </li>
             <li>
-              <button>Completed</button>
+              <button id="completed">Completed</button>
             </li>
           </ul>
           <button class="clear-completed">Clear completed</button>
