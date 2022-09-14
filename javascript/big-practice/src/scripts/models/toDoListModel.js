@@ -22,7 +22,7 @@ export default class TodoListModel {
   }
 
   // add todo
-  addTodo(todoText) {
+  addTodo = (todoText) => {
     const todoAdded = {
       id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
       taskName: todoText,
