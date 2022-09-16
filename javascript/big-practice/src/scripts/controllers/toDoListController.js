@@ -3,7 +3,7 @@ export default class TodoListController {
     this.model = model;
     this.view = view;
     this.onAddTask = this.onAddTask.bind(this);
-    this.deleteTask = this.onDeleteTask.bind(this);
+    this.onDeleteTask = this.onDeleteTask.bind(this);
   }
 
   init() {
@@ -21,7 +21,7 @@ export default class TodoListController {
 
   // Handle delete task
   onDeleteTask(id) {
-    this.model.deleteTask(id);
+    this.model.deleteTodo(id);
     this.view.displayTaskList(this.model.todos);
   }
 }
