@@ -34,12 +34,8 @@ export default class TodoListModel {
 
   // delete task
   deleteTodo(id) {
-    this.taskListModel.forEach((todos) => {
-      if (todos.id === id) {
-        if (this.selectedTask === id) {
-          this.selectedTask = null;
-        }
-      }
-    });
+    const index = this.todos.findIndex((item) => item.id === id);
+
+    this.todos.splice(index, 1);
   }
 }

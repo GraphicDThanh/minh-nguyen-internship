@@ -38,4 +38,18 @@ export default class TodoListView {
       }
     });
   }
+
+  /**
+   * function use id to delete todos
+   * Add event 'click' for todoList element
+   * @param {function} handler
+   */
+  bindDeleteTodo(handler) {
+    this.todoList.addEventListener('click', (event) => {
+      if (event.target.className === 'destroy') {
+        const { id } = event.target.parentElement;
+        handler(id);
+      }
+    });
+  }
 }
