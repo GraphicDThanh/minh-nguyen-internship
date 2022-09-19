@@ -7,6 +7,9 @@ export default class TodoListView {
     // add todo
     this.addTaskForm = document.querySelector('.add-task');
     this.inputTaskName = document.querySelector('.new-todo');
+
+    // delete todo
+    this.deleteTask = document.querySelectorAll('.destroy');
   }
 
   get todoText() {
@@ -47,7 +50,7 @@ export default class TodoListView {
   bindDeleteTodo(handler) {
     this.todoList.addEventListener('click', (event) => {
       if (event.target.className === 'destroy') {
-        const { id } = event.target.parentElement;
+        const { id } = event.target.closet('li');
         handler(id);
       }
     });

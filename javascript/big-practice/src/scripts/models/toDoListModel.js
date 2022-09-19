@@ -4,17 +4,17 @@ export default class TodoListModel {
   constructor() {
     this.todos = [
       {
-        id: 1,
+        id: 0,
         taskName: 'todo 1',
         isCompleted: true,
       },
       {
-        id: 2,
+        id: 1,
         taskName: 'todo 2',
         isCompleted: false,
       },
       {
-        id: 3,
+        id: 2,
         taskName: 'todo 3',
         isCompleted: true,
       },
@@ -34,8 +34,9 @@ export default class TodoListModel {
 
   // delete task
   deleteTodo(id) {
-    const index = this.todos.findIndex((item) => item.id === id);
+    const index = this.todos.findIndex((task) => task.id === id);
+    const todo = this.todos[index];
 
-    this.todos.splice(index, 1);
+    this.todos.splice(todo, 1);
   }
 }
