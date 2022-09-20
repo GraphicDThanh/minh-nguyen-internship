@@ -1,5 +1,6 @@
 export default class TodoListView {
   constructor(TodoItemView) {
+    this.idSelected = null;
     this.taskView = TodoItemView;
     // todo list element
     this.todoList = document.querySelector('.todo-list');
@@ -7,6 +8,9 @@ export default class TodoListView {
     // add todo
     this.addTaskForm = document.querySelector('.add-task');
     this.inputTaskName = document.querySelector('.new-todo');
+
+    // delete todo
+    this.deleteTask = document.querySelectorAll('.destroy');
   }
 
   get todoText() {
@@ -35,6 +39,21 @@ export default class TodoListView {
       if (this.todoText) {
         handler(this.todoText);
         this.addTaskForm.reset();
+      }
+    });
+  }
+
+  /**
+   * function use id to delete todos
+   * Add event 'click' for todoList element
+   * @param {function} handler
+   */
+  bindDeleteTodo(handler) {
+    this.todoList.addEventListener('click', (event) => {
+      if (event.target.className === 'destroy') {
+        const idSelect = event.target.parentElement.id;
+        this.idSelected = idSelect;
+        handler(idSelect);
       }
     });
   }

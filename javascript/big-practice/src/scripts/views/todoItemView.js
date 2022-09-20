@@ -10,18 +10,15 @@ export default class TodoItemView {
    * @param {object} task
    * @returns task <li> element
    */
-  // i can't solve this eslint problem
   // eslint-disable-next-line class-methods-use-this
   renderTask(task) {
     const taskElement = `
       <li id=${task.id}>
-      <div class = 'view'>
-        <input class='toggle' id='${task.id}-toggle' type='checkbox' ${
+      <input class='toggle' id='${task.id}-toggle' type='checkbox' ${
       task.taskDone ? 'checked' : ''
     }/>
-        <label>${task.taskName}</label>
-        <button class="destroy"></button>
-      </div>
+          <label>${task.taskName}</label>
+          <button class="destroy"></button>
       </li>
     `;
 
