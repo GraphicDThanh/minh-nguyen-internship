@@ -34,9 +34,8 @@ export default class TodoListModel {
 
   // delete task
   deleteTodo(id) {
+    id = Number(id);
     const index = this.todos.findIndex((task) => task.id === id);
-    const todo = this.todos[index];
-
-    this.todos.splice(todo, 1);
+    this.todos.splice(index, 1);
   }
 }

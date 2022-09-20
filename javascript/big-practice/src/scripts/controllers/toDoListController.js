@@ -10,7 +10,9 @@ export default class TodoListController {
     // Explicit this binding
     this.view.displayTaskList(this.model.todos);
     this.view.bindAddTodo(this.onAddTask);
-    this.view.bindDeleteTodo(this.onDeleteTask);
+    this.view.bindDeleteTodo(() => {
+      this.onDeleteTask(this.view.idSelected);
+    });
   }
 
   // Handle add task

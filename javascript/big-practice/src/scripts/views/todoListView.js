@@ -1,5 +1,6 @@
 export default class TodoListView {
   constructor(TodoItemView) {
+    this.idSelected = null;
     this.taskView = TodoItemView;
     // todo list element
     this.todoList = document.querySelector('.todo-list');
@@ -50,8 +51,9 @@ export default class TodoListView {
   bindDeleteTodo(handler) {
     this.todoList.addEventListener('click', (event) => {
       if (event.target.className === 'destroy') {
-        const { id } = event.target.closet('li');
-        handler(id);
+        const idSelect = event.target.parentElement.id;
+        this.idSelected = idSelect;
+        handler(idSelect);
       }
     });
   }

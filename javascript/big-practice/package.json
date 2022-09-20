@@ -11,7 +11,7 @@
     "prettier": "2.7.1"
   },
   "scripts": {
-    "start": "parcel src/index.html --port 5000",
+    "start": "del dist && parcel src/index.html --port 5000 --no-cache",
     "build": "parcel build src/index.html",
     "lint:eslint": "eslint --ignore-path .gitignore . --ext .js,.jsx,.ts,.tsx",
     "fix:eslint": "eslint --fix --ignore-path .gitignore . --ext .js,.jsx,.ts,.tsx"
