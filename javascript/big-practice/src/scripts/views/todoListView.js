@@ -32,13 +32,9 @@ export default class TodoListView {
     listElement.forEach((todo) => {
       if (todo.isCompleted === false) {
         count += 1;
-        if (count < 2) {
-          this.todoCount.innerHTML = `${count} item`;
-        } else {
-          this.todoCount.innerHTML = `${count} items`;
-        }
       }
     });
+    this.todoCount.innerHTML = `${`${count} item`}` + `${count > 1 ? 's' : ''}`;
   }
 
   /**
