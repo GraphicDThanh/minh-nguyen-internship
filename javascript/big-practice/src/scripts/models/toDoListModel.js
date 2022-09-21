@@ -34,9 +34,8 @@ export default class TodoListModel {
 
   // delete task
   deleteTodo(id) {
-    // eslint-disable-next-line no-param-reassign
-    id = Number(id);
-    const index = this.todos.findIndex((task) => task.id === id);
+    const idNumber = Number(id);
+    const index = this.todos.findIndex((task) => task.id === idNumber);
     this.todos.splice(index, 1);
   }
 }
