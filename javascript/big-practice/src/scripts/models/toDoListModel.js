@@ -6,7 +6,7 @@ export default class TodoListModel {
       {
         id: 0,
         taskName: 'todo 1',
-        isCompleted: true,
+        isCompleted: false,
       },
       {
         id: 1,
@@ -16,7 +16,7 @@ export default class TodoListModel {
       {
         id: 2,
         taskName: 'todo 3',
-        isCompleted: true,
+        isCompleted: false,
       },
     ];
   }
@@ -34,8 +34,8 @@ export default class TodoListModel {
 
   // delete task
   deleteTodo(id) {
-    id = Number(id);
-    const index = this.todos.findIndex((task) => task.id === id);
+    const idNumber = Number(id);
+    const index = this.todos.findIndex((task) => task.id === idNumber);
     this.todos.splice(index, 1);
   }
 }

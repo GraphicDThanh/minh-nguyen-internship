@@ -21,7 +21,6 @@ export default class TodoItemView {
           <button class="destroy"></button>
       </li>
     `;
-
     return taskElement;
   }
 }

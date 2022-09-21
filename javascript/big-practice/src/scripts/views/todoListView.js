@@ -1,16 +1,17 @@
 export default class TodoListView {
   constructor(TodoItemView) {
-    this.idSelected = null;
+    // Todo item view class
     this.taskView = TodoItemView;
-    // todo list element
+
+    // Todo list element
     this.todoList = document.querySelector('.todo-list');
 
-    // add todo
+    // Add todo
     this.addTaskForm = document.querySelector('.add-task');
     this.inputTaskName = document.querySelector('.new-todo');
 
-    // delete todo
-    this.deleteTask = document.querySelectorAll('.destroy');
+    // Count todo
+    this.todoCount = document.querySelector('.todo-count');
   }
 
   get todoText() {
@@ -22,10 +23,18 @@ export default class TodoListView {
    * @param {array} todoList // task list array
    */
   displayTaskList(listElement) {
-    // Create new nodes
     const array = listElement.map((task) => this.taskView.renderTask(task));
-
+    let count = 0;
+    // Create new nodes
     this.todoList.innerHTML = array.join('');
+
+    // Update todo-count
+    listElement.forEach((todo) => {
+      if (todo.isCompleted === false) {
+        count += 1;
+      }
+    });
+    this.todoCount.innerHTML = `${`${count} item`}` + `${count > 1 ? 's' : ''}`;
   }
 
   /**
