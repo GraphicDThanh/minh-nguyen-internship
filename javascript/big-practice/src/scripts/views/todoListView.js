@@ -60,9 +60,24 @@ export default class TodoListView {
   bindDeleteTodo(handler) {
     this.todoList.addEventListener('click', (event) => {
       if (event.target.className === 'destroy') {
-        const idSelect = event.target.parentElement.id;
-        this.idSelected = idSelect;
-        handler(idSelect);
+        this.idSelected = event.target.parentElement.id;
+
+        handler();
+      }
+    });
+  }
+
+  /**
+   * function use id to done todo
+   * Add event 'click' for todoList element
+   * @param {function} handler
+   */
+  bindToggleTodo(handler) {
+    this.todoList.addEventListener('change', (event) => {
+      if (event.target.type === 'checkbox') {
+        this.idSelected = event.target.parentElement.id;
+
+        handler();
       }
     });
   }

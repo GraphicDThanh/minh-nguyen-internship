@@ -13,6 +13,7 @@ export default class TodoListController {
     this.view.bindDeleteTodo(() => {
       this.onDeleteTask(this.view.idSelected);
     });
+    this.view.bindToggleTodo(() => this.model.toggleTodo(this.view.idSelected));
   }
 
   // Handle add task

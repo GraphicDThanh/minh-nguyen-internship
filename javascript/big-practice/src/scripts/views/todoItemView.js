@@ -17,7 +17,7 @@ export default class TodoItemView {
       <input class='toggle' id='${task.id}-toggle' type='checkbox' ${
       task.taskDone ? 'checked' : ''
     }/>
-          <label>${task.taskName}</label>
+          <label id='${task.id}-task-name'>${task.taskName}</label>
           <button class="destroy"></button>
       </li>
     `;
