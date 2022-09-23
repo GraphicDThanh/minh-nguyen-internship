@@ -43,7 +43,7 @@ export default class TodoListModel {
   toggleTodo(id) {
     const task = this.todos.find((todo) => todo.id === Number(id));
     const newTask = {
-      ...task,
+      ...task, // retain all existing values of the array
       isCompleted: true,
     };
     this.todos.splice(task.id, 1, newTask);
