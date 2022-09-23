@@ -61,7 +61,6 @@ export default class TodoListView {
     this.todoList.addEventListener('click', (event) => {
       if (event.target.className === 'destroy') {
         this.idSelected = event.target.parentElement.id;
-
         handler();
       }
     });
@@ -76,7 +75,6 @@ export default class TodoListView {
     this.todoList.addEventListener('change', (event) => {
       if (event.target.type === 'checkbox') {
         this.idSelected = event.target.parentElement.id;
-
         handler();
       }
     });
