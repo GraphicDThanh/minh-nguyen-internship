@@ -4,6 +4,7 @@ export default class TodoListController {
     this.view = view;
     this.onAddTask = this.onAddTask.bind(this);
     this.onDeleteTask = this.onDeleteTask.bind(this);
+    // this.onToggleTodo = this.onToggleTodo.bind(this);
   }
 
   init() {
@@ -13,7 +14,9 @@ export default class TodoListController {
     this.view.bindDeleteTodo(() => {
       this.onDeleteTask(this.view.idSelected);
     });
-    this.view.bindToggleTodo(() => this.model.toggleTodo(this.view.idSelected));
+    this.view.bindToggleTodo(() => {
+      this.onToggleTodo(this.view.idSelected);
+    });
   }
 
   // Handle add task
@@ -25,6 +28,12 @@ export default class TodoListController {
   // Handle delete task
   onDeleteTask(id) {
     this.model.deleteTodo(id);
+    this.view.displayTaskList(this.model.todos);
+  }
+
+  // // Handle done task
+  onToggleTodo(id) {
+    this.model.toggleTodo(id);
     this.view.displayTaskList(this.model.todos);
   }
 }
