@@ -21,7 +21,7 @@ export default class TodoListModel {
     ];
   }
 
-  // add task todo
+  // Add task todo
   addTodo(todoText) {
     const todoAdded = {
       id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
@@ -32,10 +32,20 @@ export default class TodoListModel {
     this.todos.push(task);
   }
 
-  // delete task
+  // Delete task
   deleteTodo(id) {
     const idNumber = Number(id);
     const index = this.todos.findIndex((task) => task.id === idNumber);
     this.todos.splice(index, 1);
+  }
+
+  // Done task
+  toggleTodo(id) {
+    this.todos.forEach((task) => {
+      // console.log(task.id, id);
+      if (task.id === Number(id)) {
+        task.isCompleted = !task.isCompleted;
+      }
+    });
   }
 }
