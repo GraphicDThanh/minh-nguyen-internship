@@ -41,11 +41,11 @@ export default class TodoListModel {
 
   // Done task
   toggleTodo(id) {
-    const task = this.todos.find((todo) => todo.id === Number(id));
-    const newTask = {
-      ...task, // retain all existing values of the array
-      isCompleted: true,
-    };
-    this.todos.splice(task.id, 1, newTask);
+    this.todos.forEach((task) => {
+      // console.log(task.id, id);
+      if (task.id === Number(id)) {
+        task.isCompleted = !task.isCompleted;
+      }
+    });
   }
 }
