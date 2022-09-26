@@ -34,7 +34,7 @@ export default class TodoListView {
         count += 1;
       }
     });
-    this.todoCount.innerHTML = `${`${count} item`}` + `${count > 1 ? 's' : ''}`;
+    this.todoCount.innerHTML = `${`${count} item`}` + `${count > 1 ? 's' : ''}` + ' left';
   }
 
   /**
