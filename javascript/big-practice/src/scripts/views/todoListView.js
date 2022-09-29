@@ -34,7 +34,7 @@ export default class TodoListView {
         count += 1;
       }
     });
-    this.todoCount.innerHTML = `${`${count} item`}` + `${count > 1 ? 's' : ''}` + ' left';
+    this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
   }
 
   /**
@@ -76,6 +76,54 @@ export default class TodoListView {
       if (event.target.type === 'checkbox') {
         this.idSelected = event.target.parentElement.id;
         handler();
+      }
+    });
+  }
+
+  /**
+   * function use id to update todos
+   * Add event 'double click' for todoList element
+   * @param {fuction} handler
+   */
+  editTodo() {
+    this.todoList.addEventListener('dblclick', (event) => {
+      const prevInput = document.querySelector('.edit');
+      const taskPrevSelect = document.querySelector('.hidden');
+      const listItem = event.target.parentElement;
+
+      // Remove all input with classname is 'edit' before select another task to edit
+      if (prevInput) {
+        prevInput.remove();
+      }
+
+      // Show hidden task name when previously selected
+      if (taskPrevSelect) {
+        taskPrevSelect.classList.toggle('hidden');
+      }
+
+      // Create an input box for the selected task to edit
+      const input = document.createElement('input');
+      input.classList.add('edit');
+
+      // Hide the task content of the selected task
+      listItem.classList.toggle('hidden');
+
+      // Insert the generated input element into the hidden task position
+      this.todoList.insertBefore(input, listItem);
+      input.focus();
+      // input.value = listItem.querySelector('label').innerHTML;
+
+      // Save data after editing to a temporary variable
+      this.editContent = input.value;
+    });
+  }
+
+  bindUpdateTodo() {
+    this.todoList.addEventListener('focusout', (event) => {
+      if (this.editContent) {
+        console.log(this.editContent);
+        this.idSelected = event.target.parentElement.id;
+        // handler(this.editcontent);
       }
     });
   }
