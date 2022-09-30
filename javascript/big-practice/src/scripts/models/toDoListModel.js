@@ -57,4 +57,8 @@ export default class TodoListModel {
       }
     });
   }
+
+  // Toggle check all todos
+  toggleCheckAll = async (complete) => {
+    this.todos.forEach(item => item.complete = complete)
 }
