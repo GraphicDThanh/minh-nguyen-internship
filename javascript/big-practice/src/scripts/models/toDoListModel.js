@@ -49,10 +49,11 @@ export default class TodoListModel {
   }
 
   // Edit task
-  editTaskList(id, newEditTaskName) {
+  updateTodo(id, newEditTaskName) {
+    // console.log(id, newEditTaskName);
     this.todos.forEach((task) => {
-      if (task.id === id) {
-        this.taskName = newEditTaskName || this.taskName;
+      if (task.id === Number(id)) {
+        task.taskName = newEditTaskName || task.taskName;
       }
     });
   }
