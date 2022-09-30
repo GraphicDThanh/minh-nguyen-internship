@@ -17,9 +17,8 @@ export default class TodoListController {
       this.onToggleTodo(this.view.idSelected);
     });
     this.view.editTodo();
-    this.view.bindUpdateTodo();
     this.view.bindUpdateTodo(() => {
-      this.onUpdateTodo(this.view.idSelected, this.view.editcontent);
+      this.onUpdateTodo(this.view.idSelected, this.view.contentEdit);
     });
   }
 
@@ -42,7 +41,7 @@ export default class TodoListController {
   }
 
   onUpdateTodo(id, editTask) {
-    this.model.editTaskList(id, editTask);
+    this.model.updateTodo(id, editTask);
     this.view.displayTaskList(this.model.todos);
   }
 }
