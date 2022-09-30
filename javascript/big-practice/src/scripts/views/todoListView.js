@@ -88,17 +88,11 @@ export default class TodoListView {
   editTodo() {
     this.todoList.addEventListener('dblclick', (event) => {
       const prevInput = document.querySelector('.edit');
-      const taskPrevSelect = document.querySelector('.hidden');
       this.listItem = event.target.parentElement;
 
       // Remove all input with classname is 'edit' before select another task to edit
       if (prevInput) {
         prevInput.remove();
-      }
-
-      // Show hidden task name when previously selected
-      if (taskPrevSelect) {
-        taskPrevSelect.classList.toggle('hidden');
       }
 
       // Create an input box for the selected task to edit
