@@ -89,7 +89,7 @@ export default class TodoListView {
     this.todoList.addEventListener('dblclick', (event) => {
       const prevInput = document.querySelector('.edit');
       const taskPrevSelect = document.querySelector('.hidden');
-      const listItem = event.target.parentElement;
+      this.listItem = event.target.parentElement;
 
       // Remove all input with classname is 'edit' before select another task to edit
       if (prevInput) {
@@ -106,25 +106,26 @@ export default class TodoListView {
       input.classList.add('edit');
 
       // Hide the task content of the selected task
-      listItem.classList.toggle('hidden');
+      this.listItem.classList.toggle('hidden');
 
       // Insert the generated input element into the hidden task position
-      this.todoList.insertBefore(input, listItem);
-      input.focus();
-      // input.value = listItem.querySelector('label').innerHTML;
+      this.todoList.insertBefore(input, this.listItem);
 
-      // Save data after editing to a temporary variable
-      this.editContent = input.value;
+      input.focus();
+      input.value = this.listItem.querySelector('label').innerHTML;
+
+      // Get data from input
+      input.onchange = (e) => {
+        this.contentEdit = e.target.value;
+      };
     });
   }
 
-  bindUpdateTodo() {
-    this.todoList.addEventListener('focusout', (event) => {
-      if (this.editContent) {
-        console.log(this.editContent);
-        this.idSelected = event.target.parentElement.id;
-        // handler(this.editcontent);
-      }
+  bindUpdateTodo(handler) {
+    this.todoList.addEventListener('focusout', () => {
+      this.idSelected = this.listItem.id;
+      handler(this.idSelected, this.contentEdit);
+      this.contentEdit = '';
     });
   }
 }
