@@ -13,7 +13,7 @@ export default class TodoItemView {
   // eslint-disable-next-line class-methods-use-this
   renderTask(task) {
     const taskElement = `
-      <li id=${task.id}>
+      <li id=${task.id} class="task">
       <input class='toggle' id='${task.id}-toggle' type='checkbox' ${
       task.isCompleted ? 'checked' : ''
     }/>

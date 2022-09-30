@@ -34,7 +34,7 @@ export default class TodoListView {
         count += 1;
       }
     });
-    this.todoCount.innerHTML = `${`${count} item`}` + `${count > 1 ? 's' : ''}` + ' left';
+    this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
   }
 
   /**
@@ -77,6 +77,49 @@ export default class TodoListView {
         this.idSelected = event.target.parentElement.id;
         handler();
       }
+    });
+  }
+
+  /**
+   * function use id to update todos
+   * Add event 'double click' for todoList element
+   * @param {fuction} handler
+   */
+  editTodo() {
+    this.todoList.addEventListener('dblclick', (event) => {
+      const prevInput = document.querySelector('.edit');
+      this.listItem = event.target.parentElement;
+
+      // Remove all input with classname is 'edit' before select another task to edit
+      if (prevInput) {
+        prevInput.remove();
+      }
+
+      // Create an input box for the selected task to edit
+      const input = document.createElement('input');
+      input.classList.add('edit');
+
+      // Hide the task content of the selected task
+      this.listItem.classList.toggle('hidden');
+
+      // Insert the generated input element into the hidden task position
+      this.todoList.insertBefore(input, this.listItem);
+
+      input.focus();
+      input.value = this.listItem.querySelector('label').innerHTML;
+
+      // Get data from input
+      input.onchange = (e) => {
+        this.contentEdit = e.target.value;
+      };
+    });
+  }
+
+  bindUpdateTodo(handler) {
+    this.todoList.addEventListener('focusout', () => {
+      this.idSelected = this.listItem.id;
+      handler(this.idSelected, this.contentEdit);
+      this.contentEdit = '';
     });
   }
 }

@@ -1,8 +1,13 @@
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: var(--primary-light);
+  user-select: none;
 }
 
 :focus {
   outline: 0;
+}
+
+.hidden {
+  display: none;
 }

@@ -42,9 +42,18 @@ export default class TodoListModel {
   // Done task
   toggleTodo(id) {
     this.todos.forEach((task) => {
-      // console.log(task.id, id);
       if (task.id === Number(id)) {
         task.isCompleted = !task.isCompleted;
+      }
+    });
+  }
+
+  // Edit task
+  updateTodo(id, newEditTaskName) {
+    // console.log(id, newEditTaskName);
+    this.todos.forEach((task) => {
+      if (task.id === Number(id)) {
+        task.taskName = newEditTaskName || task.taskName;
       }
     });
   }
