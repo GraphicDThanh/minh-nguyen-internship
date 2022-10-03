@@ -35,6 +35,7 @@ export default class TodoListView {
     listElement.forEach((todo) => {
       if (todo.isCompleted === false) {
         count += 1;
+        this.taskCompleted = count;
       }
     });
     this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
@@ -91,7 +92,7 @@ export default class TodoListView {
   editTodo() {
     this.todoList.addEventListener('dblclick', (event) => {
       const prevInput = document.querySelector('.edit');
-      this.listItem = event.target.parentElement;
+      this.taskSelected = event.target.parentElement;
 
       // Remove all input with classname is 'edit' before select another task to edit
       if (prevInput) {
@@ -103,13 +104,13 @@ export default class TodoListView {
       input.classList.add('edit');
 
       // Hide the task content of the selected task
-      this.listItem.classList.toggle('hidden');
+      this.taskSelected.classList.toggle('hidden');
 
       // Insert the generated input element into the hidden task position
-      this.todoList.insertBefore(input, this.listItem);
+      this.todoList.insertBefore(input, this.taskSelected);
 
       input.focus();
-      input.value = this.listItem.querySelector('label').innerHTML;
+      input.value = this.taskSelected.querySelector('label').innerHTML;
 
       // Get data from input
       input.onchange = (e) => {
@@ -125,7 +126,7 @@ export default class TodoListView {
    */
   bindUpdateTodo(handler) {
     this.todoList.addEventListener('focusout', () => {
-      this.idSelected = this.listItem.id;
+      this.idSelected = this.taskSelected.id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';
     });
@@ -139,7 +140,6 @@ export default class TodoListView {
     this.toggleAll.addEventListener('click', (e) => {
       if (e.target.type === 'checkbox') {
         this.isToggleAll = e.target.checked;
-        // handler(e.target.checked);
         handler(this.isToggleAll);
       }
     });
