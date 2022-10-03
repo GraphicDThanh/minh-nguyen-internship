@@ -1,7 +1,9 @@
 .toggle-all {
-  width: 1px;
-  height: 1px;
-  position: absolute;
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
 }
 
 .toggle-all + label {
@@ -18,6 +20,10 @@
   font-size: 22px;
   color: var(--platinum);
   padding: 10px 27px;
+}
+
+.toggle-all:checked + label:before {
+	color: #737373;
 }
 
 .toggle {
