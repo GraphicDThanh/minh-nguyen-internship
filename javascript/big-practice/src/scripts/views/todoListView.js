@@ -12,6 +12,9 @@ export default class TodoListView {
 
     // Count todo
     this.todoCount = document.querySelector('.todo-count');
+
+    // Toggle all tasks todo
+    this.toggleAll = document.querySelector('#toggle-all');
   }
 
   get todoText() {
@@ -81,8 +84,8 @@ export default class TodoListView {
   }
 
   /**
-   * function use id to update todos
-   * Add event 'double click' for todoList element
+   * function use id to edit task todo
+   * Get data after edit task name
    * @param {fuction} handler
    */
   editTodo() {
@@ -115,11 +118,28 @@ export default class TodoListView {
     });
   }
 
+  /**
+   * function use id to update todos
+   * Add event 'double click' for todoList element
+   * @param {fuction} handler
+   */
   bindUpdateTodo(handler) {
     this.todoList.addEventListener('focusout', () => {
       this.idSelected = this.listItem.id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';
+    });
+  }
+
+  /**
+   * Add event 'click' to select all todos
+   * @param {fuction} handler
+   */
+  bindToggleCheckAll(handler) {
+    this.toggleAll.addEventListener('click', (e) => {
+      if (e.target.type === 'checkbox') {
+        handler(e.target.checked);
+      }
     });
   }
 }

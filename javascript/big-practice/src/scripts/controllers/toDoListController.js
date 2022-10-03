@@ -20,28 +20,38 @@ export default class TodoListController {
     this.view.bindUpdateTodo(() => {
       this.onUpdateTodo(this.view.idSelected, this.view.contentEdit);
     });
+    this.view.bindToggleCheckAll(() => {
+      this.onToggleCheckAll();
+    });
   }
 
-  // Handle add task
+  // Add task
   onAddTask(todoText) {
     this.model.addTodo(todoText);
     this.view.displayTaskList(this.model.todos);
   }
 
-  // Handle delete task
+  // Delete task
   onDeleteTask(id) {
     this.model.deleteTodo(id);
     this.view.displayTaskList(this.model.todos);
   }
 
-  // Handle done task
+  // Done task
   onToggleTodo(id) {
     this.model.toggleTodo(id);
     this.view.displayTaskList(this.model.todos);
   }
 
+  // Update task after edit task
   onUpdateTodo(id, editTask) {
     this.model.updateTodo(id, editTask);
+    this.view.displayTaskList(this.model.todos);
+  }
+
+  // Toggle all tasks
+  onToggleCheckAll(isCompleted) {
+    this.model.toggleCheckAll(isCompleted);
     this.view.displayTaskList(this.model.todos);
   }
 }
