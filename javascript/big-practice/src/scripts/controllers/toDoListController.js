@@ -21,7 +21,7 @@ export default class TodoListController {
       this.onUpdateTodo(this.view.idSelected, this.view.contentEdit);
     });
     this.view.bindToggleCheckAll(() => {
-      this.onToggleCheckAll();
+      this.onToggleCheckAll(this.view.isToggleAll);
     });
   }
 
@@ -50,8 +50,8 @@ export default class TodoListController {
   }
 
   // Toggle all tasks
-  onToggleCheckAll(isCompleted) {
-    this.model.toggleCheckAll(isCompleted);
+  onToggleCheckAll(isToggleAll) {
+    this.model.toggleCheckAll(isToggleAll);
     this.view.displayTaskList(this.model.todos);
   }
 }

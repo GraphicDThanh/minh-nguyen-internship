@@ -60,12 +60,10 @@ export default class TodoListModel {
   }
 
   // Toggle check all todos
-  toggleCheckAll() {
+  toggleCheckAll(isToggleAll) {
     this.todos.forEach((task) => {
-      if (task.isCompleted) {
-        task.isCompleted = false;
-      } else {
-        task.isCompleted = true;
+      if (task.isCompleted !== isToggleAll) {
+        task.isCompleted = isToggleAll;
       }
     });
   }
