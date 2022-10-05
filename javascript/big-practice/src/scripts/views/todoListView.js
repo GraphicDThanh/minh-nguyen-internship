@@ -35,7 +35,6 @@ export default class TodoListView {
     listElement.forEach((todo) => {
       if (todo.isCompleted === false) {
         count += 1;
-        this.taskCompleted = count;
       }
     });
     this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
@@ -80,22 +79,23 @@ export default class TodoListView {
       if (event.target.type === 'checkbox') {
         this.idSelected = event.target.parentElement.id;
 
-        // If there is an undone task then inactive toggleAll button
+        // Check all task status
+        this.toggleTask = this.todoList.querySelectorAll('input');
+
+        this.toggleTask.forEach((task) => {
+          this.allChecked = true;
+          if (task.checked === false) {
+            this.allChecked = false;
+          }
+        });
+        // Active toggleAll checkbox when all task status done
+        this.toggleAll.checked = this.allChecked;
+        handler();
+
+        // Check a task status: if there is an undone task then inactive toggleAll  checkbox
         if (!event.target.checked) {
           this.toggleAll.checked = false;
         }
-
-        // If the whole task status is complete then active toggleAll
-        this.toggleTask = this.todoList.querySelectorAll('input');
-        let taskStatus = [];
-        this.toggleTask.forEach((task) => {
-          taskStatus = [...taskStatus, task.checked];
-        });
-        const checkTask = taskStatus.every((check) => check === true);
-        if (checkTask) {
-          this.toggleAll.checked = true;
-        }
-        handler();
       }
     });
   }
