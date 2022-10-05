@@ -73,6 +73,10 @@
 	display: block;
 }
 
+.add-task {
+  position: relative;
+}
+
 /* footer-list-task */
 .footer-list-task {
   color: var(--grey-dark);

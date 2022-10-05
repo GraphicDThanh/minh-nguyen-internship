@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import TodoItemModel from './toDoItemModel';
 
 export default class TodoListModel {
@@ -50,10 +51,20 @@ export default class TodoListModel {
 
   // Edit task
   updateTodo(id, newEditTaskName) {
-    // console.log(id, newEditTaskName);
     this.todos.forEach((task) => {
       if (task.id === Number(id)) {
         task.taskName = newEditTaskName || task.taskName;
+      }
+    });
+  }
+
+  // Toggle check all todos
+  toggleCheckAll(isToggleAll) {
+    this.todos.forEach((task) => {
+      if (isToggleAll) {
+        task.isCompleted = true;
+      } else {
+        task.isCompleted = false;
       }
     });
   }
