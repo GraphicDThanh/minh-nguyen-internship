@@ -62,13 +62,12 @@ export default class TodoListModel {
   // Toggle check all todos
   toggleCheckAll(isToggleAll) {
     this.todos.forEach((task) => {
-      // if (task.isCompleted !== isToggleAll) {
-      //   task.isCompleted = isToggleAll;
-      // }
       if (isToggleAll) {
-        task.isCompleted = !task.isCompleted;
-      } else if (!task.isCompleted) {
-        task.isCompleted = !task.isCompleted;
+        // console.log(task.isCompleted);
+        task.isCompleted = true;
+        // console.log(task.isCompleted);
+      } else {
+        task.isCompleted = false;
       }
     });
   }

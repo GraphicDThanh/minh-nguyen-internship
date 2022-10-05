@@ -79,6 +79,20 @@ export default class TodoListView {
     this.todoList.addEventListener('change', (event) => {
       if (event.target.type === 'checkbox') {
         this.idSelected = event.target.parentElement.id;
+        if (!event.target.checked) {
+          this.toggleAll.checked = false;
+        }
+        // console.log(this.toggleAll);
+        this.checkbox = this.todoList.querySelectorAll('input');
+        // console.log(this.checkbox);
+        // this.checkbox.forEach((check) => {
+        //   if (check.checked) {
+
+        //   }
+        // });
+        if (this.checkbox.checked) {
+          this.toggleAll = true;
+        }
         handler();
       }
     });
@@ -137,9 +151,10 @@ export default class TodoListView {
    * @param {fuction} handler
    */
   bindToggleCheckAll(handler) {
-    this.toggleAll.addEventListener('click', (e) => {
-      if (e.target.type === 'checkbox') {
-        this.isToggleAll = e.target.checked;
+    this.toggleAll.addEventListener('click', (event) => {
+      if (event.target.type === 'checkbox') {
+        this.isToggleAll = event.target.checked;
+        // console.log(this.isToggleAll);
         handler(this.isToggleAll);
       }
     });
