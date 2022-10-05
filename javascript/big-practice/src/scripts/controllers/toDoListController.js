@@ -23,6 +23,10 @@ export default class TodoListController {
     this.view.bindToggleCheckAll(() => {
       this.onToggleCheckAll(this.view.isToggleAll);
     });
+    // this.view.bindListCompleted(() => {
+    //   this.onListCompleted();
+    // });
+    this.view.bindFilters();
   }
 
   // Add task
@@ -53,5 +57,11 @@ export default class TodoListController {
   onToggleCheckAll(isToggleAll) {
     this.model.toggleCheckAll(isToggleAll);
     this.view.displayTaskList(this.model.todos);
+  }
+
+  // Call listCompleted func from models
+  onListCompleted() {
+    this.todos = this.model.listCompleted();
+    this.view.displayTaskList(this.todos);
   }
 }

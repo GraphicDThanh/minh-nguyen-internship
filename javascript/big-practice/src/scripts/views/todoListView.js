@@ -15,6 +15,13 @@ export default class TodoListView {
 
     // Toggle all tasks todo
     this.toggleAll = document.querySelector('#toggle-all');
+
+    // Filters button
+    this.filters = document.querySelector('.filters');
+    this.filter = this.filters.querySelectorAll('button');
+    this.all = document.querySelector('#all');
+    this.completed = document.querySelector('#completed');
+    this.active = document.querySelector('#active');
   }
 
   get todoText() {
@@ -158,6 +165,31 @@ export default class TodoListView {
         this.isToggleAll = event.target.checked;
         handler(this.isToggleAll);
       }
+    });
+  }
+
+  /**
+   * Add event 'click' to show completed todos
+   * @param {fuction} handler
+   */
+  // bindListCompleted(handler) {
+  //   this.completed.addEventListener('click', (event) => {
+  //     this.filter.forEach((button) => {
+  //       button.classList.remove('selected');
+  //     });
+  //     event.target.classList.add('selected');
+  //     handler(this.todoList);
+  //   });
+  // }
+  bindFilters() {
+    this.filter.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        this.filter.forEach((task) => task.classList.remove('selected'));
+        event.target.classList.add('selected');
+        if (event.target.id === 'completed') {
+          console.log('completed');
+        }
+      });
     });
   }
 }

@@ -68,4 +68,11 @@ export default class TodoListModel {
       }
     });
   }
+
+  // List task completed
+  listCompleted() {
+    const newListCompeted = this.todos.filter((task) => task.isCompleted);
+    this.todos = newListCompeted;
+    return this.todos;
+  }
 }
