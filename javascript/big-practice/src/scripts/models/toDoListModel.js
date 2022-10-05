@@ -51,7 +51,6 @@ export default class TodoListModel {
 
   // Edit task
   updateTodo(id, newEditTaskName) {
-    // console.log(id, newEditTaskName);
     this.todos.forEach((task) => {
       if (task.id === Number(id)) {
         task.taskName = newEditTaskName || task.taskName;
@@ -63,9 +62,7 @@ export default class TodoListModel {
   toggleCheckAll(isToggleAll) {
     this.todos.forEach((task) => {
       if (isToggleAll) {
-        // console.log(task.isCompleted);
         task.isCompleted = true;
-        // console.log(task.isCompleted);
       } else {
         task.isCompleted = false;
       }
