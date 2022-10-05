@@ -79,19 +79,21 @@ export default class TodoListView {
     this.todoList.addEventListener('change', (event) => {
       if (event.target.type === 'checkbox') {
         this.idSelected = event.target.parentElement.id;
+
+        // If there is an undone task then inactive toggleAll button
         if (!event.target.checked) {
           this.toggleAll.checked = false;
         }
-        // console.log(this.toggleAll);
-        this.checkbox = this.todoList.querySelectorAll('input');
-        // console.log(this.checkbox);
-        // this.checkbox.forEach((check) => {
-        //   if (check.checked) {
 
-        //   }
-        // });
-        if (this.checkbox.checked) {
-          this.toggleAll = true;
+        // If the whole task status is complete then active toggleAll
+        this.toggleTask = this.todoList.querySelectorAll('input');
+        let taskStatus = [];
+        this.toggleTask.forEach((task) => {
+          taskStatus = [...taskStatus, task.checked];
+        });
+        const checkTask = taskStatus.every((check) => check === true);
+        if (checkTask) {
+          this.toggleAll.checked = true;
         }
         handler();
       }
@@ -154,7 +156,6 @@ export default class TodoListView {
     this.toggleAll.addEventListener('click', (event) => {
       if (event.target.type === 'checkbox') {
         this.isToggleAll = event.target.checked;
-        // console.log(this.isToggleAll);
         handler(this.isToggleAll);
       }
     });
