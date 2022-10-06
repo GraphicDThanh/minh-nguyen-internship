@@ -38,8 +38,8 @@ export default class TodoListView {
     // Create new nodes
     this.todoList.innerHTML = array.join('');
 
-    // Update todo-count
     listElement.forEach((todo) => {
+      // Update todo-count
       if (todo.isCompleted === false) {
         count += 1;
       }
@@ -55,7 +55,7 @@ export default class TodoListView {
     this.addTaskForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      if (this.todoText) {
+      if (this.todoText.trim()) {
         handler(this.todoText);
         this.addTaskForm.reset();
       }
@@ -172,23 +172,18 @@ export default class TodoListView {
    * Add event 'click' to show completed todos
    * @param {fuction} handler
    */
-  // bindListCompleted(handler) {
-  //   this.completed.addEventListener('click', (event) => {
-  //     this.filter.forEach((button) => {
-  //       button.classList.remove('selected');
-  //     });
-  //     event.target.classList.add('selected');
-  //     handler(this.todoList);
-  //   });
-  // }
+  bindListCompleted(handler) {
+    this.completed.addEventListener('click', () => {
+      handler(this.todoList);
+    });
+  }
+
   bindFilters() {
     this.filter.forEach((button) => {
       button.addEventListener('click', (event) => {
-        this.filter.forEach((task) => task.classList.remove('selected'));
+        const selected = document.querySelector('.selected');
+        selected.classList.remove('selected');
         event.target.classList.add('selected');
-        if (event.target.id === 'completed') {
-          console.log('completed');
-        }
       });
     });
   }
