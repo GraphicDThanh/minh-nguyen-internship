@@ -23,10 +23,10 @@ export default class TodoListController {
     this.view.bindToggleCheckAll(() => {
       this.onToggleCheckAll(this.view.isToggleAll);
     });
-    // this.view.bindListCompleted(() => {
-    //   this.onListCompleted();
-    // });
     this.view.bindFilters();
+    this.view.bindListCompleted(() => {
+      this.onListCompleted();
+    });
   }
 
   // Add task
