@@ -69,10 +69,21 @@ export default class TodoListModel {
     });
   }
 
-  // List task completed
-  listCompleted() {
-    const newListCompeted = this.todos.filter((task) => !task.isCompleted);
-    this.todos = newListCompeted;
+  // List task filter
+  // listCompleted() {
+  //   const newListCompeted = this.todos.filter((task) => task.isCompleted);
+  //   this.todos = newListCompeted;
+  //   return this.todos;
+  // }
+  filterTodos(filterType) {
+    if (filterType === 'completed') {
+      const newListCompeted = this.todos.filter((task) => task.isCompleted);
+      return newListCompeted;
+    }
+    if (filterType === 'active') {
+      const newListActive = this.todos.filter((task) => !task.isCompleted);
+      return newListActive;
+    }
     return this.todos;
   }
 }
