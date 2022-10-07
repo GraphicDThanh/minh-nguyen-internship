@@ -23,6 +23,12 @@ export default class TodoListController {
     this.view.bindToggleCheckAll(() => {
       this.onToggleCheckAll(this.view.isToggleAll);
     });
+<<<<<<< HEAD
+=======
+    this.view.bindListCompleted(() => {
+      this.onListCompleted();
+    });
+>>>>>>> 79b2f91e5086aea0e60b08fcf430a25417cec156
     this.view.bindFilters();
     this.view.bindListCompleted(() => {
       this.onListCompleted();
