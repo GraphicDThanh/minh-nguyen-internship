@@ -168,25 +168,18 @@ export default class TodoListView {
     });
   }
 
-<<<<<<< HEAD
-=======
   /**
    * Add event 'click' to show completed todos
    * @param {fuction} handler
    */
-  bindListCompleted(handler) {
-    this.completed.addEventListener('click', () => {
-      handler(this.todoList);
-    });
-  }
-
->>>>>>> 79b2f91e5086aea0e60b08fcf430a25417cec156
-  bindFilters() {
+  bindFilters(handler) {
     this.filter.forEach((button) => {
       button.addEventListener('click', (event) => {
+        this.idSelected = event.target.id;
         const selected = document.querySelector('.selected');
         selected.classList.remove('selected');
         event.target.classList.add('selected');
+        handler(this.todoList);
       });
     });
   }
@@ -195,9 +188,9 @@ export default class TodoListView {
    * Add event 'click' to show completed todos
    * @param {fuction} handler
    */
-  bindListCompleted(handler) {
-    this.completed.addEventListener('click', () => {
-      handler(this.todoList);
-    });
-  }
+  // bindListCompleted(handler) {
+  //   this.completed.addEventListener('click', () => {
+  //     handler(this.todoList);
+  //   });
+  // }
 }
