@@ -22,6 +22,9 @@ export default class TodoListView {
     this.all = document.querySelector('#all');
     this.completed = document.querySelector('#completed');
     this.active = document.querySelector('#active');
+
+    // Clear all task completed button
+    this.clearAll = document.querySelector('.clear-completed');
   }
 
   get todoText() {
@@ -33,18 +36,18 @@ export default class TodoListView {
    * @param {array} todoList // task list array
    */
   displayTaskList(listElement) {
-    const array = listElement.map((task) => this.taskView.renderTask(task));
     let count = 0;
-    // Create new nodes
+    const array = listElement.map((task) => this.taskView.renderTask(task));
     this.todoList.innerHTML = array.join('');
 
     listElement.forEach((todo) => {
-      // Update todo-count
       if (todo.isCompleted === false) {
+        // Update todo-count
         count += 1;
       }
     });
     this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
+    this.clearAll.style.visibility = 'hidden';
   }
 
   /**
@@ -169,7 +172,7 @@ export default class TodoListView {
   }
 
   /**
-   * Add event 'click' to show completed todos
+   * Add event 'click' to show filter todos
    * @param {fuction} handler
    */
   bindFilters(handler) {
@@ -183,14 +186,4 @@ export default class TodoListView {
       });
     });
   }
-
-  /**
-   * Add event 'click' to show completed todos
-   * @param {fuction} handler
-   */
-  // bindListCompleted(handler) {
-  //   this.completed.addEventListener('click', () => {
-  //     handler(this.todoList);
-  //   });
-  // }
 }

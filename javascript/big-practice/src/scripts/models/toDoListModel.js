@@ -3,23 +3,8 @@ import TodoItemModel from './toDoItemModel';
 
 export default class TodoListModel {
   constructor() {
-    this.todos = [
-      {
-        id: 0,
-        taskName: 'todo 1',
-        isCompleted: false,
-      },
-      {
-        id: 1,
-        taskName: 'todo 2',
-        isCompleted: false,
-      },
-      {
-        id: 2,
-        taskName: 'todo 3',
-        isCompleted: false,
-      },
-    ];
+    this.todos = [];
+    this.filterType = 'all';
   }
 
   // Add task todo
@@ -69,21 +54,18 @@ export default class TodoListModel {
     });
   }
 
-  // List task filter
-  // listCompleted() {
-  //   const newListCompeted = this.todos.filter((task) => task.isCompleted);
-  //   this.todos = newListCompeted;
-  //   return this.todos;
-  // }
-  filterTodos(filterType) {
-    if (filterType === 'completed') {
-      const newListCompeted = this.todos.filter((task) => task.isCompleted);
-      return newListCompeted;
+  filterTodos(filter) {
+    if (filter === 'completed') {
+      this.filterType = filter;
+      filter = this.todos.filter((task) => task.isCompleted);
+      return filter;
     }
-    if (filterType === 'active') {
-      const newListActive = this.todos.filter((task) => !task.isCompleted);
-      return newListActive;
+    if (filter === 'active') {
+      this.filterType = filter;
+      filter = this.todos.filter((task) => !task.isCompleted);
+      return filter;
     }
+    this.filterType = filter;
     return this.todos;
   }
 }
