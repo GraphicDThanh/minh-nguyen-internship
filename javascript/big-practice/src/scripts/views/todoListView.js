@@ -25,6 +25,9 @@ export default class TodoListView {
 
     // Clear all task completed button
     this.clearAll = document.querySelector('.clear-completed');
+
+    // Footer list task
+    this.footerListTask = document.querySelector('.footer-list-task');
   }
 
   get todoText() {
@@ -36,18 +39,23 @@ export default class TodoListView {
    * @param {array} todoList // task list array
    */
   displayTaskList(listElement) {
-    let count = 0;
+    // let count = 0;
     const array = listElement.map((task) => this.taskView.renderTask(task));
     this.todoList.innerHTML = array.join('');
 
-    listElement.forEach((todo) => {
-      if (todo.isCompleted === false) {
-        // Update todo-count
-        count += 1;
-      }
-    });
-    this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
+    // listElement.forEach((todo) => {
+    //   if (todo.isCompleted === false) {
+    //     // Update todo-count
+    //     count += 1;
+    //   }
+    // });
+    // this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
     this.clearAll.style.visibility = 'hidden';
+    this.footerListTask.style.display = 'flex';
+  }
+
+  countTaskActive(activeTask) {
+    this.todoCount.innerHTML = `${activeTask} item${activeTask > 1 ? 's' : ''} left`;
   }
 
   /**

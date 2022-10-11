@@ -7,6 +7,10 @@ export default class TodoListModel {
     this.filterType = 'all';
   }
 
+  taskActive() {
+    return this.todos.filter((task) => !task.isCompleted).length;
+  }
+
   // Add task todo
   addTodo(todoText) {
     const todoAdded = {
@@ -63,6 +67,7 @@ export default class TodoListModel {
     if (filter === 'active') {
       this.filterType = filter;
       filter = this.todos.filter((task) => !task.isCompleted);
+      this.count = filter.length;
       return filter;
     }
     this.filterType = filter;

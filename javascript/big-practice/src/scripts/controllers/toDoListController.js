@@ -10,7 +10,7 @@ export default class TodoListController {
       this.handleAddTask(this.view.todoText, this.model.filterType);
     });
     this.view.bindDeleteTodo(() => {
-      this.handleDeleteTask(this.view.idSelected);
+      this.handleDeleteTask(this.view.idSelected, this.model.filterType);
     });
     this.view.bindToggleTodo(() => {
       this.handleToggleTodo(this.view.idSelected, this.model.filterType);
@@ -23,47 +23,43 @@ export default class TodoListController {
       this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
     });
     this.view.bindFilters(() => {
-      this.handleFilter(this.view.idSelected);
+      this.renderForm(this.view.idSelected);
     });
+  }
+
+  renderForm(filterType) {
+    this.todos = this.model.filterTodos(filterType);
+    this.view.countTaskActive(this.model.taskActive());
+    this.view.displayTaskList(this.todos);
   }
 
   // Add task
   handleAddTask(todoText, filterType) {
     this.model.addTodo(todoText);
-    this.todos = this.model.filterTodos(filterType);
-    this.view.displayTaskList(this.todos);
+    this.renderForm(filterType);
   }
 
   // Delete task
-  handleDeleteTask(id) {
+  handleDeleteTask(id, filterType) {
     this.model.deleteTodo(id);
-    this.view.displayTaskList(this.model.todos);
+    this.renderForm(filterType);
   }
 
   // Done task
   handleToggleTodo(id, filterType) {
     this.model.toggleTodo(id);
-    this.todos = this.model.filterTodos(filterType);
-    this.view.displayTaskList(this.todos);
+    this.renderForm(filterType);
   }
 
   // Update task after edit task
   handleUpdateTodo(id, editTask, filterType) {
     this.model.updateTodo(id, editTask);
-    this.todos = this.model.filterTodos(filterType);
-    this.view.displayTaskList(this.todos);
+    this.renderForm(filterType);
   }
 
   // Toggle all tasks
   handleToggleCheckAll(isToggleAll, filterType) {
     this.model.toggleCheckAll(isToggleAll);
-    this.todos = this.model.filterTodos(filterType);
-    this.view.displayTaskList(this.todos);
-  }
-
-  // Filter list task
-  handleFilter(filterType) {
-    this.todos = this.model.filterTodos(filterType);
-    this.view.displayTaskList(this.todos);
+    this.renderForm(filterType);
   }
 }
