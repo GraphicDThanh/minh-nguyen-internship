@@ -7,7 +7,7 @@ export default class TodoListModel {
     this.filterType = 'all';
   }
 
-  taskActive() {
+  countTaskActive() {
     return this.todos.filter((task) => !task.isCompleted).length;
   }
 
@@ -58,19 +58,18 @@ export default class TodoListModel {
     });
   }
 
-  filterTodos(filter) {
+  filterModeTodos(filter) {
+    this.filterType = filter;
     if (filter === 'completed') {
       this.filterType = filter;
-      filter = this.todos.filter((task) => task.isCompleted);
-      return filter;
+      const completedTask = this.todos.filter((task) => task.isCompleted);
+      return completedTask;
     }
     if (filter === 'active') {
       this.filterType = filter;
-      filter = this.todos.filter((task) => !task.isCompleted);
-      this.count = filter.length;
-      return filter;
+      const activeTask = this.todos.filter((task) => !task.isCompleted);
+      return activeTask;
     }
-    this.filterType = filter;
     return this.todos;
   }
 }

@@ -28,8 +28,8 @@ export default class TodoListController {
   }
 
   renderForm(filterType) {
-    this.todos = this.model.filterTodos(filterType);
-    this.view.countTaskActive(this.model.taskActive());
+    this.todos = this.model.filterModeTodos(filterType);
+    this.view.countTaskActive(this.model.countTaskActive());
     this.view.displayTaskList(this.todos);
   }
 
