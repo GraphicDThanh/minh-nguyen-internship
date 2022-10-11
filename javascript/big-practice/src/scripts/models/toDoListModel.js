@@ -72,4 +72,11 @@ export default class TodoListModel {
     }
     return this.todos;
   }
+
+  // Delete completed task
+  deleteCompletedTodos() {
+    const newTodos = this.todos.filter((task) => task.isCompleted !== true);
+    this.todos = newTodos;
+    return this.todos;
+  }
 }

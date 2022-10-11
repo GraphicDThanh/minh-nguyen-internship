@@ -21,7 +21,8 @@ export default class TodoListView {
     this.filter = this.filters.querySelectorAll('button');
 
     // Clear all task completed button
-    this.clearAll = document.querySelector('.clear-completed');
+    this.clearCompleted = document.querySelector('.clear-completed');
+    this.showClearCompleted = false;
 
     // Footer list task
     this.footerListTask = document.querySelector('.footer-list-task');
@@ -38,9 +39,6 @@ export default class TodoListView {
   displayTaskList(listElement) {
     const array = listElement.map((task) => this.taskView.renderTask(task));
     this.todoList.innerHTML = array.join('');
-
-    this.clearAll.style.visibility = 'hidden';
-    this.footerListTask.style.display = 'flex';
   }
 
   countTaskActive(activeTask) {
@@ -93,6 +91,8 @@ export default class TodoListView {
           this.allChecked = true;
           if (task.checked === false) {
             this.allChecked = false;
+          } else {
+            this.showClearCompleted = true;
           }
         });
         // Active toggleAll checkbox when all task status done
@@ -163,6 +163,9 @@ export default class TodoListView {
     this.toggleAll.addEventListener('click', (event) => {
       if (event.target.type === 'checkbox') {
         this.isToggleAll = event.target.checked;
+        if (this.isToggleAll) {
+          this.showClearCompleted = true;
+        }
         handler(this.isToggleAll);
       }
     });
@@ -181,6 +184,16 @@ export default class TodoListView {
         event.target.classList.add('selected');
         handler(this.todoList);
       });
+    });
+  }
+
+  /**
+   * Add event 'click' to delete all todos
+   * @param {fuction} handler
+   */
+  bindDeleteAllTodo(handler) {
+    this.clearCompleted.addEventListener('click', () => {
+      handler(this.todoList);
     });
   }
 }

@@ -25,9 +25,18 @@ export default class TodoListController {
     this.view.bindFilters(() => {
       this.renderForm(this.view.idSelected);
     });
+    this.view.bindDeleteAllTodo(() => {
+      this.handleClearCompleted(this.model.filterType);
+    });
   }
 
   renderForm(filterType) {
+    this.view.footerListTask.style.display = 'flex';
+    if (this.view.showClearCompleted) {
+      this.view.clearCompleted.style.visibility = 'visible';
+    } else {
+      this.view.clearCompleted.style.visibility = 'hidden';
+    }
     this.todos = this.model.filterModeTodos(filterType);
     this.view.countTaskActive(this.model.countTaskActive());
     this.view.displayTaskList(this.todos);
@@ -60,6 +69,12 @@ export default class TodoListController {
   // Toggle all tasks
   handleToggleCheckAll(isToggleAll, filterType) {
     this.model.toggleCheckAll(isToggleAll);
+    this.renderForm(filterType);
+  }
+
+  // Clear task completed
+  handleClearCompleted(filterType) {
+    this.model.deleteCompletedTodos();
     this.renderForm(filterType);
   }
 }
