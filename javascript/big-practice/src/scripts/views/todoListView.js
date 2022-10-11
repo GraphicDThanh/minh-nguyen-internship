@@ -15,6 +15,16 @@ export default class TodoListView {
 
     // Toggle all tasks todo
     this.toggleAll = document.querySelector('#toggle-all');
+
+    // Filters button
+    this.filters = document.querySelector('.filters');
+    this.filter = this.filters.querySelectorAll('button');
+
+    // Clear all task completed button
+    this.clearAll = document.querySelector('.clear-completed');
+
+    // Footer list task
+    this.footerListTask = document.querySelector('.footer-list-task');
   }
 
   get todoText() {
@@ -27,17 +37,14 @@ export default class TodoListView {
    */
   displayTaskList(listElement) {
     const array = listElement.map((task) => this.taskView.renderTask(task));
-    let count = 0;
-    // Create new nodes
     this.todoList.innerHTML = array.join('');
 
-    // Update todo-count
-    listElement.forEach((todo) => {
-      if (todo.isCompleted === false) {
-        count += 1;
-      }
-    });
-    this.todoCount.innerHTML = `${count} item${count > 1 ? 's' : ''} left`;
+    this.clearAll.style.visibility = 'hidden';
+    this.footerListTask.style.display = 'flex';
+  }
+
+  countTaskActive(activeTask) {
+    this.todoCount.innerHTML = `${activeTask} item${activeTask > 1 ? 's' : ''} left`;
   }
 
   /**
@@ -48,7 +55,7 @@ export default class TodoListView {
     this.addTaskForm.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      if (this.todoText) {
+      if (this.todoText.trim()) {
         handler(this.todoText);
         this.addTaskForm.reset();
       }
@@ -158,6 +165,22 @@ export default class TodoListView {
         this.isToggleAll = event.target.checked;
         handler(this.isToggleAll);
       }
+    });
+  }
+
+  /**
+   * Add event 'click' to show filter todos
+   * @param {fuction} handler
+   */
+  bindFilters(handler) {
+    this.filter.forEach((button) => {
+      button.addEventListener('click', (event) => {
+        this.idSelected = event.target.id;
+        const selected = document.querySelector('.selected');
+        selected.classList.remove('selected');
+        event.target.classList.add('selected');
+        handler(this.todoList);
+      });
     });
   }
 }

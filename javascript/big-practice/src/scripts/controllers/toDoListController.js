@@ -2,56 +2,64 @@ export default class TodoListController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    this.onAddTask = this.onAddTask.bind(this);
-    this.onDeleteTask = this.onDeleteTask.bind(this);
   }
 
   init() {
     // Explicit this binding
-    this.view.displayTaskList(this.model.todos);
-    this.view.bindAddTodo(this.onAddTask);
+    this.view.bindAddTodo(() => {
+      this.handleAddTask(this.view.todoText, this.model.filterType);
+    });
     this.view.bindDeleteTodo(() => {
-      this.onDeleteTask(this.view.idSelected);
+      this.handleDeleteTask(this.view.idSelected, this.model.filterType);
     });
     this.view.bindToggleTodo(() => {
-      this.onToggleTodo(this.view.idSelected);
+      this.handleToggleTodo(this.view.idSelected, this.model.filterType);
     });
     this.view.editTodo();
     this.view.bindUpdateTodo(() => {
-      this.onUpdateTodo(this.view.idSelected, this.view.contentEdit);
+      this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
     });
     this.view.bindToggleCheckAll(() => {
-      this.onToggleCheckAll(this.view.isToggleAll);
+      this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
     });
+    this.view.bindFilters(() => {
+      this.renderForm(this.view.idSelected);
+    });
+  }
+
+  renderForm(filterType) {
+    this.todos = this.model.filterModeTodos(filterType);
+    this.view.countTaskActive(this.model.countTaskActive());
+    this.view.displayTaskList(this.todos);
   }
 
   // Add task
-  onAddTask(todoText) {
+  handleAddTask(todoText, filterType) {
     this.model.addTodo(todoText);
-    this.view.displayTaskList(this.model.todos);
+    this.renderForm(filterType);
   }
 
   // Delete task
-  onDeleteTask(id) {
+  handleDeleteTask(id, filterType) {
     this.model.deleteTodo(id);
-    this.view.displayTaskList(this.model.todos);
+    this.renderForm(filterType);
   }
 
   // Done task
-  onToggleTodo(id) {
+  handleToggleTodo(id, filterType) {
     this.model.toggleTodo(id);
-    this.view.displayTaskList(this.model.todos);
+    this.renderForm(filterType);
   }
 
   // Update task after edit task
-  onUpdateTodo(id, editTask) {
+  handleUpdateTodo(id, editTask, filterType) {
     this.model.updateTodo(id, editTask);
-    this.view.displayTaskList(this.model.todos);
+    this.renderForm(filterType);
   }
 
   // Toggle all tasks
-  onToggleCheckAll(isToggleAll) {
+  handleToggleCheckAll(isToggleAll, filterType) {
     this.model.toggleCheckAll(isToggleAll);
-    this.view.displayTaskList(this.model.todos);
+    this.renderForm(filterType);
   }
 }
