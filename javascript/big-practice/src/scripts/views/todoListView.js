@@ -154,9 +154,8 @@ export default class TodoListView {
    * @param {fuction} handler
    */
   bindUpdateTodo(handler) {
-    this.editTask = document.querySelector('.edit');
-    this.editTask.addEventListener('focusout', () => {
-      this.idSelected = this.taskSelected.id;
+    this.todoList.addEventListener('focusout', (e) => {
+      this.idSelected = e.target.parentElement.id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';
     });
