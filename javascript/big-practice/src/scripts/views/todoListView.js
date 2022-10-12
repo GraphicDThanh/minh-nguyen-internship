@@ -21,7 +21,8 @@ export default class TodoListView {
     this.filter = this.filters.querySelectorAll('button');
 
     // Clear all task completed button
-    this.clearAll = document.querySelector('.clear-completed');
+    this.clearCompleted = document.querySelector('.clear-completed');
+    this.showClearCompleted = false;
 
     // Footer list task
     this.footerListTask = document.querySelector('.footer-list-task');
@@ -39,8 +40,12 @@ export default class TodoListView {
     const array = listElement.map((task) => this.taskView.renderTask(task));
     this.todoList.innerHTML = array.join('');
 
-    this.clearAll.style.visibility = 'hidden';
     this.footerListTask.style.display = 'flex';
+    if (this.showClearCompleted) {
+      this.clearCompleted.style.visibility = 'visible';
+    } else {
+      this.clearCompleted.style.visibility = 'hidden';
+    }
   }
 
   countTaskActive(activeTask) {
@@ -94,6 +99,7 @@ export default class TodoListView {
           if (task.checked === false) {
             this.allChecked = false;
           }
+          this.showClearCompleted = true;
         });
         // Active toggleAll checkbox when all task status done
         this.toggleAll.checked = this.allChecked;
@@ -148,8 +154,8 @@ export default class TodoListView {
    * @param {fuction} handler
    */
   bindUpdateTodo(handler) {
-    this.todoList.addEventListener('focusout', () => {
-      this.idSelected = this.taskSelected.id;
+    this.todoList.addEventListener('focusout', (e) => {
+      this.idSelected = e.target.parentElement.id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';
     });
@@ -163,6 +169,9 @@ export default class TodoListView {
     this.toggleAll.addEventListener('click', (event) => {
       if (event.target.type === 'checkbox') {
         this.isToggleAll = event.target.checked;
+        if (this.isToggleAll) {
+          this.showClearCompleted = true;
+        }
         handler(this.isToggleAll);
       }
     });
@@ -181,6 +190,16 @@ export default class TodoListView {
         event.target.classList.add('selected');
         handler(this.todoList);
       });
+    });
+  }
+
+  /**
+   * Add event 'click' to delete all todos
+   * @param {fuction} handler
+   */
+  bindDeleteAllTodo(handler) {
+    this.clearCompleted.addEventListener('click', () => {
+      handler(this.todoList);
     });
   }
 }

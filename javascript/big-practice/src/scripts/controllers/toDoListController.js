@@ -15,15 +15,15 @@ export default class TodoListController {
     this.view.bindToggleTodo(() => {
       this.handleToggleTodo(this.view.idSelected, this.model.filterType);
     });
-    this.view.editTodo();
-    this.view.bindUpdateTodo(() => {
-      this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
-    });
+    this.handleEditTask(this.view.idSelected, this.view.contentEdit, this.model.filterType);
     this.view.bindToggleCheckAll(() => {
       this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
     });
     this.view.bindFilters(() => {
       this.renderForm(this.view.idSelected);
+    });
+    this.view.bindDeleteAllTodo(() => {
+      this.handleClearCompleted(this.model.filterType);
     });
   }
 
@@ -51,15 +51,24 @@ export default class TodoListController {
     this.renderForm(filterType);
   }
 
-  // Update task after edit task
-  handleUpdateTodo(id, editTask, filterType) {
-    this.model.updateTodo(id, editTask);
-    this.renderForm(filterType);
+  // Edit task and update content
+  handleEditTask(id, editTask, filterType) {
+    this.view.editTodo();
+    this.view.bindUpdateTodo(() => {
+      this.model.updateTodo(id, editTask, filterType);
+      this.renderForm(filterType);
+    });
   }
 
   // Toggle all tasks
   handleToggleCheckAll(isToggleAll, filterType) {
     this.model.toggleCheckAll(isToggleAll);
+    this.renderForm(filterType);
+  }
+
+  // Clear task completed
+  handleClearCompleted(filterType) {
+    this.model.deleteCompletedTodos();
     this.renderForm(filterType);
   }
 }

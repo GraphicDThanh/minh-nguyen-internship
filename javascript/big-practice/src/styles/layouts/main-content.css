@@ -86,3 +86,8 @@
     0 9px 1px -3px var(--dark-02), 0 16px 0 -6px var(--primary-dark),
     0 17px 2px -6px var(--dark-02);
 }
+
+.clear-completed {
+  visibility: hidden;
+  cursor: pointer;
+}

@@ -14,7 +14,7 @@ export default class TodoListModel {
   // Add task todo
   addTodo(todoText) {
     const todoAdded = {
-      id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 1,
+      id: this.todos.length > 0 ? this.todos[this.todos.length - 1].id + 1 : 0,
       taskName: todoText,
       isCompleted: false,
     };
@@ -71,5 +71,11 @@ export default class TodoListModel {
       return activeTask;
     }
     return this.todos;
+  }
+
+  // Delete completed task
+  deleteCompletedTodos() {
+    const newTodos = this.todos.filter((task) => task.isCompleted !== true);
+    this.todos = newTodos;
   }
 }
