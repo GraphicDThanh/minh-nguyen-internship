@@ -31,12 +31,6 @@ export default class TodoListController {
   }
 
   renderForm(filterType) {
-    this.view.footerListTask.style.display = 'flex';
-    if (this.view.showClearCompleted) {
-      this.view.clearCompleted.style.visibility = 'visible';
-    } else {
-      this.view.clearCompleted.style.visibility = 'hidden';
-    }
     this.todos = this.model.filterModeTodos(filterType);
     this.view.countTaskActive(this.model.countTaskActive());
     this.view.displayTaskList(this.todos);
@@ -65,6 +59,7 @@ export default class TodoListController {
     this.model.updateTodo(id, editTask);
     this.renderForm(filterType);
   }
+
 
   // Toggle all tasks
   handleToggleCheckAll(isToggleAll, filterType) {

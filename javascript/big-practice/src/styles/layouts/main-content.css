@@ -89,4 +89,5 @@
 
 .clear-completed {
   visibility: hidden;
+  cursor: pointer;
 }

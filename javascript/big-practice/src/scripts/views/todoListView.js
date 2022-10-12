@@ -39,6 +39,13 @@ export default class TodoListView {
   displayTaskList(listElement) {
     const array = listElement.map((task) => this.taskView.renderTask(task));
     this.todoList.innerHTML = array.join('');
+
+    this.footerListTask.style.display = 'flex';
+    if (this.showClearCompleted) {
+      this.clearCompleted.style.visibility = 'visible';
+    } else {
+      this.clearCompleted.style.visibility = 'hidden';
+    }
   }
 
   countTaskActive(activeTask) {
@@ -91,9 +98,8 @@ export default class TodoListView {
           this.allChecked = true;
           if (task.checked === false) {
             this.allChecked = false;
-          } else {
-            this.showClearCompleted = true;
           }
+          this.showClearCompleted = true;
         });
         // Active toggleAll checkbox when all task status done
         this.toggleAll.checked = this.allChecked;
@@ -148,7 +154,8 @@ export default class TodoListView {
    * @param {fuction} handler
    */
   bindUpdateTodo(handler) {
-    this.todoList.addEventListener('focusout', () => {
+    this.editTask = document.querySelector('.edit');
+    this.editTask.addEventListener('focusout', () => {
       this.idSelected = this.taskSelected.id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';

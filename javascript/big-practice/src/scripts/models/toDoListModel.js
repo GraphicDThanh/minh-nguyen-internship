@@ -77,6 +77,5 @@ export default class TodoListModel {
   deleteCompletedTodos() {
     const newTodos = this.todos.filter((task) => task.isCompleted !== true);
     this.todos = newTodos;
-    return this.todos;
   }
 }
