@@ -2,7 +2,3 @@ footer {
   text-align: center;
   color: var(--grey);
 }
-
-.footer-list-task {
-  display: none;
-}

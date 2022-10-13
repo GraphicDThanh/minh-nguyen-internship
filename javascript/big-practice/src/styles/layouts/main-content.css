@@ -91,3 +91,7 @@
   visibility: hidden;
   cursor: pointer;
 }
+
+.footer-list-task {
+  display: none;
+}
