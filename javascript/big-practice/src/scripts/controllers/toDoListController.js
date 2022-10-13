@@ -15,7 +15,10 @@ export default class TodoListController {
     this.view.bindToggleTodo(() => {
       this.handleToggleTodo(this.view.idSelected, this.model.filterType);
     });
-    this.handleEditTask(this.view.idSelected, this.view.contentEdit, this.model.filterType);
+    this.view.editTodo();
+    this.view.bindUpdateTodo(() => {
+      this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
+    });
     this.view.bindToggleCheckAll(() => {
       this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
     });
@@ -27,46 +30,44 @@ export default class TodoListController {
     });
   }
 
+  // Render board task list
   renderForm(filterType) {
     this.todos = this.model.filterModeTodos(filterType);
-    this.view.countTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos);
+    this.view.showTaskActive(this.model.countTaskActive());
+    this.view.displayTaskList(this.todos, this.model.countTaskCompleted());
   }
 
-  // Add task
+  // Handle add task
   handleAddTask(todoText, filterType) {
     this.model.addTodo(todoText);
     this.renderForm(filterType);
   }
 
-  // Delete task
+  // Handle delete task
   handleDeleteTask(id, filterType) {
     this.model.deleteTodo(id);
     this.renderForm(filterType);
   }
 
-  // Done task
+  // Handle done task
   handleToggleTodo(id, filterType) {
     this.model.toggleTodo(id);
     this.renderForm(filterType);
   }
 
-  // Edit task and update content
-  handleEditTask(id, editTask, filterType) {
-    this.view.editTodo();
-    this.view.bindUpdateTodo(() => {
-      this.model.updateTodo(id, editTask, filterType);
-      this.renderForm(filterType);
-    });
+  // Handle update content after edit
+  handleUpdateTodo(id, editTask, filterType) {
+    this.model.updateTodo(id, editTask);
+    this.renderForm(filterType);
   }
 
-  // Toggle all tasks
+  // Handle toggle all tasks
   handleToggleCheckAll(isToggleAll, filterType) {
     this.model.toggleCheckAll(isToggleAll);
     this.renderForm(filterType);
   }
 
-  // Clear task completed
+  // Handle clear task completed
   handleClearCompleted(filterType) {
     this.model.deleteCompletedTodos();
     this.renderForm(filterType);
