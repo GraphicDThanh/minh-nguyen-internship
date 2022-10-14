@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
@@ -10,7 +11,6 @@ export default class TodoItemView {
    * @param {object} task
    * @returns task <li> element
    */
-  // eslint-disable-next-line class-methods-use-this
   renderTask(task) {
     const taskElement = `
       <li id=${task.id} class="task">
