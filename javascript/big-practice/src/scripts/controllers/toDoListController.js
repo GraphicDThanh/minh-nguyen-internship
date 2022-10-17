@@ -6,6 +6,7 @@ export default class TodoListController {
 
   init() {
     // Explicit this binding
+    this.renderForm();
     this.view.bindAddTodo(() => {
       this.handleAddTask(this.view.todoText, this.model.filterType);
     });
@@ -34,13 +35,19 @@ export default class TodoListController {
   renderForm(filterType) {
     this.todos = this.model.filterModeTodos(filterType);
     this.view.showTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos, this.model.countTaskCompleted());
+    this.view.displayTaskList(this.todos, this.todos.length, this.model.countTaskCompleted());
+    this.saveData();
+  }
+
+  // Save data to LocalStorage
+  saveData() {
+    this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
   }
 
   // Handle add task
-  handleAddTask(todoText, filterType) {
+  handleAddTask(todoText) {
     this.model.addTodo(todoText);
-    this.renderForm(filterType);
+    this.renderForm();
   }
 
   // Handle delete task

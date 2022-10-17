@@ -41,7 +41,7 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(listElement, taskCompleted) {
+  displayTaskList(listElement, taskList, taskCompleted) {
     // Show the entire task
     const array = listElement.map((task) => this.taskView.renderTask(task));
     this.todoList.innerHTML = array.join('');
@@ -51,6 +51,11 @@ export default class TodoListView {
       this.clearCompleted.style.visibility = 'visible';
     } else {
       this.clearCompleted.style.visibility = 'hidden';
+    }
+
+    // Show todo list after adding task
+    if (taskList !== 0) {
+      this.footerListTask.style.display = 'flex';
     }
   }
 
@@ -66,9 +71,6 @@ export default class TodoListView {
         handler(this.todoText);
         this.addTaskForm.reset();
       }
-
-      // Show todo list after adding task
-      this.footerListTask.style.display = 'flex';
     });
   }
 
