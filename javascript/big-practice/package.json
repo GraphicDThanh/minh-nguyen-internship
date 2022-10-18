@@ -13,8 +13,8 @@
   "scripts": {
     "start": "parcel src/index.html --port 5000",
     "start-no-cache": "del dist && parcel src/index.html --port 5000 --no-cache",
-    "build": "parcel build src/index.html",
     "start-db": "json-server --watch data/db.json",
+    "build": "parcel build src/index.html",
     "lint:eslint": "eslint --ignore-path .gitignore . --ext .js,.jsx,.ts,.tsx",
     "fix:eslint": "eslint --fix --ignore-path .gitignore . --ext .js,.jsx,.ts,.tsx"
   },
