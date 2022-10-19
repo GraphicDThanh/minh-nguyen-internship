@@ -96,7 +96,7 @@ export default class TodoListView {
   bindToggleTodo(handler) {
     this.todoList.addEventListener('change', (event) => {
       if (event.target.type === 'checkbox') {
-        this.idSelected = event.target.parentElement.id;
+        this.idSelected = event.target.closest('li').id;
 
         // Toggle all task status
         this.toggleTask = this.todoList.querySelectorAll('input');
@@ -137,7 +137,7 @@ export default class TodoListView {
       this.taskSelected.classList.toggle('hidden');
 
       // Insert the generated input element into the hidden task position
-      this.todoList.insertBefore(input, this.taskSelected);
+      this.taskSelected.parentElement.insertBefore(input, this.taskSelected);
 
       input.focus();
       input.value = this.taskSelected.querySelector('label').innerHTML;
@@ -147,6 +147,30 @@ export default class TodoListView {
         this.contentEdit = e.target.value;
       };
     });
+    // this.tasks = this.todoList.querySelectorAll('.task');
+    // this.tasks.forEach((task) => {
+    //   task.addEventListener('dblclick', (event) => {
+    //     this.taskSelected = event.target.parentElement;
+
+    //     // Create an input box for the selected task to edit
+    //     const input = document.createElement('input');
+    //     input.classList.add('edit');
+
+    //     // Hide the task content of the selected task
+    //     this.taskSelected.classList.toggle('hidden');
+
+    //     // Insert the generated input element into the hidden task position
+    //     this.todoList.insertBefore(input, this.taskSelected);
+
+    //     input.focus();
+    //     input.value = this.taskSelected.querySelector('label').innerHTML;
+
+    //     // Get data from input
+    //     input.onchange = (e) => {
+    //       this.contentEdit = e.target.value;
+    //     };
+    //   });
+    // });
   }
 
   /**
@@ -156,7 +180,7 @@ export default class TodoListView {
    */
   bindUpdateTodo(handler) {
     this.todoList.addEventListener('focusout', (e) => {
-      this.idSelected = e.target.nextElementSibling.id;
+      this.idSelected = e.target.closest('li').id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';
     });
@@ -173,7 +197,7 @@ export default class TodoListView {
         if (this.isToggleAll) {
           this.showClearCompleted = true;
         }
-        handler(this.isToggleAll);
+        handler();
       }
     });
   }
@@ -189,7 +213,7 @@ export default class TodoListView {
         const selected = document.querySelector('.selected');
         selected.classList.remove('selected');
         event.target.classList.add('selected');
-        handler(this.todoList);
+        handler();
       });
     });
   }
@@ -200,7 +224,7 @@ export default class TodoListView {
    */
   bindDeleteAllTodo(handler) {
     this.clearCompleted.addEventListener('click', () => {
-      handler(this.todoList);
+      handler();
     });
   }
 }
