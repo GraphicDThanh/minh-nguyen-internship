@@ -82,7 +82,7 @@ export default class TodoListView {
   bindDeleteTodo(handler) {
     this.todoList.addEventListener('click', (event) => {
       if (event.target.className === 'destroy') {
-        this.idSelected = event.target.parentElement.id;
+        this.idSelected = event.target.closest('li').id;
         handler();
       }
     });
