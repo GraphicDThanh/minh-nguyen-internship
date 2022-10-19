@@ -6,7 +6,7 @@ export default class TodoListController {
 
   init() {
     // Explicit this binding
-    this.renderForm();
+    this.renderForm(this.model.filterType);
     this.view.bindAddTodo(() => {
       this.handleAddTask(this.view.todoText, this.model.filterType);
     });
@@ -45,9 +45,9 @@ export default class TodoListController {
   }
 
   // Handle add task
-  handleAddTask(todoText) {
-    this.model.addTodo(todoText);
-    this.renderForm();
+  handleAddTask(todoText, filterType) {
+    this.model.addTodo(todoText, filterType);
+    this.renderForm(filterType);
   }
 
   // Handle delete task

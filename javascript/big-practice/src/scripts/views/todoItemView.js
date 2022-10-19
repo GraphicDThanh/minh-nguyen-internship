@@ -14,11 +14,15 @@ export default class TodoItemView {
   renderTask(task) {
     const taskElement = `
       <li id=${task.id} class="task">
-      <input class='toggle' id='${task.id}-toggle' type='checkbox' ${
-      task.isCompleted ? 'checked' : ''
-    }/>
-          <label>${task.taskName}</label>
-          <button class="destroy"></button>
+      <div>
+      <input 
+        class='toggle' 
+        id='${task.id}-toggle' 
+        type='checkbox' ${task.isCompleted ? 'checked' : ''}
+      />
+            <label>${task.taskName}</label>
+            <button type="button" class="destroy"></button>
+      </div>
       </li>
     `;
     return taskElement;
