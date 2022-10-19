@@ -147,30 +147,6 @@ export default class TodoListView {
         this.contentEdit = e.target.value;
       };
     });
-    // this.tasks = this.todoList.querySelectorAll('.task');
-    // this.tasks.forEach((task) => {
-    //   task.addEventListener('dblclick', (event) => {
-    //     this.taskSelected = event.target.parentElement;
-
-    //     // Create an input box for the selected task to edit
-    //     const input = document.createElement('input');
-    //     input.classList.add('edit');
-
-    //     // Hide the task content of the selected task
-    //     this.taskSelected.classList.toggle('hidden');
-
-    //     // Insert the generated input element into the hidden task position
-    //     this.todoList.insertBefore(input, this.taskSelected);
-
-    //     input.focus();
-    //     input.value = this.taskSelected.querySelector('label').innerHTML;
-
-    //     // Get data from input
-    //     input.onchange = (e) => {
-    //       this.contentEdit = e.target.value;
-    //     };
-    //   });
-    // });
   }
 
   /**
