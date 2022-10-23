@@ -57,6 +57,12 @@ export default class TodoListView {
     if (taskList !== 0) {
       this.footerListTask.style.display = 'flex';
     }
+
+    // Toggle all task status
+    this.toggleAll.checked = true;
+    if (taskCompleted !== taskList) {
+      this.toggleAll.checked = false;
+    }
   }
 
   /**
@@ -97,24 +103,6 @@ export default class TodoListView {
     this.todoList.addEventListener('change', (event) => {
       if (event.target.type === 'checkbox') {
         this.idSelected = event.target.closest('li').id;
-
-        // Toggle all task status
-        this.toggleTask = this.todoList.querySelectorAll('input');
-        this.allChecked = true;
-
-        this.toggleTask.forEach((task) => {
-          if (!task.checked) {
-            this.allChecked = false;
-          }
-          this.showClearCompleted = true;
-        });
-        // Active toggleAll checkbox when all task status done
-        this.toggleAll.checked = this.allChecked;
-
-        // Check a task status: if there is an undone task then inactive toggleAll  checkbox
-        if (!event.target.checked) {
-          this.toggleAll.checked = false;
-        }
         handler();
       }
     });
