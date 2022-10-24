@@ -48,13 +48,14 @@ export default class TodoListView {
       this.todoList.removeChild(this.todoList.firstChild);
     }
 
-    const { handleDeleteTask } = handlers;
+    const { handleDeleteTask, handleToggleTodo } = handlers;
 
     // Show the entire task
     tasks.forEach((task) => {
       const taskElement = this.taskView.renderTask(task);
       this.todoList.append(taskElement);
       this.taskView.bindDeleteTodo(taskElement, handleDeleteTask, filterType);
+      this.taskView.bindToggleTodo(taskElement, handleToggleTodo, filterType);
     });
 
     // Show/hide clear completed button
@@ -88,50 +89,6 @@ export default class TodoListView {
         handler(this.todoText);
         this.addTaskForm.reset();
       }
-    });
-  }
-
-  /**
-   * function use id to edit task todo
-   * Get data after edit task name
-   * @param {fuction} handler
-   */
-  editTodo(handler) {
-    this.todoList.addEventListener('dblclick', (event) => {
-      this.taskSelected = event.target.parentElement;
-
-      // Create an input box for the selected task to edit
-      const input = document.createElement('input');
-      input.classList.add('edit');
-      // Hide the task content of the selected task
-      this.taskSelected.classList.toggle('hidden');
-
-      // Insert the generated input element into the hidden task position
-      this.taskSelected.parentElement.insertBefore(input, this.taskSelected);
-      this.bindUpdateTodo(handler);
-
-      input.focus();
-      input.value = this.taskSelected.querySelector('label').innerHTML;
-
-      // Get data from input
-      input.onchange = (e) => {
-        this.contentEdit = e.target.value;
-      };
-    });
-  }
-
-  /**
-   * function use id to update todos
-   * Add event 'double click' for todoList element
-   * @param {fuction} handler
-   */
-  bindUpdateTodo(handler) {
-    const inputElement = document.querySelector('.edit');
-
-    inputElement.addEventListener('blur', (e) => {
-      this.idSelected = e.target.closest('li').id;
-      handler(this.idSelected, this.contentEdit);
-      this.contentEdit = '';
     });
   }
 

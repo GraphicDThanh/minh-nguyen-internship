@@ -42,4 +42,17 @@ export default class TodoItemView {
       handler(task.id, filterType);
     });
   }
+
+  /**
+   * function use id to done todo
+   * Add event 'click' for todoList element
+   * @param {function} handler
+   */
+  bindToggleTodo(task, handler, filterType) {
+    const taskSelected = document.getElementById(`${task.id}`);
+    const toggleButton = taskSelected.querySelector('.toggle');
+    toggleButton.addEventListener('change', () => {
+      handler(task.id, filterType);
+    });
+  }
 }
