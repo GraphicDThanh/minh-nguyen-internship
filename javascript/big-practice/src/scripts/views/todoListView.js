@@ -5,6 +5,7 @@ export default class TodoListView {
 
     // Todo list element
     this.todoList = document.querySelector('.todo-list');
+    this.todo = document.querySelector('li');
 
     // Add todo
     this.addTaskForm = document.querySelector('.add-task');
@@ -41,44 +42,19 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  // displayTaskList(tasks, totalTaskCompleted) {
-  //   // Show the entire task
-  //   const listTasksTemplate = tasks.map((task) => this.taskView.renderTask(task)).join('');
-  //   this.todoList.innerHTML = listTasksTemplate;
-
-  //   // Show/hide clear completed button
-  //   if (totalTaskCompleted !== 0) {
-  //     this.clearCompleted.style.visibility = 'visible';
-  //   } else {
-  //     this.clearCompleted.style.visibility = 'hidden';
-  //   }
-
-  //   // Show todo list after adding task
-  //   if (tasks.length !== 0) {
-  //     this.footerListTask.style.display = 'flex';
-  //   }
-
-  //   // Toggle all task status
-  //   this.toggleAll.checked = true;
-  //   if (totalTaskCompleted !== tasks.length) {
-  //     this.toggleAll.checked = false;
-  //   }
-  // }
-  displayTaskList(tasks, totalTaskCompleted, handlers) {
+  displayTaskList(tasks, totalTaskCompleted, handlers, filterType) {
     // Delete all nodes
     while (this.todoList.firstChild) {
       this.todoList.removeChild(this.todoList.firstChild);
     }
 
-    const { handleDeleteTask, handleToggleTodo, handleUpdateTodo } = handlers;
+    const { handleDeleteTask } = handlers;
 
     // Show the entire task
     tasks.forEach((task) => {
-      const taskElement = this.taskView.renderTask(task, handlers);
+      const taskElement = this.taskView.renderTask(task);
       this.todoList.append(taskElement);
-      taskElement.bindDeleteTodo(task, handleDeleteTask);
-      taskElement.bindToggleTodo(task, handleToggleTodo);
-      taskElement.bindUpdateTodo(task, handleUpdateTodo);
+      this.taskView.bindDeleteTodo(taskElement, handleDeleteTask, filterType);
     });
 
     // Show/hide clear completed button
@@ -111,39 +87,6 @@ export default class TodoListView {
       if (this.todoText.trim()) {
         handler(this.todoText);
         this.addTaskForm.reset();
-      }
-    });
-  }
-
-  /**
-   * function use id to delete todos
-   * Add event 'click' for todoList element
-   * @param {function} handler
-   */
-  bindDeleteTodo(handler) {
-    console.log(this.todoList);
-    this.todoList.forEach((task) => {
-      console.log(task);
-
-      task.addEventListener('click', (event) => {
-        if (event.target.className === 'destroy') {
-          this.idSelected = event.target.closest('li').id;
-          handler();
-        }
-      });
-    });
-  }
-
-  /**
-   * function use id to done todo
-   * Add event 'click' for todoList element
-   * @param {function} handler
-   */
-  bindToggleTodo(handler) {
-    this.todoList.addEventListener('change', (event) => {
-      if (event.target.type === 'checkbox') {
-        this.idSelected = event.target.closest('li').id;
-        handler();
       }
     });
   }

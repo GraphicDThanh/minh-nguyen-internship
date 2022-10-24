@@ -29,4 +29,17 @@ export default class TodoItemView {
     `;
     return taskElement;
   }
+
+  /**
+   * function use id to delete todos
+   * Add event 'click' for todoList element
+   * @param {function} handler
+   */
+  bindDeleteTodo(task, handler, filterType) {
+    const taskSelected = document.getElementById(`${task.id}`);
+    const deleteButton = taskSelected.querySelector('.destroy');
+    deleteButton.addEventListener('click', () => {
+      handler(task.id, filterType);
+    });
+  }
 }

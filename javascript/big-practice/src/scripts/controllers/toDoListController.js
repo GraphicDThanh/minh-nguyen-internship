@@ -2,6 +2,8 @@ export default class TodoListController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+
+    this.handleDeleteTask = this.handleDeleteTask.bind(this);
   }
 
   init() {
@@ -10,15 +12,15 @@ export default class TodoListController {
     this.view.bindAddTodo(() => {
       this.handleAddTask(this.view.todoText, this.model.filterType);
     });
-    this.view.bindDeleteTodo(() => {
-      this.handleDeleteTask(this.view.idSelected, this.model.filterType);
-    });
-    this.view.bindToggleTodo(() => {
-      this.handleToggleTodo(this.view.idSelected, this.model.filterType);
-    });
-    this.view.editTodo(() => {
-      this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
-    });
+    // this.view.bindDeleteTodo(() => {
+    //   this.handleDeleteTask(this.view.idSelected, this.model.filterType);
+    // });
+    // this.view.bindToggleTodo(() => {
+    //   this.handleToggleTodo(this.view.idSelected, this.model.filterType);
+    // });
+    // this.view.editTodo(() => {
+    //   this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
+    // });
     this.view.bindToggleCheckAll(() => {
       this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
     });
@@ -34,12 +36,11 @@ export default class TodoListController {
   renderForm(filterType) {
     const handlers = {
       handleDeleteTask: this.handleDeleteTask,
-      handleToggleTodo: this.handleToggleTodo,
     };
 
     this.todos = this.model.filterModeTodos(filterType);
     this.view.showTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos, this.model.countTaskCompleted(), handlers);
+    this.view.displayTaskList(this.todos, this.model.countTaskCompleted(), handlers, filterType);
     this.saveData();
   }
 
