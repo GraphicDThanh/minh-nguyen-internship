@@ -16,8 +16,7 @@ export default class TodoListController {
     this.view.bindToggleTodo(() => {
       this.handleToggleTodo(this.view.idSelected, this.model.filterType);
     });
-    this.view.editTodo();
-    this.view.bindUpdateTodo(() => {
+    this.view.editTodo(() => {
       this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
     });
     this.view.bindToggleCheckAll(() => {
@@ -35,7 +34,7 @@ export default class TodoListController {
   renderForm(filterType) {
     this.todos = this.model.filterModeTodos(filterType);
     this.view.showTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos, this.todos.length, this.model.countTaskCompleted());
+    this.view.displayTaskList(this.todos, this.model.countTaskCompleted());
     this.saveData();
   }
 

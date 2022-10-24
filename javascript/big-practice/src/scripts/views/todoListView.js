@@ -41,26 +41,26 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(listElement, taskList, taskCompleted) {
+  displayTaskList(tasks, totalTaskCompleted) {
     // Show the entire task
-    const array = listElement.map((task) => this.taskView.renderTask(task));
-    this.todoList.innerHTML = array.join('');
+    const listTasksTemplate = tasks.map((task) => this.taskView.renderTask(task)).join('');
+    this.todoList.innerHTML = listTasksTemplate;
 
     // Show/hide clear completed button
-    if (taskCompleted !== 0) {
+    if (totalTaskCompleted !== 0) {
       this.clearCompleted.style.visibility = 'visible';
     } else {
       this.clearCompleted.style.visibility = 'hidden';
     }
 
     // Show todo list after adding task
-    if (taskList !== 0) {
+    if (tasks.length !== 0) {
       this.footerListTask.style.display = 'flex';
     }
 
     // Toggle all task status
     this.toggleAll.checked = true;
-    if (taskCompleted !== taskList) {
+    if (totalTaskCompleted !== tasks.length) {
       this.toggleAll.checked = false;
     }
   }
@@ -113,19 +113,19 @@ export default class TodoListView {
    * Get data after edit task name
    * @param {fuction} handler
    */
-  editTodo() {
+  editTodo(handler) {
     this.todoList.addEventListener('dblclick', (event) => {
       this.taskSelected = event.target.parentElement;
 
       // Create an input box for the selected task to edit
       const input = document.createElement('input');
       input.classList.add('edit');
-
       // Hide the task content of the selected task
       this.taskSelected.classList.toggle('hidden');
 
       // Insert the generated input element into the hidden task position
       this.taskSelected.parentElement.insertBefore(input, this.taskSelected);
+      this.bindUpdateTodo(handler);
 
       input.focus();
       input.value = this.taskSelected.querySelector('label').innerHTML;
@@ -143,7 +143,9 @@ export default class TodoListView {
    * @param {fuction} handler
    */
   bindUpdateTodo(handler) {
-    this.todoList.addEventListener('focusout', (e) => {
+    const inputElement = document.querySelector('.edit');
+
+    inputElement.addEventListener('blur', (e) => {
       this.idSelected = e.target.closest('li').id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';
