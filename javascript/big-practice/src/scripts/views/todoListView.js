@@ -113,19 +113,19 @@ export default class TodoListView {
    * Get data after edit task name
    * @param {fuction} handler
    */
-  editTodo() {
+  editTodo(handler) {
     this.todoList.addEventListener('dblclick', (event) => {
       this.taskSelected = event.target.parentElement;
 
       // Create an input box for the selected task to edit
       const input = document.createElement('input');
       input.classList.add('edit');
-
       // Hide the task content of the selected task
       this.taskSelected.classList.toggle('hidden');
 
       // Insert the generated input element into the hidden task position
       this.taskSelected.parentElement.insertBefore(input, this.taskSelected);
+      this.bindUpdateTodo(handler);
 
       input.focus();
       input.value = this.taskSelected.querySelector('label').innerHTML;
@@ -143,7 +143,9 @@ export default class TodoListView {
    * @param {fuction} handler
    */
   bindUpdateTodo(handler) {
-    this.todoList.addEventListener('focusout', (e) => {
+    const inputElement = document.querySelector('.edit');
+
+    inputElement.addEventListener('blur', (e) => {
       this.idSelected = e.target.closest('li').id;
       handler(this.idSelected, this.contentEdit);
       this.contentEdit = '';

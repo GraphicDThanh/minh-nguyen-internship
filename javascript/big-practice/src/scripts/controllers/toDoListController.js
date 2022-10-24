@@ -16,8 +16,7 @@ export default class TodoListController {
     this.view.bindToggleTodo(() => {
       this.handleToggleTodo(this.view.idSelected, this.model.filterType);
     });
-    this.view.editTodo();
-    this.view.bindUpdateTodo(() => {
+    this.view.editTodo(() => {
       this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
     });
     this.view.bindToggleCheckAll(() => {
