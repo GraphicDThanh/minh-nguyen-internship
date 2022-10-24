@@ -41,10 +41,10 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(tasks, totalTask, totalTaskCompleted) {
+  displayTaskList(tasks, totalTaskCompleted) {
     // Show the entire task
-    const listTasks = tasks.map((task) => this.taskView.renderTask(task)).join('');
-    this.todoList.innerHTML = listTasks;
+    const listTasksTemplate = tasks.map((task) => this.taskView.renderTask(task)).join('');
+    this.todoList.innerHTML = listTasksTemplate;
 
     // Show/hide clear completed button
     if (totalTaskCompleted !== 0) {
@@ -54,13 +54,13 @@ export default class TodoListView {
     }
 
     // Show todo list after adding task
-    if (totalTask !== 0) {
+    if (tasks.length !== 0) {
       this.footerListTask.style.display = 'flex';
     }
 
     // Toggle all task status
     this.toggleAll.checked = true;
-    if (totalTaskCompleted !== totalTask) {
+    if (totalTaskCompleted !== tasks.length) {
       this.toggleAll.checked = false;
     }
   }
