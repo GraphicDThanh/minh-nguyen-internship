@@ -12,8 +12,11 @@ export default class TodoItemView {
    * @returns task <li> element
    */
   renderTask(task) {
-    const taskElement = `
-      <li id=${task.id} class="task">
+    const taskElement = document.createElement('li');
+    taskElement.id = `${task.id}`;
+    taskElement.className = 'task';
+
+    taskElement.innerHTML = `
       <div>
       <input 
         class='toggle' 
@@ -23,7 +26,6 @@ export default class TodoItemView {
             <label>${task.taskName}</label>
             <button type="button" class="destroy"></button>
       </div>
-      </li>
     `;
     return taskElement;
   }

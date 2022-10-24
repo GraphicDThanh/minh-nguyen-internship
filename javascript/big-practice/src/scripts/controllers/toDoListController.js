@@ -32,9 +32,14 @@ export default class TodoListController {
 
   // Render board task list
   renderForm(filterType) {
+    const handlers = {
+      handleDeleteTask: this.handleDeleteTask,
+      handleToggleTodo: this.handleToggleTodo,
+    };
+
     this.todos = this.model.filterModeTodos(filterType);
     this.view.showTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos, this.model.countTaskCompleted());
+    this.view.displayTaskList(this.todos, this.model.countTaskCompleted(), handlers);
     this.saveData();
   }
 

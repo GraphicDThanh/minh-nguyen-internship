@@ -41,10 +41,45 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(tasks, totalTaskCompleted) {
+  // displayTaskList(tasks, totalTaskCompleted) {
+  //   // Show the entire task
+  //   const listTasksTemplate = tasks.map((task) => this.taskView.renderTask(task)).join('');
+  //   this.todoList.innerHTML = listTasksTemplate;
+
+  //   // Show/hide clear completed button
+  //   if (totalTaskCompleted !== 0) {
+  //     this.clearCompleted.style.visibility = 'visible';
+  //   } else {
+  //     this.clearCompleted.style.visibility = 'hidden';
+  //   }
+
+  //   // Show todo list after adding task
+  //   if (tasks.length !== 0) {
+  //     this.footerListTask.style.display = 'flex';
+  //   }
+
+  //   // Toggle all task status
+  //   this.toggleAll.checked = true;
+  //   if (totalTaskCompleted !== tasks.length) {
+  //     this.toggleAll.checked = false;
+  //   }
+  // }
+  displayTaskList(tasks, totalTaskCompleted, handlers) {
+    // Delete all nodes
+    while (this.todoList.firstChild) {
+      this.todoList.removeChild(this.todoList.firstChild);
+    }
+
+    const { handleDeleteTask, handleToggleTodo, handleUpdateTodo } = handlers;
+
     // Show the entire task
-    const listTasksTemplate = tasks.map((task) => this.taskView.renderTask(task)).join('');
-    this.todoList.innerHTML = listTasksTemplate;
+    tasks.forEach((task) => {
+      const taskElement = this.taskView.renderTask(task, handlers);
+      this.todoList.append(taskElement);
+      taskElement.bindDeleteTodo(task, handleDeleteTask);
+      taskElement.bindToggleTodo(task, handleToggleTodo);
+      taskElement.bindUpdateTodo(task, handleUpdateTodo);
+    });
 
     // Show/hide clear completed button
     if (totalTaskCompleted !== 0) {
@@ -86,11 +121,16 @@ export default class TodoListView {
    * @param {function} handler
    */
   bindDeleteTodo(handler) {
-    this.todoList.addEventListener('click', (event) => {
-      if (event.target.className === 'destroy') {
-        this.idSelected = event.target.closest('li').id;
-        handler();
-      }
+    console.log(this.todoList);
+    this.todoList.forEach((task) => {
+      console.log(task);
+
+      task.addEventListener('click', (event) => {
+        if (event.target.className === 'destroy') {
+          this.idSelected = event.target.closest('li').id;
+          handler();
+        }
+      });
     });
   }
 
