@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import TodoItemModel from './todoItemModel';
-import LocalStore from '../helper/localStorage';
+import LocalStore from '../helper/localstorage';
 
 export default class TodoListModel {
   constructor() {
