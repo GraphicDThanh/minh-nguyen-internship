@@ -5,6 +5,7 @@ export default class TodoListView {
 
     // Todo list element
     this.todoList = document.querySelector('.todo-list');
+    this.todo = document.querySelector('li');
 
     // Add todo
     this.addTaskForm = document.querySelector('.add-task');
@@ -41,21 +42,39 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(listElement, taskList, taskCompleted) {
+  displayTaskList(tasks, totalTaskCompleted, handlers, filterType) {
+    // Delete all nodes
+    while (this.todoList.firstChild) {
+      this.todoList.removeChild(this.todoList.firstChild);
+    }
+
+    const { handleDeleteTask, handleToggleTodo, handleUpdateTodo } = handlers;
+
     // Show the entire task
-    const array = listElement.map((task) => this.taskView.renderTask(task));
-    this.todoList.innerHTML = array.join('');
+    tasks.forEach((task) => {
+      const taskElement = this.taskView.renderTask(task);
+      this.todoList.append(taskElement);
+      this.taskView.bindDeleteTodo(taskElement, handleDeleteTask, filterType);
+      this.taskView.bindToggleTodo(taskElement, handleToggleTodo, filterType);
+      this.taskView.bindEditTodo(taskElement, handleUpdateTodo, filterType);
+    });
 
     // Show/hide clear completed button
-    if (taskCompleted !== 0) {
+    if (totalTaskCompleted !== 0) {
       this.clearCompleted.style.visibility = 'visible';
     } else {
       this.clearCompleted.style.visibility = 'hidden';
     }
 
     // Show todo list after adding task
-    if (taskList !== 0) {
+    if (tasks.length !== 0) {
       this.footerListTask.style.display = 'flex';
+    }
+
+    // Toggle all task status
+    this.toggleAll.checked = true;
+    if (totalTaskCompleted !== tasks.length) {
+      this.toggleAll.checked = false;
     }
   }
 
@@ -75,94 +94,6 @@ export default class TodoListView {
   }
 
   /**
-   * function use id to delete todos
-   * Add event 'click' for todoList element
-   * @param {function} handler
-   */
-  bindDeleteTodo(handler) {
-    this.todoList.addEventListener('click', (event) => {
-      if (event.target.className === 'destroy') {
-        this.idSelected = event.target.parentElement.id;
-        handler();
-      }
-    });
-  }
-
-  /**
-   * function use id to done todo
-   * Add event 'click' for todoList element
-   * @param {function} handler
-   */
-  bindToggleTodo(handler) {
-    this.todoList.addEventListener('change', (event) => {
-      if (event.target.type === 'checkbox') {
-        this.idSelected = event.target.parentElement.id;
-
-        // Toggle all task status
-        this.toggleTask = this.todoList.querySelectorAll('input');
-
-        this.toggleTask.forEach((task) => {
-          this.allChecked = true;
-          if (task.checked === false) {
-            this.allChecked = false;
-          }
-          this.showClearCompleted = true;
-        });
-        // Active toggleAll checkbox when all task status done
-        this.toggleAll.checked = this.allChecked;
-        handler();
-
-        // Check a task status: if there is an undone task then inactive toggleAll  checkbox
-        if (!event.target.checked) {
-          this.toggleAll.checked = false;
-        }
-      }
-    });
-  }
-
-  /**
-   * function use id to edit task todo
-   * Get data after edit task name
-   * @param {fuction} handler
-   */
-  editTodo() {
-    this.todoList.addEventListener('dblclick', (event) => {
-      this.taskSelected = event.target.parentElement;
-
-      // Create an input box for the selected task to edit
-      const input = document.createElement('input');
-      input.classList.add('edit');
-
-      // Hide the task content of the selected task
-      this.taskSelected.classList.toggle('hidden');
-
-      // Insert the generated input element into the hidden task position
-      this.todoList.insertBefore(input, this.taskSelected);
-
-      input.focus();
-      input.value = this.taskSelected.querySelector('label').innerHTML;
-
-      // Get data from input
-      input.onchange = (e) => {
-        this.contentEdit = e.target.value;
-      };
-    });
-  }
-
-  /**
-   * function use id to update todos
-   * Add event 'double click' for todoList element
-   * @param {fuction} handler
-   */
-  bindUpdateTodo(handler) {
-    this.todoList.addEventListener('focusout', (e) => {
-      this.idSelected = e.target.nextElementSibling.id;
-      handler(this.idSelected, this.contentEdit);
-      this.contentEdit = '';
-    });
-  }
-
-  /**
    * Add event 'click' to select all todos
    * @param {fuction} handler
    */
@@ -173,7 +104,7 @@ export default class TodoListView {
         if (this.isToggleAll) {
           this.showClearCompleted = true;
         }
-        handler(this.isToggleAll);
+        handler();
       }
     });
   }
@@ -189,7 +120,7 @@ export default class TodoListView {
         const selected = document.querySelector('.selected');
         selected.classList.remove('selected');
         event.target.classList.add('selected');
-        handler(this.todoList);
+        handler();
       });
     });
   }
@@ -200,7 +131,7 @@ export default class TodoListView {
    */
   bindDeleteAllTodo(handler) {
     this.clearCompleted.addEventListener('click', () => {
-      handler(this.todoList);
+      handler();
     });
   }
 }

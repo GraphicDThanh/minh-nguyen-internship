@@ -2,23 +2,18 @@ export default class TodoListController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+
+    // bind this in model
+    this.handleDeleteTask = this.handleDeleteTask.bind(this);
+    this.handleToggleTodo = this.handleToggleTodo.bind(this);
+    this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
   }
 
   init() {
     // Explicit this binding
-    this.renderForm();
+    this.renderForm(this.model.filterType);
     this.view.bindAddTodo(() => {
       this.handleAddTask(this.view.todoText, this.model.filterType);
-    });
-    this.view.bindDeleteTodo(() => {
-      this.handleDeleteTask(this.view.idSelected, this.model.filterType);
-    });
-    this.view.bindToggleTodo(() => {
-      this.handleToggleTodo(this.view.idSelected, this.model.filterType);
-    });
-    this.view.editTodo();
-    this.view.bindUpdateTodo(() => {
-      this.handleUpdateTodo(this.view.idSelected, this.view.contentEdit, this.model.filterType);
     });
     this.view.bindToggleCheckAll(() => {
       this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
@@ -33,9 +28,15 @@ export default class TodoListController {
 
   // Render board task list
   renderForm(filterType) {
+    const handlers = {
+      handleDeleteTask: this.handleDeleteTask,
+      handleToggleTodo: this.handleToggleTodo,
+      handleUpdateTodo: this.handleUpdateTodo,
+    };
+
     this.todos = this.model.filterModeTodos(filterType);
     this.view.showTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos, this.todos.length, this.model.countTaskCompleted());
+    this.view.displayTaskList(this.todos, this.model.countTaskCompleted(), handlers, filterType);
     this.saveData();
   }
 
@@ -45,9 +46,9 @@ export default class TodoListController {
   }
 
   // Handle add task
-  handleAddTask(todoText) {
-    this.model.addTodo(todoText);
-    this.renderForm();
+  handleAddTask(todoText, filterType) {
+    this.model.addTodo(todoText, filterType);
+    this.renderForm(filterType);
   }
 
   // Handle delete task
@@ -63,8 +64,8 @@ export default class TodoListController {
   }
 
   // Handle update content after edit
-  handleUpdateTodo(id, editTask, filterType) {
-    this.model.updateTodo(id, editTask);
+  handleUpdateTodo(id, newTaskName, filterType) {
+    this.model.updateTodo(id, newTaskName);
     this.renderForm(filterType);
   }
 
