@@ -9,7 +9,7 @@
     <title>Todo MVC</title>
   </head>
   <body>
-    <section class="todos">
+    <section class="todos hidden">
       <header>
         <h1 class="logo">todos</h1>
       </header>
@@ -38,7 +38,30 @@
       </main>
       <footer>
         <p>Double-click to edit a todo</p>
+        <button class="log-btn show-login-btn" id="show-login-btn">Login</button>
       </footer>
     </section>
+    <div class="login-form" id="login">
+      <div class="main-login">
+        <button class="close-btn" id="close-btn">x</button>
+        <p class="app-name">Todos</p>
+        <p class="login-label">Login</p>
+        <form id="login-form">
+          <label for="email" id="email-label">Email</label>
+          <input
+            type="text"
+            placeholder="example@mail.com"
+            name="email"
+            id="input-email"
+            required
+          />
+          <label for="password" id="password-label">Password</label>
+          <input type="password" name="password" id="input-password" required />
+          <p class="error-msg hidden" id="error-msg"></p>
+          <p class="success-msg hidden" id="success-msg"></p>
+          <input type="submit" id="login-btn" value="Login" />
+        </form>
+      </div>
+    </div>
   </body>
 </html>

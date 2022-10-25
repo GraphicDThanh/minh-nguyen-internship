@@ -3,6 +3,8 @@
   --primary-light: rgb(245, 245, 245);
   --primary-dark: rgb(246, 246, 246);
   --normal: rgb(77, 77, 77);
+  --warning: rgb(255, 0, 0, 0.6);
+  --success: rgb(0, 195, 0);
 
   --platinum: rgb(230, 230, 230);
   --white: rgb(255, 255, 255);
