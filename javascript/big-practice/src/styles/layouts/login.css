@@ -1,27 +1,19 @@
 .login-form {
   position: fixed;
   top: 0;
-
   width: 100%;
   height: 100%;
-
-  z-index: 3;
-  background-color: var(--dark-05);  
+  background-color: var(--grey-dark);
 }
 
 .main-login {
   position: relative;
-
   width: 350px;
-
-  margin-top: 200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  margin-top: 150px;
   padding: 30px;
-
   color: var(--dark);
-  background-color: var(--light);
-
+  background-color: var(--white);
   border-radius: 10px;
 }
 
@@ -32,18 +24,27 @@
   margin-bottom: 20px;
 }
 
+.app-name {
+  width: fit-content;
+  margin: auto;
+  font-weight: 600;
+  font-size: 20px;
+  background: linear-gradient(-45deg, rgb(77, 77, 77), #fff, rgb(237, 237, 237), rgb(77, 77, 77));
+  padding: 10px;
+  border-radius: 25px;
+}
+
 .login-label {
   font-weight: 600;
   font-size: 18px;
 }
 
-.close-modal-btn {
+.close-btn {
   margin: 20px;
 }
 
 .main-login form {
   margin-bottom: 20px;
-
   color: var(--sliver);
   font-size: 12px;
   font-weight: 700;
@@ -51,50 +52,45 @@
 
 .main-login form label {
   display: block;
-
   margin-top: 20px;
   margin-bottom: 8px;
-
   text-transform: uppercase;
 }
 
-.main-login form input[type='text'],
-.main-login form input[type='password'] {
+#input-email, 
+#input-password {
   width: 100%;
-  
   margin-bottom: 20px;
   padding: 12px 10px;
-
   box-sizing: border-box;
   box-shadow: none;
-  
   color: var(--dorado);
-  background-color: var(--gallery);
+  background-color: var(--grey-light);
   font-size: 16px;
-  
   border: none;
   border-radius: 4px;
 }
 
-.main-login form input[type='submit'] {
+#login-btn {
   width: 100%;
-
   padding: 12px;
-
   text-align: center;
   font-size: 14px;
-
   cursor: pointer;
-
   box-shadow: var(--dark-02) 0px 2px 2px;
   color: var(--light);
   background-color: var(--mineShaft);
   opacity: 0.9;
-
   border-radius: 4px;
 }
 
-.close-modal-btn {
+#login-btn:hover,
+.close-btn:hover {
+  color: var(--white);
+  background-color: var(--grey-dark-plus);
+}
+
+.close-btn {
   position: absolute;
   top: 0;
   right: 0;
