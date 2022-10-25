@@ -5,6 +5,7 @@ export default class TodoListController {
 
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
     this.handleToggleTodo = this.handleToggleTodo.bind(this);
+    this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
   }
 
   init() {
@@ -32,6 +33,7 @@ export default class TodoListController {
     const handlers = {
       handleDeleteTask: this.handleDeleteTask,
       handleToggleTodo: this.handleToggleTodo,
+      handleUpdateTodo: this.handleUpdateTodo,
     };
 
     this.todos = this.model.filterModeTodos(filterType);
@@ -68,8 +70,8 @@ export default class TodoListController {
   // });
 
   // Handle update content after edit
-  handleUpdateTodo(id, editTask, filterType) {
-    this.model.updateTodo(id, editTask);
+  handleUpdateTodo(id, newTaskName, filterType) {
+    this.model.updateTodo(id, newTaskName);
     this.renderForm(filterType);
   }
 
