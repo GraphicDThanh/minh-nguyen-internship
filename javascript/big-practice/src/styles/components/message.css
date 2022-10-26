@@ -1,0 +1,12 @@
+.error-msg,
+.success-msg {
+  margin-bottom: 20px;
+}
+
+.error-msg {
+  color: var(--warning);
+}
+
+.success-msg {
+  color: var(--success);
+}
