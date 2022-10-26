@@ -10,6 +10,7 @@
 @import url(components/toggle.css);
 @import url(components/input.css);
 @import url(components/logo.css);
+@import url(components/message.css);
 
 /* css for section */
 @import url(layouts/main-content.css);

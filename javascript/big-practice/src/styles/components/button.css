@@ -28,7 +28,7 @@ button {
   margin: 3px;
   padding: 3px 7px;
   border: 1px solid transparent;
-	border-radius: 3px;
+  border-radius: 3px;
   margin: 0px 5px;
   cursor: pointer;
 }
@@ -39,4 +39,30 @@ button {
 
 .filters li button.selected {
   border-color: var(--filter-select);
+}
+
+#login-btn:hover,
+.close-btn:hover {
+  color: var(--white);
+  background-color: var(--grey-dark-plus);
+}
+
+.close-btn {
+  margin: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#login-btn {
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: var(--dark-02) 0px 2px 2px;
+  color: var(--light);
+  background-color: var(--mineShaft);
+  opacity: 0.9;
+  border-radius: 4px;
 }
