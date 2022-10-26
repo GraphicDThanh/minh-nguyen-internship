@@ -17,26 +17,23 @@
   border-radius: 10px;
 }
 
-.main-login .app-name,
-.login-label {
-  color: var(--normal);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
 .app-name {
   width: fit-content;
   margin: auto;
-  font-weight: 600;
-  font-size: 20px;
-  background: linear-gradient(-45deg, rgb(77, 77, 77), #fff, rgb(237, 237, 237), rgb(77, 77, 77));
+  font-weight: var(--font-bold-plus);
+  font-size:30px;
+  color: var(--metallic-red-dark);
   padding: 10px;
-  border-radius: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px dashed var(--metallic-red-light);
 }
 
 .login-label {
-  font-weight: 600;
+  font-weight: var(--font-bold);
   font-size: 18px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .close-btn {
@@ -45,9 +42,8 @@
 
 .main-login form {
   margin-bottom: 20px;
-  color: var(--sliver);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: var(--font-bold-plus);
 }
 
 .main-login form label {
@@ -78,9 +74,7 @@
   font-size: 14px;
   cursor: pointer;
   box-shadow: var(--dark-02) 0px 2px 2px;
-  color: var(--light);
-  background-color: var(--mineShaft);
-  opacity: 0.9;
+  background-color: var(--grey);
   border-radius: 4px;
 }
 
