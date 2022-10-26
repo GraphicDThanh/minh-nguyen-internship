@@ -31,8 +31,8 @@
   margin-left: 43px;
 }
 
-#input-email, 
-#input-password {
+.input-email, 
+.input-password {
   width: 100%;
   margin-bottom: 20px;
   padding: 12px 10px;
