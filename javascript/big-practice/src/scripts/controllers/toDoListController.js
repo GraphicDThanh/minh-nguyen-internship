@@ -9,21 +9,25 @@ export default class TodoListController {
     this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
   }
 
-  init() {
+  init = async() => {
     // Explicit this binding
-    this.renderForm(this.model.filterType);
-    this.view.bindAddTodo(() => {
-      this.handleAddTask(this.view.todoText, this.model.filterType);
-    });
-    this.view.bindToggleCheckAll(() => {
-      this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
-    });
-    this.view.bindFilters(() => {
-      this.renderForm(this.view.idSelected);
-    });
-    this.view.bindDeleteAllTodo(() => {
-      this.handleClearCompleted(this.model.filterType);
-    });
+    // this.renderForm(this.model.filterType);
+    // this.view.bindAddTodo(() => {
+    //   this.handleAddTask(this.view.todoText, this.model.filterType);
+    // });
+    // this.view.bindToggleCheckAll(() => {
+    //   this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
+    // });
+    // this.view.bindFilters(() => {
+    //   this.renderForm(this.view.idSelected);
+    // });
+    // this.view.bindDeleteAllTodo(() => {
+    //   this.handleClearCompleted(this.model.filterType);
+    // });
+    const todos = await this.model.getTodo();
+    console.log(todos);
+    // this.view.displayTaskList(todos);
+
   }
 
   // Render board task list

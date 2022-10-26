@@ -1,6 +1,6 @@
-/* eslint-disable no-param-reassign */
 import TodoItemModel from './todoItemModel';
-import LocalStore from '../helper/localstorage';
+import LocalStore from '../helper/localStorage';
+import get from '../helper/fetchApi'
 
 export default class TodoListModel {
   constructor() {
@@ -102,5 +102,16 @@ export default class TodoListModel {
   deleteCompletedTodos() {
     const newTodos = this.taskListModel.filter((task) => task.isCompleted !== true);
     this.taskListModel = newTodos;
+  }
+
+  /**
+  * Use API url from fetch import in read data
+  * @returns {array} todos.
+  */
+  getTodo = async() => {
+    console.log('abc');
+    const listTodos = get;
+    this.todos = listTodos;
+    return listTodos;
   }
 }

@@ -1,110 +1,67 @@
-const API_HOST = 'http://localhost:3000';
+/**
+ * FETCH API
+ */
+const URL = 'http://localhost:3000/users';
 
 /**
- * Function uses url, params and method to return the result requested by the user
- * @param {string} url
- * @param {let} params
- * @param {method} method
- * @returns {} result
+ * Get all data from JSON server
+ * @returns array which is parsed from json
  */
-
-async function request(url, params, method = 'GET') {
-  const options = {
-    method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  if (params) {
-    if (method === 'GET') {
-      url += `?${objectToQueryString(params)}`;
-    } else {
-      options.body = JSON.stringify(params);
+export const get = async () => {
+  try {
+    const response = await fetch(URL);
+    if (!response.ok) {
+      throw response.statusText;
     }
+
+    return response;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
+};
 
-  const response = await fetch(API_HOST + url, options);
-
-  if (response.status !== 200) {
-    return generateErrorResponse('The server responded with an unexpected status.');
+/**
+ * Add new user to JSON server
+ * @param {object} data / new user data
+ */
+export const post = async (data) => {
+  try {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw response.statusText;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-
-  const result = await response.json();
-
-  return result;
-}
+};
 
 /**
- *
- * @param {object} obj
- * @returns object
+ * Update data tasks with specific id in database
+ * @param {object} data / task list data of specified user
+ * @param {number} id / user Id
  */
-function objectToQueryString(obj) {
-  return Object.keys(obj)
-    .map((key) => `${key}=${obj[key]}`)
-    .join('&');
-}
-
-/**
- *
- * @param {string} message
- * @returns string
- */
-function generateErrorResponse(message) {
-  return {
-    status: 'error',
-    message,
-  };
-}
-
-/**
- * Use url and id to return result request to read data
- * @param {string} url
- * @param {number} id
- * @returns result request to read data
- */
-
-function get(url, params) {
-  return request(url, params);
-}
-
-/**
- * Use url and id to return result request to create data
- * @param {string} url
- * @param {number} id
- * @returns result request to create data
- */
-
-function create(url, params) {
-  return request(url, params, 'POST');
-}
-
-/**
- * Use url and id to return result request to update data
- * @param {string} url
- * @param {number} id
- * @returns result request to update data
- */
-
-function update(url, params) {
-  return request(url, params, 'PUT');
-}
-
-/**
- * Use url and id to return result request to delete data
- * @param {string} url
- * @param {number} id
- * @returns result request to delete data
- */
-
-function remove(url, params) {
-  return request(url, params, 'DELETE');
-}
-
-export default {
-  get,
-  create,
-  update,
-  remove,
+export const patch = async (data, id) => {
+  try {
+    const response = await fetch(`${URL}/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw response.statusText;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
