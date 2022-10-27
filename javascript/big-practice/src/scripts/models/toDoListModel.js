@@ -1,11 +1,11 @@
 import TodoItemModel from './todoItemModel';
-import LocalStore from '../helper/localStorage';
+// import LocalStore from '../helper/localStorage';
 import { get, post, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
     this.todos = [];
-    this.taskListData = new LocalStore('taskListData');
+    // this.taskListData = new LocalStore('taskListData');
     // this.taskListModel = this.getTaskListModel();
     this.filterType = 'all';
   }
@@ -88,19 +88,21 @@ export default class TodoListModel {
   }
 
   // Filter list todo type filter
-  filterModeTodos(filter) {
+  async filterModeTodos(filter) {
+    const listTodos = await this.getTodo();
+
     this.filterType = filter;
     if (filter === 'completed') {
       this.filterType = filter;
-      const completedTask = this.todos.filter((task) => task.isCompleted);
+      const completedTask = listTodos.filter((task) => task.isCompleted);
       return completedTask;
     }
     if (filter === 'active') {
       this.filterType = filter;
-      const activeTask = this.todos.filter((task) => !task.isCompleted);
+      const activeTask = listTodos.filter((task) => !task.isCompleted);
       return activeTask;
     }
-    return this.todos;
+    return listTodos;
   }
 
   // Delete completed task

@@ -42,7 +42,7 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(tasks, totalTaskCompleted, handlers) {
+  displayTaskList(tasks, totalTaskCompleted, handlers, filterType) {
     // Delete all nodes
     while (this.todoList.firstChild) {
       this.todoList.removeChild(this.todoList.firstChild);
@@ -54,9 +54,9 @@ export default class TodoListView {
     tasks.forEach((task) => {
       const taskElement = this.taskView.renderTask(task);
       this.todoList.append(taskElement);
-      this.taskView.bindDeleteTodo(taskElement, handleDeleteTask);
-      this.taskView.bindToggleTodo(taskElement, handleToggleTodo);
-      this.taskView.bindEditTodo(taskElement, handleUpdateTodo);
+      this.taskView.bindDeleteTodo(taskElement, handleDeleteTask, filterType);
+      this.taskView.bindToggleTodo(taskElement, handleToggleTodo, filterType);
+      this.taskView.bindEditTodo(taskElement, handleUpdateTodo, filterType);
     });
 
     // Show/hide clear completed button
