@@ -1,7 +1,7 @@
 /**
  * FETCH API
  */
-const URL = 'http://localhost:3000/users';
+const URL = 'http://localhost:3000/tasks';
 
 /**
  * Get all data from JSON server
@@ -10,11 +10,12 @@ const URL = 'http://localhost:3000/users';
 export const get = async () => {
   try {
     const response = await fetch(URL);
+    const data = response.json();
     if (!response.ok) {
       throw response.statusText;
     }
 
-    return response;
+    return data;
   } catch (error) {
     console.error(error);
     throw error;
@@ -22,8 +23,8 @@ export const get = async () => {
 };
 
 /**
- * Add new user to JSON server
- * @param {object} data / new user data
+ * Add new task to JSON server
+ * @param {object} data
  */
 export const post = async (data) => {
   try {
@@ -45,13 +46,36 @@ export const post = async (data) => {
 
 /**
  * Update data tasks with specific id in database
- * @param {object} data / task list data of specified user
- * @param {number} id / user Id
+ * @param {object} data
+ * @param {number} id
  */
-export const patch = async (data, id) => {
+export const update = async (id, data) => {
   try {
     const response = await fetch(`${URL}/${id}`, {
       method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw response.statusText;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+/**
+ * Remove data tasks with specific id in database
+ * @param {object} data
+ * @param {number} id
+ */
+export const remove = async (id, data) => {
+  try {
+    const response = await fetch(`${URL}/${id}`, {
+      method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
