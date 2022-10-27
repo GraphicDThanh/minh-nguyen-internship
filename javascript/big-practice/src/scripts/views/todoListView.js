@@ -42,40 +42,40 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(tasks) {
+  displayTaskList(tasks, totalTaskCompleted, handlers) {
     // Delete all nodes
     while (this.todoList.firstChild) {
       this.todoList.removeChild(this.todoList.firstChild);
     }
 
-    // const { handleDeleteTask, handleToggleTodo, handleUpdateTodo } = handlers;
+    const { handleDeleteTask, handleToggleTodo } = handlers;
 
     // Show the entire task
     tasks.forEach((task) => {
       const taskElement = this.taskView.renderTask(task);
       this.todoList.append(taskElement);
-      // this.taskView.bindDeleteTodo(taskElement, handleDeleteTask, filterType);
-      // this.taskView.bindToggleTodo(taskElement, handleToggleTodo, filterType);
+      this.taskView.bindDeleteTodo(taskElement, handleDeleteTask);
+      this.taskView.bindToggleTodo(taskElement, handleToggleTodo);
       // this.taskView.bindEditTodo(taskElement, handleUpdateTodo, filterType);
     });
 
     // Show/hide clear completed button
-    // if (totalTaskCompleted !== 0) {
-    //   this.clearCompleted.style.visibility = 'visible';
-    // } else {
-    //   this.clearCompleted.style.visibility = 'hidden';
-    // }
+    if (totalTaskCompleted !== 0) {
+      this.clearCompleted.style.visibility = 'visible';
+    } else {
+      this.clearCompleted.style.visibility = 'hidden';
+    }
 
-    // // Show todo list after adding task
-    // if (tasks.length !== 0) {
-    //   this.footerListTask.style.display = 'flex';
-    // }
+    // Show todo list after adding task
+    if (tasks.length !== 0) {
+      this.footerListTask.style.display = 'flex';
+    }
 
-    // // Toggle all task status
-    // this.toggleAll.checked = true;
-    // if (totalTaskCompleted !== tasks.length) {
-    //   this.toggleAll.checked = false;
-    // }
+    // Toggle all task status
+    this.toggleAll.checked = true;
+    if (totalTaskCompleted !== tasks.length) {
+      this.toggleAll.checked = false;
+    }
   }
 
   /**

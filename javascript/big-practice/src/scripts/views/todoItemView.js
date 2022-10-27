@@ -61,31 +61,31 @@ export default class TodoItemView {
    * Get data after edit task name
    * @param {fuction} handler
    */
-  bindEditTodo(task, handler, filterType) {
-    const taskSelected = document.getElementById(`${task.id}`);
+  // bindEditTodo(task, handler, filterType) {
+  //   const taskSelected = document.getElementById(`${task.id}`);
 
-    taskSelected.addEventListener('dblclick', () => {
-      const oldTaskName = taskSelected.querySelector('.view');
+  //   taskSelected.addEventListener('dblclick', () => {
+  //     const oldTaskName = taskSelected.querySelector('.view');
 
-      // Create an input box for the selected task to edit
-      const input = document.createElement('input');
-      input.classList.add('edit');
-      // Hide the task content of the selected task
-      oldTaskName.classList.add('hidden');
+  //     // Create an input box for the selected task to edit
+  //     const input = document.createElement('input');
+  //     input.classList.add('edit');
+  //     // Hide the task content of the selected task
+  //     oldTaskName.classList.add('hidden');
 
-      // Insert the generated input element into the hidden task position
-      taskSelected.insertBefore(input, oldTaskName);
+  //     // Insert the generated input element into the hidden task position
+  //     taskSelected.insertBefore(input, oldTaskName);
 
-      input.focus();
-      input.value = oldTaskName.querySelector('label').innerHTML;
+  //     input.focus();
+  //     input.value = oldTaskName.querySelector('label').innerHTML;
 
-      // Get data from input
-      input.onchange = (e) => {
-        const newTaskName = e.target.value;
-        this.updateTodo(taskSelected, handler, newTaskName, filterType);
-      };
-    });
-  }
+  //     // Get data from input
+  //     input.onchange = (e) => {
+  //       const newTaskName = e.target.value;
+  //       this.updateTodo(taskSelected, handler, newTaskName, filterType);
+  //     };
+  //   });
+  // }
 
   /**
    * function use id to update todos

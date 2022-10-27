@@ -1,71 +1,77 @@
 import TodoItemModel from './todoItemModel';
 import LocalStore from '../helper/localStorage';
-import get from '../helper/fetchApi'
+import { get, post, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
+    this.todos = [];
     this.taskListData = new LocalStore('taskListData');
-    this.taskListModel = this.getTaskListModel();
+    // this.taskListModel = this.getTaskListModel();
     this.filterType = 'all';
   }
 
   // Save data from localStorage into array
-  getTaskListModel(tasks) {
-    const todos = [];
-    if (this.taskListData.getItemLocalStorage()) {
-      tasks = this.taskListData.getItemLocalStorage();
-      tasks.forEach((task) => {
-        const todo = new TodoItemModel(task);
-        todos.push(todo);
-      });
-    }
-    return todos;
+  // getTaskListModel(tasks) {
+  //   const todos = [];
+  //   if (tasks) {
+  //     tasks.forEach((task) => {
+  //       const taskInstance = new TodoItemModel(task);
+  //       todos.push(taskInstance);
+  //     });
+  //   } else if (this.taskListData.getItemLocalStorage()) {
+  //     const tasks = this.taskListData.getItemLocalStorage();
+  //     tasks.forEach((task) => {
+  //       const todo = new TodoItemModel(task);
+  //       todos.push(todo);
+  //     });
+  //   }
+  //   return todos;
+  // }
+
+  // Count task active
+  async countTaskActive() {
+    const todos = await this.getTodo();
+    return todos.filter((task) => !task.isCompleted).length;
   }
 
   // Count task active
-  countTaskActive() {
-    return this.taskListModel.filter((task) => !task.isCompleted).length;
-  }
-
-  // Count task active
-  countTaskCompleted() {
-    return this.taskListModel.filter((task) => task.isCompleted).length;
+  async countTaskCompleted() {
+    const todos = await this.getTodo();
+    return todos.filter((task) => task.isCompleted).length;
   }
 
   // Add new task
-  addTodo(todoText) {
+  async addTodo(todoText) {
     const todoAdded = {
-      id:
-        this.taskListModel.length > 0
-          ? this.taskListModel[this.taskListModel.length - 1].id + 1
-          : 0,
+      id: new Date().getTime().toString(),
       taskName: todoText,
       isCompleted: false,
     };
     const task = new TodoItemModel(todoAdded);
-    this.taskListModel.push(task);
+    await post(task);
   }
 
   // Delete task
-  deleteTodo(id) {
-    const idNumber = Number(id);
-    const index = this.taskListModel.findIndex((task) => task.id === idNumber);
-    this.taskListModel.splice(index, 1);
+  async deleteTodo(id) {
+    const idNumber = id;
+    const index = this.todos.findIndex((task) => task.id === idNumber);
+    this.todos.splice(index, 1);
+
+    await remove(id);
   }
 
   // Done task
-  toggleTodo(id) {
-    this.taskListModel.forEach((task) => {
-      if (task.id === Number(id)) {
-        task.isCompleted = !task.isCompleted;
-      }
-    });
+  async toggleTodo(id) {
+    const taskSelected = this.todos.find((todo) => todo.id === id);
+
+    taskSelected.isCompleted = !taskSelected.isCompleted;
+    await update(id, taskSelected);
   }
 
   // Edit task
   updateTodo(id, newEditTaskName) {
     this.taskListModel.forEach((task) => {
-      if (task.id === Number(id)) {
+      if (task.id === id) {
         task.taskName = newEditTaskName || task.taskName;
       }
     });
@@ -105,12 +111,11 @@ export default class TodoListModel {
   }
 
   /**
-  * Use API url from fetch import in read data
-  * @returns {array} todos.
-  */
-  getTodo = async() => {
-    console.log('abc');
-    const listTodos = get;
+   * Use API url from fetch import in read data
+   * @returns {array} todos.
+   */
+  async getTodo() {
+    const listTodos = await get();
     this.todos = listTodos;
     return listTodos;
   }
