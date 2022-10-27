@@ -48,7 +48,7 @@ export default class TodoListView {
       this.todoList.removeChild(this.todoList.firstChild);
     }
 
-    const { handleDeleteTask, handleToggleTodo } = handlers;
+    const { handleDeleteTask, handleToggleTodo, handleUpdateTodo } = handlers;
 
     // Show the entire task
     tasks.forEach((task) => {
@@ -56,7 +56,7 @@ export default class TodoListView {
       this.todoList.append(taskElement);
       this.taskView.bindDeleteTodo(taskElement, handleDeleteTask);
       this.taskView.bindToggleTodo(taskElement, handleToggleTodo);
-      // this.taskView.bindEditTodo(taskElement, handleUpdateTodo, filterType);
+      this.taskView.bindEditTodo(taskElement, handleUpdateTodo);
     });
 
     // Show/hide clear completed button

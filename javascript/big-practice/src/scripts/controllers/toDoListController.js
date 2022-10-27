@@ -32,7 +32,7 @@ export default class TodoListController {
     const handlers = {
       handleDeleteTask: this.handleDeleteTask,
       handleToggleTodo: this.handleToggleTodo,
-      // handleUpdateTodo: this.handleUpdateTodo,
+      handleUpdateTodo: this.handleUpdateTodo,
     };
     const todos = await this.model.getTodo();
 
@@ -66,8 +66,8 @@ export default class TodoListController {
   }
 
   // Handle update content after edit
-  handleUpdateTodo(id, newTaskName, filterType) {
-    this.model.updateTodo(id, newTaskName);
+  async handleUpdateTodo(id, newTaskName, filterType) {
+    await this.model.updateTodo(id, newTaskName);
     this.renderForm(filterType);
   }
 

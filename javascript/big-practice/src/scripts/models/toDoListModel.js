@@ -69,12 +69,11 @@ export default class TodoListModel {
   }
 
   // Edit task
-  updateTodo(id, newEditTaskName) {
-    this.taskListModel.forEach((task) => {
-      if (task.id === id) {
-        task.taskName = newEditTaskName || task.taskName;
-      }
-    });
+  async updateTodo(id, newEditTaskName) {
+    const taskSelected = this.todos.find((todo) => todo.id === id);
+
+    taskSelected.taskName = newEditTaskName || taskSelected.taskName;
+    await update(id, taskSelected);
   }
 
   // Toggle check all todos
@@ -93,15 +92,15 @@ export default class TodoListModel {
     this.filterType = filter;
     if (filter === 'completed') {
       this.filterType = filter;
-      const completedTask = this.taskListModel.filter((task) => task.isCompleted);
+      const completedTask = this.todos.filter((task) => task.isCompleted);
       return completedTask;
     }
     if (filter === 'active') {
       this.filterType = filter;
-      const activeTask = this.taskListModel.filter((task) => !task.isCompleted);
+      const activeTask = this.todos.filter((task) => !task.isCompleted);
       return activeTask;
     }
-    return this.taskListModel;
+    return this.todos;
   }
 
   // Delete completed task
