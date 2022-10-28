@@ -95,7 +95,6 @@ export default class TodoListModel {
   async filterModeTodos(filter) {
     const listTodos = await this.getTodo();
 
-    this.filterType = filter;
     if (filter === 'completed') {
       this.filterType = filter;
       const completedTask = listTodos.filter((task) => task.isCompleted);
