@@ -20,7 +20,6 @@ export default class TodoListView {
     // Filters button
     this.filters = document.querySelector('.filters');
     this.filter = this.filters.querySelectorAll('button');
-    this.filterTypeButton = 'all';
 
     // Clear all task completed button
     this.clearCompleted = document.querySelector('.clear-completed');
@@ -121,7 +120,6 @@ export default class TodoListView {
         const selected = document.querySelector('.selected');
         selected.classList.remove('selected');
         event.target.classList.add('selected');
-        this.filterTypeButton = event.target.id;
         handler(idSelected);
       });
     });

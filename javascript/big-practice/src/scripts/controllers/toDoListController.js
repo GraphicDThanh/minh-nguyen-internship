@@ -2,6 +2,7 @@ export default class TodoListController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
+    this.filterTypeButton = 'all';
 
     // bind this in model
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
@@ -19,6 +20,7 @@ export default class TodoListController {
       this.handleToggleCheckAll(isToggleAll);
     });
     this.view.bindFilters((idSelected) => {
+      this.filterTypeButton = idSelected;
       this.renderForm(idSelected);
     });
     this.view.bindDeleteAllTodo(() => {
@@ -34,7 +36,7 @@ export default class TodoListController {
       handleUpdateTodo: this.handleUpdateTodo,
     };
 
-    const filterType = this.view.filterTypeButton;
+    const filterType = this.filterTypeButton;
     const todos = await this.model.filterModeTodos(filterType);
 
     this.view.showTaskActive(await this.model.countTaskActive());
