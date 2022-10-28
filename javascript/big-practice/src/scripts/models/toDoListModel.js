@@ -7,7 +7,6 @@ export default class TodoListModel {
     this.todos = [];
     // this.taskListData = new LocalStore('taskListData');
     // this.taskListModel = this.getTaskListModel();
-    this.filterType = 'all';
   }
 
   // Save data from localStorage into array
