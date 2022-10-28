@@ -7,6 +7,7 @@
 }
 
 .toggle-all + label {
+  cursor: pointer;
   width: 60px;
   height: 34px;
   position: absolute;
@@ -26,7 +27,7 @@
 	color: var(--grey-dark-plus);
 }
 
-.toggle {
+.toggle{
   cursor: pointer;
 }
 
