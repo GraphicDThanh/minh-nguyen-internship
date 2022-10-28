@@ -1,6 +1,6 @@
 import TodoItemModel from './todoItemModel';
 // import LocalStore from '../helper/localStorage';
-import { get, post, update, remove } from '../helper/fetchApi';
+import { get, create, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
@@ -48,7 +48,7 @@ export default class TodoListModel {
       isCompleted: false,
     };
     const task = new TodoItemModel(todoAdded);
-    await post(task);
+    await create(task);
   }
 
   // Delete task
@@ -77,13 +77,17 @@ export default class TodoListModel {
   }
 
   // Toggle check all todos
-  toggleCheckAll(isToggleAll) {
-    this.taskListModel.forEach((task) => {
+  async toggleCheckAll(isToggleAll) {
+    this.todos.forEach((task) => {
       if (isToggleAll) {
         task.isCompleted = true;
       } else {
         task.isCompleted = false;
       }
+    });
+
+    this.todos.map(async (todo) => {
+      await update(todo.id, todo);
     });
   }
 

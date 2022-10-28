@@ -15,9 +15,9 @@ export default class TodoListController {
     this.view.bindAddTodo(() => {
       this.handleAddTask(this.view.todoText, this.model.filterType);
     });
-    // this.view.bindToggleCheckAll(() => {
-    //   this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
-    // });
+    this.view.bindToggleCheckAll(() => {
+      this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
+    });
     this.view.bindFilters(() => {
       this.renderForm(this.view.idSelected);
     });
@@ -75,8 +75,8 @@ export default class TodoListController {
   }
 
   // Handle toggle all tasks
-  handleToggleCheckAll(isToggleAll, filterType) {
-    this.model.toggleCheckAll(isToggleAll);
+  async handleToggleCheckAll(isToggleAll, filterType) {
+    await this.model.toggleCheckAll(isToggleAll);
     this.renderForm(filterType);
   }
 
