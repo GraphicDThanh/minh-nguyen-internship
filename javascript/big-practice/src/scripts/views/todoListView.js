@@ -100,11 +100,11 @@ export default class TodoListView {
   bindToggleCheckAll(handler) {
     this.toggleAll.addEventListener('click', (event) => {
       if (event.target.type === 'checkbox') {
-        this.isToggleAll = event.target.checked;
-        if (this.isToggleAll) {
+        const isToggleAll = event.target.checked;
+        if (isToggleAll) {
           this.showClearCompleted = true;
         }
-        handler();
+        handler(isToggleAll);
       }
     });
   }
