@@ -77,7 +77,7 @@ export default class TodoListModel {
   }
 
   // Toggle check all todos
-  async toggleCheckAll(isToggleAll) {
+  toggleCheckAll(isToggleAll) {
     this.todos.forEach((task) => {
       if (isToggleAll) {
         task.isCompleted = true;
@@ -86,7 +86,7 @@ export default class TodoListModel {
       }
     });
 
-    this.todos.map(async (todo) => {
+    this.todos.forEach(async (todo) => {
       await update(todo.id, todo);
     });
   }
@@ -111,8 +111,11 @@ export default class TodoListModel {
 
   // Delete completed task
   deleteCompletedTodos() {
-    const newTodos = this.taskListModel.filter((task) => task.isCompleted !== true);
-    this.taskListModel = newTodos;
+    const newTodos = this.todos.filter((task) => task.isCompleted);
+
+    newTodos.forEach(async (todo) => {
+      await remove(todo.id);
+    });
   }
 
   /**

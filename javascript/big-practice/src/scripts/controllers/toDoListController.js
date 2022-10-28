@@ -18,12 +18,12 @@ export default class TodoListController {
     this.view.bindToggleCheckAll((isToggleAll) => {
       this.handleToggleCheckAll(isToggleAll, this.model.filterType);
     });
-    this.view.bindFilters(() => {
-      this.renderForm(this.view.idSelected);
+    this.view.bindFilters((idSelected) => {
+      this.renderForm(idSelected);
     });
-    // this.view.bindDeleteAllTodo(() => {
-    //   this.handleClearCompleted(this.model.filterType);
-    // });
+    this.view.bindDeleteAllTodo(() => {
+      this.handleClearCompleted(this.model.filterType);
+    });
   }
 
   // Render board task list
@@ -75,8 +75,8 @@ export default class TodoListController {
   }
 
   // Handle toggle all tasks
-  async handleToggleCheckAll(isToggleAll, filterType) {
-    await this.model.toggleCheckAll(isToggleAll);
+  handleToggleCheckAll(isToggleAll, filterType) {
+    this.model.toggleCheckAll(isToggleAll);
     this.renderForm(filterType);
   }
 

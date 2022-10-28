@@ -116,11 +116,11 @@ export default class TodoListView {
   bindFilters(handler) {
     this.filter.forEach((button) => {
       button.addEventListener('click', (event) => {
-        this.idSelected = event.target.id;
+        const idSelected = event.target.id;
         const selected = document.querySelector('.selected');
         selected.classList.remove('selected');
         event.target.classList.add('selected');
-        handler();
+        handler(idSelected);
       });
     });
   }
