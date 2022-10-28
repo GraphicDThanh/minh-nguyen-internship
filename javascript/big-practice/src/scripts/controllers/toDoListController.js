@@ -12,8 +12,8 @@ export default class TodoListController {
   init() {
     // Explicit this binding
     this.renderForm();
-    this.view.bindAddTodo(() => {
-      this.handleAddTask(this.view.todoText, this.model.filterType);
+    this.view.bindAddTodo((todoText) => {
+      this.handleAddTask(todoText, this.model.filterType);
     });
     this.view.bindToggleCheckAll(() => {
       this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
