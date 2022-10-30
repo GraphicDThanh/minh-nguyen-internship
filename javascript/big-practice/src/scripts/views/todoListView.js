@@ -53,6 +53,7 @@ export default class TodoListView {
     // Show the entire task
     tasks.forEach((task) => {
       const taskElement = this.taskView.renderTask(task);
+
       this.todoList.append(taskElement);
       this.taskView.bindDeleteTodo(taskElement, handleDeleteTask, filterType);
       this.taskView.bindToggleTodo(taskElement, handleToggleTodo, filterType);
@@ -101,6 +102,7 @@ export default class TodoListView {
     this.toggleAll.addEventListener('click', (event) => {
       if (event.target.type === 'checkbox') {
         const isToggleAll = event.target.checked;
+
         if (isToggleAll) {
           this.showClearCompleted = true;
         }
@@ -118,6 +120,7 @@ export default class TodoListView {
       button.addEventListener('click', (event) => {
         const idSelected = event.target.id;
         const selected = document.querySelector('.selected');
+
         selected.classList.remove('selected');
         event.target.classList.add('selected');
         handler(idSelected);
