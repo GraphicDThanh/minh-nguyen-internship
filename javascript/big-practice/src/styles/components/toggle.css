@@ -1,12 +1,13 @@
 .toggle-all {
-	width: 1px;
-	height: 1px;
-	position: absolute;
-	left: 0;
-	bottom: 0;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
 .toggle-all + label {
+  cursor: pointer;
   width: 60px;
   height: 34px;
   position: absolute;
@@ -23,7 +24,7 @@
 }
 
 .toggle-all:checked + label:before {
-	color: var(--grey-dark-plus);
+  color: var(--grey-dark-plus);
 }
 
 .toggle {
@@ -47,6 +48,6 @@
 }
 
 .todo-list li .toggle:checked ~ label {
-	color: #d9d9d9;
-	text-decoration: line-through;
+  color: #d9d9d9;
+  text-decoration: line-through;
 }
