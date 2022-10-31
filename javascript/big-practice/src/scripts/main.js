@@ -4,11 +4,21 @@ import TodoListView from './views/todoListView';
 import TodoListModel from './models/todoListModel';
 import TodoListController from './controllers/todoListController';
 
+import AuthenticationView from './views/authenticationView';
+import AuthenticationController from './controllers/authenticationControllers';
+
 const todoListModel = new TodoListModel();
 
 const todoItemView = new TodoItemView();
 const todoListView = new TodoListView(todoItemView);
+const authenticationView = new AuthenticationView();
 
 const todoListController = new TodoListController(todoListModel, todoListView);
+const authenticationUser = new AuthenticationController(
+  authenticationView,
+  todoListModel,
+  todoListController
+);
 
+authenticationUser.init();
 todoListController.init();
