@@ -19,9 +19,9 @@ export default class TodoListController {
     this.view.bindToggleCheckAll((isToggleAll) => {
       this.handleToggleCheckAll(isToggleAll);
     });
-    this.view.bindFilters((idSelected) => {
-      this.filterTypeButton = idSelected;
-      this.renderForm(idSelected);
+    this.view.bindFilters((selectedId) => {
+      this.filterTypeButton = selectedId;
+      this.renderForm(selectedId);
     });
     this.view.bindDeleteAllTodo(() => {
       this.handleClearCompleted();
