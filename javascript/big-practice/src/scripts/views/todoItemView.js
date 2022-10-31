@@ -13,6 +13,7 @@ export default class TodoItemView {
    */
   renderTask(task) {
     const taskElement = document.createElement('li');
+
     taskElement.id = `${task.id}`;
     taskElement.className = 'task';
 
@@ -38,6 +39,7 @@ export default class TodoItemView {
   bindDeleteTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
     const deleteButton = taskSelected.querySelector('.destroy');
+
     deleteButton.addEventListener('click', () => {
       handler(task.id, filterType);
     });
@@ -51,6 +53,7 @@ export default class TodoItemView {
   bindToggleTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
     const toggleButton = taskSelected.querySelector('.toggle');
+
     toggleButton.addEventListener('change', () => {
       handler(task.id, filterType);
     });
@@ -66,9 +69,9 @@ export default class TodoItemView {
 
     taskSelected.addEventListener('dblclick', () => {
       const oldTaskName = taskSelected.querySelector('.view');
-
       // Create an input box for the selected task to edit
       const input = document.createElement('input');
+
       input.classList.add('edit');
       // Hide the task content of the selected task
       oldTaskName.classList.add('hidden');
@@ -82,6 +85,7 @@ export default class TodoItemView {
       // Get data from input
       input.onchange = (e) => {
         const newTaskName = e.target.value;
+
         this.updateTodo(taskSelected, handler, newTaskName, filterType);
       };
     });
