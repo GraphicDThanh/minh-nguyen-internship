@@ -1,8 +1,11 @@
+import { patch } from '../helper/fetchApi';
+
 export default class TodoListController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
     this.filterTypeButton = 'all';
+    this.onUser = false;
 
     // bind this in model
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
@@ -46,13 +49,18 @@ export default class TodoListController {
       handlers,
       filterType
     );
-    // this.saveData();
+    this.saveData();
   }
 
   // Save data to LocalStorage
-  saveData() {
-    this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
-  }
+
+  saveData = () => {
+    if (this.model.onUser || this.model.onUser === 0) {
+      patch({'taskList': this.model.taskListModel}, this.model.onUser);
+    } else {
+      this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
+    }
+  };
 
   // Handle add task
   async handleAddTask(todoText) {
