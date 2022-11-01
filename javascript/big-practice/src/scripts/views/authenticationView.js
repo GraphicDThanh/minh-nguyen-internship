@@ -3,7 +3,7 @@
  * Open and close the form
  * Form validation
  */
-import { get } from '../helper/fetchApi';
+import { getUser } from '../helper/fetchApi';
 import TodoListView from './todoListView';
 
 export default class AuthenticationView extends TodoListView {
@@ -75,12 +75,12 @@ export default class AuthenticationView extends TodoListView {
   insertMsg(content, isSuccessMsg) {
     if (isSuccessMsg) {
       this.successMsg.textContent = content;
-      this.successMsg.classList.remove('hide');
-      this.errorMsg.classList.add('hide');
+      this.successMsg.classList.remove('hidden');
+      this.errorMsg.classList.add('hidden');
     } else {
       this.errorMsg.textContent = content;
-      this.successMsg.classList.add('hide');
-      this.errorMsg.classList.remove('hide');
+      this.successMsg.classList.add('hidden');
+      this.errorMsg.classList.remove('hidden');
     }
   }
 
@@ -99,31 +99,20 @@ export default class AuthenticationView extends TodoListView {
    */
   async validationLoginForm() {
     // Get users list from JSON
-    const users = await get();
-    // let successUser;
+    const users = await getUser();
+    let isSuccessMsg = true;
 
-    // Check the information in the login form
-    if (this.loginMode) {
-      users.forEach((user) => {
-        console.log('email input', this.emailInput);
-        console.log('user email', user.userEmail);
-        if (this.emailInput === user.userEmail) {
-          console.log('email', this.emailInput);
-          if (this.passwordInput === user.password) {
-            console.log('pass', this.passwordInput);
-          // Validate correct password
-          successUser = user;
-          } else {
-            console.log('error');
-            this.insertMsg('Incorrect password');
-          }
-        } else {
-          this.insertMsg('This email does not exist.');
-        }
-      });
+    const checkUser = users.find(
+      (user) => user.userEmail === this.emailInput && user.password === this.passwordInput
+    );
+
+    if (!checkUser) {
+      console.log('Fail');
+      isSuccessMsg = false;
+      this.insertMsg('Email address or password is wrong, please check again', isSuccessMsg);
     }
-    // console.log(successUser);
-    // return successUser;
+    console.log('Success');
+    return checkUser;
   }
 
   /**
@@ -135,11 +124,10 @@ export default class AuthenticationView extends TodoListView {
       const user = await this.validationLoginForm();
       if (user) {
         handler(user.id);
-        this.renderUserEmail(user.userEmail);
         this.removeMsg();
-        this.bindCloseLoginForm(event);
-        this.logoutBtn.classList.remove('hide');
-        this.showLoginBtn.classList.add('hide');
+        this.closeLoginForm(event);
+        this.logoutBtn.classList.remove('hidden');
+        this.showLoginBtn.classList.add('hidden');
       }
     });
   }
