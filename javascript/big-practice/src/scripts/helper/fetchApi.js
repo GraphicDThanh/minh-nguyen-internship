@@ -1,10 +1,11 @@
 /**
  * FETCH API
  */
-const URL = 'http://localhost:3000/users';
+const URL = 'http://localhost:3000/todos';
+const URLUser = 'http://localhost:3000/users';
 
 /**
- * Get all data from JSON server
+ * Get all data of tasks from JSON server
  * @param {string} url
  *
  * @returns {{object} || raise {error}}
@@ -25,16 +26,16 @@ export const get = async () => {
 };
 
 /**
- * Get data user with specific id in database
+ * Get all data of users from JSON server
  * @param {string} url
  * @param {number} id
  *
  * @returns {{object} || raise {error}}
  */
 
-export const getUserById = async (id) => {
+export const getUser = async () => {
   try {
-    const response = await fetch(`${URL}/${id}`);
+    const response = await fetch(`${URLUser}`);
     if (response.ok) {
       const user = await response.json();
       return user;
@@ -47,26 +48,27 @@ export const getUserById = async (id) => {
 };
 
 /**
- * Add new task to JSON server
- * @param {object} data
+ * Get all data of users from JSON server
+ * @param {string} url
+ * @param {number} id
+ *
+ * @returns {{object} || raise {error}}
  */
-// export const create = async (data) => {
-//   try {
-//     const response = await fetch(URL, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     });
-//     if (!response.ok) {
-//       throw response.statusText;
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// };
+
+export const getTasksById = async (id) => {
+  try {
+    const response = await fetch(`${URL}?userID=${id}`);
+    console.log(response);
+    if (response.ok) {
+      const user = await response.json();
+      return user;
+    }
+    throw response.statusText;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
 
 /**
  * Update data tasks with specific id in database
@@ -90,26 +92,3 @@ export const update = async (id, data) => {
     throw error;
   }
 };
-
-/**
- * Remove data tasks with specific id in database
- * @param {object} data
- * @param {number} id
- */
-// export const remove = async (id, data) => {
-//   try {
-//     const response = await fetch(`${URL}/${id}`, {
-//       method: 'DELETE',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(data),
-//     });
-//     if (!response.ok) {
-//       throw response.statusText;
-//     }
-//   } catch (error) {
-//     console.error(error);
-//     throw error;
-//   }
-// };
