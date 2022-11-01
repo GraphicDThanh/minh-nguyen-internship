@@ -1,39 +1,34 @@
 {
-  "tasks": [
+  "users": [
     {
-      "id": "1666863570288",
-      "taskName": "3",
-      "isCompleted": true
+      "id": 0,
+      "userEmail": "minh@gmail.com",
+      "password": "123456"
     },
     {
-      "id": "1666864026849",
-      "taskName": "5",
-      "isCompleted": true
-    },
+      "id": 1,
+      "userEmail": "huong@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "todos": [
     {
       "id": "1666864174576",
       "taskName": "1",
-      "isCompleted": false
+      "isCompleted": true,
+      "userID": 0
     },
     {
-      "id": "1666864191200",
+      "id": "1667287521604",
       "taskName": "3",
-      "isCompleted": true
+      "isCompleted": false,
+      "userID": 0
     },
     {
-      "id": "1666864332166",
-      "taskName": "1",
-      "isCompleted": true
-    },
-    {
-      "id": "1666864332661",
-      "taskName": "2",
-      "isCompleted": true
-    },
-    {
-      "id": "1666864333461",
-      "taskName": "3",
-      "isCompleted": false
+      "id": "1667287522124",
+      "taskName": "4",
+      "isCompleted": false,
+      "userID": 1
     }
   ]
 }
