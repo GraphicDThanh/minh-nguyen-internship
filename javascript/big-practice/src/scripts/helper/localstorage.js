@@ -13,4 +13,9 @@ export default class LocalStore {
   setItemLocalStorage(item) {
     this.localStorage.setItem(this.name, JSON.stringify(item));
   }
+
+  // Save data to LocalStorage
+  removeItemLocalStorage() {
+    this.localStorage.removeItem(this.name);
+  }
 }
