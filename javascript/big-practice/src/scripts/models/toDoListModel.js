@@ -4,7 +4,7 @@ import LocalStore from '../helper/localStorage';
 
 export default class TodoListModel {
   constructor() {
-    // this.todos = [];
+    this.authen = new LocalStore('authen');
     this.taskListData = new LocalStore('taskListData');
     this.taskListModel = this.getTaskListModel();
     this.onUser = null;
@@ -19,7 +19,7 @@ export default class TodoListModel {
         todos.push(todo);
       });
     } else if (this.taskListData.getItemLocalStorage()) {
-      let tasks = this.taskListData.getItemLocalStorage();
+      const tasks = this.taskListData.getItemLocalStorage();
       tasks.forEach((task) => {
         const todo = new TodoItemModel(task);
         todos.push(todo);
@@ -48,6 +48,7 @@ export default class TodoListModel {
       id: new Date().getTime().toString(),
       taskName: todoText,
       isCompleted: false,
+      userID: this.authen.getItemLocalStorage(),
     };
     const task = new TodoItemModel(todoAdded);
     this.taskListModel.push(task);
