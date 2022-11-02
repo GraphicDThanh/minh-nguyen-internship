@@ -5,7 +5,7 @@ export default class TodoListController {
     this.model = model;
     this.view = view;
     this.filterTypeButton = 'all';
-    this.onUser = false;
+    // this.onUser = false;
 
     // bind this in model
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
@@ -43,24 +43,19 @@ export default class TodoListController {
     const todos = await this.model.filterModeTodos(filterType);
 
     this.view.showTaskActive(await this.model.countTaskActive());
-    this.view.displayTaskList(
-      await todos,
-      await this.model.countTaskCompleted(),
-      handlers,
-      filterType
-    );
-    this.saveData();
+    this.view.displayTaskList(todos, await this.model.countTaskCompleted(), handlers, filterType);
+    // this.saveData();
   }
 
   // Save data to LocalStorage
 
-  saveData = () => {
-    if (this.model.onUser || this.model.onUser == 0) {
-      update(this.model.onUser, {'tasks': this.model.taskListModel});
-    } else {
-      this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
-    }
-  };
+  // saveData = () => {
+  //   if (this.model.onUser || this.model.onUser == 0) {
+  //     update(this.model.onUser, {'tasks': this.model.taskListModel});
+  //   } else {
+  //     this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
+  //   }
+  // };
 
   // Handle add task
   async handleAddTask(todoText) {

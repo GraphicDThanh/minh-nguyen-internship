@@ -1,4 +1,4 @@
-import { getTasksById } from '../helper/fetchApi';
+// import { getTasksById } from '../helper/fetchApi';
 
 export default class AuthenticationController {
   constructor(view, model, todoListController) {
@@ -18,10 +18,10 @@ export default class AuthenticationController {
 
   // Handle login
   async onLogin(id) {
+    console.log('login');
     this.model.onUser = id;
-    const user = await getTasksById(id);
-    this.model.taskListModel = this.model.getTaskListModel(user);
-    this.model.selectedTask = user.selectedTask;
+    // const tasks = await getTasksById(id);
+    // this.model.taskListModel = this.model.getTaskListModel(tasks);
     this.model.authen.setItemLocalStorage(id);
     this.taskList.renderForm();
   }
