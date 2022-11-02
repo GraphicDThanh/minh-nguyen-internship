@@ -1,72 +1,57 @@
 import TodoItemModel from './todoItemModel';
 import LocalStore from '../helper/localStorage';
-import { post, getTasksById } from '../helper/fetchApi';
+// import { get, create, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
     this.authen = new LocalStore('authen');
-    // this.taskListModel = this.getTaskListModel();
-    this.onUser = this.authen.getItemLocalStorage();
-    this.todos = new LocalStore('todos');
-    if (!this.onUser) {
-      this.notes = this.todos.getItemLocalStorage() || this.todos.setItemLocalStorage([]);
-    }
+    this.taskListData = new LocalStore('taskListData');
+    this.taskListModel = this.getTaskListModel();
+    this.onUser = null;
   }
 
-  // Save data from localStorage or server into array
-  async getTaskListModel() {
-    const tasks = [];
-    if (this.authen.getItemLocalStorage() !== null) {
-      console.log('server');
-      const todo = await getTasksById(this.onUser);
-      tasks.push(todo);
-    } else {
-      console.log('local');
-      const taskLocal = this.todos.getItemLocalStorage();
-      taskLocal.forEach((task) => {
+  // Save data from localStorage into array
+  getTaskListModel(tasks) {
+    const todos = [];
+    if (tasks) {
+      tasks.forEach((task) => {
         const todo = new TodoItemModel(task);
-        tasks.push(todo);
+        todos.push(todo);
+      });
+    } else if (this.taskListData.getItemLocalStorage()) {
+      const tasks = this.taskListData.getItemLocalStorage();
+      tasks.forEach((task) => {
+        const todo = new TodoItemModel(task);
+        todos.push(todo);
       });
     }
-    return tasks;
+    return todos;
   }
 
   // Count task active
-  async countTaskActive() {
-    const todos = await this.getTaskListModel();
+  countTaskActive() {
+    // const todos = await this.getTodo();
 
-    return todos.filter((task) => !task.isCompleted).length;
+    return this.taskListModel.filter((task) => !task.isCompleted).length;
   }
 
   // Count task active
-  async countTaskCompleted() {
-    const todos = await this.getTaskListModel();
+  countTaskCompleted() {
+    // const todos = await this.getTodo();
 
-    return todos.filter((task) => task.isCompleted).length;
+    return this.taskListModel.filter((task) => task.isCompleted).length;
   }
 
   // Add new task
   addTodo(todoText) {
-    if (this.onUser !== null) {
-      const todoAdded = {
-        id: new Date().getTime().toString(),
-        taskName: todoText,
-        isCompleted: false,
-        userID: this.onUser,
-      };
-      // const task = new TodoItemModel(todoAdded);
-      // this.taskListModel.push(todoAdded);
-      post(todoAdded);
-    } else {
-      const todoAdded = {
-        id: new Date().getTime().toString(),
-        taskName: todoText,
-        isCompleted: false,
-      };
-      const task = new TodoItemModel(todoAdded);
-      this.taskListModel.push(task);
-      this.taskListData.setItemLocalStorage(this.taskListModel);
-    }
+    const todoAdded = {
+      id: new Date().getTime().toString(),
+      taskName: todoText,
+      isCompleted: false,
+      userID: this.authen.getItemLocalStorage(),
+    };
+    const task = new TodoItemModel(todoAdded);
+    this.taskListModel.push(task);
     // await create(task);
   }
 
@@ -111,20 +96,21 @@ export default class TodoListModel {
 
   // Filter list todo type filter
   filterModeTodos(filter) {
-    const listTodos = this.getTaskListModel();
+    // const listTodos = await this.getTodo();
+
     if (filter === 'completed') {
       this.filterType = filter;
-      const completedTask = listTodos.filter((task) => task.isCompleted);
+      const completedTask = this.taskListModel.filter((task) => task.isCompleted);
 
       return completedTask;
     }
     if (filter === 'active') {
       this.filterType = filter;
-      const activeTask = listTodos.filter((task) => !task.isCompleted);
+      const activeTask = this.taskListModel.filter((task) => !task.isCompleted);
 
       return activeTask;
     }
-    return listTodos;
+    return this.taskListModel;
   }
 
   // Delete completed task
