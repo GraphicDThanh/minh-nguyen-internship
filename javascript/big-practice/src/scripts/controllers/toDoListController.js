@@ -1,4 +1,4 @@
-import { update } from '../helper/fetchApi';
+import { patch } from '../helper/fetchApi';
 
 export default class TodoListController {
   constructor(model, view) {
@@ -49,13 +49,13 @@ export default class TodoListController {
 
   // Save data to LocalStorage
 
-  // saveData = () => {
-  //   if (this.model.onUser || this.model.onUser == 0) {
-  //     update(this.model.onUser, {'tasks': this.model.taskListModel});
-  //   } else {
-  //     this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
-  //   }
-  // };
+  saveData = () => {
+    if (this.model.onUser || this.model.onUser === 0) {
+      patch({'taskList': this.model.taskListModel}, this.model.onUser);
+    } else {
+      this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
+    }
+  };
 
   // Handle add task
   async handleAddTask(todoText) {
