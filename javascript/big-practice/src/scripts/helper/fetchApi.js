@@ -58,12 +58,33 @@ export const getUser = async () => {
 export const getTasksById = async (id) => {
   try {
     const response = await fetch(`${URL}?userID=${id}`);
-    console.log(response);
     if (response.ok) {
       const user = await response.json();
       return user;
     }
     throw response.statusText;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+/**
+ * Add new task to JSON server
+ * @param {object} data
+ */
+export const post = async (data) => {
+  try {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw response.statusText;
+    }
   } catch (error) {
     console.error(error);
     throw error;

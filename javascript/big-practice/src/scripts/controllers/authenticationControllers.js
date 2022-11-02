@@ -19,9 +19,8 @@ export default class AuthenticationController {
   // Handle login
   async onLogin(id) {
     this.model.onUser = id;
-    const user = await getTasksById(id);
-    this.model.taskListModel = this.model.getTaskListModel(user);
-    this.model.selectedTask = user.selectedTask;
+    // const user = await getTasksById(id);
+    // this.model.taskListModel = this.model.getTaskListModel(user);
     this.model.authen.setItemLocalStorage(id);
     this.taskList.renderForm();
   }

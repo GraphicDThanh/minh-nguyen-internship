@@ -1,57 +1,83 @@
 import TodoItemModel from './todoItemModel';
-import LocalStore from '../helper/localStorage';
-// import { get, create, update, remove } from '../helper/fetchApi';
+import LocalStore from '../helper/localstorage';
+import { getTasksById, post } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
-    this.authen = new LocalStore('authen');
     this.taskListData = new LocalStore('taskListData');
+    // this.onUser = null;
+    this.authen = new LocalStore('authen');
+    this.onUser = this.authen.getItemLocalStorage();
+    // this.todos = new LocalStore('todos');
+    if (!this.authen.getItemLocalStorage()) {
+      this.notes =
+        this.taskListData.getItemLocalStorage() || this.taskListData.setItemLocalStorage([]);
+    }
     this.taskListModel = this.getTaskListModel();
-    this.onUser = null;
   }
 
   // Save data from localStorage into array
-  getTaskListModel(tasks) {
-    const todos = [];
-    if (tasks) {
-      tasks.forEach((task) => {
-        const todo = new TodoItemModel(task);
-        todos.push(todo);
-      });
-    } else if (this.taskListData.getItemLocalStorage()) {
-      const tasks = this.taskListData.getItemLocalStorage();
-      tasks.forEach((task) => {
-        const todo = new TodoItemModel(task);
-        todos.push(todo);
-      });
+  // getTaskListModel(tasks) {
+  //   const todos = [];
+  //   if (this.onUser) {
+  //     tasks.forEach((task) => {
+  //       const todo = new TodoItemModel(task);
+  //       todos.push(todo);
+  //     });
+  //   } else if (this.taskListData.getItemLocalStorage()) {
+  //     const tasks = this.taskListData.getItemLocalStorage();
+  //     tasks.forEach((task) => {
+  //       const todo = new TodoItemModel(task);
+  //       todos.push(todo);
+  //     });
+  //   }
+  //   return todos;
+  // }
+  async getTaskListModel() {
+    if (this.authen.getItemLocalStorage() !== null) {
+      const todos = await getTasksById(this.onUser);
+      console.log('get task', todos);
+      return todos;
     }
-    return todos;
+    return this.notes;
   }
 
   // Count task active
-  countTaskActive() {
-    // const todos = await this.getTodo();
+  async countTaskActive() {
+    const listTodos = await this.getTaskListModel();
 
-    return this.taskListModel.filter((task) => !task.isCompleted).length;
+    return listTodos.filter((task) => !task.isCompleted).length;
   }
 
   // Count task active
-  countTaskCompleted() {
-    // const todos = await this.getTodo();
+  async countTaskCompleted() {
+    const listTodos = await this.getTaskListModel();
 
-    return this.taskListModel.filter((task) => task.isCompleted).length;
+    return listTodos.filter((task) => task.isCompleted).length;
   }
 
   // Add new task
   addTodo(todoText) {
-    const todoAdded = {
-      id: new Date().getTime().toString(),
-      taskName: todoText,
-      isCompleted: false,
-      userID: this.authen.getItemLocalStorage(),
-    };
-    const task = new TodoItemModel(todoAdded);
-    this.taskListModel.push(task);
+    if (this.onUser !== null) {
+      const todoAdded = {
+        id: new Date().getTime().toString(),
+        taskName: todoText,
+        isCompleted: false,
+        userID: this.onUser,
+      };
+      // const task = new TodoItemModel(todoAdded);
+      // this.taskListModel.push(todoAdded);
+      post(todoAdded);
+    } else {
+      const todoAdded = {
+        id: new Date().getTime().toString(),
+        taskName: todoText,
+        isCompleted: false,
+      };
+      const task = new TodoItemModel(todoAdded);
+      this.notes.push(task);
+      this.taskListData.setItemLocalStorage(this.notes);
+    }
     // await create(task);
   }
 
@@ -95,22 +121,23 @@ export default class TodoListModel {
   }
 
   // Filter list todo type filter
-  filterModeTodos(filter) {
-    // const listTodos = await this.getTodo();
+  async filterModeTodos(filter) {
+    const listTodos = await this.getTaskListModel();
+    console.log('model', listTodos);
 
     if (filter === 'completed') {
       this.filterType = filter;
-      const completedTask = this.taskListModel.filter((task) => task.isCompleted);
+      const completedTask = listTodos.filter((task) => task.isCompleted);
 
       return completedTask;
     }
     if (filter === 'active') {
       this.filterType = filter;
-      const activeTask = this.taskListModel.filter((task) => !task.isCompleted);
+      const activeTask = listTodos.filter((task) => !task.isCompleted);
 
       return activeTask;
     }
-    return this.taskListModel;
+    return listTodos;
   }
 
   // Delete completed task
