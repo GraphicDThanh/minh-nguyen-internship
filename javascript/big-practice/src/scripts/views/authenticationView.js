@@ -4,11 +4,9 @@
  * Form validation
  */
 import { getUser } from '../helper/fetchApi';
-import TodoListView from './todoListView';
 
-export default class AuthenticationView extends TodoListView {
-  constructor(TodoItemView) {
-    super(TodoItemView);
+export default class AuthenticationView {
+  constructor() {
     this.successMsg = document.getElementById('success-msg');
     this.errorMsg = document.getElementById('error-msg');
 

@@ -1,4 +1,3 @@
-// import { getUserById } from '../helper/fetchApi';
 export default class AuthenticationController {
   constructor(view, model, todoListController) {
     this.view = view;
@@ -13,14 +12,11 @@ export default class AuthenticationController {
 
     // Login
     this.view.bindLogin(this.onLogin);
-    // this.view.bindLogout(this.onLogout);
   }
 
   // Handle login
   async onLogin(id) {
     this.model.onUser = id;
-    // const user = await getTasksById(id);
-    // this.model.taskListModel = this.model.getTaskListModel(user);
     this.model.authen.setItemLocalStorage(id);
     this.taskList.renderForm();
   }

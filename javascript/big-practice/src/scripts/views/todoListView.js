@@ -67,15 +67,16 @@ export default class TodoListView {
       this.clearCompleted.style.visibility = 'hidden';
     }
 
-    // Show todo list after adding task
     if (tasks.length !== 0) {
+      // Show todo list after adding task
       this.footerListTask.style.display = 'flex';
     }
 
     // Toggle all task status
-    this.toggleAll.checked = true;
-    if (totalTaskCompleted !== tasks.length) {
+    if ((await totalTaskCompleted) !== taskList.length || taskList.length === 0) {
       this.toggleAll.checked = false;
+    } else {
+      this.toggleAll.checked = true;
     }
   }
 

@@ -95,7 +95,7 @@ export const getTasksById = async (id) => {
  * Add new task to JSON server
  * @param {object} data
  */
-export const post = async (data) => {
+export const create = async (data) => {
   try {
     const response = await fetch(URL, {
       method: 'POST',
