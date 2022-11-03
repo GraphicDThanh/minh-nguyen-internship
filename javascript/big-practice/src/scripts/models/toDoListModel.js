@@ -103,11 +103,16 @@ export default class TodoListModel {
   }
 
   // Edit task
-  updateTodo(id, newEditTaskName) {
-    const taskSelected = this.taskListModel.find((todo) => todo.id === id);
-
-    taskSelected.taskName = newEditTaskName || taskSelected.taskName;
-    // await update(id, taskSelected);
+  async updateTodo(id, newEditTaskName) {
+    if (this.onUser !== null) {
+      const task = await getTasksById(id);
+      task.taskName = newEditTaskName || task.taskName;
+      await update(id, task);
+    } else {
+      const taskSelected = this.notes.find((todo) => todo.id === id);
+      taskSelected.taskName = newEditTaskName || taskSelected.taskName;
+      this.taskListData.setItemLocalStorage(this.notes);
+    }
   }
 
   // Toggle check all todos
