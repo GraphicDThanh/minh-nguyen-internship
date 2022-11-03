@@ -16,7 +16,6 @@ export default class TodoListModel {
 
   // Get data form JSON server or localStorage
   async getTaskListModel() {
-    console.log('get task list');
     if (this.authen.getItemLocalStorage() !== null) {
       const todos = await getTasksByUser(this.onUser);
       return todos;
@@ -136,7 +135,6 @@ export default class TodoListModel {
   // Filter list todo type filter
   async filterModeTodos(filter) {
     const listTodos = await this.getTaskListModel();
-    console.log('model filter', listTodos);
 
     if (filter === 'completed') {
       this.filterType = filter;

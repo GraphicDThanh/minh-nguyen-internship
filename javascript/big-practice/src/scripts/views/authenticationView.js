@@ -4,6 +4,7 @@
  * Form validation
  */
 import { getUser } from '../helper/fetchApi';
+import LocalStore from '../helper/localStorage';
 
 export default class AuthenticationView {
   constructor() {
@@ -22,7 +23,9 @@ export default class AuthenticationView {
 
     this.logBlock = document.getElementById('log-block');
 
-    this.loginMode = true;
+    this.loginMode = false;
+
+    this.authen = new LocalStore('authen');
   }
 
   /**
@@ -42,7 +45,6 @@ export default class AuthenticationView {
     this.loginForm.classList.add('hidden');
     this.login.reset();
     this.removeMsg();
-    this.loginMode = true;
   }
 
   /**
@@ -124,9 +126,19 @@ export default class AuthenticationView {
         handler(user.id);
         this.removeMsg();
         this.closeLoginForm(event);
-        this.logoutBtn.classList.remove('hidden');
-        this.showLoginBtn.classList.add('hidden');
+        this.loginMode = true;
+        this.showHideStatus();
       }
     });
+  }
+
+  showHideStatus() {
+    if (this.authen.getItemLocalStorage()) {
+      this.logoutBtn.classList.add('hidden');
+      this.showLoginBtn.classList.remove('hidden');
+    } else {
+      this.showLoginBtn.classList.add('hidden');
+      this.logoutBtn.classList.remove('hidden');
+    }
   }
 }
