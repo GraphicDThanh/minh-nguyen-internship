@@ -1,6 +1,6 @@
 import TodoItemModel from './todoItemModel';
 import LocalStore from '../helper/localStorage';
-import { getTasksByUser, getTasksById, post, update, remove } from '../helper/fetchApi';
+import { getTasksByUser, getTasksById, create, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
@@ -14,24 +14,9 @@ export default class TodoListModel {
     this.taskListModel = this.getTaskListModel();
   }
 
-  // Save data from localStorage into array
-  // getTaskListModel(tasks) {
-  //   const todos = [];
-  //   if (this.onUser) {
-  //     tasks.forEach((task) => {
-  //       const todo = new TodoItemModel(task);
-  //       todos.push(todo);
-  //     });
-  //   } else if (this.taskListData.getItemLocalStorage()) {
-  //     const tasks = this.taskListData.getItemLocalStorage();
-  //     tasks.forEach((task) => {
-  //       const todo = new TodoItemModel(task);
-  //       todos.push(todo);
-  //     });
-  //   }
-  //   return todos;
-  // }
+  // Get data form JSON server or localStorage
   async getTaskListModel() {
+    console.log('get task list');
     if (this.authen.getItemLocalStorage() !== null) {
       const todos = await getTasksByUser(this.onUser);
       return todos;
@@ -54,7 +39,7 @@ export default class TodoListModel {
   }
 
   // Add new task
-  addTodo(todoText) {
+  async addTodo(todoText) {
     if (this.onUser !== null) {
       const todoAdded = {
         id: new Date().getTime().toString(),
@@ -62,7 +47,7 @@ export default class TodoListModel {
         isCompleted: false,
         userID: this.onUser,
       };
-      post(todoAdded);
+      await create(todoAdded);
     } else {
       const todoAdded = {
         id: new Date().getTime().toString(),
@@ -70,6 +55,7 @@ export default class TodoListModel {
         isCompleted: false,
       };
       const task = new TodoItemModel(todoAdded);
+
       this.notes.push(task);
       this.taskListData.setItemLocalStorage(this.notes);
     }
@@ -79,11 +65,13 @@ export default class TodoListModel {
   async deleteTodo(id) {
     if (this.onUser !== null) {
       const task = await getTasksById(id);
+
       if (task) {
         await remove(id);
       }
     } else {
       const index = this.notes.findIndex((task) => task.id === id);
+
       this.notes.splice(index, 1);
       this.taskListData.setItemLocalStorage(this.notes);
     }
@@ -93,10 +81,12 @@ export default class TodoListModel {
   async toggleTodo(id) {
     if (this.onUser !== null) {
       const task = await getTasksById(id);
+
       task.isCompleted = !task.isCompleted;
       await update(id, task);
     } else {
       const taskSelected = this.notes.find((todo) => todo.id === id);
+
       taskSelected.isCompleted = !taskSelected.isCompleted;
       this.taskListData.setItemLocalStorage(this.notes);
     }
@@ -106,34 +96,47 @@ export default class TodoListModel {
   async updateTodo(id, newEditTaskName) {
     if (this.onUser !== null) {
       const task = await getTasksById(id);
+
       task.taskName = newEditTaskName || task.taskName;
       await update(id, task);
     } else {
       const taskSelected = this.notes.find((todo) => todo.id === id);
+
       taskSelected.taskName = newEditTaskName || taskSelected.taskName;
       this.taskListData.setItemLocalStorage(this.notes);
     }
   }
 
   // Toggle check all todos
-  toggleCheckAll(isToggleAll) {
-    this.taskListModel.forEach((task) => {
-      if (isToggleAll) {
-        task.isCompleted = true;
-      } else {
-        task.isCompleted = false;
-      }
-    });
+  async toggleCheckAll(isToggleAll) {
+    if (this.onUser !== null) {
+      const tasks = await this.getTaskListModel();
 
-    // this.todos.forEach(async (todo) => {
-    //   await update(todo.id, todo);
-    // });
+      tasks.forEach(async (task) => {
+        // task.isCompleted = isToggleAll;
+        if (isToggleAll) {
+          task.isCompleted = true;
+        } else {
+          task.isCompleted = false;
+        }
+        await update(task.id, task);
+      });
+    } else {
+      this.notes.forEach((note) => {
+        if (isToggleAll) {
+          note.isCompleted = true;
+        } else {
+          note.isCompleted = false;
+        }
+      });
+      this.taskListData.setItemLocalStorage(this.notes);
+    }
   }
 
   // Filter list todo type filter
   async filterModeTodos(filter) {
-    const listTodos = this.getTaskListModel();
-    console.log('todos filter', await listTodos);
+    const listTodos = await this.getTaskListModel();
+    console.log('model filter', listTodos);
 
     if (filter === 'completed') {
       this.filterType = filter;
@@ -151,23 +154,19 @@ export default class TodoListModel {
   }
 
   // Delete completed task
-  deleteCompletedTodos() {
-    // const listTodosCompleted = this.taskListModel.filter((task) => task.isCompleted);
-    const listTodosActive = this.taskListModel.filter((task) => !task.isCompleted);
+  async deleteCompletedTodos() {
+    if (this.onUser !== null) {
+      const tasks = await this.getTaskListModel();
+      const tasksComplete = tasks.filter((task) => task.isCompleted);
 
-    this.taskListModel = listTodosActive;
-    return this.taskListModel;
-    // listTodosCompleted.forEach(async (todo) => {
-    //   await remove(todo.id);
-    // });
+      tasksComplete.forEach(async (task) => {
+        await remove(task.id, task);
+      });
+    } else {
+      const listActive = this.notes.filter((note) => !note.isCompleted);
+      this.notes = listActive;
+
+      this.taskListData.setItemLocalStorage(this.notes);
+    }
   }
-
-  // async updateData(id) {
-  //   if (this.authen.getItemLocalStorage() !== null) {
-  //     const data = await this.getTaskListModel();
-  //     await update(id, data);
-  //   } else {
-  //     this.taskListData.setItemLocalStorage(this.notes);
-  //   }
-  // }
 }

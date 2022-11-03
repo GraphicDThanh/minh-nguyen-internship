@@ -1,11 +1,8 @@
-// import { patch } from '../helper/fetchApi';
-
 export default class TodoListController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
     this.filterTypeButton = 'all';
-    // this.onUser = false;
 
     // bind this in model
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
@@ -13,7 +10,7 @@ export default class TodoListController {
     this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
   }
 
-  init() {
+  async init() {
     // Explicit this binding
     this.renderForm();
     this.view.bindAddTodo((todoText) => {
@@ -40,25 +37,11 @@ export default class TodoListController {
     };
 
     const filterType = this.filterTypeButton;
-    // await this.model.getTaskListModel();
     const todos = await this.model.filterModeTodos(filterType);
 
-    console.log('todos controller', todos);
-
     this.view.showTaskActive(await this.model.countTaskActive());
-    this.view.displayTaskList(todos, await this.model.countTaskCompleted, handlers, filterType);
-    // this.saveData();
+    this.view.displayTaskList(todos, await this.model.countTaskCompleted(), handlers, filterType);
   }
-
-  // Save data to LocalStorage
-
-  // saveData = () => {
-  //   if (this.model.onUser || this.model.onUser == 0) {
-  //     update(this.model.onUser, {'tasks': this.model.taskListModel});
-  //   } else {
-  //     this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
-  //   }
-  // };
 
   // Handle add task
   async handleAddTask(todoText) {
@@ -85,14 +68,14 @@ export default class TodoListController {
   }
 
   // Handle toggle all tasks
-  handleToggleCheckAll(isToggleAll) {
-    this.model.toggleCheckAll(isToggleAll);
+  async handleToggleCheckAll(isToggleAll) {
+    await this.model.toggleCheckAll(isToggleAll);
     this.renderForm();
   }
 
   // Handle clear task completed
-  handleClearCompleted() {
-    this.model.deleteCompletedTodos();
+  async handleClearCompleted() {
+    await this.model.deleteCompletedTodos();
     this.renderForm();
   }
 }
