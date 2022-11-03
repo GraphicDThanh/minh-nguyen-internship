@@ -116,6 +116,22 @@ export default class AuthenticationView {
   }
 
   /**
+   * Show / Hide button login/logout if have user
+   */
+  showHideStatus() {
+    console.log(this.authen.getItemLocalStorage());
+    if (this.authen.getItemLocalStorage()) {
+      console.log('case 1');
+      this.logoutBtn.classList.remove('hidden');
+      this.showLoginBtn.classList.add('hidden');
+    } else {
+      console.log('case 2');
+      this.showLoginBtn.classList.remove('hidden');
+      this.logoutBtn.classList.add('hidden');
+    }
+  }
+
+  /**
    * Login
    */
   bindLogin(handler) {
@@ -132,13 +148,13 @@ export default class AuthenticationView {
     });
   }
 
-  showHideStatus() {
-    if (this.authen.getItemLocalStorage()) {
-      this.logoutBtn.classList.add('hidden');
-      this.showLoginBtn.classList.remove('hidden');
-    } else {
-      this.showLoginBtn.classList.add('hidden');
-      this.logoutBtn.classList.remove('hidden');
-    }
+  /**
+   * Logout
+   */
+  bindLogout(handler) {
+    this.logoutBtn.addEventListener('click', () => {
+      handler();
+      this.showHideStatus();
+    });
   }
 }
