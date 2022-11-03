@@ -55,9 +55,31 @@ export const getUser = async () => {
  * @returns {{object} || raise {error}}
  */
 
-export const getTasksById = async (id) => {
+export const getTasksByUser = async (id) => {
   try {
     const response = await fetch(`${URL}?userID=${id}`);
+    if (response.ok) {
+      const user = await response.json();
+      return user;
+    }
+    throw response.statusText;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+/**
+ * Get task from JSON server by id
+ * @param {string} url
+ * @param {number} id
+ *
+ * @returns {{object} || raise {error}}
+ */
+
+export const getTasksById = async (id) => {
+  try {
+    const response = await fetch(`${URL}/${id}`);
     if (response.ok) {
       const user = await response.json();
       return user;
@@ -104,6 +126,28 @@ export const update = async (id, data) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
+    });
+    if (!response.ok) {
+      throw response.statusText;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+/**
+ * Delete data tasks with specific id in database
+ * @param {object} data
+ * @param {number} id
+ */
+export const remove = async (id) => {
+  try {
+    const response = await fetch(`${URL}/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
     if (!response.ok) {
       throw response.statusText;

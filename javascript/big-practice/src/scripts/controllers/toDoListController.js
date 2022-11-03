@@ -40,8 +40,8 @@ export default class TodoListController {
     };
 
     const filterType = this.filterTypeButton;
-    // const todos = await this.model.filterModeTodos(filterType);
-    const todos = await this.model.getTaskListModel();
+    // await this.model.getTaskListModel();
+    const todos = await this.model.filterModeTodos(filterType);
 
     console.log('todos controller', todos);
 

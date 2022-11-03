@@ -42,8 +42,8 @@ export default class TodoListView {
    * Render task list table
    * @param {array} todoList // task list array
    */
-  displayTaskList(tasks, totalTaskCompleted, handlers, filterType) {
-    console.log('task view', tasks);
+  async displayTaskList(tasks, totalTaskCompleted, handlers, filterType) {
+    const taskList = await tasks;
     // Delete all nodes
     while (this.todoList.firstChild) {
       this.todoList.removeChild(this.todoList.firstChild);
@@ -51,7 +51,7 @@ export default class TodoListView {
 
     const { handleDeleteTask, handleToggleTodo, handleUpdateTodo } = handlers;
     // Show the entire task
-    tasks.forEach((task) => {
+    taskList.forEach((task) => {
       const taskElement = this.taskView.renderTask(task);
 
       this.todoList.append(taskElement);

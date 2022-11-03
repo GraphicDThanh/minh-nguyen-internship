@@ -1,14 +1,12 @@
 import TodoItemModel from './todoItemModel';
-import LocalStore from '../helper/localstorage';
-import { getTasksById, post } from '../helper/fetchApi';
+import LocalStore from '../helper/localStorage';
+import { getTasksByUser, getTasksById, post, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
     this.taskListData = new LocalStore('taskListData');
-    // this.onUser = null;
     this.authen = new LocalStore('authen');
     this.onUser = this.authen.getItemLocalStorage();
-    // this.todos = new LocalStore('todos');
     if (!this.authen.getItemLocalStorage()) {
       this.notes =
         this.taskListData.getItemLocalStorage() || this.taskListData.setItemLocalStorage([]);
@@ -35,8 +33,7 @@ export default class TodoListModel {
   // }
   async getTaskListModel() {
     if (this.authen.getItemLocalStorage() !== null) {
-      const todos = await getTasksById(this.onUser);
-      console.log('get task', todos);
+      const todos = await getTasksByUser(this.onUser);
       return todos;
     }
     return this.notes;
@@ -65,8 +62,6 @@ export default class TodoListModel {
         isCompleted: false,
         userID: this.onUser,
       };
-      // const task = new TodoItemModel(todoAdded);
-      // this.taskListModel.push(todoAdded);
       post(todoAdded);
     } else {
       const todoAdded = {
@@ -78,23 +73,33 @@ export default class TodoListModel {
       this.notes.push(task);
       this.taskListData.setItemLocalStorage(this.notes);
     }
-    // await create(task);
   }
 
   // Delete task
-  deleteTodo(id) {
-    const index = this.taskListModel.findIndex((task) => task.id === id);
-
-    this.taskListModel.splice(index, 1);
-    // await remove(id);
+  async deleteTodo(id) {
+    if (this.onUser !== null) {
+      const task = await getTasksById(id);
+      if (task) {
+        await remove(id);
+      }
+    } else {
+      const index = this.notes.findIndex((task) => task.id === id);
+      this.notes.splice(index, 1);
+      this.taskListData.setItemLocalStorage(this.notes);
+    }
   }
 
   // Done task
-  toggleTodo(id) {
-    const taskSelected = this.taskListModel.find((todo) => todo.id === id);
-
-    taskSelected.isCompleted = !taskSelected.isCompleted;
-    // await update(id, taskSelected);
+  async toggleTodo(id) {
+    if (this.onUser !== null) {
+      const task = await getTasksById(id);
+      task.isCompleted = !task.isCompleted;
+      await update(id, task);
+    } else {
+      const taskSelected = this.notes.find((todo) => todo.id === id);
+      taskSelected.isCompleted = !taskSelected.isCompleted;
+      this.taskListData.setItemLocalStorage(this.notes);
+    }
   }
 
   // Edit task
@@ -122,8 +127,8 @@ export default class TodoListModel {
 
   // Filter list todo type filter
   async filterModeTodos(filter) {
-    const listTodos = await this.getTaskListModel();
-    console.log('model', listTodos);
+    const listTodos = this.getTaskListModel();
+    console.log('todos filter', await listTodos);
 
     if (filter === 'completed') {
       this.filterType = filter;
@@ -152,14 +157,12 @@ export default class TodoListModel {
     // });
   }
 
-  /**
-   * Use API url from fetch import in read data
-   * @returns {array} todos.
-   */
-  // async getTodo() {
-  //   const listTodos = await get();
-
-  //   this.todos = listTodos;
-  //   return listTodos;
+  // async updateData(id) {
+  //   if (this.authen.getItemLocalStorage() !== null) {
+  //     const data = await this.getTaskListModel();
+  //     await update(id, data);
+  //   } else {
+  //     this.taskListData.setItemLocalStorage(this.notes);
+  //   }
   // }
 }
