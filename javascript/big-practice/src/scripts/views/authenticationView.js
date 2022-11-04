@@ -119,13 +119,10 @@ export default class AuthenticationView {
    * Show / Hide button login/logout if have user
    */
   showHideStatus() {
-    console.log(this.authen.getItemLocalStorage());
     if (this.authen.getItemLocalStorage()) {
-      console.log('case 1');
       this.logoutBtn.classList.remove('hidden');
       this.showLoginBtn.classList.add('hidden');
     } else {
-      console.log('case 2');
       this.showLoginBtn.classList.remove('hidden');
       this.logoutBtn.classList.add('hidden');
     }
