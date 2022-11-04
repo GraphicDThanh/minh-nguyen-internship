@@ -70,6 +70,10 @@
    ```
    npm install
    ```
+- Install JSON server
+   ```
+   sudo npm install -g json-server
+   ```
 - Run database (JSON server)
    ```
    npm run start-db
