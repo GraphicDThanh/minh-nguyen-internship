@@ -43,7 +43,7 @@
   text-transform: uppercase;
 }
 
-.btn-login:hover,
+.login-form .btn-login:hover,
 .btn-close-form:hover {
   color: var(--white);
   background-color: var(--grey-dark-plus);
