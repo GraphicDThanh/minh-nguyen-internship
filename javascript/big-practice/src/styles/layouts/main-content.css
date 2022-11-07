@@ -10,72 +10,24 @@
   position: relative;
 }
 
-/* todo-list */
-.todo-list li {
-  font-size: 24px;
-  border-bottom: 1px solid var(--grey-light);
-}
-
-.todo-list li {
-	position: relative;
-	font-size: 24px;
-	border-bottom: 1px solid var(--grey-light);
-}
-
-.todo-list li .toggle {
-	text-align: center;
-	width: 40px;
-	height: auto;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-}
-
-.todo-list li .toggle {
-	opacity: 0;
-}
-
-.todo-list li label {
-	padding: 15px 15px 15px 60px;
-	display: block;
-	transition: 0.4s;
-}
-
-.todo-list li.completed label {
-	color: #d9d9d9;
-	text-decoration: line-through;
-}
-
-.todo-list li .destroy {
-	display: none;
-	position: absolute;
-	top: 0;
-	right: 10px;
-	bottom: 0;
-	width: 40px;
-	height: 40px;
-	margin: auto 0;
-	font-size: 30px;
-	color: #cc9a9a;
-	margin-bottom: 11px;
-	transition: 0.2s;
-}
-
-.todo-list li .destroy:hover {
-	color: #af5b5e;
-  cursor: pointer;
-}
-
-.todo-list li .destroy:after {
-	content: '×';
-}
-
-.todo-list li:hover .destroy {
-	display: block;
+.add-task input::-webkit-input-placeholder {
+  font-style: italic;
+  font-weight: var(--font-regular);
+  color: var(--platinum);
 }
 
 .add-task {
   position: relative;
+}
+
+.new-todo {
+  padding: 16px;
+  padding-left: 60px;
+  border: none;
+  background: var(--dark-003);
+  box-shadow: inset 0 -2px 1px var(--dark-03);
+  font-size: 24px;
+  width: 100%;
 }
 
 /* footer-list-task */
@@ -84,15 +36,27 @@
   padding: 10px 15px;
   border-top: 1px solid var(--platinum);
   box-shadow: 0 1px 1px var(--dark-02), 0 8px 0 -3px var(--primary-dark),
-    0 9px 1px -3px var(--dark-02), 0 16px 0 -6px var(--primary-dark),
-    0 17px 2px -6px var(--dark-02);
+    0 9px 1px -3px var(--dark-02), 0 16px 0 -6px var(--primary-dark), 0 17px 2px -6px var(--dark-02);
 }
 
-.clear-completed {
+.btn-clear-completed {
   visibility: hidden;
-  cursor: pointer;
 }
 
 .footer-list-task {
   display: none;
 }
+
+.filters {
+  display: flex;
+}
+
+.footer-list-task {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters li button.selected {
+  border-color: var(--filter-select);
+}
+

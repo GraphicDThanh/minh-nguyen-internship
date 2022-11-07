@@ -22,7 +22,7 @@ export default class TodoListView {
     this.filter = this.filters.querySelectorAll('button');
 
     // Clear all task completed button
-    this.clearCompleted = document.querySelector('.clear-completed');
+    this.clearCompleted = document.querySelector('.btn-clear-completed');
 
     // Footer list task
     this.footerListTask = document.querySelector('.footer-list-task');

@@ -12,12 +12,12 @@ export default class TodoItemView {
    * @returns task <li> element
    */
   renderTask(task) {
-    const taskElement = document.createElement('li');
+    const templateTask = document.createElement('li');
 
-    taskElement.id = `${task.id}`;
-    taskElement.className = 'task';
+    templateTask.id = `${task.id}`;
+    templateTask.className = 'task';
 
-    taskElement.innerHTML = `
+    templateTask.innerHTML = `
       <div class = 'view'>
       <input 
         class='toggle' 
@@ -25,10 +25,10 @@ export default class TodoItemView {
         type='checkbox' ${task.isCompleted ? 'checked' : ''}
       />
             <label>${task.taskName}</label>
-            <button type="button" class="destroy"></button>
+            <button type="button" class="btn btn-close"></button>
       </div>
     `;
-    return taskElement;
+    return templateTask;
   }
 
   /**
@@ -38,7 +38,7 @@ export default class TodoItemView {
    */
   bindDeleteTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
-    const deleteButton = taskSelected.querySelector('.destroy');
+    const deleteButton = taskSelected.querySelector('.btn-close');
 
     deleteButton.addEventListener('click', () => {
       handler(task.id, filterType);
