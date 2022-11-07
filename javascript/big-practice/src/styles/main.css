@@ -1,9 +1,9 @@
+/* css files defined for use in the project */
+@import url(abstracts/variables.css);
+
 /* basic css files shared for the whole project */
 @import url(base/reset.css);
 @import url(base/global.css);
-
-/* css files defined for use in the project */
-@import url(abstracts/variables.css);
 
 /* css for components */
 @import url(components/button.css);
@@ -14,5 +14,8 @@
 
 /* css for section */
 @import url(layouts/main-content.css);
+@import url(layouts/add-task.css);
+@import url(layouts/todo-list.css);
+@import url(layouts/footer-todo-list.css);
 @import url(layouts/footer.css);
 @import url(layouts/login.css);

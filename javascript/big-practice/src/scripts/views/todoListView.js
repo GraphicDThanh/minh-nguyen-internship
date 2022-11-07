@@ -9,7 +9,7 @@ export default class TodoListView {
 
     // Add todo
     this.addTaskForm = document.querySelector('.add-task');
-    this.inputTaskName = document.querySelector('.new-todo');
+    this.inputTaskName = document.querySelector('.input-add-task');
 
     // Count todo
     this.todoCount = document.querySelector('.todo-count');
@@ -22,7 +22,7 @@ export default class TodoListView {
     this.filter = this.filters.querySelectorAll('button');
 
     // Clear all task completed button
-    this.clearCompleted = document.querySelector('.clear-completed');
+    this.clearCompleted = document.querySelector('.btn-clear-completed');
 
     // Footer list task
     this.footerListTask = document.querySelector('.footer-list-task');

@@ -4,22 +4,22 @@
  * Form validation
  */
 import { getUser } from '../helper/fetchApi';
-import LocalStore from '../helper/localStorage';
+import LocalStore from '../helper/localstorage';
 
 export default class AuthenticationView {
   constructor() {
-    this.successMsg = document.getElementById('success-msg');
-    this.errorMsg = document.getElementById('error-msg');
+    this.successMsg = document.getElementById('msg-success');
+    this.errorMsg = document.getElementById('msg-error');
 
-    this.showLoginBtn = document.getElementById('show-login-btn');
+    this.showLoginBtn = document.getElementById('btn-show-login');
     this.loginForm = document.getElementById('login-form');
-    this.closeFormBtn = document.getElementById('close-btn');
+    this.closeFormBtn = document.getElementById('btn-close-form');
 
     this.login = document.getElementById('login');
     this.email = document.getElementById('input-email');
     this.password = document.getElementById('input-password');
-    this.loginBtn = document.getElementById('login-btn');
-    this.logoutBtn = document.getElementById('logout-btn');
+    this.loginBtn = document.getElementById('btn-login');
+    this.logoutBtn = document.getElementById('btn-logout');
 
     this.logBlock = document.getElementById('log-block');
 
@@ -88,8 +88,8 @@ export default class AuthenticationView {
    * Remove messages when login
    */
   removeMsg() {
-    this.successMsg.classList.add('hide');
-    this.errorMsg.classList.add('hide');
+    this.successMsg.classList.add('hidden');
+    this.errorMsg.classList.add('hidden');
   }
 
   /**

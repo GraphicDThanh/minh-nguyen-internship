@@ -9,13 +9,13 @@
     <title>Todo MVC</title>
   </head>
   <body>
-    <header>
+    <header class="header-wrapper">
       <h1 class="logo">todos</h1>
     </header>
-    <section class="main-content">
+    <main class="main-content">
       <form class="add-task">
-        <input class="new-todo" placeholder="What needs to be done?" autofocus />
-        <input id="toggle-all" class="toggle-all" type="checkbox" />
+        <input class="input input-add-task" placeholder="What needs to be done?" autofocus />
+        <input id="toggle-all" class="input toggle-all" type="checkbox" />
         <label for="toggle-all"></label>
       </form>
       <ul class="todo-list"></ul>
@@ -23,30 +23,30 @@
         <span class="todo-count"></span>
         <ul class="filters">
           <li>
-            <button id="all" class="selected">All</button>
+            <button id="all" class="btn btn-primary selected">All</button>
           </li>
           <li>
-            <button id="active">Active</button>
+            <button id="active" class="btn btn-primary">Active</button>
           </li>
           <li>
-            <button id="completed">Completed</button>
+            <button id="completed" class="btn btn-primary">Completed</button>
           </li>
         </ul>
-        <button class="clear-completed">Clear completed</button>
+        <button class="btn btn-hover-under btn-clear-completed">Clear completed</button>
       </div>
-    </section>
-    <footer>
+    </main>
+    <footer class="footer-wrapper">
       <p>Double-click to edit a todo</p>
       <div id="log-block">
-        <button class="log-btn show-login-btn" id="show-login-btn">Login</button>
-        <button class="log-btn logout-btn hidden" id="logout-btn">Logout</button>
+        <button class="btn btn-hover-under btn-show-login" id="btn-show-login">Login</button>
+        <button class="btn btn-hover-under btn-logout hidden" id="btn-logout">Logout</button>
       </div>
     </footer>
 
     <div class="login-form hidden" id="login-form">
       <div class="main-login">
-        <button class="close-btn" id="close-btn">x</button>
-        <p class="app-name">Todos</p>
+        <button class="btn btn-close-form" id="btn-close-form">x</button>
+        <p class="logo">todos</p>
         <p class="login-label">Login</p>
         <form id="login">
           <label for="email" id="email-label">Email</label>
@@ -54,14 +54,14 @@
             type="text"
             placeholder="example@mail.com"
             name="email"
-            class="input-email"
+            class="input input-login input-email"
             id="input-email"
           />
           <label for="password" id="password-label">Password</label>
-          <input type="password" name="password" class="input-password" id="input-password" />
-          <p class="error-msg hidden" id="error-msg"></p>
-          <p class="success-msg hidden" id="success-msg"></p>
-          <button type="submit" id="login-btn">Login</button>
+          <input type="password" name="password" class="input input-login input-password" id="input-password" />
+          <p class="msg msg-error hidden" id="msg-error"></p>
+          <p class="msg msg-success hidden" id="msg-success"></p>
+          <button type="submit" id="btn-login" class="btn btn-login">Login</button>
         </form>
       </div>
     </div>
