@@ -4,7 +4,8 @@
  * Form validation
  */
 import { getUser } from '../helper/fetchApi';
-import LocalStore from '../helper/localstorage';
+import LocalStore from '../helper/localStorage';
+import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class AuthenticationView {
   constructor() {
@@ -25,7 +26,7 @@ export default class AuthenticationView {
 
     this.loginMode = false;
 
-    this.userId = new LocalStore('userId');
+    this.userId = new LocalStore(STORAGE_KEYS.USER_ID);
   }
 
   /**

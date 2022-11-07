@@ -1,11 +1,12 @@
 import TodoItemModel from './todoItemModel';
 import LocalStore from '../helper/localStorage';
+import STORAGE_KEYS from '../constants/storageKeys';
 import { getTasksByUser, getTasksById, create, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModel {
   constructor() {
-    this.taskListData = new LocalStore('taskListData');
-    this.userId = new LocalStore('userId');
+    this.taskListData = new LocalStore(STORAGE_KEYS.TASK_LIST_DATA);
+    this.userId = new LocalStore(STORAGE_KEYS.USER_ID);
     this.onUser = this.userId.getItemLocalStorage();
     if (!this.userId.getItemLocalStorage()) {
       this.notes =
