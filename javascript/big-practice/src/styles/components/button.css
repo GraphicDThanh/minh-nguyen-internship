@@ -19,6 +19,27 @@
   border-color: var(--metallic-red);
 }
 
-.btn-secondary:hover {
+.btn-hover-under:hover {
   text-decoration: underline;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: var(--dark-02) 0px 2px 2px;
+  color: var(--light);
+  opacity: 0.9;
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+}
+
+.btn-close-form {
+  border: 1px solid var(--grey);
+  border-radius: 30px;
+  margin: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

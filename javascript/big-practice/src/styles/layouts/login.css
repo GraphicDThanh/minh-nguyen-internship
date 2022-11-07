@@ -18,6 +18,11 @@
   border-radius: 10px;
 }
 
+.login-form .logo {
+  font-size: 50px;
+  margin-top: 0px;
+}
+
 .login-label {
   font-weight: var(--font-bold);
   font-size: 18px;
@@ -38,29 +43,9 @@
   text-transform: uppercase;
 }
 
-.btn-login {
-  width: 100%;
-  padding: 12px;
-  text-align: center;
-  font-size: 14px;
-  box-shadow: var(--dark-02) 0px 2px 2px;
-  color: var(--light);
-  opacity: 0.9;
-  border: 1px solid var(--grey);
-  border-radius: 4px;
-}
-
 .btn-login:hover,
 .btn-close-form:hover {
   color: var(--white);
   background-color: var(--grey-dark-plus);
 }
 
-.btn-close-form {
-  border: 1px solid var(--grey);
-  border-radius: 30px;
-  margin: 15px;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
