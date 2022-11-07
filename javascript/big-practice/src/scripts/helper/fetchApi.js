@@ -1,4 +1,5 @@
 import URL_API from '../constants/api';
+import { API_MESSAGE } from '../constants/messages';
 
 /**
  * FETCH API
@@ -14,19 +15,20 @@ const usersURL = `${URL_API.URL}${URL_API.USERS_URL}`;
  * @returns {{object} || raise {error}}
  */
 
-export const getUser = async () => {
+export const getUserById = async (id) => {
   try {
-    const response = await fetch(`${usersURL}`);
+    const response = await fetch(`${usersURL}?userID=${id}`);
     if (response.ok) {
       const user = await response.json();
       return user;
     }
     throw response.statusText;
   } catch (error) {
-    console.error(error);
+    console.error(API_MESSAGE.GET + error);
     throw error;
   }
 };
+
 
 /**
  * Get all data of users from JSON server
@@ -45,7 +47,7 @@ export const getTasksByUser = async (id) => {
     }
     throw response.statusText;
   } catch (error) {
-    console.error(error);
+    console.error(API_MESSAGE.GET + error);
     throw error;
   }
 };
@@ -67,7 +69,7 @@ export const getTasksById = async (id) => {
     }
     throw response.statusText;
   } catch (error) {
-    console.error(error);
+    console.error(API_MESSAGE.GET + error);
     throw error;
   }
 };
@@ -89,7 +91,7 @@ export const create = async (data) => {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(error);
+    console.error(API_MESSAGE.POST + error);
     throw error;
   }
 };
@@ -112,7 +114,7 @@ export const update = async (id, data) => {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(error);
+    console.error(API_MESSAGE.PATCH + error);
     throw error;
   }
 };
@@ -134,7 +136,7 @@ export const remove = async (id) => {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(error);
+    console.error(API_MESSAGE.DELETE + error);
     throw error;
   }
 };
