@@ -14,6 +14,8 @@
 
 /* css for section */
 @import url(layouts/main-content.css);
+@import url(layouts/add-task.css);
 @import url(layouts/todo-list.css);
+@import url(layouts/footer-todo-list.css);
 @import url(layouts/footer.css);
 @import url(layouts/login.css);

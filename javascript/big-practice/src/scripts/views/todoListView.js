@@ -9,7 +9,7 @@ export default class TodoListView {
 
     // Add todo
     this.addTaskForm = document.querySelector('.add-task');
-    this.inputTaskName = document.querySelector('.new-todo');
+    this.inputTaskName = document.querySelector('.input-add-task');
 
     // Count todo
     this.todoCount = document.querySelector('.todo-count');

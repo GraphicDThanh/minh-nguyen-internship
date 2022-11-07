@@ -3,7 +3,7 @@ export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
     this.addTaskForm = document.getElementsByClassName('add-task');
-    this.inputTaskName = document.getElementsByClassName('new-todo');
+    this.inputTaskName = document.getElementsByClassName('input-add-task');
   }
 
   /**
