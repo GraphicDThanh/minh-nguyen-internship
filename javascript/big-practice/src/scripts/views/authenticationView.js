@@ -25,7 +25,7 @@ export default class AuthenticationView {
 
     this.loginMode = false;
 
-    this.authen = new LocalStore('authen');
+    this.userId = new LocalStore('userId');
   }
 
   /**
@@ -119,7 +119,7 @@ export default class AuthenticationView {
    * Show / Hide button login/logout if have user
    */
   showHideStatus() {
-    if (this.authen.getItemLocalStorage()) {
+    if (this.userId.getItemLocalStorage()) {
       this.logoutBtn.classList.remove('hidden');
       this.showLoginBtn.classList.add('hidden');
     } else {
@@ -139,7 +139,6 @@ export default class AuthenticationView {
         handler(user.id);
         this.removeMsg();
         this.closeLoginForm(event);
-        this.loginMode = true;
         this.showHideStatus();
       }
     });

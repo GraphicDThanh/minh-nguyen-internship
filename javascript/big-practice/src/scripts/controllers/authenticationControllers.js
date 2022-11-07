@@ -22,13 +22,13 @@ export default class AuthenticationController {
   // Handle login
   onLogin(id) {
     this.model.onUser = id;
-    this.model.authen.setItemLocalStorage(id);
+    this.model.userId.setItemLocalStorage(id);
     this.taskList.renderForm();
   }
 
   // Handle logout
   onLogout() {
-    this.model.authen.removeItemLocalStorage();
+    this.model.userId.removeItemLocalStorage();
     this.taskList.renderForm();
   }
 }

@@ -5,9 +5,9 @@ import { getTasksByUser, getTasksById, create, update, remove } from '../helper/
 export default class TodoListModel {
   constructor() {
     this.taskListData = new LocalStore('taskListData');
-    this.authen = new LocalStore('authen');
-    this.onUser = this.authen.getItemLocalStorage();
-    if (!this.authen.getItemLocalStorage()) {
+    this.userId = new LocalStore('userId');
+    this.onUser = this.userId.getItemLocalStorage();
+    if (!this.userId.getItemLocalStorage()) {
       this.notes =
         this.taskListData.getItemLocalStorage() || this.taskListData.setItemLocalStorage([]);
     }
@@ -16,7 +16,7 @@ export default class TodoListModel {
 
   // Get data form JSON server or localStorage
   async getTaskListModel() {
-    if (this.authen.getItemLocalStorage() !== null) {
+    if (this.onUser) {
       const todos = await getTasksByUser(this.onUser);
       return todos;
     }

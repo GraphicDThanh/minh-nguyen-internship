@@ -1,29 +1,10 @@
+import URL_API from '../constants/api';
+
 /**
  * FETCH API
  */
-const URL = 'http://localhost:3000/todos';
-const URLUser = 'http://localhost:3000/users';
-
-/**
- * Get all data of tasks from JSON server
- * @param {string} url
- *
- * @returns {{object} || raise {error}}
- * */
-export const get = async () => {
-  try {
-    const response = await fetch(URL);
-    const data = response.json();
-    if (!response.ok) {
-      throw response.statusText;
-    }
-
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+const todosURL = `${URL_API.URL}${URL_API.TODOS_URL}`;
+const usersURL = `${URL_API.URL}${URL_API.USERS_URL}`;
 
 /**
  * Get all data of users from JSON server
@@ -35,7 +16,7 @@ export const get = async () => {
 
 export const getUser = async () => {
   try {
-    const response = await fetch(`${URLUser}`);
+    const response = await fetch(`${usersURL}`);
     if (response.ok) {
       const user = await response.json();
       return user;
@@ -57,7 +38,7 @@ export const getUser = async () => {
 
 export const getTasksByUser = async (id) => {
   try {
-    const response = await fetch(`${URL}?userID=${id}`);
+    const response = await fetch(`${todosURL}?userID=${id}`);
     if (response.ok) {
       const user = await response.json();
       return user;
@@ -79,7 +60,7 @@ export const getTasksByUser = async (id) => {
 
 export const getTasksById = async (id) => {
   try {
-    const response = await fetch(`${URL}/${id}`);
+    const response = await fetch(`${todosURL}/${id}`);
     if (response.ok) {
       const user = await response.json();
       return user;
@@ -97,7 +78,7 @@ export const getTasksById = async (id) => {
  */
 export const create = async (data) => {
   try {
-    const response = await fetch(URL, {
+    const response = await fetch(todosURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -120,7 +101,7 @@ export const create = async (data) => {
  */
 export const update = async (id, data) => {
   try {
-    const response = await fetch(`${URL}/${id}`, {
+    const response = await fetch(`${todosURL}/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -143,7 +124,7 @@ export const update = async (id, data) => {
  */
 export const remove = async (id) => {
   try {
-    const response = await fetch(`${URL}/${id}`, {
+    const response = await fetch(`${todosURL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
