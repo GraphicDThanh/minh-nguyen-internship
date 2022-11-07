@@ -5,7 +5,6 @@
 @import url(base/reset.css);
 @import url(base/global.css);
 
-
 /* css for components */
 @import url(components/button.css);
 @import url(components/toggle.css);
