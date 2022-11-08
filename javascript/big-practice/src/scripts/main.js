@@ -18,5 +18,7 @@ const authenticationView = new AuthenticationView();
 const todoListController = new TodoListController(todoListModel, todoListView);
 const authenticationUser = new AuthenticationController(authenticationModel, authenticationView);
 
-authenticationUser.init();
+authenticationUser.init(() => {
+  todoListController.renderForm();
+});
 todoListController.init();

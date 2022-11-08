@@ -1,5 +1,7 @@
-import { ERROR_MSG } from '../constants/messages';
+// import { ERROR_MSG } from '../constants/messages';
 import LocalStore from '../helper/localstorage';
+import Validate from '../helper/validate';
+
 /**
  * LOGIN FORM
  * Open and close the form
@@ -49,7 +51,6 @@ export default class AuthenticationView {
    * Function for close login form
    */
   closeLoginForm() {
-    // event.preventDefault();
     this.loginForm.classList.add('hidden');
     this.login.reset();
     this.removeMsg();
@@ -104,10 +105,11 @@ export default class AuthenticationView {
    * @param {function} handler
    */
   validateForm(handler) {
-    const email = this.validEmail();
-    const pass = this.validPassword();
+    const validate = new Validate();
+    const isEmail = validate.validEmail(this.emailInput, this.rulesEmail);
+    const isPass = validate.validPassword(this.passwordInput, this.rulesPassword);
 
-    if (email && pass) {
+    if (isEmail && isPass) {
       handler(this.emailInput, this.passwordInput);
     }
   }
@@ -115,105 +117,56 @@ export default class AuthenticationView {
   /**
    * Function check empty and valid of email
    */
-  validEmail() {
-    let checkEmail = false;
-    const isRules = this.isRules(this.emailInput, this.rulesEmail);
-    const isEmpty = this.isEmpty(this.emailInput);
+  // validEmail(element, rules) {
+  //   let checkEmail = false;
+  //   const isRules = Validate.isRules(element, rules);
+  //   const isEmpty = Validate.isEmpty(element);
 
-    if (isEmpty) {
-      this.errorMsgMail.classList.remove('hidden');
-      this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
-    } else if (isRules) {
-      this.errorMsgMail.classList.remove('hidden');
-      this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
-    } else {
-      this.errorMsgMail.classList.add('hidden');
-    }
+  //   if (isEmpty) {
+  //     this.errorMsgMail.classList.remove('hidden');
+  //     this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
+  //   } else if (isRules) {
+  //     this.errorMsgMail.classList.remove('hidden');
+  //     this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
+  //   } else {
+  //     this.errorMsgMail.classList.add('hidden');
+  //   }
 
-    if (!isRules && !isEmpty) {
-      checkEmail = true;
-    }
+  //   if (!isRules && !isEmpty) {
+  //     checkEmail = true;
+  //   }
 
-    return checkEmail;
-  }
+  //   return checkEmail;
+  // }
 
   /**
    * Function check empty,valid and length of password
    */
-  validPassword() {
-    let checkPass = false;
-    const isRules = this.isRules(this.passwordInput, this.rulesPassword);
-    const isLength = this.isLength(this.passwordInput);
-    const isEmpty = this.isEmpty(this.passwordInput);
+  // validPassword(element, rules) {
+  //   let checkPass = false;
+  //   const isRules = Validate.isRules(element, rules);
+  //   const isLength = Validate.isLength(element);
+  //   const isEmpty = Validate.isEmpty(element);
 
-    if (isEmpty) {
-      this.errorMsgPass.classList.remove('hidden');
-      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_EMPTY;
-    } else if (isRules) {
-      this.errorMsgPass.classList.remove('hidden');
-      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INVALID;
-    } else if (isLength) {
-      this.errorMsgPass.classList.remove('hidden');
-      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_LEAST;
-    } else {
-      this.errorMsgPass.classList.add('hidden');
-    }
+  //   if (isEmpty) {
+  //     this.errorMsgPass.classList.remove('hidden');
+  //     this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_EMPTY;
+  //   } else if (isRules) {
+  //     this.errorMsgPass.classList.remove('hidden');
+  //     this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INVALID;
+  //   } else if (isLength) {
+  //     this.errorMsgPass.classList.remove('hidden');
+  //     this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_LEAST;
+  //   } else {
+  //     this.errorMsgPass.classList.add('hidden');
+  //   }
 
-    if (!isRules && !isEmpty && !isLength) {
-      checkPass = true;
-    }
+  //   if (!isRules && !isEmpty && !isLength) {
+  //     checkPass = true;
+  //   }
 
-    return checkPass;
-  }
-
-  /**
-   * Function check rules of input
-   *
-   * @param {String} value from input
-   * @param {String} rules is rules of each filed
-   *
-   * @returns {Boolean} isError
-   */
-  isRules(value, rules) {
-    let isError = false;
-
-    if (!value.match(rules)) {
-      isError = true;
-    }
-    return isError;
-  }
-
-  /**
-   * @description function check empty of input
-   *
-   * @param {String} value from input
-   *
-   * @returns {Boolean} isError
-   */
-  isEmpty(value) {
-    let isError = false;
-
-    if (value === '') {
-      isError = true;
-    }
-    return isError;
-  }
-
-  /**
-   * @description function check length if length of input less than 8
-   *
-   * @param {String} value from input
-   *
-   * @returns {Boolean} isError
-   */
-  isLength(value) {
-    let isError = false;
-
-    if (value.length < 8) {
-      isError = true;
-    }
-    return isError;
-  }
+  //   return checkPass;
+  // }
 
   /**
    * Logout

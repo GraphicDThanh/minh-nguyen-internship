@@ -7,7 +7,8 @@ export default class AuthenticationController {
     this.onLogout = this.onLogout.bind(this);
   }
 
-  init() {
+  init(handler) {
+    this.renderForm = handler;
     this.view.bindOpenLoginForm();
     this.view.bindCloseLoginForm();
     this.view.showHideStatus();
@@ -25,14 +26,13 @@ export default class AuthenticationController {
     if (check) {
       this.view.closeLoginForm();
       this.view.showHideStatus();
-      // this.taskList.renderForm();
+      this.renderForm();
     }
-    return check;
   }
 
   // Handle logout
   onLogout() {
     this.model.userId.removeItemLocalStorage();
-    // this.taskList.renderForm();
+    this.renderForm();
   }
 }
