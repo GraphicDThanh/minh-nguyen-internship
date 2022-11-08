@@ -29,6 +29,27 @@ export const getUserById = async (id) => {
   }
 };
 
+/**
+ * Get data of user from JSON server by mail
+ * @param {string} url
+ * @param {number} id
+ *
+ * @returns {{object} || raise {error}}
+ */
+
+export const getUserByMail = async (mail) => {
+  try {
+    const response = await fetch(`${usersURL}?mail=${mail}`);
+    if (response.ok) {
+      const user = await response.json();
+      return user;
+    }
+    throw response.statusText;
+  } catch (error) {
+    console.error(API_MESSAGE.GET + error);
+    throw error;
+  }
+};
 
 /**
  * Get all data of users from JSON server

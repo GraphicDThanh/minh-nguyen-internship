@@ -1,9 +1,16 @@
-import { getUserByUsername, getUserById } from '../helper/fetchApi';
-import LocalStorage from '../helper/localStorage';
+import { getUserByMail } from '../helper/fetchApi';
+import LocalStorage from '../helper/localstorage';
 import STORAGE_KEYS from '../constants/storageKeys';
-import { EMAIL, PASSWORD } from '../constants/messages';
+import { ERROR_MSG, SUCCESS } from '../constants/messages';
 
-export default class LoginModel {
+export default class AuthenticationModel {
+  constructor() {
+    this.userId = new LocalStorage(STORAGE_KEYS.USER_ID);
+    this.successMsg = document.getElementById('msg-success');
+    this.errorMsgMail = document.getElementById('msg-error-email');
+    this.errorMsgPass = document.getElementById('msg-error-password');
+  }
+
   /**
    * @description function check email and password is exists in data
    *
@@ -12,34 +19,27 @@ export default class LoginModel {
    *
    * @returns {String} message
    */
-  static async checkUserByEmail(email, password) {
-    const users = await getUserByUsername(email);
-    let message;
+  async checkUserByEmail(email, password) {
+    let loginMode = false;
+    const users = await getUserByMail(email);
 
     if (users.length) {
       if (users[0].password === password) {
-        LocalStorage.setItems(STORAGE_KEYS.USER_ID, users[0].id);
+        loginMode = true;
+        this.userId.setItemLocalStorage(users[0].id);
+        this.successMsg.innerHTML = SUCCESS.MSG_SUCCESS;
+        this.successMsg.classList.remove('hidden');
       } else {
-        message = PASSWORD.PASSWORD_INCORRECT;
+        loginMode = false;
+        this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INCORRECT;
+        this.errorMsgPass.classList.remove('hidden');
       }
     } else {
-      message = EMAIL.EMAIL_NOT_EXISTS;
+      loginMode = false;
+      this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_NOT_EXIST;
+      this.errorMsgMail.classList.remove('hidden');
     }
 
-    return message;
-  }
-
-  /**
-   * @description find user by id
-   *
-   * @returns {String} email or Unknown
-   */
-  static async findUsernameById() {
-    if (LocalStorage.getItems(STORAGE_KEYS.USER_ID)) {
-      const user = await getUsersById(LocalStorage.getItems(STORAGE_KEYS.USER_ID));
-      return user.email;
-    }
-
-    return null;
+    return loginMode;
   }
 }

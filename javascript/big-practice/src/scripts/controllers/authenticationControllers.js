@@ -1,8 +1,8 @@
 export default class AuthenticationController {
-  constructor(view, model, todoListController) {
-    this.view = view;
+  constructor(model, view) {
     this.model = model;
-    this.taskList = todoListController;
+    this.view = view;
+    // this.taskList = todoListController;
     this.onLogin = this.onLogin.bind(this);
     this.onLogout = this.onLogout.bind(this);
   }
@@ -20,15 +20,19 @@ export default class AuthenticationController {
   }
 
   // Handle login
-  onLogin(id) {
-    this.model.onUser = id;
-    this.model.userId.setItemLocalStorage(id);
-    this.taskList.renderForm();
+  async onLogin(email, password) {
+    const check = await this.model.checkUserByEmail(email, password);
+    if (check) {
+      this.view.closeLoginForm();
+      this.view.showHideStatus();
+      // this.taskList.renderForm();
+    }
+    return check;
   }
 
   // Handle logout
   onLogout() {
     this.model.userId.removeItemLocalStorage();
-    this.taskList.renderForm();
+    // this.taskList.renderForm();
   }
 }

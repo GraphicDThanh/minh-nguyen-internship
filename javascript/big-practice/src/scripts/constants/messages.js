@@ -6,8 +6,20 @@ const API_MESSAGE = {
 };
 
 const ERROR_MSG = {
-  PASSWORD: 'Password incorrect',
-  EMAIL: 'Email is not exists',
+  // Email message
+  EMAIL_NOT_EXIST: 'Email is not exists',
+  EMAIL_INVALID: 'Invalid email',
+  EMAIL_EMPTY: 'Email cannot be empty',
+
+  // Password message
+  PASSWORD_INCORRECT: 'Password incorrect',
+  PASSWORD_INVALID: 'Invalid password',
+  PASSWORD_EMPTY: 'Password cannot be empty',
+  PASSWORD_LEAST: 'Password must be at least 8 characters',
 };
 
-export { API_MESSAGE, ERROR_MSG };
+const SUCCESS = {
+  MSG_SUCCESS: 'Logged in successfully',
+};
+
+export { API_MESSAGE, ERROR_MSG, SUCCESS };

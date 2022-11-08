@@ -1,32 +1,30 @@
+import { ERROR_MSG } from '../constants/messages';
+import LocalStore from '../helper/localstorage';
 /**
  * LOGIN FORM
  * Open and close the form
  * Form validation
  */
-import { getUser } from '../helper/fetchApi';
-import LocalStore from '../helper/localStorage';
-import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class AuthenticationView {
   constructor() {
+    this.userId = new LocalStore('userId');
+
     this.successMsg = document.getElementById('msg-success');
-    this.errorMsg = document.getElementById('msg-error');
+    this.errorMsgMail = document.getElementById('msg-error-email');
+    this.errorMsgPass = document.getElementById('msg-error-password');
 
     this.showLoginBtn = document.getElementById('btn-show-login');
-    this.loginForm = document.getElementById('login-form');
-    this.closeFormBtn = document.getElementById('btn-close-form');
+    this.logoutBtn = document.getElementById('btn-logout');
 
+    this.loginForm = document.getElementById('login-form');
+    this.btnCloseForm = document.getElementById('btn-close-form');
     this.login = document.getElementById('login');
     this.email = document.getElementById('input-email');
     this.password = document.getElementById('input-password');
-    this.loginBtn = document.getElementById('btn-login');
-    this.logoutBtn = document.getElementById('btn-logout');
 
-    this.logBlock = document.getElementById('log-block');
-
-    this.loginMode = false;
-
-    this.userId = new LocalStore(STORAGE_KEYS.USER_ID);
+    this.rulesEmail = /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    this.rulesPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{1,}$/g;
   }
 
   /**
@@ -39,22 +37,31 @@ export default class AuthenticationView {
   }
 
   /**
+   * Close login form to close button
+   */
+  bindCloseLoginForm() {
+    this.btnCloseForm.addEventListener('click', (event) => {
+      this.closeLoginForm(event);
+    });
+  }
+
+  /**
    * Function for close login form
    */
-  closeLoginForm(event) {
-    event.preventDefault();
+  closeLoginForm() {
+    // event.preventDefault();
     this.loginForm.classList.add('hidden');
     this.login.reset();
     this.removeMsg();
   }
 
   /**
-   * Assign close login form to close button
+   * Function remove messages when login
    */
-  bindCloseLoginForm() {
-    this.closeFormBtn.addEventListener('click', (event) => {
-      this.closeLoginForm(event);
-    });
+  removeMsg() {
+    this.successMsg.classList.add('hidden');
+    this.errorMsgMail.classList.add('hidden');
+    this.errorMsgPass.classList.add('hidden');
   }
 
   /**
@@ -69,55 +76,7 @@ export default class AuthenticationView {
   }
 
   /**
-   * Insert messages when login
-   * @param {string} content
-   * @param {boolean} successMsg / is this a message for success
-   */
-  insertMsg(content, isSuccessMsg) {
-    if (isSuccessMsg) {
-      this.successMsg.textContent = content;
-      this.successMsg.classList.remove('hidden');
-      this.errorMsg.classList.add('hidden');
-    } else {
-      this.errorMsg.textContent = content;
-      this.successMsg.classList.add('hidden');
-      this.errorMsg.classList.remove('hidden');
-    }
-  }
-
-  /**
-   * Remove messages when login
-   */
-  removeMsg() {
-    this.successMsg.classList.add('hidden');
-    this.errorMsg.classList.add('hidden');
-  }
-
-  /**
-   * Validate password
-   * @param {callback} handler / function for loading user data
-   * @param {event} event
-   */
-  async validationLoginForm() {
-    // Get users list from JSON
-    const users = await getUser();
-    let isSuccessMsg = true;
-
-    const checkUser = users.find(
-      (user) => user.userEmail === this.emailInput && user.password === this.passwordInput
-    );
-
-    if (!checkUser) {
-      console.log('Fail');
-      isSuccessMsg = false;
-      this.insertMsg('Email address or password is wrong, please check again', isSuccessMsg);
-    }
-    console.log('Success');
-    return checkUser;
-  }
-
-  /**
-   * Show / Hide button login/logout if have user
+   * Function show/hide button login/logout if have user
    */
   showHideStatus() {
     if (this.userId.getItemLocalStorage()) {
@@ -132,17 +91,128 @@ export default class AuthenticationView {
   /**
    * Login
    */
-  bindLogin(handler) {
+  async bindLogin(handler) {
     this.login.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const user = await this.validationLoginForm();
-      if (user) {
-        handler(user.id);
-        this.removeMsg();
-        this.closeLoginForm(event);
-        this.showHideStatus();
-      }
+      this.validateForm(handler);
     });
+  }
+
+  /**
+   * Function check valid of email and password
+   *
+   * @param {function} handler
+   */
+  validateForm(handler) {
+    const email = this.validEmail();
+    const pass = this.validPassword();
+
+    if (email && pass) {
+      handler(this.emailInput, this.passwordInput);
+    }
+  }
+
+  /**
+   * Function check empty and valid of email
+   */
+  validEmail() {
+    let checkEmail = false;
+    const isRules = this.isRules(this.emailInput, this.rulesEmail);
+    const isEmpty = this.isEmpty(this.emailInput);
+
+    if (isEmpty) {
+      this.errorMsgMail.classList.remove('hidden');
+      this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
+    } else if (isRules) {
+      this.errorMsgMail.classList.remove('hidden');
+      this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
+    } else {
+      this.errorMsgMail.classList.add('hidden');
+    }
+
+    if (!isRules && !isEmpty) {
+      checkEmail = true;
+    }
+
+    return checkEmail;
+  }
+
+  /**
+   * Function check empty,valid and length of password
+   */
+  validPassword() {
+    let checkPass = false;
+    const isRules = this.isRules(this.passwordInput, this.rulesPassword);
+    const isLength = this.isLength(this.passwordInput);
+    const isEmpty = this.isEmpty(this.passwordInput);
+
+    if (isEmpty) {
+      this.errorMsgPass.classList.remove('hidden');
+      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_EMPTY;
+    } else if (isRules) {
+      this.errorMsgPass.classList.remove('hidden');
+      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INVALID;
+    } else if (isLength) {
+      this.errorMsgPass.classList.remove('hidden');
+      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_LEAST;
+    } else {
+      this.errorMsgPass.classList.add('hidden');
+    }
+
+    if (!isRules && !isEmpty && !isLength) {
+      checkPass = true;
+    }
+
+    return checkPass;
+  }
+
+  /**
+   * Function check rules of input
+   *
+   * @param {String} value from input
+   * @param {String} rules is rules of each filed
+   *
+   * @returns {Boolean} isError
+   */
+  isRules(value, rules) {
+    let isError = false;
+
+    if (!value.match(rules)) {
+      isError = true;
+    }
+    return isError;
+  }
+
+  /**
+   * @description function check empty of input
+   *
+   * @param {String} value from input
+   *
+   * @returns {Boolean} isError
+   */
+  isEmpty(value) {
+    let isError = false;
+
+    if (value === '') {
+      isError = true;
+    }
+    return isError;
+  }
+
+  /**
+   * @description function check length if length of input less than 8
+   *
+   * @param {String} value from input
+   *
+   * @returns {Boolean} isError
+   */
+  isLength(value) {
+    let isError = false;
+
+    if (value.length < 8) {
+      isError = true;
+    }
+    return isError;
   }
 
   /**
