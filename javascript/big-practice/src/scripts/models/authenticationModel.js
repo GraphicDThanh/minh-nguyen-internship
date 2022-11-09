@@ -11,11 +11,10 @@ export default class AuthenticationModel {
 
   /**
    * Function check email and password is exists in data
+   * @param {string} email is email take from input email login
+   * @param {string} password is password take from input password login
    *
-   * @param {String} email is email take from input email login
-   * @param {String} password is password take from input password login
-   *
-   * @returns {String} message
+   * @returns {boolean} login mode
    */
   async checkUserByEmail(email, password) {
     let loginMode = false;

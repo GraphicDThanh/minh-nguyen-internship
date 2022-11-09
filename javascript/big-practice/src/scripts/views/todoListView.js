@@ -89,6 +89,7 @@ export default class TodoListView {
   }
 
   /**
+   * Bind add todo
    * Add event 'submit' for element form
    * @param {function} handler
    */
@@ -104,6 +105,7 @@ export default class TodoListView {
   }
 
   /**
+   * Bind toggle check all todo
    * Add event 'click' to select all todos
    * @param {fuction} handler
    */
@@ -121,6 +123,7 @@ export default class TodoListView {
   }
 
   /**
+   * Bind filters todos
    * Add event 'click' to show filter todos
    * @param {fuction} handler
    */
@@ -138,6 +141,7 @@ export default class TodoListView {
   }
 
   /**
+   * Bind deletd all completed todos
    * Add event 'click' to delete all todos
    * @param {fuction} handler
    */

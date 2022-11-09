@@ -33,7 +33,7 @@ export default class TodoItemView {
   }
 
   /**
-   * Function use id to delete todos
+   * Bind delete todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
@@ -47,7 +47,7 @@ export default class TodoItemView {
   }
 
   /**
-   * Function use id to done todo
+   * Bind toggle todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
@@ -61,7 +61,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to edit task todo
+   * Bind edit task todo
    * Get data after edit task name
    * @param {fuction} handler
    */
@@ -93,7 +93,7 @@ export default class TodoItemView {
   }
 
   /**
-   * Function use id to update todos
+   * Bind update todos
    * Add event 'double click' for todoList element
    * @param {fuction} handler
    */

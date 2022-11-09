@@ -10,7 +10,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Count task active
+   * Function count task active
    * @returns {number} number of active tasks
    */
   countTaskActive() {
@@ -18,7 +18,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Count task active
+   * Function count task active
    * @returns {number} number of completed tasks
    */
   countTaskCompleted() {
@@ -26,7 +26,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Add new task
+   * Function add new task
    * @param {*} todoText task name from input
    */
   addTodo(todoText) {
@@ -42,7 +42,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Delete task
+   * Function delete task
    * @param {*} id id of task selected
    */
   deleteTodo(id) {
@@ -53,7 +53,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Done task
+   * Function done task
    * @param {*} id id of task selected
    */
   toggleTodo(id) {
@@ -64,7 +64,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Edit task
+   * Function edit task
    * @param {*} id id of task selected
    * @param {*} newEditTaskName new task name from input
    */
@@ -76,7 +76,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Toggle check all todos
+   * Function toggle check all todos
    * @param {*} isToggleAll status of toggleAll button
    */
   toggleCheckAll(isToggleAll) {
@@ -92,8 +92,9 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Filter list todo type filter
+   * Function filter list todo type filter
    * @param {*} filter filter button
+   *
    * @returns {object} listlist filter
    */
   filterModeTodos(filter) {
@@ -113,7 +114,7 @@ export default class TodoListModelLocal {
   }
 
   /**
-   * Delete all completed task
+   * Function delete all completed task
    */
   deleteCompletedTodos() {
     const listActive = this.tasks.filter((task) => !task.isCompleted);

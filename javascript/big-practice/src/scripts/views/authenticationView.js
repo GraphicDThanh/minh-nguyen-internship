@@ -6,7 +6,6 @@ import Validate from '../helper/validate';
  * Open and close the form
  * Form validation
  */
-
 export default class AuthenticationView {
   constructor() {
     this.validate = new Validate();
@@ -26,7 +25,7 @@ export default class AuthenticationView {
   }
 
   /**
-   * Open login form
+   * Bind open login form
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
@@ -35,7 +34,7 @@ export default class AuthenticationView {
   }
 
   /**
-   * Close login form to close button
+   * Bind close login form to close button
    */
   bindCloseLoginForm() {
     this.btnCloseForm.addEventListener('click', (event) => {
@@ -62,7 +61,7 @@ export default class AuthenticationView {
   }
 
   /**
-   * Get value from input email and password
+   * Function get value from input email and password
    */
   get emailInput() {
     return this.email.value.trim();
@@ -86,7 +85,7 @@ export default class AuthenticationView {
   }
 
   /**
-   * Login
+   * Bind login
    * @param {function} handler
    */
   async bindLogin(handler) {
@@ -110,7 +109,7 @@ export default class AuthenticationView {
   }
 
   /**
-   * Logout
+   * Bind logout
    * @param {function} handler
    */
   bindLogout(handler) {

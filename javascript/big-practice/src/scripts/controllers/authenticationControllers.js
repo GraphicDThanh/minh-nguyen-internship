@@ -24,8 +24,8 @@ export default class AuthenticationController {
 
   /**
    * Handle login
-   * @param {*} email
-   * @param {*} password
+   * @param {string} email
+   * @param {string} password
    */
   async onLogin(email, password) {
     const check = await this.model.checkUserByEmail(email, password);

@@ -10,7 +10,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Get data form JSON server
+   * Function get data form JSON server
    * @returns {object} data from server
    */
   async getTaskListModel() {
@@ -19,7 +19,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Count task active
+   * Function count task active
    * @returns {number} number of active tasks
    */
   async countTaskActive() {
@@ -29,7 +29,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Count task active
+   * Function count task active
    * @returns {number} number of completed tasks
    */
   async countTaskCompleted() {
@@ -39,7 +39,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Add new task
+   * Function add new task
    * @param {*} todoText task name from input
    */
   async addTodo(todoText) {
@@ -53,7 +53,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Delete task
+   * Function delete task
    * @param {*} id id of task selected
    */
   async deleteTodo(id) {
@@ -65,7 +65,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Done task
+   * Function done task
    * @param {*} id id of task selected
    */
   async toggleTodo(id) {
@@ -76,7 +76,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Edit task
+   * Function edit task
    * @param {*} id id of task selected
    * @param {*} newEditTaskName new task name from input
    */
@@ -88,7 +88,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Toggle check all todos
+   * Function toggle check all todos
    * @param {*} isToggleAll status of toggleAll button
    */
   async toggleCheckAll(isToggleAll) {
@@ -106,8 +106,9 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Filter list todo type filter
+   * Function filter list todo type filter
    * @param {*} filter filter button
+   *
    * @returns {object} listlist filter
    */
   async filterModeTodos(filter) {
@@ -129,7 +130,7 @@ export default class TodoListModelApi {
   }
 
   /**
-   * Delete all completed task
+   * Function delete all completed task
    */
   async deleteCompletedTodos() {
     const tasks = await this.getTaskListModel();
