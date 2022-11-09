@@ -1,4 +1,4 @@
-import AuthService from '../helper/authService';
+import { authService } from '../helper/authService';
 
 export default class TodoListController {
   constructor(modelApi, modelLocal, view) {
@@ -38,7 +38,7 @@ export default class TodoListController {
    * Check status of userId to set data
    */
   setModel() {
-    this.model = AuthService.checkUser() ? this.modelApi : this.modelLocal;
+    this.model = authService.checkUser() ? this.modelApi : this.modelLocal;
   }
 
   /**

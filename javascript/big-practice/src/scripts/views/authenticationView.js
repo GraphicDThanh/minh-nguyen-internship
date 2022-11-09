@@ -1,4 +1,4 @@
-import LocalStore from '../helper/localstorage';
+import { authService } from '../helper/authService';
 import Validate from '../helper/validate';
 
 /**
@@ -9,7 +9,6 @@ import Validate from '../helper/validate';
 
 export default class AuthenticationView {
   constructor() {
-    this.userId = new LocalStore('userId');
     this.validate = new Validate();
 
     this.successMsg = document.getElementById('msg-success');
@@ -24,9 +23,6 @@ export default class AuthenticationView {
     this.login = document.getElementById('login');
     this.email = document.getElementById('input-email');
     this.password = document.getElementById('input-password');
-
-    this.rulesEmail = /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-    this.rulesPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{1,}$/g;
   }
 
   /**
@@ -80,7 +76,7 @@ export default class AuthenticationView {
    * Function show/hide button login/logout if have user
    */
   showHideStatus() {
-    if (this.userId.getItemLocalStorage()) {
+    if (authService.getUser()) {
       this.logoutBtn.classList.remove('hidden');
       this.showLoginBtn.classList.add('hidden');
     } else {
@@ -105,8 +101,8 @@ export default class AuthenticationView {
    * @param {function} handler
    */
   validateForm(handler) {
-    const isEmail = this.validate.validateEmail(this.emailInput, this.rulesEmail);
-    const isPass = this.validate.validatePassword(this.passwordInput, this.rulesPassword);
+    const isEmail = this.validate.validateEmail(this.emailInput);
+    const isPass = this.validate.validatePassword(this.passwordInput);
 
     if (isEmail && isPass) {
       handler(this.emailInput, this.passwordInput);

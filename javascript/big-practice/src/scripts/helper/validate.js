@@ -4,6 +4,9 @@ export default class Validate {
   constructor() {
     this.errorMsgMail = document.getElementById('msg-error-email');
     this.errorMsgPass = document.getElementById('msg-error-password');
+
+    this.rulesEmail = /^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    this.rulesPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{1,}$/g;
   }
 
   /**
@@ -61,9 +64,9 @@ export default class Validate {
    *
    * @returns {boolean} checkEmail
    */
-  validateEmail(element, rules) {
+  validateEmail(element) {
     let checkEmail = false;
-    const isRules = Validate.checkRules(element, rules);
+    const isRules = Validate.checkRules(element, this.rulesEmail);
     const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
@@ -90,9 +93,9 @@ export default class Validate {
    *
    * @returns {boolean} checkPass
    */
-  validatePassword(element, rules) {
+  validatePassword(element) {
     let checkPass = false;
-    const isRules = Validate.checkRules(element, rules);
+    const isRules = Validate.checkRules(element, this.rulesPassword);
     const isLength = Validate.checkLength(element);
     const isEmpty = Validate.checkEmpty(element);
 

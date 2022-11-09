@@ -19,8 +19,7 @@ export const getUserById = async (id) => {
   try {
     const response = await fetch(`${usersURL}?userID=${id}`);
     if (response.ok) {
-      const user = await response.json();
-      return user;
+      return await response.json();
     }
     throw response.statusText;
   } catch (error) {

@@ -1,5 +1,5 @@
 import { getUserByMail } from '../helper/fetchApi';
-import AuthService from '../helper/authService';
+import { authService } from '../helper/authService';
 import { ERROR_MSG, SUCCESS } from '../constants/messages';
 
 export default class AuthenticationModel {
@@ -24,7 +24,7 @@ export default class AuthenticationModel {
     if (users.length) {
       if (users[0].password === password) {
         loginMode = true;
-        AuthService.setUser().setItemLocalStorage(users[0].id);
+        authService.setUser(users[0].id);
         this.successMsg.innerHTML = SUCCESS.MSG_SUCCESS;
         this.successMsg.classList.remove('hidden');
       } else {
