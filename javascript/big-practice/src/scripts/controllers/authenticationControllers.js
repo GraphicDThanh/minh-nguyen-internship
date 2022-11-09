@@ -33,6 +33,9 @@ export default class AuthenticationController {
       this.view.closeLoginForm();
       this.view.showHideStatus();
       this.renderForm();
+    } else {
+      this.view.login.reset();
+      this.view.removeMsg();
     }
   }
 
