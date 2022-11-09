@@ -1,18 +1,16 @@
 import { getUserByMail } from '../helper/fetchApi';
-import LocalStorage from '../helper/localstorage';
-import STORAGE_KEYS from '../constants/storageKeys';
+import CheckUser from '../helper/checkUser';
 import { ERROR_MSG, SUCCESS } from '../constants/messages';
 
 export default class AuthenticationModel {
   constructor() {
-    this.userId = new LocalStorage(STORAGE_KEYS.USER_ID);
     this.successMsg = document.getElementById('msg-success');
     this.errorMsgMail = document.getElementById('msg-error-email');
     this.errorMsgPass = document.getElementById('msg-error-password');
   }
 
   /**
-   * @description function check email and password is exists in data
+   * Function check email and password is exists in data
    *
    * @param {String} email is email take from input email login
    * @param {String} password is password take from input password login
@@ -26,7 +24,7 @@ export default class AuthenticationModel {
     if (users.length) {
       if (users[0].password === password) {
         loginMode = true;
-        this.userId.setItemLocalStorage(users[0].id);
+        CheckUser.setUser().setItemLocalStorage(users[0].id);
         this.successMsg.innerHTML = SUCCESS.MSG_SUCCESS;
         this.successMsg.classList.remove('hidden');
       } else {

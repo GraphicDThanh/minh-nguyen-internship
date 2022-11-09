@@ -1,8 +1,14 @@
+import CheckUser from '../helper/checkUser';
+
 export default class TodoListController {
-  constructor(model, view) {
-    this.model = model;
-    this.view = view;
+  constructor(modelApi, modelLocal, view) {
+    this.modelApi = modelApi;
+    this.modelLocal = modelLocal;
+
     this.filterTypeButton = 'all';
+
+    this.setModel();
+    this.view = view;
 
     // bind this in model
     this.handleDeleteTask = this.handleDeleteTask.bind(this);
@@ -28,9 +34,17 @@ export default class TodoListController {
     });
   }
 
-  // Render board task list
+  /**
+   * Check status of userId to set data
+   */
+  setModel() {
+    this.model = CheckUser.checkUser() ? this.modelApi : this.modelLocal;
+  }
+
+  /**
+   * Render board task list
+   */
   async renderForm() {
-    console.log('render');
     const handlers = {
       handleDeleteTask: this.handleDeleteTask,
       handleToggleTodo: this.handleToggleTodo,
@@ -39,43 +53,60 @@ export default class TodoListController {
 
     const filterType = this.filterTypeButton;
     const todos = await this.model.filterModeTodos(filterType);
-    console.log(todos);
 
     this.view.showTaskActive(await this.model.countTaskActive());
     this.view.displayTaskList(todos, await this.model.countTaskCompleted(), handlers, filterType);
   }
 
-  // Handle add task
+  /**
+   * Handle add task
+   * @param {*} todoText task name form input
+   */
   async handleAddTask(todoText) {
     await this.model.addTodo(todoText);
     this.renderForm();
   }
 
-  // Handle delete task
+  /**
+   * Handle delete task
+   * @param {*} id id of task selected
+   */
   async handleDeleteTask(id) {
     await this.model.deleteTodo(id);
     this.renderForm();
   }
 
-  // Handle done task
+  /**
+   * Handle done task
+   * @param {*} id id of task selected
+   */
   async handleToggleTodo(id) {
     await this.model.toggleTodo(id);
     this.renderForm();
   }
 
-  // Handle update content after edit
+  /**
+   * Handle update content after edit
+   * @param {*} id id of task selected
+   * @param {*} newTaskName new name from input
+   */
   async handleUpdateTodo(id, newTaskName) {
     await this.model.updateTodo(id, newTaskName);
     this.renderForm();
   }
 
-  // Handle toggle all tasks
+  /**
+   * Handle toggle all tasks
+   * @param {*} isToggleAll status of toggleAll button
+   */
   async handleToggleCheckAll(isToggleAll) {
     await this.model.toggleCheckAll(isToggleAll);
     this.renderForm();
   }
 
-  // Handle clear task completed
+  /**
+   * Handle clear task completed
+   */
   async handleClearCompleted() {
     await this.model.deleteCompletedTodos();
     this.renderForm();
