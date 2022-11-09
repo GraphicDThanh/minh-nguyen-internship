@@ -18,6 +18,7 @@ const usersURL = `${URL_API.URL}${URL_API.USERS_URL}`;
 export const getUserById = async (id) => {
   try {
     const response = await fetch(`${usersURL}?userID=${id}`);
+
     if (response.ok) {
       return await response.json();
     }
@@ -39,8 +40,10 @@ export const getUserById = async (id) => {
 export const getUserByMail = async (mail) => {
   try {
     const response = await fetch(`${usersURL}?mail=${mail}`);
+
     if (response.ok) {
       const user = await response.json();
+
       return user;
     }
     throw response.statusText;
@@ -61,8 +64,10 @@ export const getUserByMail = async (mail) => {
 export const getTasksByUser = async (id) => {
   try {
     const response = await fetch(`${todosURL}?userID=${id}`);
+
     if (response.ok) {
       const user = await response.json();
+
       return user;
     }
     throw response.statusText;
@@ -83,8 +88,10 @@ export const getTasksByUser = async (id) => {
 export const getTasksById = async (id) => {
   try {
     const response = await fetch(`${todosURL}/${id}`);
+
     if (response.ok) {
       const user = await response.json();
+
       return user;
     }
     throw response.statusText;
@@ -107,6 +114,7 @@ export const create = async (data) => {
       },
       body: JSON.stringify(data),
     });
+
     if (!response.ok) {
       throw response.statusText;
     }
@@ -130,6 +138,7 @@ export const update = async (id, data) => {
       },
       body: JSON.stringify(data),
     });
+
     if (!response.ok) {
       throw response.statusText;
     }
@@ -152,6 +161,7 @@ export const remove = async (id) => {
         'Content-Type': 'application/json',
       },
     });
+
     if (!response.ok) {
       throw response.statusText;
     }
