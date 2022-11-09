@@ -8,13 +8,12 @@ export default class Validate {
 
   /**
    * Function check rules of input
-   *
    * @param {String} value from input
    * @param {String} rules is rules of each filed
    *
    * @returns {Boolean} isError
    */
-  static isRules(value, rules) {
+  static checkRules(value, rules) {
     let isError = false;
 
     if (!value.match(rules)) {
@@ -24,13 +23,13 @@ export default class Validate {
   }
 
   /**
-   * @description function check empty of input
+   * Function check empty of input
    *
    * @param {String} value from input
    *
    * @returns {Boolean} isError
    */
-  static isEmpty(value) {
+  static checkEmpty(value) {
     let isError = false;
 
     if (value === '') {
@@ -40,13 +39,13 @@ export default class Validate {
   }
 
   /**
-   * @description function check length if length of input less than 8
+   * Function check length if length of input less than 8
    *
    * @param {String} value from input
    *
    * @returns {Boolean} isError
    */
-  static isLength(value) {
+  static checkLength(value) {
     let isError = false;
 
     if (value.length < 8) {
@@ -57,11 +56,15 @@ export default class Validate {
 
   /**
    * Function check empty and valid of email
+   * @param {*} element inout email
+   * @param {*} rules rules of email
+   *
+   * @returns {boolean} checkEmail
    */
-  validEmail(element, rules) {
+  validateEmail(element, rules) {
     let checkEmail = false;
-    const isRules = Validate.isRules(element, rules);
-    const isEmpty = Validate.isEmpty(element);
+    const isRules = Validate.checkRules(element, rules);
+    const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
       this.errorMsgMail.classList.remove('hidden');
@@ -82,12 +85,16 @@ export default class Validate {
 
   /**
    * Function check empty,valid and length of password
+   * @param {*} element input password
+   * @param {*} rules rules of password
+   *
+   * @returns {boolean} checkPass
    */
-  validPassword(element, rules) {
+  validatePassword(element, rules) {
     let checkPass = false;
-    const isRules = Validate.isRules(element, rules);
-    const isLength = Validate.isLength(element);
-    const isEmpty = Validate.isEmpty(element);
+    const isRules = Validate.checkRules(element, rules);
+    const isLength = Validate.checkLength(element);
+    const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
       this.errorMsgPass.classList.remove('hidden');

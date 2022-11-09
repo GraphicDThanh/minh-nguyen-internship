@@ -28,19 +28,27 @@ export default class TodoListView {
     this.footerListTask = document.querySelector('.footer-list-task');
   }
 
-  // Get data from input task name cell
+  /**
+   * Get data from input task name cell
+   */
   get todoText() {
     return this.inputTaskName.value;
   }
 
-  // Show the number of active tasks
+  /**
+   * Show the number of active tasks
+   * @param {number} activeTask
+   */
   showTaskActive(activeTask) {
     this.todoCount.innerHTML = `${activeTask} item${activeTask > 1 ? 's' : ''} left`;
   }
 
   /**
    * Render task list table
-   * @param {array} todoList // task list array
+   * @param {object} tasks
+   * @param {number} totalTaskCompleted
+   * @param {fuction} handlers
+   * @param {string} filterType
    */
   async displayTaskList(tasks, totalTaskCompleted, handlers, filterType) {
     const taskList = await tasks;

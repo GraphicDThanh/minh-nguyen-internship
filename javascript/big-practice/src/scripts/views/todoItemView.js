@@ -9,6 +9,7 @@ export default class TodoItemView {
   /**
    * Render a task view
    * @param {object} task
+   *
    * @returns task <li> element
    */
   renderTask(task) {
@@ -32,7 +33,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to delete todos
+   * Function use id to delete todos
    * Add event 'click' for todoList element
    * @param {function} handler
    */
@@ -46,7 +47,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to done todo
+   * Function use id to done todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
@@ -92,7 +93,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to update todos
+   * Function use id to update todos
    * Add event 'double click' for todoList element
    * @param {fuction} handler
    */

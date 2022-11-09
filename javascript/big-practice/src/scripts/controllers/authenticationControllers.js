@@ -1,14 +1,16 @@
+import CheckUser from '../helper/checkUser';
+
 export default class AuthenticationController {
   constructor(model, view) {
     this.model = model;
     this.view = view;
-    // this.taskList = todoListController;
+
     this.onLogin = this.onLogin.bind(this);
     this.onLogout = this.onLogout.bind(this);
   }
 
-  init(handler) {
-    this.renderForm = handler;
+  init(handlerRender) {
+    this.renderForm = handlerRender;
     this.view.bindOpenLoginForm();
     this.view.bindCloseLoginForm();
     this.view.showHideStatus();
@@ -20,7 +22,11 @@ export default class AuthenticationController {
     this.view.bindLogout(this.onLogout);
   }
 
-  // Handle login
+  /**
+   * Handle login
+   * @param {*} email
+   * @param {*} password
+   */
   async onLogin(email, password) {
     const check = await this.model.checkUserByEmail(email, password);
     if (check) {
@@ -30,9 +36,11 @@ export default class AuthenticationController {
     }
   }
 
-  // Handle logout
-  onLogout() {
-    this.model.userId.removeItemLocalStorage();
-    this.renderForm();
+  /**
+   * Handle logout
+   */
+  async onLogout() {
+    CheckUser.setUser().removeItemLocalStorage();
+    await this.renderForm();
   }
 }

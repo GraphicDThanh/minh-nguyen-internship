@@ -1,4 +1,3 @@
-// import { ERROR_MSG } from '../constants/messages';
 import LocalStore from '../helper/localstorage';
 import Validate from '../helper/validate';
 
@@ -11,6 +10,7 @@ import Validate from '../helper/validate';
 export default class AuthenticationView {
   constructor() {
     this.userId = new LocalStore('userId');
+    this.validate = new Validate();
 
     this.successMsg = document.getElementById('msg-success');
     this.errorMsgMail = document.getElementById('msg-error-email');
@@ -91,6 +91,7 @@ export default class AuthenticationView {
 
   /**
    * Login
+   * @param {function} handler
    */
   async bindLogin(handler) {
     this.login.addEventListener('submit', async (event) => {
@@ -101,13 +102,11 @@ export default class AuthenticationView {
 
   /**
    * Function check valid of email and password
-   *
    * @param {function} handler
    */
   validateForm(handler) {
-    const validate = new Validate();
-    const isEmail = validate.validEmail(this.emailInput, this.rulesEmail);
-    const isPass = validate.validPassword(this.passwordInput, this.rulesPassword);
+    const isEmail = this.validate.validateEmail(this.emailInput, this.rulesEmail);
+    const isPass = this.validate.validatePassword(this.passwordInput, this.rulesPassword);
 
     if (isEmail && isPass) {
       handler(this.emailInput, this.passwordInput);
@@ -115,61 +114,8 @@ export default class AuthenticationView {
   }
 
   /**
-   * Function check empty and valid of email
-   */
-  // validEmail(element, rules) {
-  //   let checkEmail = false;
-  //   const isRules = Validate.isRules(element, rules);
-  //   const isEmpty = Validate.isEmpty(element);
-
-  //   if (isEmpty) {
-  //     this.errorMsgMail.classList.remove('hidden');
-  //     this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
-  //   } else if (isRules) {
-  //     this.errorMsgMail.classList.remove('hidden');
-  //     this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
-  //   } else {
-  //     this.errorMsgMail.classList.add('hidden');
-  //   }
-
-  //   if (!isRules && !isEmpty) {
-  //     checkEmail = true;
-  //   }
-
-  //   return checkEmail;
-  // }
-
-  /**
-   * Function check empty,valid and length of password
-   */
-  // validPassword(element, rules) {
-  //   let checkPass = false;
-  //   const isRules = Validate.isRules(element, rules);
-  //   const isLength = Validate.isLength(element);
-  //   const isEmpty = Validate.isEmpty(element);
-
-  //   if (isEmpty) {
-  //     this.errorMsgPass.classList.remove('hidden');
-  //     this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_EMPTY;
-  //   } else if (isRules) {
-  //     this.errorMsgPass.classList.remove('hidden');
-  //     this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INVALID;
-  //   } else if (isLength) {
-  //     this.errorMsgPass.classList.remove('hidden');
-  //     this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_LEAST;
-  //   } else {
-  //     this.errorMsgPass.classList.add('hidden');
-  //   }
-
-  //   if (!isRules && !isEmpty && !isLength) {
-  //     checkPass = true;
-  //   }
-
-  //   return checkPass;
-  // }
-
-  /**
    * Logout
+   * @param {function} handler
    */
   bindLogout(handler) {
     this.logoutBtn.addEventListener('click', () => {
