@@ -1,4 +1,4 @@
-import CheckUser from '../helper/checkUser';
+import AuthService from '../helper/authService';
 
 export default class AuthenticationController {
   constructor(model, view) {
@@ -40,7 +40,7 @@ export default class AuthenticationController {
    * Handle logout
    */
   async onLogout() {
-    CheckUser.setUser().removeItemLocalStorage();
+    AuthService.setUser().removeItemLocalStorage();
     await this.renderForm();
   }
 }

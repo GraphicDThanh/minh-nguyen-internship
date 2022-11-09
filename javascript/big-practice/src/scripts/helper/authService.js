@@ -1,7 +1,7 @@
 import LocalStore from './localstorage';
 import STORAGE_KEYS from '../constants/storageKeys';
 
-export default class CheckUser {
+export default class AuthService {
   /**
    * Set userId key to localStorage
    * @returns {object} userId key in localStorage
@@ -16,7 +16,7 @@ export default class CheckUser {
    * @returns {number} value of userId
    */
   static getUser() {
-    return CheckUser.setUser().getItemLocalStorage();
+    return AuthService.setUser().getItemLocalStorage();
   }
 
   /**
@@ -26,7 +26,7 @@ export default class CheckUser {
   static checkUser() {
     let checkUser = false;
 
-    if (CheckUser.getUser()) {
+    if (AuthService.getUser()) {
       checkUser = true;
     }
     return checkUser;

@@ -1,7 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import LocalStore from '../helper/localstorage';
 import STORAGE_KEYS from '../constants/storageKeys';
-import CheckUser from '../helper/checkUser';
+import AuthService from '../helper/authService';
 import { getTasksByUser, getTasksById, create, update, remove } from '../helper/fetchApi';
 
 export default class TodoListModelApi {
@@ -14,7 +14,7 @@ export default class TodoListModelApi {
    * @returns {object} data from server
    */
   async getTaskListModel() {
-    const todos = await getTasksByUser(CheckUser.getUser());
+    const todos = await getTasksByUser(AuthService.getUser());
     return todos;
   }
 
@@ -47,7 +47,7 @@ export default class TodoListModelApi {
       id: new Date().getTime().toString(),
       taskName: todoText,
       isCompleted: false,
-      userID: CheckUser.getUser(),
+      userID: AuthService.getUser(),
     };
     await create(todoAdded);
   }
