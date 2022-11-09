@@ -1,6 +1,6 @@
 import { getUserByMail } from '../helper/fetchApi';
 import { authService } from '../helper/authService';
-import { ERROR_MSG, SUCCESS } from '../constants/messages';
+import { ERROR_MSG, SUCCESS_MSG } from '../constants/messages';
 
 export default class AuthenticationModel {
   constructor() {
@@ -25,7 +25,7 @@ export default class AuthenticationModel {
       if (users[0].password === password) {
         loginMode = true;
         authService.setUser(users[0].id);
-        this.successMsg.innerHTML = SUCCESS.MSG_SUCCESS;
+        this.successMsg.innerHTML = SUCCESS_MSG.MSG_SUCCESS;
         this.successMsg.classList.remove('hidden');
       } else {
         loginMode = false;

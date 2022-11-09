@@ -34,7 +34,7 @@ export default class AuthService {
    * Check status of userId in localStorage
    * @returns {boolean} checkUser
    */
-  checkUser() {
+  isAuthenticatedUser() {
     let checkUser = false;
 
     if (this.getUser()) {

@@ -38,7 +38,7 @@ export default class TodoListController {
    * Check status of userId to set data
    */
   setModel() {
-    this.model = authService.checkUser() ? this.modelApi : this.modelLocal;
+    this.model = authService.isAuthenticatedUser() ? this.modelApi : this.modelLocal;
   }
 
   /**
