@@ -68,18 +68,14 @@
    ```
 - Install npm 
    ```
-   npm install
-   ```
-- Install JSON server
-   ```
-   sudo npm install -g json-server
+   $ npm install
    ```
 - Run database (JSON server)
    ```
-   npm run start-db
+   $ npm run start-db
    ```
-- Run Project
+- Run Project (run in new terminal)
    ```
-   npm run start
+   $ npm run start
    ```
 - Open localhost:5000 to see the website in the browser you use
