@@ -9,6 +9,7 @@ export default class TodoItemView {
   /**
    * Render a task view
    * @param {object} task
+   *
    * @returns task <li> element
    */
   renderTask(task) {
@@ -28,11 +29,12 @@ export default class TodoItemView {
             <button type="button" class="btn btn-close"></button>
       </div>
     `;
+
     return templateTask;
   }
 
   /**
-   * function use id to delete todos
+   * Bind delete todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
@@ -46,7 +48,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to done todo
+   * Bind toggle todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
@@ -60,7 +62,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to edit task todo
+   * Bind edit task todo
    * Get data after edit task name
    * @param {fuction} handler
    */
@@ -92,7 +94,7 @@ export default class TodoItemView {
   }
 
   /**
-   * function use id to update todos
+   * Bind update todos
    * Add event 'double click' for todoList element
    * @param {fuction} handler
    */

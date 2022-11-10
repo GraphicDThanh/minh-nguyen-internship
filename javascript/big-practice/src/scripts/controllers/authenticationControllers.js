@@ -1,13 +1,16 @@
+import { authService } from '../helper/authService';
+
 export default class AuthenticationController {
-  constructor(view, model, todoListController) {
-    this.view = view;
+  constructor(model, view) {
     this.model = model;
-    this.taskList = todoListController;
+    this.view = view;
+
     this.onLogin = this.onLogin.bind(this);
     this.onLogout = this.onLogout.bind(this);
   }
 
-  init() {
+  init(handlerRender) {
+    this.renderForm = handlerRender;
     this.view.bindOpenLoginForm();
     this.view.bindCloseLoginForm();
     this.view.showHideStatus();
@@ -19,16 +22,28 @@ export default class AuthenticationController {
     this.view.bindLogout(this.onLogout);
   }
 
-  // Handle login
-  onLogin(id) {
-    this.model.onUser = id;
-    this.model.authen.setItemLocalStorage(id);
-    this.taskList.renderForm();
+  /**
+   * Handle login
+   * @param {string} email
+   * @param {string} password
+   */
+  async onLogin(email, password) {
+    const check = await this.model.checkUserByEmail(email, password);
+    if (check) {
+      this.view.closeLoginForm();
+      this.view.showHideStatus();
+      this.renderForm();
+    } else {
+      this.view.login.reset();
+      this.view.removeMsg();
+    }
   }
 
-  // Handle logout
-  onLogout() {
-    this.model.authen.removeItemLocalStorage();
-    this.taskList.renderForm();
+  /**
+   * Handle logout
+   */
+  async onLogout() {
+    authService.removeUser();
+    await this.renderForm();
   }
 }

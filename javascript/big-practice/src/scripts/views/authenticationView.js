@@ -1,35 +1,31 @@
+import { authService } from '../helper/authService';
+import Validate from '../helper/validate';
+
 /**
  * LOGIN FORM
  * Open and close the form
  * Form validation
  */
-import { getUser } from '../helper/fetchApi';
-import LocalStore from '../helper/localstorage';
-
 export default class AuthenticationView {
   constructor() {
+    this.validate = new Validate();
+
     this.successMsg = document.getElementById('msg-success');
-    this.errorMsg = document.getElementById('msg-error');
+    this.errorMsgMail = document.getElementById('msg-error-email');
+    this.errorMsgPass = document.getElementById('msg-error-password');
 
     this.showLoginBtn = document.getElementById('btn-show-login');
-    this.loginForm = document.getElementById('login-form');
-    this.closeFormBtn = document.getElementById('btn-close-form');
+    this.logoutBtn = document.getElementById('btn-logout');
 
+    this.loginForm = document.getElementById('login-form');
+    this.btnCloseForm = document.getElementById('btn-close-form');
     this.login = document.getElementById('login');
     this.email = document.getElementById('input-email');
     this.password = document.getElementById('input-password');
-    this.loginBtn = document.getElementById('btn-login');
-    this.logoutBtn = document.getElementById('btn-logout');
-
-    this.logBlock = document.getElementById('log-block');
-
-    this.loginMode = false;
-
-    this.authen = new LocalStore('authen');
   }
 
   /**
-   * Open login form
+   * Bind open login form
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
@@ -38,26 +34,34 @@ export default class AuthenticationView {
   }
 
   /**
+   * Bind close login form to close button
+   */
+  bindCloseLoginForm() {
+    this.btnCloseForm.addEventListener('click', (event) => {
+      this.closeLoginForm(event);
+    });
+  }
+
+  /**
    * Function for close login form
    */
-  closeLoginForm(event) {
-    event.preventDefault();
+  closeLoginForm() {
     this.loginForm.classList.add('hidden');
     this.login.reset();
     this.removeMsg();
   }
 
   /**
-   * Assign close login form to close button
+   * Function remove messages when login
    */
-  bindCloseLoginForm() {
-    this.closeFormBtn.addEventListener('click', (event) => {
-      this.closeLoginForm(event);
-    });
+  removeMsg() {
+    this.successMsg.classList.add('hidden');
+    this.errorMsgMail.classList.add('hidden');
+    this.errorMsgPass.classList.add('hidden');
   }
 
   /**
-   * Get value from input email and password
+   * Function get value from input email and password
    */
   get emailInput() {
     return this.email.value.trim();
@@ -68,58 +72,10 @@ export default class AuthenticationView {
   }
 
   /**
-   * Insert messages when login
-   * @param {string} content
-   * @param {boolean} successMsg / is this a message for success
-   */
-  insertMsg(content, isSuccessMsg) {
-    if (isSuccessMsg) {
-      this.successMsg.textContent = content;
-      this.successMsg.classList.remove('hidden');
-      this.errorMsg.classList.add('hidden');
-    } else {
-      this.errorMsg.textContent = content;
-      this.successMsg.classList.add('hidden');
-      this.errorMsg.classList.remove('hidden');
-    }
-  }
-
-  /**
-   * Remove messages when login
-   */
-  removeMsg() {
-    this.successMsg.classList.add('hidden');
-    this.errorMsg.classList.add('hidden');
-  }
-
-  /**
-   * Validate password
-   * @param {callback} handler / function for loading user data
-   * @param {event} event
-   */
-  async validationLoginForm() {
-    // Get users list from JSON
-    const users = await getUser();
-    let isSuccessMsg = true;
-
-    const checkUser = users.find(
-      (user) => user.userEmail === this.emailInput && user.password === this.passwordInput
-    );
-
-    if (!checkUser) {
-      console.log('Fail');
-      isSuccessMsg = false;
-      this.insertMsg('Email address or password is wrong, please check again', isSuccessMsg);
-    }
-    console.log('Success');
-    return checkUser;
-  }
-
-  /**
-   * Show / Hide button login/logout if have user
+   * Function show/hide button login/logout if have user
    */
   showHideStatus() {
-    if (this.authen.getItemLocalStorage()) {
+    if (authService.getUser()) {
       this.logoutBtn.classList.remove('hidden');
       this.showLoginBtn.classList.add('hidden');
     } else {
@@ -129,24 +85,32 @@ export default class AuthenticationView {
   }
 
   /**
-   * Login
+   * Bind login
+   * @param {function} handler
    */
-  bindLogin(handler) {
+  async bindLogin(handler) {
     this.login.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const user = await this.validationLoginForm();
-      if (user) {
-        handler(user.id);
-        this.removeMsg();
-        this.closeLoginForm(event);
-        this.loginMode = true;
-        this.showHideStatus();
-      }
+      this.validateForm(handler);
     });
   }
 
   /**
-   * Logout
+   * Function check valid of email and password
+   * @param {function} handler
+   */
+  validateForm(handler) {
+    const isEmail = this.validate.validateEmail(this.emailInput);
+    const isPass = this.validate.validatePassword(this.passwordInput);
+
+    if (isEmail && isPass) {
+      handler(this.emailInput, this.passwordInput);
+    }
+  }
+
+  /**
+   * Bind logout
+   * @param {function} handler
    */
   bindLogout(handler) {
     this.logoutBtn.addEventListener('click', () => {

@@ -1,29 +1,11 @@
+import URL_API from '../constants/api';
+import { API_MSG } from '../constants/messages';
+
 /**
  * FETCH API
  */
-const URL = 'http://localhost:3000/todos';
-const URLUser = 'http://localhost:3000/users';
-
-/**
- * Get all data of tasks from JSON server
- * @param {string} url
- *
- * @returns {{object} || raise {error}}
- * */
-export const get = async () => {
-  try {
-    const response = await fetch(URL);
-    const data = response.json();
-    if (!response.ok) {
-      throw response.statusText;
-    }
-
-    return data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};
+const todosURL = `${URL_API.URL}${URL_API.TODOS_URL}`;
+const usersURL = `${URL_API.URL}${URL_API.USERS_URL}`;
 
 /**
  * Get all data of users from JSON server
@@ -33,16 +15,40 @@ export const get = async () => {
  * @returns {{object} || raise {error}}
  */
 
-export const getUser = async () => {
+export const getUserById = async (id) => {
   try {
-    const response = await fetch(`${URLUser}`);
+    const response = await fetch(`${usersURL}?userID=${id}`);
+
+    if (response.ok) {
+      return await response.json();
+    }
+    throw response.statusText;
+  } catch (error) {
+    console.error(API_MSG.GET + error);
+    throw error;
+  }
+};
+
+/**
+ * Get data of user from JSON server by mail
+ * @param {string} url
+ * @param {number} id
+ *
+ * @returns {{object} || raise {error}}
+ */
+
+export const getUserByMail = async (mail) => {
+  try {
+    const response = await fetch(`${usersURL}?mail=${mail}`);
+
     if (response.ok) {
       const user = await response.json();
+
       return user;
     }
     throw response.statusText;
   } catch (error) {
-    console.error(error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -57,14 +63,16 @@ export const getUser = async () => {
 
 export const getTasksByUser = async (id) => {
   try {
-    const response = await fetch(`${URL}?userID=${id}`);
+    const response = await fetch(`${todosURL}?userID=${id}`);
+
     if (response.ok) {
       const user = await response.json();
+
       return user;
     }
     throw response.statusText;
   } catch (error) {
-    console.error(error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -79,14 +87,16 @@ export const getTasksByUser = async (id) => {
 
 export const getTasksById = async (id) => {
   try {
-    const response = await fetch(`${URL}/${id}`);
+    const response = await fetch(`${todosURL}/${id}`);
+
     if (response.ok) {
       const user = await response.json();
+
       return user;
     }
     throw response.statusText;
   } catch (error) {
-    console.error(error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -97,18 +107,19 @@ export const getTasksById = async (id) => {
  */
 export const create = async (data) => {
   try {
-    const response = await fetch(URL, {
+    const response = await fetch(todosURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
+
     if (!response.ok) {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(error);
+    console.error(API_MSG.POST + error);
     throw error;
   }
 };
@@ -120,18 +131,19 @@ export const create = async (data) => {
  */
 export const update = async (id, data) => {
   try {
-    const response = await fetch(`${URL}/${id}`, {
+    const response = await fetch(`${todosURL}/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
+
     if (!response.ok) {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(error);
+    console.error(API_MSG.PATCH + error);
     throw error;
   }
 };
@@ -143,17 +155,18 @@ export const update = async (id, data) => {
  */
 export const remove = async (id) => {
   try {
-    const response = await fetch(`${URL}/${id}`, {
+    const response = await fetch(`${todosURL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
     });
+
     if (!response.ok) {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(error);
+    console.error(API_MSG.DELETE + error);
     throw error;
   }
 };
