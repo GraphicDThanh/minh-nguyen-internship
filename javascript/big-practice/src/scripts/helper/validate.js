@@ -1,5 +1,5 @@
 import { ERROR_MSG } from '../constants/messages';
-import REDUX from '../constants/regex';
+import REGEXP from '../constants/regexp';
 
 export default class Validate {
   constructor() {
@@ -8,18 +8,19 @@ export default class Validate {
   }
 
   /**
-   * Function check redux of input
+   * Function check regexp of input
    * @param {String} value from input
-   * @param {String} rules is redux of each filed
+   * @param {String} rules is regexp of each filed
    *
    * @returns {Boolean} isError
    */
-  static checkRules(value, redux) {
+  static checkRules(value, regexp) {
     let isError = false;
 
-    if (!value.match(redux)) {
+    if (!value.match(regexp)) {
       isError = true;
     }
+
     return isError;
   }
 
@@ -36,6 +37,7 @@ export default class Validate {
     if (value === '') {
       isError = true;
     }
+
     return isError;
   }
 
@@ -52,6 +54,7 @@ export default class Validate {
     if (value.length < 8) {
       isError = true;
     }
+
     return isError;
   }
 
@@ -64,7 +67,7 @@ export default class Validate {
    */
   validateEmail(element) {
     let checkEmail = false;
-    const isRules = Validate.checkRules(element, REDUX.REDUX_MAIL);
+    const isRules = Validate.checkRules(element, REGEXP.REGEXP_MAIL);
     const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
@@ -93,7 +96,7 @@ export default class Validate {
    */
   validatePassword(element) {
     let checkPass = false;
-    const isRules = Validate.checkRules(element, REDUX.REDUX_PASSWORD);
+    const isRules = Validate.checkRules(element, REGEXP.REGEXP_PASSWORD);
     const isLength = Validate.checkLength(element);
     const isEmpty = Validate.checkEmpty(element);
 

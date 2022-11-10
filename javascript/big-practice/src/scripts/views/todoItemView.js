@@ -29,6 +29,7 @@ export default class TodoItemView {
             <button type="button" class="btn btn-close"></button>
       </div>
     `;
+
     return templateTask;
   }
 

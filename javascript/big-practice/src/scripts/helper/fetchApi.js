@@ -1,5 +1,5 @@
 import URL_API from '../constants/api';
-import { API_MESSAGE } from '../constants/messages';
+import { API_MSG } from '../constants/messages';
 
 /**
  * FETCH API
@@ -24,7 +24,7 @@ export const getUserById = async (id) => {
     }
     throw response.statusText;
   } catch (error) {
-    console.error(API_MESSAGE.GET + error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -48,7 +48,7 @@ export const getUserByMail = async (mail) => {
     }
     throw response.statusText;
   } catch (error) {
-    console.error(API_MESSAGE.GET + error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -72,7 +72,7 @@ export const getTasksByUser = async (id) => {
     }
     throw response.statusText;
   } catch (error) {
-    console.error(API_MESSAGE.GET + error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -96,7 +96,7 @@ export const getTasksById = async (id) => {
     }
     throw response.statusText;
   } catch (error) {
-    console.error(API_MESSAGE.GET + error);
+    console.error(API_MSG.GET + error);
     throw error;
   }
 };
@@ -119,7 +119,7 @@ export const create = async (data) => {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(API_MESSAGE.POST + error);
+    console.error(API_MSG.POST + error);
     throw error;
   }
 };
@@ -143,7 +143,7 @@ export const update = async (id, data) => {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(API_MESSAGE.PATCH + error);
+    console.error(API_MSG.PATCH + error);
     throw error;
   }
 };
@@ -166,7 +166,7 @@ export const remove = async (id) => {
       throw response.statusText;
     }
   } catch (error) {
-    console.error(API_MESSAGE.DELETE + error);
+    console.error(API_MSG.DELETE + error);
     throw error;
   }
 };

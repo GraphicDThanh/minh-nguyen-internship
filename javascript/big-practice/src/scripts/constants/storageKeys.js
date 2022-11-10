@@ -1,5 +1,5 @@
 const STORAGE_KEYS = {
-  USER_ID: 'userId',
+  AUTHEN: 'authen',
   TASK_LIST_DATA: 'taskListData',
 };
 

@@ -1,10 +1,10 @@
 import TodoItemModel from './todoItemModel';
-import LocalStore from '../helper/localstorage';
+import LocalStorage from '../helper/localstorage';
 import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class TodoListModelLocal {
   constructor() {
-    this.taskListData = new LocalStore(STORAGE_KEYS.TASK_LIST_DATA);
+    this.taskListData = new LocalStorage(STORAGE_KEYS.TASK_LIST_DATA);
     this.tasks = this.taskListData.getItemLocalStorage() || [];
     this.taskListData.setItemLocalStorage(this.tasks);
   }
@@ -110,6 +110,7 @@ export default class TodoListModelLocal {
 
       return activeTask;
     }
+
     return this.tasks;
   }
 

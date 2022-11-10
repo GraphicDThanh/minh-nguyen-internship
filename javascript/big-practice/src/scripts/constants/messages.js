@@ -1,4 +1,4 @@
-const API_MESSAGE = {
+const API_MSG = {
   GET: 'Get data from API failed',
   POST: 'Post data to API failed',
   DELETE: 'Delete data failed',
@@ -22,4 +22,4 @@ const SUCCESS_MSG = {
   MSG_SUCCESS: 'Logged in successfully',
 };
 
-export { API_MESSAGE, ERROR_MSG, SUCCESS_MSG };
+export { API_MSG, ERROR_MSG, SUCCESS_MSG };

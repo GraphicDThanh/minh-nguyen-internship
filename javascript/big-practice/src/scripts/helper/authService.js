@@ -1,9 +1,9 @@
-import LocalStore from './localstorage';
+import LocalStorage from './localstorage';
 import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class AuthService {
   constructor() {
-    this.userId = new LocalStore(STORAGE_KEYS.USER_ID);
+    this.auth = new LocalStorage(STORAGE_KEYS.AUTHEN);
   }
 
   /**
@@ -11,7 +11,7 @@ export default class AuthService {
    * @returns {object} userId key in localStorage
    */
   setUser(item) {
-    return this.userId.setItemLocalStorage(item);
+    return this.auth.setItemLocalStorage(item);
   }
 
   /**
@@ -19,7 +19,7 @@ export default class AuthService {
    * @returns {number} value of userId
    */
   getUser() {
-    return this.userId.getItemLocalStorage();
+    return this.auth.getItemLocalStorage();
   }
 
   /**
@@ -27,7 +27,7 @@ export default class AuthService {
    * @returns {number} value of userId
    */
   removeUser() {
-    return this.userId.removeItemLocalStorage();
+    return this.auth.removeItemLocalStorage();
   }
 
   /**
@@ -40,6 +40,7 @@ export default class AuthService {
     if (this.getUser()) {
       checkUser = true;
     }
+
     return checkUser;
   }
 }

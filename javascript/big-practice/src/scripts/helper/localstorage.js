@@ -1,4 +1,4 @@
-export default class LocalStore {
+export default class LocalStorage {
   constructor(name) {
     this.localStorage = window.localStorage;
     this.name = name;
