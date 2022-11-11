@@ -19,14 +19,15 @@ export default class TodoItemView {
     templateTask.className = 'task';
 
     templateTask.innerHTML = `
-      <div class = 'view'>
-      <input 
-        class='toggle' 
-        id='${task.id}-toggle' 
-        type='checkbox' ${task.isCompleted ? 'checked' : ''}
-      />
-            <label>${task.taskName}</label>
-            <button type="button" class="btn btn-close"></button>
+      <div class = 'view-mode'>
+        <input 
+          class='toggle' 
+          id='${task.id}-toggle' 
+          type='checkbox' ${task.isCompleted ? 'checked' : ''}
+        />
+        <label for='${task.id}-toggle'></label>
+        <p>${task.taskName}</p>
+        <button type="button" class="btn btn-close"></button>
       </div>
     `;
 
@@ -70,7 +71,7 @@ export default class TodoItemView {
     const taskSelected = document.getElementById(`${task.id}`);
 
     taskSelected.addEventListener('dblclick', () => {
-      const oldTaskName = taskSelected.querySelector('.view');
+      const oldTaskName = taskSelected.querySelector('.view-mode');
       // Create an input box for the selected task to edit
       const input = document.createElement('input');
 
@@ -82,7 +83,7 @@ export default class TodoItemView {
       taskSelected.insertBefore(input, oldTaskName);
 
       input.focus();
-      input.value = oldTaskName.querySelector('label').innerHTML;
+      input.value = oldTaskName.querySelector('p').innerHTML;
 
       // Get data from input
       input.onchange = (e) => {
