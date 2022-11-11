@@ -14,9 +14,11 @@
     </header>
     <main class="main-content">
       <form class="add-task">
+        <div class="toggle-all-cover">
+          <input id="toggle-all" class="input toggle-all" type="checkbox" />
+          <label for="toggle-all"></label>
+        </div>
         <input class="input input-add-task" placeholder="What needs to be done?" autofocus />
-        <input id="toggle-all" class="input toggle-all" type="checkbox" />
-        <label for="toggle-all"></label>
       </form>
       <ul class="todo-list"></ul>
       <div class="footer-list-task">
@@ -46,26 +48,30 @@
     <div class="login-form hidden" id="login-form">
       <div class="main-login">
         <button class="btn btn-close-form" id="btn-close-form">x</button>
-        <p class="logo">todos</p>
-        <p class="login-label">Login</p>
+        <h1 class="logo">todos</h1>
+        <h2 class="login-label">Login</h2>
         <form id="login">
-          <label for="email" id="email-label">Email</label>
-          <input
-            type="text"
-            placeholder="example@mail.com"
-            name="email"
-            class="input input-login input-email"
-            id="input-email"
-          />
-          <p class="msg msg-error hidden" id="msg-error-email"></p>
-          <label for="password" id="password-label">Password</label>
-          <input
-            type="password"
-            name="password"
-            class="input input-login input-password"
-            id="input-password"
-          />
-          <p class="msg msg-error hidden" id="msg-error-password"></p>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              placeholder="example@mail.com"
+              name="email"
+              class="input input-login input-email"
+              id="input-email"
+            />
+            <p class="msg msg-error hidden" id="msg-error-email"></p>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="input input-login input-password"
+              id="input-password"
+            />
+            <p class="msg msg-error hidden" id="msg-error-password"></p>
+          </div>
           <p class="msg msg-success hidden" id="msg-success"></p>
           <button type="submit" id="btn-login" class="btn btn-login">Login</button>
         </form>
