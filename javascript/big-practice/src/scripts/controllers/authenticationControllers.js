@@ -29,13 +29,15 @@ export default class AuthenticationController {
    */
   async onLogin(email, password) {
     const check = await this.model.checkUserByEmail(email, password);
+
     if (check) {
+      this.view.showMessageLogin(check);
       this.view.closeLoginForm();
       this.view.showHideStatus();
       this.renderForm();
     } else {
       this.view.login.reset();
-      this.view.removeMsg();
+      this.view.showMessageLogin(check);
     }
   }
 
