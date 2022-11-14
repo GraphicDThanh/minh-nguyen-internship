@@ -13,18 +13,14 @@ export default class AuthenticationModel {
    *
    * @returns {boolean} login mode
    */
-  async checkUserByEmail(email, password) {
+  async isValidUser(email, password) {
     const users = await getUserByMail(email);
 
     if (users.length) {
       if (users[0].password === password) {
         this.loginMode = true;
         authService.setUser(users[0].id);
-      } else {
-        this.loginMode = false;
       }
-    } else {
-      this.loginMode = false;
     }
 
     return this.loginMode;

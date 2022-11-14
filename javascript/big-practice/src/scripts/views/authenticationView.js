@@ -90,13 +90,14 @@ export default class AuthenticationView {
    */
   showMessageLogin(loginMode) {
     if (loginMode) {
-      this.successMsg.innerHTML = SUCCESS_MSG.MSG_SUCCESS;
-      this.successMsg.classList.remove('hidden');
+      console.log('show mode');
+      this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
+      this.successMsg.classList.remove('display-none');
     } else {
-      this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INCORRECT;
-      this.errorMsgPass.classList.remove('hidden');
-      this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INCORRECT;
-      this.errorMsgMail.classList.remove('hidden');
+      this.errorMsgPass.textContent = ERROR_MSG.PASSWORD_INCORRECT;
+      this.errorMsgPass.classList.remove('display-none');
+      this.errorMsgMail.textContent = ERROR_MSG.EMAIL_INCORRECT;
+      this.errorMsgMail.classList.remove('display-none');
     }
   }
 

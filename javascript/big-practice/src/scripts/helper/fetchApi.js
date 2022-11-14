@@ -37,9 +37,8 @@ export const getUserById = async (id) => {
 export const getUserByMail = async (mail) => {
   try {
     const response = await fetch(`${usersURL}?mail=${mail}`);
-    const user = await response.json();
 
-    return user;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
@@ -57,9 +56,8 @@ export const getUserByMail = async (mail) => {
 export const getTasksByUser = async (id) => {
   try {
     const response = await fetch(`${todosURL}?userID=${id}`);
-    const task = await response.json();
 
-    return task;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
@@ -77,9 +75,8 @@ export const getTasksByUser = async (id) => {
 export const getTasksById = async (id) => {
   try {
     const response = await fetch(`${todosURL}/${id}`);
-    const task = await response.json();
 
-    return task;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
