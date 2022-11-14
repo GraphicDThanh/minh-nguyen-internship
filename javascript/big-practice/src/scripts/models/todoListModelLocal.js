@@ -82,6 +82,7 @@ export default class TodoListModelLocal {
   toggleCheckAll(isToggleAll) {
     this.tasks.forEach((task) => {
       const taskElement = task;
+
       if (isToggleAll) {
         taskElement.isCompleted = true;
       } else {

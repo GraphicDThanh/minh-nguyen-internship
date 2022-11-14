@@ -50,6 +50,7 @@ export default class TodoListModelApi {
       isCompleted: false,
       userID: authService.getUser(),
     };
+
     await create(todoAdded);
   }
 
@@ -97,6 +98,7 @@ export default class TodoListModelApi {
 
     tasks.forEach(async (task) => {
       const taskElement = task;
+
       if (isToggleAll) {
         taskElement.isCompleted = true;
       } else {

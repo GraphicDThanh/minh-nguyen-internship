@@ -71,13 +71,13 @@ export default class Validate {
     const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
-      this.errorMsgMail.classList.remove('hidden');
+      this.errorMsgMail.classList.remove('display-none');
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
     } else if (isRules) {
-      this.errorMsgMail.classList.remove('hidden');
+      this.errorMsgMail.classList.remove('display-none');
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
     } else {
-      this.errorMsgMail.classList.add('hidden');
+      this.errorMsgMail.classList.add('display-none');
     }
 
     if (!isRules && !isEmpty) {
@@ -101,16 +101,16 @@ export default class Validate {
     const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
-      this.errorMsgPass.classList.remove('hidden');
+      this.errorMsgPass.classList.remove('display-none');
       this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_EMPTY;
     } else if (isRules) {
-      this.errorMsgPass.classList.remove('hidden');
+      this.errorMsgPass.classList.remove('display-none');
       this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INVALID;
     } else if (isLength) {
-      this.errorMsgPass.classList.remove('hidden');
+      this.errorMsgPass.classList.remove('display-none');
       this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_LEAST;
     } else {
-      this.errorMsgPass.classList.add('hidden');
+      this.errorMsgPass.classList.add('display-none');
     }
 
     if (!isRules && !isEmpty && !isLength) {

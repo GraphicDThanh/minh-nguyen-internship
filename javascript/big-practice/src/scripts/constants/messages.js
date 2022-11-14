@@ -7,12 +7,12 @@ const API_MSG = {
 
 const ERROR_MSG = {
   // Email message
-  EMAIL_NOT_EXIST: 'Email is not exists',
+  EMAIL_INCORRECT: 'Unable to log in with provided credentials.',
   EMAIL_INVALID: 'Invalid email',
   EMAIL_EMPTY: 'Email cannot be empty',
 
   // Password message
-  PASSWORD_INCORRECT: 'Password incorrect',
+  PASSWORD_INCORRECT: 'Unable to log in with provided credentials.',
   PASSWORD_INVALID: 'Invalid password',
   PASSWORD_EMPTY: 'Password cannot be empty',
   PASSWORD_LEAST: 'Password must be at least 8 characters',

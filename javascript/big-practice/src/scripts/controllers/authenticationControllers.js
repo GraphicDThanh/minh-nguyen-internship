@@ -28,14 +28,16 @@ export default class AuthenticationController {
    * @param {string} password
    */
   async onLogin(email, password) {
-    const check = await this.model.checkUserByEmail(email, password);
+    const check = await this.model.isValidUser(email, password);
+
     if (check) {
+      this.view.showMessageLogin(true);
       this.view.closeLoginForm();
       this.view.showHideStatus();
       this.renderForm();
     } else {
       this.view.login.reset();
-      this.view.removeMsg();
+      this.view.showMessageLogin(false);
     }
   }
 

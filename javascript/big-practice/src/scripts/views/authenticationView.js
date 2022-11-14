@@ -1,5 +1,6 @@
 import { authService } from '../helper/authService';
 import Validate from '../helper/validate';
+import { ERROR_MSG, SUCCESS_MSG } from '../constants/messages';
 
 /**
  * LOGIN FORM
@@ -81,6 +82,21 @@ export default class AuthenticationView {
     } else {
       this.showLoginBtn.classList.remove('display-none');
       this.logoutBtn.classList.add('display-none');
+    }
+  }
+
+  /**
+   * Function to display the status of login success or failure
+   */
+  showMessageLogin(loginMode) {
+    if (loginMode) {
+      this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
+      this.successMsg.classList.remove('display-none');
+    } else {
+      this.errorMsgPass.textContent = ERROR_MSG.PASSWORD_INCORRECT;
+      this.errorMsgPass.classList.remove('display-none');
+      this.errorMsgMail.textContent = ERROR_MSG.EMAIL_INCORRECT;
+      this.errorMsgMail.classList.remove('display-none');
     }
   }
 

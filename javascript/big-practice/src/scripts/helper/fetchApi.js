@@ -19,10 +19,7 @@ export const getUserById = async (id) => {
   try {
     const response = await fetch(`${usersURL}?userID=${id}`);
 
-    if (response.ok) {
-      return await response.json();
-    }
-    throw response.statusText;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
@@ -41,12 +38,7 @@ export const getUserByMail = async (mail) => {
   try {
     const response = await fetch(`${usersURL}?mail=${mail}`);
 
-    if (response.ok) {
-      const user = await response.json();
-
-      return user;
-    }
-    throw response.statusText;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
@@ -65,12 +57,7 @@ export const getTasksByUser = async (id) => {
   try {
     const response = await fetch(`${todosURL}?userID=${id}`);
 
-    if (response.ok) {
-      const user = await response.json();
-
-      return user;
-    }
-    throw response.statusText;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
@@ -89,12 +76,7 @@ export const getTasksById = async (id) => {
   try {
     const response = await fetch(`${todosURL}/${id}`);
 
-    if (response.ok) {
-      const user = await response.json();
-
-      return user;
-    }
-    throw response.statusText;
+    return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
     throw error;
@@ -107,17 +89,13 @@ export const getTasksById = async (id) => {
  */
 export const create = async (data) => {
   try {
-    const response = await fetch(todosURL, {
+    await fetch(todosURL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-
-    if (!response.ok) {
-      throw response.statusText;
-    }
   } catch (error) {
     console.error(API_MSG.POST + error);
     throw error;
@@ -131,17 +109,13 @@ export const create = async (data) => {
  */
 export const update = async (id, data) => {
   try {
-    const response = await fetch(`${todosURL}/${id}`, {
+    await fetch(`${todosURL}/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
-
-    if (!response.ok) {
-      throw response.statusText;
-    }
   } catch (error) {
     console.error(API_MSG.PATCH + error);
     throw error;
@@ -155,16 +129,12 @@ export const update = async (id, data) => {
  */
 export const remove = async (id) => {
   try {
-    const response = await fetch(`${todosURL}/${id}`, {
+    await fetch(`${todosURL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
       },
     });
-
-    if (!response.ok) {
-      throw response.statusText;
-    }
   } catch (error) {
     console.error(API_MSG.DELETE + error);
     throw error;
