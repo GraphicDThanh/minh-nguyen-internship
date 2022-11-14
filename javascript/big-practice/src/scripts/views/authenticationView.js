@@ -90,7 +90,6 @@ export default class AuthenticationView {
    */
   showMessageLogin(loginMode) {
     if (loginMode) {
-      console.log('show mode');
       this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
       this.successMsg.classList.remove('display-none');
     } else {

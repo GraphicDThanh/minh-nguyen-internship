@@ -31,7 +31,6 @@ export default class AuthenticationController {
     const check = await this.model.isValidUser(email, password);
 
     if (check) {
-      console.log(check);
       this.view.showMessageLogin(true);
       this.view.closeLoginForm();
       this.view.showHideStatus();
