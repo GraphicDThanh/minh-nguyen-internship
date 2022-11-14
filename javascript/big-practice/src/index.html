@@ -8,7 +8,7 @@
     <script type="module" src="scripts/main.js"></script>
     <title>Todo MVC</title>
   </head>
-  <body>
+  <body class="container">
     <header class="header-wrapper">
       <h1 class="logo">todos</h1>
     </header>
@@ -21,7 +21,7 @@
         <input class="input input-add-task" placeholder="What needs to be done?" autofocus />
       </form>
       <ul class="todo-list"></ul>
-      <div class="footer-list-task">
+      <div class="footer-todo-list">
         <span class="todo-count"></span>
         <ul class="filters">
           <li>
@@ -39,7 +39,7 @@
     </main>
     <footer class="footer-wrapper">
       <p>Double-click to edit a todo</p>
-      <div id="log-block">
+      <div class="log-block" id="log-block">
         <button class="btn btn-hover-under btn-show-login" id="btn-show-login">Login</button>
         <button class="btn btn-hover-under btn-logout hidden" id="btn-logout">Logout</button>
       </div>

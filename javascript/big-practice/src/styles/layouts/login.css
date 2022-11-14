@@ -18,7 +18,7 @@
   border-radius: 10px;
 }
 
-.login-form .logo {
+.login-form.logo {
   font-size: 50px;
   margin-top: 0px;
 }
@@ -43,9 +43,13 @@
   text-transform: uppercase;
 }
 
-.login-form .btn-login:hover,
+.log-block button {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.login-form.btn-login:hover,
 .btn-close-form:hover {
   color: var(--white);
   background-color: var(--grey-dark-plus);
 }
-

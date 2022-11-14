@@ -13,6 +13,7 @@
 @import url(components/message.css);
 
 /* css for section */
+@import url(layouts/header.css);
 @import url(layouts/main-content.css);
 @import url(layouts/add-task.css);
 @import url(layouts/todo-list.css);

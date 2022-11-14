@@ -25,7 +25,7 @@ export default class TodoListView {
     this.clearCompleted = document.querySelector('.btn-clear-completed');
 
     // Footer list task
-    this.footerListTask = document.querySelector('.footer-list-task');
+    this.footerTodoList = document.querySelector('.footer-todo-list');
   }
 
   /**
@@ -77,7 +77,7 @@ export default class TodoListView {
 
     if (tasks.length !== 0) {
       // Show todo list after adding task
-      this.footerListTask.style.display = 'flex';
+      this.footerTodoList.style.display = 'flex';
     }
 
     // Toggle all task status
