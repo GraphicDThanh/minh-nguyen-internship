@@ -19,13 +19,13 @@ export default class TodoItemView {
     templateTask.className = 'task';
 
     templateTask.innerHTML = `
-      <div class = 'view-mode'>
-        <input 
-          class='toggle' 
-          id='${task.id}-toggle' 
-          type='checkbox' ${task.isCompleted ? 'checked' : ''}
+      <div class="view-mode">
+        <input
+          class="toggle"
+          id="${task.id}-toggle"
+          type="checkbox" ${task.isCompleted ? 'checked' : ''}
         />
-        <label for='${task.id}-toggle'></label>
+        <label for="${task.id}-toggle"></label>
         <p>${task.taskName}</p>
         <button type="button" class="btn btn-close"></button>
       </div>

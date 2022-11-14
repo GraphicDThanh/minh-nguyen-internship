@@ -30,7 +30,7 @@ export default class AuthenticationView {
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
-      this.loginForm.classList.remove('hidden');
+      this.loginForm.classList.remove('display-none');
     });
   }
 
@@ -47,7 +47,7 @@ export default class AuthenticationView {
    * Function for close login form
    */
   closeLoginForm() {
-    this.loginForm.classList.add('hidden');
+    this.loginForm.classList.add('display-none');
     this.login.reset();
     this.removeMsg();
   }
@@ -56,9 +56,9 @@ export default class AuthenticationView {
    * Function remove messages when login
    */
   removeMsg() {
-    this.successMsg.classList.add('hidden');
-    this.errorMsgMail.classList.add('hidden');
-    this.errorMsgPass.classList.add('hidden');
+    this.successMsg.classList.add('display-none');
+    this.errorMsgMail.classList.add('display-none');
+    this.errorMsgPass.classList.add('display-none');
   }
 
   /**
@@ -77,11 +77,11 @@ export default class AuthenticationView {
    */
   showHideStatus() {
     if (authService.getUser()) {
-      this.logoutBtn.classList.remove('hidden');
-      this.showLoginBtn.classList.add('hidden');
+      this.logoutBtn.classList.remove('display-none');
+      this.showLoginBtn.classList.add('display-none');
     } else {
-      this.showLoginBtn.classList.remove('hidden');
-      this.logoutBtn.classList.add('hidden');
+      this.showLoginBtn.classList.remove('display-none');
+      this.logoutBtn.classList.add('display-none');
     }
   }
 

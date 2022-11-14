@@ -70,14 +70,15 @@ export default class TodoListView {
 
     // Show/hide clear completed button
     if (totalTaskCompleted !== 0) {
-      this.clearCompleted.style.visibility = 'visible';
+      this.clearCompleted.classList.add('visible');
+      this.clearCompleted.classList.remove('hidden');
     } else {
-      this.clearCompleted.style.visibility = 'hidden';
+      this.clearCompleted.classList.add('hidden');
     }
 
     if (tasks.length !== 0) {
       // Show todo list after adding task
-      this.footerTodoList.style.display = 'flex';
+      this.footerTodoList.classList.add('flex');
     }
 
     // Toggle all task status
