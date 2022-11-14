@@ -68,21 +68,21 @@ export default class TodoItemView {
    */
   bindEditTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
+    const taskName = taskSelected.querySelector('.view');
 
-    taskSelected.addEventListener('dblclick', () => {
-      const oldTaskName = taskSelected.querySelector('.view');
+    taskName.addEventListener('dblclick', () => {
       // Create an input box for the selected task to edit
       const input = document.createElement('input');
 
       input.classList.add('edit');
       // Hide the task content of the selected task
-      oldTaskName.classList.add('hidden');
+      taskName.classList.add('hidden');
 
       // Insert the generated input element into the hidden task position
-      taskSelected.insertBefore(input, oldTaskName);
+      taskSelected.insertBefore(input, taskName);
 
       input.focus();
-      input.value = oldTaskName.querySelector('label').innerHTML;
+      input.value = taskName.querySelector('label').innerHTML;
 
       // Get data from input
       input.onchange = (e) => {
@@ -90,6 +90,8 @@ export default class TodoItemView {
 
         this.updateTodo(taskSelected, handler, newTaskName, filterType);
       };
+
+      this.updateTodo(taskSelected, handler, input.value, filterType);
     });
   }
 
