@@ -43,12 +43,12 @@
   text-transform: uppercase;
 }
 
-.log-block button {
+.auth-group button {
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.login-form.btn-login:hover,
+.login-form .btn-login:hover,
 .btn-close-form:hover {
   color: var(--white);
   background-color: var(--grey-dark-plus);
