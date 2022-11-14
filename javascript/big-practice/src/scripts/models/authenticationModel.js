@@ -1,11 +1,8 @@
+/* eslint-disable class-methods-use-this */
 import { getUserByMail } from '../helper/fetchApi';
 import { authService } from '../helper/authService';
 
 export default class AuthenticationModel {
-  constructor() {
-    this.loginMode = false;
-  }
-
   /**
    * Function check email and password is exists in data
    * @param {string} email is email take from input email login
@@ -15,14 +12,13 @@ export default class AuthenticationModel {
    */
   async isValidUser(email, password) {
     const users = await getUserByMail(email);
+    let isValid = false;
 
-    if (users.length) {
-      if (users[0].password === password) {
-        this.loginMode = true;
-        authService.setUser(users[0].id);
-      }
+    if (users && users[0].password === password) {
+      isValid = true;
+      authService.setUser(users[0].id);
     }
 
-    return this.loginMode;
+    return isValid;
   }
 }
