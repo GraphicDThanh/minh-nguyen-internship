@@ -108,5 +108,12 @@ export default class TodoItemView {
       handler(taskSelected.id, newTaskName, filterType);
       this.contentEdit = '';
     });
+
+    inputElement.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        handler(taskSelected.id, newTaskName, filterType);
+        this.contentEdit = '';
+      }
+    });
   }
 }
