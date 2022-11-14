@@ -4,6 +4,7 @@
 
 .msg-error {
   color: var(--warning);
+  margin-top: 5px;
 }
 
 .msg-success {

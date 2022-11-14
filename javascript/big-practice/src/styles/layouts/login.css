@@ -44,8 +44,7 @@
 }
 
 .auth-group button {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 10px 0px;
 }
 
 .login-form .btn-login:hover,

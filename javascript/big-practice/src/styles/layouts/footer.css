@@ -2,3 +2,7 @@
   text-align: center;
   color: var(--grey);
 }
+
+.btn-show-login {
+  padding: 10px;
+}
