@@ -8,11 +8,9 @@
 
 .btn-primary {
   color: var(--grey-dark);
-  margin: 3px;
   padding: 3px 7px;
   border: 1px solid transparent;
   border-radius: 3px;
-  margin: 0px 5px;
 }
 
 .btn-primary:hover {
@@ -26,6 +24,7 @@
 .btn-login {
   width: 100%;
   padding: 12px;
+  margin-top: 25px;
   text-align: center;
   font-size: 14px;
   box-shadow: var(--dark-02) 0px 2px 2px;
