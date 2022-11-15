@@ -1,5 +1,6 @@
-/* eslint-disable class-methods-use-this */
 import { hideElement } from '../helper/elementHelpers';
+import KEY_ENTER from '../constants/keypress';
+/* eslint-disable class-methods-use-this */
 export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
@@ -111,7 +112,7 @@ export default class TodoItemView {
     });
 
     inputElement.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
+      if (event.key === KEY_ENTER) {
         handler(taskSelected.id, newTaskName, filterType);
         this.contentEdit = '';
       }
