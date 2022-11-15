@@ -29,7 +29,7 @@
   visibility: visible;
 }
 
-.btn-clear-completed.hidden {
+.btn-clear-completed.invisible {
   visibility: hidden;
 }
 

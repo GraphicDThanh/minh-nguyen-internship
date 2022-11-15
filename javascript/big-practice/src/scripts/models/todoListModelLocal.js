@@ -1,5 +1,5 @@
 import TodoItemModel from './todoItemModel';
-import LocalStorage from '../helper/localstorage';
+import LocalStorage from '../helper/localStorage';
 import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class TodoListModelLocal {
