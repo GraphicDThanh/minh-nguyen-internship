@@ -1,5 +1,5 @@
 import { ERROR_MSG } from '../constants/messages';
-import REGEXP from '../constants/regexp';
+import { REGEXP, MINIMUM_PASSWORD_LENGTH } from '../constants/regexp';
 import { showElement, hideElement } from './elementHelpers';
 
 export default class Validate {
@@ -33,13 +33,7 @@ export default class Validate {
    * @returns {Boolean} isError
    */
   static checkEmpty(value) {
-    let isError = false;
-
-    if (value === '') {
-      isError = true;
-    }
-
-    return isError;
+    return value === '';
   }
 
   /**
@@ -50,13 +44,7 @@ export default class Validate {
    * @returns {Boolean} isError
    */
   static checkLength(value) {
-    let isError = false;
-
-    if (value.length < 8) {
-      isError = true;
-    }
-
-    return isError;
+    return value.length < MINIMUM_PASSWORD_LENGTH;
   }
 
   /**
