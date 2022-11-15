@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
-import LocalStorage from '../helper/localStorage';
 import STORAGE_KEYS from '../constants/storageKeys';
+import LocalStorage from '../helper/localStorage';
 import { authService } from '../helper/authService';
 import { getTasksByUser, getTasksById, create, update, remove } from '../helper/fetchApi';
 

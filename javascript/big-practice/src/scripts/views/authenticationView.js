@@ -1,6 +1,6 @@
+import { ERROR_MSG } from '../constants/messages';
 import { authService } from '../helper/authService';
 import Validate from '../helper/validate';
-import { ERROR_MSG } from '../constants/messages';
 import { showElement, hideElement } from '../helper/elementHelpers';
 
 /**

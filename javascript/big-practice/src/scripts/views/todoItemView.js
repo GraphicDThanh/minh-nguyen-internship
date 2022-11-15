@@ -1,6 +1,7 @@
 import { hideElement } from '../helper/elementHelpers';
 import KEY_ENTER from '../constants/keypress';
 /* eslint-disable class-methods-use-this */
+
 export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
