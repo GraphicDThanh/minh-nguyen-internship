@@ -30,7 +30,7 @@ export default class AuthenticationView {
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
-      this.loginForm.classList.remove('display-none');
+      this.loginForm.classList.remove('hidden');
     });
   }
 
@@ -47,7 +47,7 @@ export default class AuthenticationView {
    * Function for close login form
    */
   closeLoginForm() {
-    this.loginForm.classList.add('display-none');
+    this.loginForm.classList.add('hidden');
     this.login.reset();
     this.removeMsg();
   }
@@ -56,9 +56,9 @@ export default class AuthenticationView {
    * Function remove messages when login
    */
   removeMsg() {
-    this.successMsg.classList.add('display-none');
-    this.errorMsgMail.classList.add('display-none');
-    this.errorMsgPass.classList.add('display-none');
+    this.successMsg.classList.add('hidden');
+    this.errorMsgMail.classList.add('hidden');
+    this.errorMsgPass.classList.add('hidden');
   }
 
   /**
@@ -77,11 +77,11 @@ export default class AuthenticationView {
    */
   showHideStatus() {
     if (authService.getUser()) {
-      this.logoutBtn.classList.remove('display-none');
-      this.showLoginBtn.classList.add('display-none');
+      this.logoutBtn.classList.remove('hidden');
+      this.showLoginBtn.classList.add('hidden');
     } else {
-      this.showLoginBtn.classList.remove('display-none');
-      this.logoutBtn.classList.add('display-none');
+      this.showLoginBtn.classList.remove('hidden');
+      this.logoutBtn.classList.add('hidden');
     }
   }
 
@@ -91,12 +91,12 @@ export default class AuthenticationView {
   showMessageLogin(loginMode) {
     if (loginMode) {
       this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
-      this.successMsg.classList.remove('display-none');
+      this.successMsg.classList.remove('hidden');
     } else {
       this.errorMsgPass.textContent = ERROR_MSG.PASSWORD_INCORRECT;
-      this.errorMsgPass.classList.remove('display-none');
+      this.errorMsgPass.classList.remove('hidden');
       this.errorMsgMail.textContent = ERROR_MSG.EMAIL_INCORRECT;
-      this.errorMsgMail.classList.remove('display-none');
+      this.errorMsgMail.classList.remove('hidden');
     }
   }
 
