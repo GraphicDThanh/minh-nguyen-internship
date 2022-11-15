@@ -14,10 +14,13 @@ export default class AuthenticationModel {
     const users = await getUserByMail(email);
     let isValid = false;
 
-    if (users && users[0].password === password) {
-      isValid = true;
-      authService.setUser(users[0].id);
-    }
+    users.find((user) => {
+      if (user.password === password) {
+        isValid = true;
+        authService.setUser(users[0].id);
+      }
+      return isValid;
+    });
 
     return isValid;
   }
