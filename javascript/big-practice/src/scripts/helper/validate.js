@@ -1,5 +1,6 @@
 import { ERROR_MSG } from '../constants/messages';
 import REGEXP from '../constants/regexp';
+import { showElement, hideElement } from './elementHelpers';
 
 export default class Validate {
   constructor() {
@@ -71,13 +72,13 @@ export default class Validate {
     const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
-      this.errorMsgMail.classList.remove('display-none');
+      showElement(this.errorMsgMail);
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
     } else if (isRules) {
-      this.errorMsgMail.classList.remove('display-none');
+      showElement(this.errorMsgMail);
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
     } else {
-      this.errorMsgMail.classList.add('display-none');
+      hideElement(this.errorMsgMail);
     }
 
     if (!isRules && !isEmpty) {
@@ -101,16 +102,16 @@ export default class Validate {
     const isEmpty = Validate.checkEmpty(element);
 
     if (isEmpty) {
-      this.errorMsgPass.classList.remove('display-none');
+      showElement(this.errorMsgPass);
       this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_EMPTY;
     } else if (isRules) {
-      this.errorMsgPass.classList.remove('display-none');
+      showElement(this.errorMsgPass);
       this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_INVALID;
     } else if (isLength) {
-      this.errorMsgPass.classList.remove('display-none');
+      showElement(this.errorMsgPass);
       this.errorMsgPass.innerHTML = ERROR_MSG.PASSWORD_LEAST;
     } else {
-      this.errorMsgPass.classList.add('display-none');
+      hideElement(this.errorMsgPass);
     }
 
     if (!isRules && !isEmpty && !isLength) {

@@ -1,4 +1,5 @@
 /* eslint-disable class-methods-use-this */
+import { hideElement } from '../helper/elementHelpers';
 export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
@@ -77,7 +78,7 @@ export default class TodoItemView {
 
       input.classList.add('edit');
       // Hide the task content of the selected task
-      taskName.classList.add('hidden');
+      hideElement(taskName);
 
       // Insert the generated input element into the hidden task position
       taskSelected.insertBefore(input, taskName);

@@ -1,6 +1,7 @@
 import { authService } from '../helper/authService';
 import Validate from '../helper/validate';
 import { ERROR_MSG, SUCCESS_MSG } from '../constants/messages';
+import { showElement, hideElement } from '../helper/elementHelpers';
 
 /**
  * LOGIN FORM
@@ -30,7 +31,7 @@ export default class AuthenticationView {
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
-      this.loginForm.classList.remove('hidden');
+      showElement(this.loginForm);
     });
   }
 
@@ -47,7 +48,7 @@ export default class AuthenticationView {
    * Function for close login form
    */
   closeLoginForm() {
-    this.loginForm.classList.add('hidden');
+    hideElement(this.loginForm);
     this.login.reset();
     this.removeMsg();
   }
@@ -56,9 +57,9 @@ export default class AuthenticationView {
    * Function remove messages when login
    */
   removeMsg() {
-    this.successMsg.classList.add('hidden');
-    this.errorMsgMail.classList.add('hidden');
-    this.errorMsgPass.classList.add('hidden');
+    hideElement(this.successMsg);
+    hideElement(this.errorMsgMail);
+    hideElement(this.errorMsgPass);
   }
 
   /**
@@ -77,11 +78,11 @@ export default class AuthenticationView {
    */
   showHideStatus() {
     if (authService.getUser()) {
-      this.logoutBtn.classList.remove('hidden');
-      this.showLoginBtn.classList.add('hidden');
+      showElement(this.logoutBtn);
+      hideElement(this.showLoginBtn);
     } else {
-      this.showLoginBtn.classList.remove('hidden');
-      this.logoutBtn.classList.add('hidden');
+      showElement(this.showLoginBtn);
+      hideElement(this.logoutBtn);
     }
   }
 
@@ -91,12 +92,12 @@ export default class AuthenticationView {
   showMessageLogin(loginMode) {
     if (loginMode) {
       this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
-      this.successMsg.classList.remove('hidden');
+      showElement(this.successMsg);
     } else {
       this.errorMsgPass.textContent = ERROR_MSG.PASSWORD_INCORRECT;
-      this.errorMsgPass.classList.remove('hidden');
+      showElement(this.errorMsgPass);
       this.errorMsgMail.textContent = ERROR_MSG.EMAIL_INCORRECT;
-      this.errorMsgMail.classList.remove('hidden');
+      showElement(this.errorMsgMail);
     }
   }
 

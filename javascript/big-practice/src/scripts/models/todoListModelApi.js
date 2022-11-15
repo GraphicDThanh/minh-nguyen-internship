@@ -14,9 +14,7 @@ export default class TodoListModelApi {
    * @returns {object} data from server
    */
   async getTaskListModel() {
-    const todos = await getTasksByUser(authService.getUser());
-
-    return todos;
+    return getTasksByUser(authService.getUser());
   }
 
   /**
