@@ -43,7 +43,6 @@ export default class TodoListModelApi {
    */
   async addTodo(todoText) {
     const todoAdded = {
-      id: new Date().getTime().toString(),
       taskName: todoText,
       isCompleted: false,
       userID: authService.getUser(),
