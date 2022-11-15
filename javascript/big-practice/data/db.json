@@ -13,20 +13,8 @@
   ],
   "todos": [
     {
-      "taskName": "3",
-      "isCompleted": true,
-      "userID": 1,
-      "id": 3
-    },
-    {
-      "taskName": "6",
-      "isCompleted": true,
-      "userID": 1,
-      "id": 4
-    },
-    {
       "taskName": "8",
-      "isCompleted": true,
+      "isCompleted": false,
       "userID": 1,
       "id": 5
     },

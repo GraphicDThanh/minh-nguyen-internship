@@ -61,7 +61,13 @@ export default class TodoItemView {
     const toggleButton = taskSelected.querySelector('.toggle');
 
     toggleButton.addEventListener('change', () => {
-      handler(task.id, filterType);
+      const data = {
+        id: taskSelected.id,
+        isCompleted: taskSelected.querySelector('input').checked,
+        taskName: taskSelected.querySelector('p').textContent,
+      };
+
+      handler(data, filterType);
     });
   }
 
@@ -106,15 +112,20 @@ export default class TodoItemView {
    */
   updateTodo(taskSelected, handler, newTaskName, filterType) {
     const inputElement = document.querySelector('.edit');
+    const data = {
+      id: taskSelected.id,
+      isCompleted: taskSelected.querySelector('input').checked,
+      taskName: newTaskName,
+    };
 
     inputElement.addEventListener('blur', () => {
-      handler(taskSelected.id, newTaskName, filterType);
+      handler(data, filterType);
       this.contentEdit = '';
     });
 
     inputElement.addEventListener('keypress', (event) => {
       if (event.key === KEY_ENTER) {
-        handler(taskSelected.id, newTaskName, filterType);
+        handler(data, filterType);
         this.contentEdit = '';
       }
     });

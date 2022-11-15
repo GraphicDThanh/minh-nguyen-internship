@@ -56,22 +56,20 @@ export default class TodoListModelApi {
    * @param {*} id id of task selected
    */
   async deleteTodo(id) {
-    const task = await getTasksById(id);
-
-    if (task) {
-      await remove(id);
-    }
+    await remove(id);
   }
 
   /**
    * Function done task
    * @param {*} id id of task selected
    */
-  async toggleTodo(id) {
-    const task = await getTasksById(id);
+  async toggleTodo(data) {
+    const dataUpdate = {
+      ...data,
+      userID: authService.getUser,
+    };
 
-    task.isCompleted = !task.isCompleted;
-    await update(id, task);
+    await update(dataUpdate.id, dataUpdate);
   }
 
   /**
@@ -79,11 +77,13 @@ export default class TodoListModelApi {
    * @param {*} id id of task selected
    * @param {*} newEditTaskName new task name from input
    */
-  async updateTodo(id, newEditTaskName) {
-    const task = await getTasksById(id);
+  async updateTodo(data) {
+    const dataUpdate = {
+      ...data,
+      userID: authService.getUser,
+    };
 
-    task.taskName = newEditTaskName || task.taskName;
-    await update(id, task);
+    await update(dataUpdate.id, dataUpdate);
   }
 
   /**
