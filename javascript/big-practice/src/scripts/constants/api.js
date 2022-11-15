@@ -4,4 +4,7 @@ const URL_API = {
   TODOS_URL: '/todos',
 };
 
-export default URL_API;
+const TODOS_URL = `${URL_API.URL}${URL_API.TODOS_URL}`;
+const USERS_URL = `${URL_API.URL}${URL_API.USERS_URL}`;
+
+export { TODOS_URL, USERS_URL };

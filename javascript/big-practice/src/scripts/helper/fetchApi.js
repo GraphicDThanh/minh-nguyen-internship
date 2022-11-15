@@ -1,11 +1,5 @@
-import URL_API from '../constants/api';
+import { TODOS_URL, USERS_URL } from '../constants/api';
 import { API_MSG } from '../constants/messages';
-
-/**
- * FETCH API
- */
-const todosURL = `${URL_API.URL}${URL_API.TODOS_URL}`;
-const usersURL = `${URL_API.URL}${URL_API.USERS_URL}`;
 
 /**
  * Get all data of users from JSON server
@@ -17,7 +11,7 @@ const usersURL = `${URL_API.URL}${URL_API.USERS_URL}`;
 
 export const getUserById = async (id) => {
   try {
-    const response = await fetch(`${usersURL}?userID=${id}`);
+    const response = await fetch(`${USERS_URL}?userID=${id}`);
 
     return await response.json();
   } catch (error) {
@@ -36,7 +30,7 @@ export const getUserById = async (id) => {
 
 export const getUserByMail = async (mail) => {
   try {
-    const response = await fetch(`${usersURL}?mail=${mail}`);
+    const response = await fetch(`${USERS_URL}?mail=${mail}`);
 
     return await response.json();
   } catch (error) {
@@ -55,7 +49,7 @@ export const getUserByMail = async (mail) => {
 
 export const getTasksByUser = async (id) => {
   try {
-    const response = await fetch(`${todosURL}?userID=${id}`);
+    const response = await fetch(`${TODOS_URL}?userID=${id}`);
 
     return await response.json();
   } catch (error) {
@@ -74,8 +68,8 @@ export const getTasksByUser = async (id) => {
 
 export const getTasksById = async (id) => {
   try {
-    const response = await fetch(`${todosURL}/${id}`);
- 
+    const response = await fetch(`${TODOS_URL}/${id}`);
+
     return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
@@ -89,7 +83,7 @@ export const getTasksById = async (id) => {
  */
 export const create = async (data) => {
   try {
-    await fetch(todosURL, {
+    await fetch(TODOS_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -109,7 +103,7 @@ export const create = async (data) => {
  */
 export const update = async (id, data) => {
   try {
-    await fetch(`${todosURL}/${id}`, {
+    await fetch(`${TODOS_URL}/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -129,7 +123,7 @@ export const update = async (id, data) => {
  */
 export const remove = async (id) => {
   try {
-    await fetch(`${todosURL}/${id}`, {
+    await fetch(`${TODOS_URL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
