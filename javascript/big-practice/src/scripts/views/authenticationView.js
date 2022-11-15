@@ -1,6 +1,7 @@
+import { ERROR_MSG } from '../constants/messages';
 import { authService } from '../helper/authService';
 import Validate from '../helper/validate';
-import { ERROR_MSG, SUCCESS_MSG } from '../constants/messages';
+import { showElement, hideElement } from '../helper/elementHelpers';
 
 /**
  * LOGIN FORM
@@ -30,7 +31,7 @@ export default class AuthenticationView {
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
-      this.loginForm.classList.remove('display-none');
+      showElement(this.loginForm);
     });
   }
 
@@ -47,7 +48,7 @@ export default class AuthenticationView {
    * Function for close login form
    */
   closeLoginForm() {
-    this.loginForm.classList.add('display-none');
+    hideElement(this.loginForm);
     this.login.reset();
     this.removeMsg();
   }
@@ -56,9 +57,9 @@ export default class AuthenticationView {
    * Function remove messages when login
    */
   removeMsg() {
-    this.successMsg.classList.add('display-none');
-    this.errorMsgMail.classList.add('display-none');
-    this.errorMsgPass.classList.add('display-none');
+    hideElement(this.successMsg);
+    hideElement(this.errorMsgMail);
+    hideElement(this.errorMsgPass);
   }
 
   /**
@@ -77,26 +78,23 @@ export default class AuthenticationView {
    */
   showHideStatus() {
     if (authService.getUser()) {
-      this.logoutBtn.classList.remove('display-none');
-      this.showLoginBtn.classList.add('display-none');
+      showElement(this.logoutBtn);
+      hideElement(this.showLoginBtn);
     } else {
-      this.showLoginBtn.classList.remove('display-none');
-      this.logoutBtn.classList.add('display-none');
+      showElement(this.showLoginBtn);
+      hideElement(this.logoutBtn);
     }
   }
 
   /**
-   * Function to display the status of login success or failure
+   * Function to display the msg if login fail
    */
   showMessageLogin(loginMode) {
-    if (loginMode) {
-      this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
-      this.successMsg.classList.remove('display-none');
-    } else {
+    if (!loginMode) {
       this.errorMsgPass.textContent = ERROR_MSG.PASSWORD_INCORRECT;
-      this.errorMsgPass.classList.remove('display-none');
+      showElement(this.errorMsgPass);
       this.errorMsgMail.textContent = ERROR_MSG.EMAIL_INCORRECT;
-      this.errorMsgMail.classList.remove('display-none');
+      showElement(this.errorMsgMail);
     }
   }
 

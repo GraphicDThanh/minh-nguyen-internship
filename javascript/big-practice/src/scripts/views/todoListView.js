@@ -71,9 +71,9 @@ export default class TodoListView {
     // Show/hide clear completed button
     if (totalTaskCompleted !== 0) {
       this.clearCompleted.classList.add('visible');
-      this.clearCompleted.classList.remove('hidden');
+      this.clearCompleted.classList.remove('invisible');
     } else {
-      this.clearCompleted.classList.add('hidden');
+      this.clearCompleted.classList.add('invisible');
     }
 
     if (tasks.length !== 0) {

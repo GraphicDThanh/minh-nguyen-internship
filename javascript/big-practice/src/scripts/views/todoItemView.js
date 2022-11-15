@@ -1,4 +1,7 @@
+import { hideElement } from '../helper/elementHelpers';
+import KEY_ENTER from '../constants/keypress';
 /* eslint-disable class-methods-use-this */
+
 export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
@@ -58,7 +61,13 @@ export default class TodoItemView {
     const toggleButton = taskSelected.querySelector('.toggle');
 
     toggleButton.addEventListener('change', () => {
-      handler(task.id, filterType);
+      const data = {
+        id: taskSelected.id,
+        isCompleted: taskSelected.querySelector('input').checked,
+        taskName: taskSelected.querySelector('p').textContent,
+      };
+
+      handler(data, filterType);
     });
   }
 
@@ -77,7 +86,7 @@ export default class TodoItemView {
 
       input.classList.add('edit');
       // Hide the task content of the selected task
-      taskName.classList.add('hidden');
+      hideElement(taskName);
 
       // Insert the generated input element into the hidden task position
       taskSelected.insertBefore(input, taskName);
@@ -103,15 +112,20 @@ export default class TodoItemView {
    */
   updateTodo(taskSelected, handler, newTaskName, filterType) {
     const inputElement = document.querySelector('.edit');
+    const data = {
+      id: taskSelected.id,
+      isCompleted: taskSelected.querySelector('input').checked,
+      taskName: newTaskName,
+    };
 
     inputElement.addEventListener('blur', () => {
-      handler(taskSelected.id, newTaskName, filterType);
+      handler(data, filterType);
       this.contentEdit = '';
     });
 
     inputElement.addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {
-        handler(taskSelected.id, newTaskName, filterType);
+      if (event.key === KEY_ENTER) {
+        handler(data, filterType);
         this.contentEdit = '';
       }
     });

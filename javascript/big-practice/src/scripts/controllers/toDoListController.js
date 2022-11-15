@@ -80,8 +80,8 @@ export default class TodoListController {
    * Handle done task
    * @param {*} id id of task selected
    */
-  async handleToggleTodo(id) {
-    await this.model.toggleTodo(id);
+  async handleToggleTodo(data) {
+    await this.model.toggleTodo(data);
     this.renderForm();
   }
 
@@ -90,8 +90,8 @@ export default class TodoListController {
    * @param {*} id id of task selected
    * @param {*} newTaskName new name from input
    */
-  async handleUpdateTodo(id, newTaskName) {
-    await this.model.updateTodo(id, newTaskName);
+  async handleUpdateTodo(data) {
+    await this.model.updateTodo(data);
     this.renderForm();
   }
 

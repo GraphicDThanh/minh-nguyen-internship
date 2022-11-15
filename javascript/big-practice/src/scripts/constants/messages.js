@@ -18,8 +18,4 @@ const ERROR_MSG = {
   PASSWORD_LEAST: 'Password must be at least 8 characters',
 };
 
-const SUCCESS_MSG = {
-  MSG_SUCCESS: 'Logged in successfully',
-};
-
-export { API_MSG, ERROR_MSG, SUCCESS_MSG };
+export { API_MSG, ERROR_MSG };

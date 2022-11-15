@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
-import LocalStorage from '../helper/localstorage';
 import STORAGE_KEYS from '../constants/storageKeys';
+import LocalStorage from '../helper/localStorage';
 import { authService } from '../helper/authService';
 import { getTasksByUser, getTasksById, create, update, remove } from '../helper/fetchApi';
 
@@ -14,9 +14,7 @@ export default class TodoListModelApi {
    * @returns {object} data from server
    */
   async getTaskListModel() {
-    const todos = await getTasksByUser(authService.getUser());
-
-    return todos;
+    return getTasksByUser(authService.getUser());
   }
 
   /**
@@ -45,7 +43,6 @@ export default class TodoListModelApi {
    */
   async addTodo(todoText) {
     const todoAdded = {
-      id: new Date().getTime().toString(),
       taskName: todoText,
       isCompleted: false,
       userID: authService.getUser(),
@@ -59,22 +56,20 @@ export default class TodoListModelApi {
    * @param {*} id id of task selected
    */
   async deleteTodo(id) {
-    const task = await getTasksById(id);
-
-    if (task) {
-      await remove(id);
-    }
+    await remove(id);
   }
 
   /**
    * Function done task
    * @param {*} id id of task selected
    */
-  async toggleTodo(id) {
-    const task = await getTasksById(id);
+  async toggleTodo(data) {
+    const dataUpdate = {
+      ...data,
+      userID: authService.getUser,
+    };
 
-    task.isCompleted = !task.isCompleted;
-    await update(id, task);
+    await update(dataUpdate.id, dataUpdate);
   }
 
   /**
@@ -82,11 +77,13 @@ export default class TodoListModelApi {
    * @param {*} id id of task selected
    * @param {*} newEditTaskName new task name from input
    */
-  async updateTodo(id, newEditTaskName) {
-    const task = await getTasksById(id);
+  async updateTodo(data) {
+    const dataUpdate = {
+      ...data,
+      userID: authService.getUser,
+    };
 
-    task.taskName = newEditTaskName || task.taskName;
-    await update(id, task);
+    await update(dataUpdate.id, dataUpdate);
   }
 
   /**

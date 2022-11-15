@@ -75,7 +75,7 @@ export const getTasksByUser = async (id) => {
 export const getTasksById = async (id) => {
   try {
     const response = await fetch(`${todosURL}/${id}`);
-
+ 
     return await response.json();
   } catch (error) {
     console.error(API_MSG.GET + error);
