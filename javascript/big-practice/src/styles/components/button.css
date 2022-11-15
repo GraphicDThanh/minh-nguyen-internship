@@ -11,6 +11,7 @@
   padding: 3px 7px;
   border: 1px solid transparent;
   border-radius: 3px;
+  transition: 0.2s;
 }
 
 .btn-primary:hover {
@@ -32,9 +33,11 @@
   opacity: 0.9;
   border: 1px solid var(--grey);
   border-radius: 4px;
+  transition: 0.3s;
 }
 
 .btn-close-form {
+  transition: 0.1s;
   border: 1px solid var(--grey);
   border-radius: 30px;
   margin: 15px;

@@ -23,6 +23,7 @@
 
 .footer-todo-list .btn-clear-completed {
   visibility: hidden;
+  transition: 0.3s;
 }
 
 .btn-clear-completed.visible {
