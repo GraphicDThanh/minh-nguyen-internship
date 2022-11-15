@@ -37,3 +37,9 @@
 .filters li {
   margin: 3px;
 }
+
+@media screen and (min-width: 768px) {
+  .filters li {
+    margin: 1px;
+  }
+}
