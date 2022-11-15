@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "mail": "minh@gmail.com",
+      "password": "1234abcd"
+    },
+    {
+      "id": 2,
+      "mail": "huong@gmail.com",
+      "password": "1234abcd"
+    }
+  ],
+  "todos": [
+    {
+      "id": "1666864174576",
+      "taskName": "1",
+      "isCompleted": true,
+      "userID": 2
+    },
+    {
+      "id": "1667926638515",
+      "taskName": "a",
+      "isCompleted": false
+    },
+    {
+      "id": "1667964883664",
+      "taskName": "a",
+      "isCompleted": false
+    },
+    {
+      "id": "1667965214727",
+      "taskName": "3",
+      "isCompleted": false,
+      "userID": 1
+    },
+    {
+      "id": "1667965215424",
+      "taskName": "5",
+      "isCompleted": false,
+      "userID": 1
+    }
+  ]
+}

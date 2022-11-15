@@ -1,6 +1,13 @@
+import { authService } from '../helper/authService';
+
 export default class TodoListController {
-  constructor(model, view) {
-    this.model = model;
+  constructor(modelApi, modelLocal, view) {
+    this.modelApi = modelApi;
+    this.modelLocal = modelLocal;
+
+    this.filterTypeButton = 'all';
+
+    this.setModel();
     this.view = view;
 
     // bind this in model
@@ -9,75 +16,99 @@ export default class TodoListController {
     this.handleUpdateTodo = this.handleUpdateTodo.bind(this);
   }
 
-  init() {
+  async init() {
     // Explicit this binding
-    this.renderForm(this.model.filterType);
-    this.view.bindAddTodo(() => {
-      this.handleAddTask(this.view.todoText, this.model.filterType);
+    this.renderForm();
+    this.view.bindAddTodo((todoText) => {
+      this.handleAddTask(todoText);
     });
-    this.view.bindToggleCheckAll(() => {
-      this.handleToggleCheckAll(this.view.isToggleAll, this.model.filterType);
+    this.view.bindToggleCheckAll((isToggleAll) => {
+      this.handleToggleCheckAll(isToggleAll);
     });
-    this.view.bindFilters(() => {
-      this.renderForm(this.view.idSelected);
+    this.view.bindFilters((selectedId) => {
+      this.filterTypeButton = selectedId;
+      this.renderForm(selectedId);
     });
     this.view.bindDeleteAllTodo(() => {
-      this.handleClearCompleted(this.model.filterType);
+      this.handleClearCompleted();
     });
   }
 
-  // Render board task list
-  renderForm(filterType) {
+  /**
+   * Check status of userId to set data
+   */
+  setModel() {
+    this.model = authService.isAuthenticatedUser() ? this.modelApi : this.modelLocal;
+  }
+
+  /**
+   * Render board task list
+   */
+  async renderForm() {
     const handlers = {
       handleDeleteTask: this.handleDeleteTask,
       handleToggleTodo: this.handleToggleTodo,
       handleUpdateTodo: this.handleUpdateTodo,
     };
 
-    this.todos = this.model.filterModeTodos(filterType);
-    this.view.showTaskActive(this.model.countTaskActive());
-    this.view.displayTaskList(this.todos, this.model.countTaskCompleted(), handlers, filterType);
-    this.saveData();
+    const filterType = this.filterTypeButton;
+    const todos = await this.model.filterModeTodos(filterType);
+
+    this.view.showTaskActive(await this.model.countTaskActive());
+    this.view.displayTaskList(todos, await this.model.countTaskCompleted(), handlers, filterType);
   }
 
-  // Save data to LocalStorage
-  saveData() {
-    this.model.taskListData.setItemLocalStorage(this.model.taskListModel);
+  /**
+   * Handle add task
+   * @param {*} todoText task name form input
+   */
+  async handleAddTask(todoText) {
+    await this.model.addTodo(todoText);
+    this.renderForm();
   }
 
-  // Handle add task
-  handleAddTask(todoText, filterType) {
-    this.model.addTodo(todoText, filterType);
-    this.renderForm(filterType);
+  /**
+   * Handle delete task
+   * @param {*} id id of task selected
+   */
+  async handleDeleteTask(id) {
+    await this.model.deleteTodo(id);
+    this.renderForm();
   }
 
-  // Handle delete task
-  handleDeleteTask(id, filterType) {
-    this.model.deleteTodo(id);
-    this.renderForm(filterType);
+  /**
+   * Handle done task
+   * @param {*} id id of task selected
+   */
+  async handleToggleTodo(id) {
+    await this.model.toggleTodo(id);
+    this.renderForm();
   }
 
-  // Handle done task
-  handleToggleTodo(id, filterType) {
-    this.model.toggleTodo(id);
-    this.renderForm(filterType);
+  /**
+   * Handle update content after edit
+   * @param {*} id id of task selected
+   * @param {*} newTaskName new name from input
+   */
+  async handleUpdateTodo(id, newTaskName) {
+    await this.model.updateTodo(id, newTaskName);
+    this.renderForm();
   }
 
-  // Handle update content after edit
-  handleUpdateTodo(id, newTaskName, filterType) {
-    this.model.updateTodo(id, newTaskName);
-    this.renderForm(filterType);
+  /**
+   * Handle toggle all tasks
+   * @param {*} isToggleAll status of toggleAll button
+   */
+  async handleToggleCheckAll(isToggleAll) {
+    await this.model.toggleCheckAll(isToggleAll);
+    this.renderForm();
   }
 
-  // Handle toggle all tasks
-  handleToggleCheckAll(isToggleAll, filterType) {
-    this.model.toggleCheckAll(isToggleAll);
-    this.renderForm(filterType);
-  }
-
-  // Handle clear task completed
-  handleClearCompleted(filterType) {
-    this.model.deleteCompletedTodos();
-    this.renderForm(filterType);
+  /**
+   * Handle clear task completed
+   */
+  async handleClearCompleted() {
+    await this.model.deleteCompletedTodos();
+    this.renderForm();
   }
 }

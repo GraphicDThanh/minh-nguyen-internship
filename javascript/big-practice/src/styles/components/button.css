@@ -1,42 +1,44 @@
-button {
+.btn {
   border: 0;
   background: none;
   font-weight: var(--font-regular);
   color: var(--grey-dark);
-}
-
-.clear-completed {
-  line-height: 20px;
   cursor: pointer;
 }
 
-.clear-completed:hover {
-  text-decoration: underline;
-}
-
-.filters {
-  display: flex;
-}
-
-.footer-list-task {
-  display: flex;
-  justify-content: space-between;
-}
-
-.filters li button {
+.btn-primary {
   color: var(--grey-dark);
-  margin: 3px;
   padding: 3px 7px;
   border: 1px solid transparent;
-	border-radius: 3px;
-  margin: 0px 5px;
-  cursor: pointer;
+  border-radius: 3px;
 }
 
-.filters li button:hover {
+.btn-primary:hover {
   border-color: var(--metallic-red);
 }
 
-.filters li button.selected {
-  border-color: var(--filter-select);
+.btn-hover-under:hover {
+  text-decoration: underline;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: var(--dark-02) 0px 2px 2px;
+  color: var(--light);
+  opacity: 0.9;
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+}
+
+.btn-close-form {
+  border: 1px solid var(--grey);
+  border-radius: 30px;
+  margin: 15px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

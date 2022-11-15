@@ -8,21 +8,21 @@
 ### Targets:
 
 - Apply knowledge of HTML5/CSS3/JavaScript (with ES6 syntax).
-- Apply MVC concept
+- Apply MVC concept.
 - DOM manipulation, form validation.
-- Understand and apply localStorage
-- Use DevTools for debugging issues
+- Understand and apply localStorage.
+- Use DevTools for debugging issues.
 
 
 ### Information:
 
 - Timeline:
-  - Estimate time: 4 days.
+  - Estimate time: 14 days.
 - Technical:
   - HTML5/CSS3
   - JavaScript
-  - MVC
   - localStorage
+  - JSON server
   - Parcel
 - Editor: Visual Studio Code.
 
@@ -31,23 +31,18 @@
 - Node: version 16.16.0
 - npm: version 8.11.0
 - Parcel: version 1.12.5
-- commitlint: 17.0.3
-- eslint: 8.22.0
 
-### Requirements:
+### Document:
 
 - [JavaScript Big Practice requirements](https://docs.google.com/document/d/13EwoK3Z7N6oewtBez35zqiH7-w4GJ9HL4wDhA7nzt6c/edit)
 
 ### Main app features:
 
-- User can create/edit/delete/mark a task
-- Users can view the list by category Active/Completed/All task
-- Users always see the total number of active tasks currently on the web
-- User can clear all tasks completed
-
-### Requirement
-The device must have node package manager installed
-
+- User can create/edit/delete/mark a task.
+- Users can view the list by category Active/Completed/All task.
+- Users always see the total number of active tasks currently on the web.
+- User can clear all tasks completed.
+- Users could log in by mail/password and save their data.
 
 ### Getting started
 - Clone repo
@@ -73,10 +68,14 @@ The device must have node package manager installed
    ```
 - Install npm 
    ```
-   npm install
+   $ npm install
    ```
-- Run Project
+- Run database (JSON server)
    ```
-   npm run start
+   $ npm run start-db
+   ```
+- Run Project (run in new terminal)
+   ```
+   $ npm run start
    ```
 - Open localhost:5000 to see the website in the browser you use

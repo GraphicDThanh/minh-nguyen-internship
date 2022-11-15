@@ -3,92 +3,101 @@ export default class TodoItemView {
   constructor() {
     this.todoList = document.getElementsByClassName('todo-list');
     this.addTaskForm = document.getElementsByClassName('add-task');
-    this.inputTaskName = document.getElementsByClassName('new-todo');
+    this.inputTaskName = document.getElementsByClassName('input-add-task');
   }
 
   /**
    * Render a task view
    * @param {object} task
+   *
    * @returns task <li> element
    */
   renderTask(task) {
-    const taskElement = document.createElement('li');
-    taskElement.id = `${task.id}`;
-    taskElement.className = 'task';
+    const templateTask = document.createElement('li');
 
-    taskElement.innerHTML = `
-      <div class = 'view'>
-      <input 
-        class='toggle' 
-        id='${task.id}-toggle' 
-        type='checkbox' ${task.isCompleted ? 'checked' : ''}
-      />
-            <label>${task.taskName}</label>
-            <button type="button" class="destroy"></button>
+    templateTask.id = `${task.id}`;
+    templateTask.className = 'task';
+
+    templateTask.innerHTML = `
+      <div class="view-mode">
+        <input
+          class="toggle"
+          id="${task.id}-toggle"
+          type="checkbox" ${task.isCompleted ? 'checked' : ''}
+        />
+        <label for="${task.id}-toggle"></label>
+        <p>${task.taskName}</p>
+        <button type="button" class="btn btn-close"></button>
       </div>
     `;
-    return taskElement;
+
+    return templateTask;
   }
 
   /**
-   * function use id to delete todos
+   * Bind delete todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
   bindDeleteTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
-    const deleteButton = taskSelected.querySelector('.destroy');
+    const deleteButton = taskSelected.querySelector('.btn-close');
+
     deleteButton.addEventListener('click', () => {
       handler(task.id, filterType);
     });
   }
 
   /**
-   * function use id to done todo
+   * Bind toggle todo
    * Add event 'click' for todoList element
    * @param {function} handler
    */
   bindToggleTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
     const toggleButton = taskSelected.querySelector('.toggle');
+
     toggleButton.addEventListener('change', () => {
       handler(task.id, filterType);
     });
   }
 
   /**
-   * function use id to edit task todo
+   * Bind edit task todo
    * Get data after edit task name
    * @param {fuction} handler
    */
   bindEditTodo(task, handler, filterType) {
     const taskSelected = document.getElementById(`${task.id}`);
+    const taskName = taskSelected.querySelector('.view-mode');
 
-    taskSelected.addEventListener('dblclick', () => {
-      const oldTaskName = taskSelected.querySelector('.view');
-
+    taskName.addEventListener('dblclick', () => {
       // Create an input box for the selected task to edit
       const input = document.createElement('input');
+
       input.classList.add('edit');
       // Hide the task content of the selected task
-      oldTaskName.classList.add('hidden');
+      taskName.classList.add('hidden');
 
       // Insert the generated input element into the hidden task position
-      taskSelected.insertBefore(input, oldTaskName);
+      taskSelected.insertBefore(input, taskName);
 
       input.focus();
-      input.value = oldTaskName.querySelector('label').innerHTML;
+      input.value = taskName.querySelector('p').innerHTML;
 
       // Get data from input
       input.onchange = (e) => {
         const newTaskName = e.target.value;
+
         this.updateTodo(taskSelected, handler, newTaskName, filterType);
       };
+
+      this.updateTodo(taskSelected, handler, input.value, filterType);
     });
   }
 
   /**
-   * function use id to update todos
+   * Bind update todos
    * Add event 'double click' for todoList element
    * @param {fuction} handler
    */
@@ -98,6 +107,13 @@ export default class TodoItemView {
     inputElement.addEventListener('blur', () => {
       handler(taskSelected.id, newTaskName, filterType);
       this.contentEdit = '';
+    });
+
+    inputElement.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        handler(taskSelected.id, newTaskName, filterType);
+        this.contentEdit = '';
+      }
     });
   }
 }
