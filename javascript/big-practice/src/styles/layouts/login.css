@@ -9,9 +9,9 @@
 
 .main-login {
   position: relative;
-  width: 350px;
   margin: auto;
   margin-top: 150px;
+  max-width: 250px;
   padding: 30px;
   color: var(--dark);
   background-color: var(--white);
@@ -51,4 +51,11 @@
 .btn-close-form:hover {
   color: var(--white);
   background-color: var(--grey-dark-plus);
+}
+
+@media screen and (min-width: 768px) {
+  .main-login {
+    max-width: 350px;
+    margin-top: 150px;
+  }
 }
