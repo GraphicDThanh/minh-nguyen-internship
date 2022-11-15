@@ -1,6 +1,6 @@
 import { authService } from '../helper/authService';
 import Validate from '../helper/validate';
-import { ERROR_MSG, SUCCESS_MSG } from '../constants/messages';
+import { ERROR_MSG } from '../constants/messages';
 import { showElement, hideElement } from '../helper/elementHelpers';
 
 /**
@@ -87,13 +87,10 @@ export default class AuthenticationView {
   }
 
   /**
-   * Function to display the status of login success or failure
+   * Function to display the msg if login fail
    */
   showMessageLogin(loginMode) {
-    if (loginMode) {
-      this.successMsg.textContent = SUCCESS_MSG.MSG_SUCCESS;
-      showElement(this.successMsg);
-    } else {
+    if (!loginMode) {
       this.errorMsgPass.textContent = ERROR_MSG.PASSWORD_INCORRECT;
       showElement(this.errorMsgPass);
       this.errorMsgMail.textContent = ERROR_MSG.EMAIL_INCORRECT;
