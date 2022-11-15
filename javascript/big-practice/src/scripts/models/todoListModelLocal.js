@@ -56,8 +56,8 @@ export default class TodoListModelLocal {
    * Function done task
    * @param {*} id id of task selected
    */
-  toggleTodo(id) {
-    const taskSelected = this.tasks.find((todo) => todo.id === id);
+  toggleTodo(data) {
+    const taskSelected = this.tasks.find((todo) => todo.id === data.id);
 
     taskSelected.isCompleted = !taskSelected.isCompleted;
     this.taskListData.setItemLocalStorage(this.tasks);
@@ -68,10 +68,10 @@ export default class TodoListModelLocal {
    * @param {*} id id of task selected
    * @param {*} newEditTaskName new task name from input
    */
-  updateTodo(id, newEditTaskName) {
-    const taskSelected = this.tasks.find((task) => task.id === id);
+  updateTodo(data) {
+    const taskSelected = this.tasks.find((task) => task.id === data.id);
 
-    taskSelected.taskName = newEditTaskName || taskSelected.taskName;
+    taskSelected.taskName = data.taskName;
     this.taskListData.setItemLocalStorage(this.tasks);
   }
 
