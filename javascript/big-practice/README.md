@@ -23,7 +23,7 @@
   - [CSS3](https://www.techopedia.com/definition/28243/cascading-style-sheets-level-3-css3): is the iteration of the CSS standard used in the styling and formatting of Web pages
   - [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript): is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else.
   - [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage):  is a standard JavaScript API provided by web browsers. It enables websites to store persistent data on users' devices similar to cookies
-  - [JSON server](https://www.digitalocean.com/community/tutorials/json-server):  is a Node Module that you can use to create demo rest json webservice in less than a minute. All you need is a JSON file for sample data.
+  - [JSON server](https://www.digitalocean.com/community/tutorials/json-server):  is a Node Module that you can use to create demo rest json web service in less than a minute. All you need is a JSON file for sample data.
   - [Parcel](https://www.npmjs.com/package/parcel): Parcel is a zero configuration build tool for the web.
 - Editor: Visual Studio Code.
 
