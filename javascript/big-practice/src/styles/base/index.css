@@ -1,3 +1,3 @@
 /* basic css files shared for the whole project */
-@import url(global.css);
 @import url(reset.css);
+@import url(global.css);
