@@ -35,7 +35,7 @@ export default class TodoListController {
   }
 
   /**
-   * Check status of userId to set data
+   * Check the status of userId to set to receive data from localStorage or JSON server
    */
   setModel() {
     this.model = authService.isAuthenticatedUser() ? this.modelApi : this.modelLocal;
@@ -61,6 +61,8 @@ export default class TodoListController {
   /**
    * Handle add task
    * @param {*} todoText task name form input
+   * Add new task to data
+   * Render form after add
    */
   async handleAddTask(todoText) {
     await this.model.addTodo(todoText);
@@ -70,6 +72,8 @@ export default class TodoListController {
   /**
    * Handle delete task
    * @param {*} id id of task selected
+   * Remove selected task from data
+   * Render form after delete
    */
   async handleDeleteTask(id) {
     await this.model.deleteTodo(id);
@@ -79,6 +83,8 @@ export default class TodoListController {
   /**
    * Handle done task
    * @param {*} id id of task selected
+   * Change task completion status in data
+   * Render form after toggle task
    */
   async handleToggleTodo(data) {
     await this.model.toggleTodo(data);
@@ -89,6 +95,8 @@ export default class TodoListController {
    * Handle update content after edit
    * @param {*} id id of task selected
    * @param {*} newTaskName new name from input
+   * Update task name of task selected after edit
+   * Render form after edit task
    */
   async handleUpdateTodo(data) {
     await this.model.updateTodo(data);
@@ -98,6 +106,8 @@ export default class TodoListController {
   /**
    * Handle toggle all tasks
    * @param {*} isToggleAll status of toggleAll button
+   * Change the state of the entire task in the data based on the state of the toggle all button
+   * Render form after change all status
    */
   async handleToggleCheckAll(isToggleAll) {
     await this.model.toggleCheckAll(isToggleAll);
@@ -106,6 +116,8 @@ export default class TodoListController {
 
   /**
    * Handle clear task completed
+   * Delete all tasks with completed status in data
+   * Render form after delete all task completed
    */
   async handleClearCompleted() {
     await this.model.deleteCompletedTodos();

@@ -4,7 +4,9 @@ import { authService } from '../service/authService';
 
 export default class AuthenticationModel {
   /**
-   * Function check email and password is exists in data
+   * Function login
+   * Check email and password is exists in data when login
+   * Set user id to localStorage when have user
    * @param {string} email is email take from input email login
    * @param {string} password is password take from input password login
    *

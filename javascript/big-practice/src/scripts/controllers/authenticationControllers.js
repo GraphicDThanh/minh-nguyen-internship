@@ -26,6 +26,7 @@ export default class AuthenticationController {
    * Handle login
    * @param {string} email
    * @param {string} password
+   * Check user existence to perform actions
    */
   async onLogin(email, password) {
     const result = await this.model.login(email, password);
@@ -43,6 +44,8 @@ export default class AuthenticationController {
 
   /**
    * Handle logout
+   * Remove auth id from localStorage
+   * Render form
    */
   async onLogout() {
     authService.removeUser();

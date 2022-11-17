@@ -28,6 +28,7 @@ export default class AuthenticationView {
 
   /**
    * Bind open login form
+   * Show element when login
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
@@ -46,6 +47,8 @@ export default class AuthenticationView {
 
   /**
    * Function for close login form
+   * Reset login form
+   * Remove all messenger
    */
   closeLoginForm() {
     hideElement(this.loginForm);
@@ -88,6 +91,7 @@ export default class AuthenticationView {
 
   /**
    * Function to display the msg if login fail
+   * @param {*} loginMode
    */
   showMessageLogin(loginMode) {
     if (!loginMode) {

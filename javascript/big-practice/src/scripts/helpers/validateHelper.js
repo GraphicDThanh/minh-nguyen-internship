@@ -16,13 +16,7 @@ export default class Validate {
    * @returns {Boolean} isError
    */
   static isRules(value, regexp) {
-    let isError = false;
-
-    if (!value.match(regexp)) {
-      isError = true;
-    }
-
-    return isError;
+    return value.match(regexp);
   }
 
   /**
@@ -33,7 +27,7 @@ export default class Validate {
    * @returns {Boolean} isError
    */
   static isEmpty(value) {
-    return value === '';
+    return value === '' && null;
   }
 
   /**
@@ -48,7 +42,7 @@ export default class Validate {
   }
 
   /**
-   * Function check empty and valid of email
+   * Function check empty and rules of email
    * @param {*} element inout email
    * @param {*} rules rules of email
    *
@@ -62,7 +56,7 @@ export default class Validate {
     if (isEmpty) {
       showElement(this.errorMsgMail);
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
-    } else if (isRules) {
+    } else if (!isRules) {
       showElement(this.errorMsgMail);
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
     } else {
@@ -77,7 +71,7 @@ export default class Validate {
   }
 
   /**
-   * Function check empty,valid and length of password
+   * Function check empty,rules and length of password
    * @param {*} element input password
    * @param {*} rules rules of password
    *
