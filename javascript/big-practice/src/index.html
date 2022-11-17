@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <title>Todo MVC</title>
+  </head>
+  <body class="container">
+    <header class="header-wrapper">
+      <h1 class="logo">todos</h1>
+    </header>
+    <main class="main-content">
+      <form class="add-task">
+        <div class="toggle-all-cover">
+          <input id="toggle-all" class="input toggle-all" type="checkbox" />
+          <label for="toggle-all"></label>
+        </div>
+        <input class="input input-add-task" placeholder="What needs to be done?" autofocus />
+      </form>
+      <ul class="todo-list"></ul>
+      <div class="footer-todo-list">
+        <span class="todo-count"></span>
+        <ul class="filters">
+          <li>
+            <button id="all" class="btn btn-primary selected">All</button>
+          </li>
+          <li>
+            <button id="active" class="btn btn-primary">Active</button>
+          </li>
+          <li>
+            <button id="completed" class="btn btn-primary">Completed</button>
+          </li>
+        </ul>
+        <button class="btn btn-hover-under btn-clear-completed">Clear completed</button>
+      </div>
+    </main>
+    <footer class="footer-wrapper">
+      <p>Double-click to edit a todo</p>
+      <div class="auth-group" id="auth-group">
+        <button class="btn btn-hover-under btn-show-login" id="btn-show-login">Login</button>
+        <button class="btn btn-hover-under btn-logout hidden" id="btn-logout">Logout</button>
+      </div>
+    </footer>
+
+    <div class="login-form hidden" id="login-form">
+      <div class="main-login">
+        <button class="btn btn-close-form" id="btn-close-form">x</button>
+        <h2 class="logo">todos</h2>
+        <h3 class="login-label">Login</h3>
+        <form id="login">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              placeholder="example@mail.com"
+              name="email"
+              class="input input-login input-email"
+              id="input-email"
+            />
+            <p class="msg msg-error hidden" id="msg-error-email"></p>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="input input-login input-password"
+              id="input-password"
+            />
+            <p class="msg msg-error hidden" id="msg-error-password"></p>
+          </div>
+          <p class="msg msg-success hidden" id="msg-success"></p>
+          <button type="submit" id="btn-login" class="btn btn-login">Login</button>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>
