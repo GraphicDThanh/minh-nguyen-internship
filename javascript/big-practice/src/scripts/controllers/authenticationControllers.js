@@ -1,4 +1,4 @@
-import { authService } from '../helper/authService';
+import { authService } from '../service/authService';
 
 export default class AuthenticationController {
   constructor(model, view) {
@@ -10,7 +10,7 @@ export default class AuthenticationController {
   }
 
   init(handlerRender) {
-    this.renderForm = handlerRender;
+    this.handlerRender = handlerRender;
     this.view.bindOpenLoginForm();
     this.view.bindCloseLoginForm();
     this.view.showHideStatus();
@@ -26,15 +26,16 @@ export default class AuthenticationController {
    * Handle login
    * @param {string} email
    * @param {string} password
+   * Check user existence to perform actions
    */
   async onLogin(email, password) {
-    const check = await this.model.isValidUser(email, password);
+    const result = await this.model.login(email, password);
 
-    if (check) {
+    if (result) {
       this.view.showMessageLogin(true);
       this.view.closeLoginForm();
       this.view.showHideStatus();
-      this.renderForm();
+      this.handlerRender();
     } else {
       this.view.login.reset();
       this.view.showMessageLogin(false);
@@ -43,9 +44,11 @@ export default class AuthenticationController {
 
   /**
    * Handle logout
+   * Remove auth id from localStorage
+   * Render form
    */
   async onLogout() {
     authService.removeUser();
-    await this.renderForm();
+    await this.handlerRender();
   }
 }

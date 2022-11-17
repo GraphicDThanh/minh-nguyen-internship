@@ -54,14 +54,7 @@
 }
 
 .login-form .input-login {
-  width: 100%;
-  padding: 12px 10px;
-  box-shadow: none;
-  color: var(--dorado);
-  background-color: var(--grey-light);
   font-size: 16px;
-  border: none;
-  border-radius: 4px;
 }
 
 .login-form .btn-login {

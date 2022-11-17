@@ -15,14 +15,8 @@ export default class Validate {
    *
    * @returns {Boolean} isError
    */
-  static checkRules(value, regexp) {
-    let isError = false;
-
-    if (!value.match(regexp)) {
-      isError = true;
-    }
-
-    return isError;
+  static isRules(value, regexp) {
+    return value.match(regexp);
   }
 
   /**
@@ -32,8 +26,8 @@ export default class Validate {
    *
    * @returns {Boolean} isError
    */
-  static checkEmpty(value) {
-    return value === '';
+  static isEmpty(value) {
+    return value === '' && null;
   }
 
   /**
@@ -43,12 +37,12 @@ export default class Validate {
    *
    * @returns {Boolean} isError
    */
-  static checkLength(value) {
+  static isLength(value) {
     return value.length < MINIMUM_PASSWORD_LENGTH;
   }
 
   /**
-   * Function check empty and valid of email
+   * Function check empty and rules of email
    * @param {*} element inout email
    * @param {*} rules rules of email
    *
@@ -56,13 +50,13 @@ export default class Validate {
    */
   validateEmail(element) {
     let checkEmail = false;
-    const isRules = Validate.checkRules(element, REGEXP.REGEXP_MAIL);
-    const isEmpty = Validate.checkEmpty(element);
+    const isRules = Validate.isRules(element, REGEXP.REGEXP_MAIL);
+    const isEmpty = Validate.isEmpty(element);
 
     if (isEmpty) {
       showElement(this.errorMsgMail);
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_EMPTY;
-    } else if (isRules) {
+    } else if (!isRules) {
       showElement(this.errorMsgMail);
       this.errorMsgMail.innerHTML = ERROR_MSG.EMAIL_INVALID;
     } else {
@@ -77,7 +71,7 @@ export default class Validate {
   }
 
   /**
-   * Function check empty,valid and length of password
+   * Function check empty,rules and length of password
    * @param {*} element input password
    * @param {*} rules rules of password
    *
@@ -85,9 +79,9 @@ export default class Validate {
    */
   validatePassword(element) {
     let checkPass = false;
-    const isRules = Validate.checkRules(element, REGEXP.REGEXP_PASSWORD);
-    const isLength = Validate.checkLength(element);
-    const isEmpty = Validate.checkEmpty(element);
+    const isRules = Validate.isRules(element, REGEXP.REGEXP_PASSWORD);
+    const isLength = Validate.isLength(element);
+    const isEmpty = Validate.isEmpty(element);
 
     if (isEmpty) {
       showElement(this.errorMsgPass);

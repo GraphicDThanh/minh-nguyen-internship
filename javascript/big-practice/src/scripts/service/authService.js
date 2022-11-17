@@ -1,4 +1,4 @@
-import LocalStorage from './localStorage';
+import LocalStorage from '../helpers/localStorageHelpers';
 import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class AuthService {
@@ -35,13 +35,8 @@ export default class AuthService {
    * @returns {boolean} checkUser
    */
   isAuthenticatedUser() {
-    let checkUser = false;
-
-    if (this.getUser()) {
-      checkUser = true;
-    }
-
-    return checkUser;
+    const haveUser = !!this.getUser();
+    return haveUser;
   }
 }
 

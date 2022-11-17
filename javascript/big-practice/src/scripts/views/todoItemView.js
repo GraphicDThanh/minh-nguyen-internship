@@ -1,6 +1,6 @@
-import { hideElement } from '../helper/elementHelpers';
-import KEY_ENTER from '../constants/keypress';
 /* eslint-disable class-methods-use-this */
+import { hideElement } from '../helpers/elementHelpers';
+import KEY_ENTER from '../constants/keypress';
 
 export default class TodoItemView {
   constructor() {

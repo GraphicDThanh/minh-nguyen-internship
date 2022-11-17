@@ -1,7 +1,7 @@
 import { ERROR_MSG } from '../constants/messages';
-import { authService } from '../helper/authService';
-import Validate from '../helper/validate';
-import { showElement, hideElement } from '../helper/elementHelpers';
+import { authService } from '../service/authService';
+import Validate from '../helpers/validateHelper';
+import { showElement, hideElement } from '../helpers/elementHelpers';
 
 /**
  * LOGIN FORM
@@ -28,6 +28,7 @@ export default class AuthenticationView {
 
   /**
    * Bind open login form
+   * Show element when login
    */
   bindOpenLoginForm() {
     this.showLoginBtn.addEventListener('click', () => {
@@ -46,6 +47,8 @@ export default class AuthenticationView {
 
   /**
    * Function for close login form
+   * Reset login form
+   * Remove all messenger
    */
   closeLoginForm() {
     hideElement(this.loginForm);
@@ -88,6 +91,7 @@ export default class AuthenticationView {
 
   /**
    * Function to display the msg if login fail
+   * @param {*} loginMode
    */
   showMessageLogin(loginMode) {
     if (!loginMode) {
@@ -115,9 +119,9 @@ export default class AuthenticationView {
    */
   validateForm(handler) {
     const isEmail = this.validate.validateEmail(this.emailInput);
-    const isPass = this.validate.validatePassword(this.passwordInput);
+    const isPassword = this.validate.validatePassword(this.passwordInput);
 
-    if (isEmail && isPass) {
+    if (isEmail && isPassword) {
       handler(this.emailInput, this.passwordInput);
     }
   }

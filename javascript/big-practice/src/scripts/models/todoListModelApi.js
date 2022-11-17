@@ -1,8 +1,8 @@
 /* eslint-disable class-methods-use-this */
 import STORAGE_KEYS from '../constants/storageKeys';
-import LocalStorage from '../helper/localStorage';
-import { authService } from '../helper/authService';
-import { getTasksByUser, getTasksById, create, update, remove } from '../helper/fetchApi';
+import LocalStorage from '../helpers/localStorageHelpers';
+import { authService } from '../service/authService';
+import { getTasksByUser, create, update, remove } from '../service/apiService';
 
 export default class TodoListModelApi {
   constructor() {
