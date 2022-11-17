@@ -1,11 +1,11 @@
 # JavaScript Big Practice
 
-### Overview:
+## Overview:
 
 - This document provides information about JavaScript Big Practice.
-- Build a [TodoMVC Web Application](https://todomvc.com/examples/vanilla-es6/#/).
+- This is an app that helps manage tasks by breaking down each task : [TodoMVC Web Application](https://todomvc.com/examples/vanilla-es6/#/).
 
-### Targets:
+## Targets:
 
 - Apply knowledge of HTML5/CSS3/JavaScript (with ES6 syntax).
 - Apply MVC concept.
@@ -14,16 +14,17 @@
 - Use DevTools for debugging issues.
 
 
-### Information:
+## Information:
 
-- Timeline:
+### Timeline:
   - Estimate time: 14 days.
-- Technical:
-  - HTML5/CSS3
-  - JavaScript
-  - localStorage
-  - JSON server
-  - Parcel
+### Technical:
+  - [HTML5](https://en.wikipedia.org/wiki/HTML5): is a markup language used for structuring and presenting content on the World Wide Web
+  - [CSS3](https://www.techopedia.com/definition/28243/cascading-style-sheets-level-3-css3): is the iteration of the CSS standard used in the styling and formatting of Web pages
+  - [JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript): is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and pretty much everything else.
+  - [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage):  is a standard JavaScript API provided by web browsers. It enables websites to store persistent data on users' devices similar to cookies
+  - [JSON server](https://www.digitalocean.com/community/tutorials/json-server):  is a Node Module that you can use to create demo rest json web service in less than a minute. All you need is a JSON file for sample data.
+  - [Parcel](https://www.npmjs.com/package/parcel): Parcel is a zero configuration build tool for the web.
 - Editor: Visual Studio Code.
 
 ### Development environment:
@@ -44,7 +45,7 @@
 - User can clear all tasks completed.
 - Users could log in by mail/password and save their data.
 
-### Getting started
+## Getting started
 - Clone repo
     - HTTPS: 
       ```
@@ -58,9 +59,9 @@
    ```
    $ cd ./minh-nguyen-internship/
    ```
-- Switch to branch feat/big-practice
+- Switch to a branch. git checkout <branch name>
    ```
-   $ git checkout feat/big-practice
+   $ git checkout <branch name>
    ```
 - Move to big practice folder
    ```

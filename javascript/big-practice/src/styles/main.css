@@ -2,21 +2,10 @@
 @import url(abstracts/variables.css);
 
 /* basic css files shared for the whole project */
-@import url(base/reset.css);
-@import url(base/global.css);
+@import url(base/index.css);
 
 /* css for components */
-@import url(components/button.css);
-@import url(components/toggle.css);
-@import url(components/input.css);
-@import url(components/logo.css);
-@import url(components/message.css);
+@import url(components/index.css);
 
-/* css for section */
-@import url(layouts/header.css);
-@import url(layouts/main-content.css);
-@import url(layouts/add-task.css);
-@import url(layouts/todo-list.css);
-@import url(layouts/footer-todo-list.css);
-@import url(layouts/footer.css);
-@import url(layouts/login.css);
+/* css for layout */
+@import url(layouts/index.css);
