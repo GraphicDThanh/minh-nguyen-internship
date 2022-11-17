@@ -1,7 +1,7 @@
 import { ERROR_MSG } from '../constants/messages';
-import { authService } from '../helper/authService';
-import Validate from '../helper/validate';
-import { showElement, hideElement } from '../helper/elementHelpers';
+import { authService } from '../service/authService';
+import Validate from '../helpers/validateHelper';
+import { showElement, hideElement } from '../helpers/elementHelpers';
 
 /**
  * LOGIN FORM

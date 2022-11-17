@@ -1,4 +1,4 @@
-import { authService } from '../helper/authService';
+import { authService } from '../service/authService';
 
 export default class TodoListController {
   constructor(modelApi, modelLocal, view) {

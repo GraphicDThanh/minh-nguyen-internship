@@ -1,4 +1,4 @@
-import LocalStorage from './localStorage';
+import LocalStorage from '../helpers/localStorageHelpers';
 import STORAGE_KEYS from '../constants/storageKeys';
 
 export default class AuthService {

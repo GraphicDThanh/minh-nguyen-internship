@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
-import { getUserByMail } from '../helper/fetchApi';
-import { authService } from '../helper/authService';
+import { getUserByMail } from '../service/apiService';
+import { authService } from '../service/authService';
 
 export default class AuthenticationModel {
   /**
