@@ -15,7 +15,7 @@ export default class Validate {
    *
    * @returns {Boolean} isError
    */
-  static checkRules(value, regexp) {
+  static isRules(value, regexp) {
     let isError = false;
 
     if (!value.match(regexp)) {
@@ -32,7 +32,7 @@ export default class Validate {
    *
    * @returns {Boolean} isError
    */
-  static checkEmpty(value) {
+  static isEmpty(value) {
     return value === '';
   }
 
@@ -43,7 +43,7 @@ export default class Validate {
    *
    * @returns {Boolean} isError
    */
-  static checkLength(value) {
+  static isLength(value) {
     return value.length < MINIMUM_PASSWORD_LENGTH;
   }
 
@@ -56,8 +56,8 @@ export default class Validate {
    */
   validateEmail(element) {
     let checkEmail = false;
-    const isRules = Validate.checkRules(element, REGEXP.REGEXP_MAIL);
-    const isEmpty = Validate.checkEmpty(element);
+    const isRules = Validate.isRules(element, REGEXP.REGEXP_MAIL);
+    const isEmpty = Validate.isEmpty(element);
 
     if (isEmpty) {
       showElement(this.errorMsgMail);
@@ -85,9 +85,9 @@ export default class Validate {
    */
   validatePassword(element) {
     let checkPass = false;
-    const isRules = Validate.checkRules(element, REGEXP.REGEXP_PASSWORD);
-    const isLength = Validate.checkLength(element);
-    const isEmpty = Validate.checkEmpty(element);
+    const isRules = Validate.isRules(element, REGEXP.REGEXP_PASSWORD);
+    const isLength = Validate.isLength(element);
+    const isEmpty = Validate.isEmpty(element);
 
     if (isEmpty) {
       showElement(this.errorMsgPass);

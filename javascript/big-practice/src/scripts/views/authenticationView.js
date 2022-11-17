@@ -115,9 +115,9 @@ export default class AuthenticationView {
    */
   validateForm(handler) {
     const isEmail = this.validate.validateEmail(this.emailInput);
-    const isPass = this.validate.validatePassword(this.passwordInput);
+    const isPassword = this.validate.validatePassword(this.passwordInput);
 
-    if (isEmail && isPass) {
+    if (isEmail && isPassword) {
       handler(this.emailInput, this.passwordInput);
     }
   }

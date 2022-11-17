@@ -10,7 +10,7 @@ export default class AuthenticationController {
   }
 
   init(handlerRender) {
-    this.renderForm = handlerRender;
+    this.handlerRender = handlerRender;
     this.view.bindOpenLoginForm();
     this.view.bindCloseLoginForm();
     this.view.showHideStatus();
@@ -28,13 +28,13 @@ export default class AuthenticationController {
    * @param {string} password
    */
   async onLogin(email, password) {
-    const check = await this.model.isValidUser(email, password);
+    const result = await this.model.login(email, password);
 
-    if (check) {
+    if (result) {
       this.view.showMessageLogin(true);
       this.view.closeLoginForm();
       this.view.showHideStatus();
-      this.renderForm();
+      this.handlerRender();
     } else {
       this.view.login.reset();
       this.view.showMessageLogin(false);
@@ -46,6 +46,6 @@ export default class AuthenticationController {
    */
   async onLogout() {
     authService.removeUser();
-    await this.renderForm();
+    await this.handlerRender();
   }
 }

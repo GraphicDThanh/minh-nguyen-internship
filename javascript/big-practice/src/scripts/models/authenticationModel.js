@@ -10,7 +10,7 @@ export default class AuthenticationModel {
    *
    * @returns {boolean} login mode
    */
-  async isValidUser(email, password) {
+  async login(email, password) {
     const users = await getUserByMail(email);
     let isValid = false;
 
