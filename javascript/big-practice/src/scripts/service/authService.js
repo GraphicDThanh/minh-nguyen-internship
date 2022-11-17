@@ -35,13 +35,8 @@ export default class AuthService {
    * @returns {boolean} checkUser
    */
   isAuthenticatedUser() {
-    let checkUser = false;
-
-    if (this.getUser()) {
-      checkUser = true;
-    }
-
-    return checkUser;
+    const haveUser = !!this.getUser();
+    return haveUser;
   }
 }
 
